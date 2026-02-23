@@ -9,7 +9,6 @@
 
 :root {
     --bg: #0b0f14;
-    /* --text: #e6eef7; */
     --accent: rgb(181, 233, 59);
 }
 
@@ -30,7 +29,6 @@ body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
-    color: var(--text);
 }
 
 
@@ -87,7 +85,6 @@ body {
     font-weight: 400;
     letter-spacing: 0.4px;
     font-size: 30px;
-    color: inherit;
     border-radius: 6px;
     transition: transform 100ms ease-in-out, opacity 100ms ease-in-out;
 }

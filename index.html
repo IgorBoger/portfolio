@@ -10,9 +10,25 @@
 
 <body id="top">
 
-    <header class="sidebar" aria-label="Seitenmenü">
+    <aside class="sidebar" aria-label="Seitenleiste">
         <div class="sidebar-inner">
-            <button class="sidebar-logo" type="button" aria-label="Zur Startseite">IB</button>
+            <a class="sidebar-logo" href="#top" aria-label="Zur Startseite">
+                <span class="logo-frame" aria-hidden="true">
+                    <svg class="logo-arc" viewBox="0 0 130 100">
+                        <defs>
+                            <path id="logoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
+                        </defs>
+
+                        <text class="logo-arc-text">
+                            <textPath href="#logoArcPath" startOffset="50%" text-anchor="middle">
+                                frontend developer
+                            </textPath>
+                        </text>
+                    </svg>
+
+                    <span class="logo-initials">IB</span>
+                </span>
+            </a>
 
             <nav class="sidebar-nav" aria-label="Sektionen">
                 <button class="sidebar-btn" type="button" data-target="#about">Why me</button>
@@ -21,7 +37,7 @@
                 <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
             </nav>
         </div>
-    </header>
+    </aside>
 
 </body>
 

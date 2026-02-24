@@ -43,20 +43,72 @@ body {
 
 
 .sidebar-inner {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 18px 12px;
+    position: relative;
 }
 
 
 .sidebar-logo {
-    font-weight: 800;
-    padding: 10px 12px;
-    border-radius: 12px;
-    border: 2px solid rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 32px;
+    left: 27px;
+    width: 129.45px;
+    height: 103px;
+    display: block;
+    text-decoration: none;
+    color: rgb(74, 74, 74);
+    cursor: pointer;
+    transition: transform 100ms ease-in-out, opacity 100ms ease-in-out;
+}
+
+
+.logo-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+
+.logo-arc {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: translateX(1px);
+}
+
+
+.logo-arc-text {
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 18px;
+    text-transform: lowercase;
+    fill: rgb(74, 74, 74);
+}
+
+
+.logo-initials {
+    position: absolute;
+    width: 63px;
+    height: 58.21px;
+    top: 27px;
+    left: 33px;
+    border: 2px;
+    display: grid;
+    place-items: center;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+
+.sidebar-logo:focus-visible {
+    outline: 2px solid rgba(0, 0, 0, 0.7);
+    outline-offset: 6px;
+    border-radius: 10px;
 }
 
 
@@ -76,8 +128,6 @@ body {
     padding: 0;
     cursor: pointer;
     border: 0;
-    /* height: 116px; */
-    /* width: 36px; */
     color: rgb(74, 74, 74);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -86,7 +136,7 @@ body {
     letter-spacing: 0.4px;
     font-size: 30px;
     border-radius: 6px;
-    transition: transform 100ms ease-in-out, opacity 100ms ease-in-out;
+    transition: color 100ms ease-in-out;
 }
 
 

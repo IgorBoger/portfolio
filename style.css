@@ -7,6 +7,15 @@
 }
 
 
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("fonts/roboto-mono-v31-latin-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     --bg: #0b0f14;
     --accent: rgb(181, 233, 59);
@@ -142,4 +151,123 @@ body {
 
 .sidebar-btn:hover {
     color: white;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 172px;
+    right: 0;
+    height: 62px;
+    z-index: 60;
+    background: transparent;
+}
+
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 36px 0 0;
+}
+
+
+.header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 36px;
+}
+
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+    border: 0;
+    cursor: pointer;
+}
+
+
+.social-ico {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 120ms ease-in-out;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
+
+
+.social-link:hover .social-ico {
+    background-color: var(--accent);
+}
+
+
+.ico-mail {
+    -webkit-mask-image: url("img/email.png");
+    mask-image: url("img/email.png");
+}
+
+
+.ico-github {
+    -webkit-mask-image: url("img/git-hub.png");
+    mask-image: url("img/git-hub.png");
+}
+
+
+.ico-linkedin {
+    -webkit-mask-image: url("img/linked-in.png");
+    mask-image: url("img/linked-in.png");
+}
+
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    height: 25px;
+    gap: 6px;
+}
+
+
+.lang-btn {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: rgba(255, 253, 253, 1);
+    cursor: pointer;
+    transition: color 100ms ease-in-out;
+}
+
+
+.lang-btn:hover {
+    color: var(--accent);
+}
+
+
+.lang-sep {
+    font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    color: rgba(255, 253, 253, 1);
 }

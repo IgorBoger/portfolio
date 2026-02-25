@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <script src="script.js" defer></script>
 </head>
 
 <body id="top">
@@ -36,8 +39,32 @@
                 <button class="sidebar-btn" type="button" data-target="#projects">My work</button>
                 <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
             </nav>
+
+            <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü öffnen"
+                aria-expanded="false">
+                <img class="sidebar-burger-icon" src="img/burger-menu.png" alt="Menü">
+            </button>
         </div>
     </aside>
+
+    <div class="mobile-menu d-none" id="mobileMenu" aria-hidden="true">
+        <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Menü schließen">
+            <img src="img/close-burger-menu.png" alt="">
+        </button>
+
+        <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
+            <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
+            <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
+            <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
+            <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
+        </nav>
+
+        <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
+            <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+    </div>
 
 
     <header class="header" aria-label="Header">

@@ -17,6 +17,17 @@
 
 
 :root {
+    --whyme-bg: linear-gradient(250deg,
+            rgb(30, 30, 30) 0%,
+            rgb(32, 32, 32) 12.5%,
+            rgb(33, 33, 33) 25%,
+            rgb(35, 35, 35) 37.5%,
+            rgb(40, 40, 40) 50%,
+            rgb(42, 42, 42) 62.5%,
+            rgb(35, 35, 35) 75%,
+            rgb(34, 34, 34) 85.5%,
+            rgb(25, 25, 25) 96%);
+
     --bg: #0b0f14;
     --accent: rgb(181, 233, 59);
     --content-max: 1440px;
@@ -37,10 +48,15 @@ html {
 
 
 body {
-    margin: 0 auto;
+    /* margin: 0 auto;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
     max-width: var(--content-max);
+    width: 100%; */
+
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
     width: 100%;
 }
 
@@ -478,4 +494,148 @@ main {
 
 .hero-arrow:hover {
     transform: translateY(-50%) translateX(6px);
+}
+
+
+.sections-track {
+    background: var(--whyme-bg);
+    height: 100vh;
+    margin-left: var(--side);
+    width: calc(100% - var(--side));
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+
+.section-panel {
+    flex: 0 0 100%;
+    height: 100%;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+
+.whyme-section {
+    max-width: var(--content-max);
+}
+
+
+.whyme-inner {
+    position: relative;
+    height: 50%;
+    width: 60%;
+}
+
+
+.whyme-stage {
+    padding: 0 0 80px 80px;
+    margin-top: 164px;
+}
+
+
+.whyme-title {
+    position: absolute;
+    left: 80px;
+    top: -12px;
+    height: 216px;
+    width: 64px;
+    object-fit: cover;
+}
+
+
+.whyme-text {
+    max-width: 740px;
+    margin: 0;
+    margin-left: 120px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    line-height: 140%;
+}
+
+
+.whyme-i-am {
+    margin: 48px 0 0 120px;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 48px;
+    color: var(--accent);
+}
+
+
+.whyme-info {
+    margin-left: 220px;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+
+.whyme-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.whyme-icon {
+    height: 40px;
+    width: 32px;
+    display: block;
+}
+
+
+.work-remote {
+    width: 48px;
+}
+
+
+.whyme-info-text {
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    text-transform: lowercase;
+}
+
+
+.whyme-contact-btn {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    background: var(--accent);
+    border: 0;
+    padding: 14px 34px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+
+.whyme-contact-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+.section-arrow {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 120ms ease-in-out;
+}
+
+
+.section-arrow:hover {
+    transform: translateX(6px);
+}
+
+
+.section-arrow-img {
+    width: 90px;
+    height: auto;
+    display: block;
 }

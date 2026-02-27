@@ -62,6 +62,22 @@
         transform: translate(-50%, -50%);
     }
 
+    .mobile-menu {
+        padding-top: 48px;
+        height: 50%;
+        border-radius: 0 0 30px 30px;
+    }
+
+    .mobile-menu-lang {
+        color: rgb(74, 74, 74);
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
     .sections-track {
         margin-left: 0;
         width: 100vw;
@@ -77,15 +93,19 @@
         width: 100%;
         height: 100vh;
         scroll-snap-align: start;
-    }
-
-    .hero-panel {
         padding-top: 73px;
     }
 
-    .hero-inner {
+    /* .hero-panel {
+        padding-top: 73px;
+    } */
+
+    .hero-inner,
+    .whyme-inner {
         padding: 0 20px;
         position: unset;
+        width: 100%;
+        height: 100%;
     }
 
     .front-dev-mobile {
@@ -116,20 +136,61 @@
         display: none;
     }
 
-    .mobile-menu {
-        padding-top: 48px;
-        height: 50%;
-        border-radius: 0 0 30px 30px;
+    .whyme-stage {
+        margin-top: 5%;
+        padding: 0;
     }
 
-    .mobile-menu-lang {
-        color: rgb(74, 74, 74);
+    .whyme-title {
+        display: none;
     }
 
-    .mobile-menu-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
+
+    .whyme-title-mobile {
+        display: flex;
+    }
+
+    .whyme-text {
+        margin: 12px 0 0 0;
+        font-size: 16px;
+    }
+
+    .whyme-i-am {
+        margin: 12px 0 0 0;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .whyme-info {
+        margin: 48px 0 0 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .whyme-info-item {
+        align-items: center;
+    }
+
+    .whyme-icon {
+        height: 48px;
+        width: 30px;
+    }
+
+    .work-remote {
+        width: 53.8px;
+        height: 46.99px;
+    }
+
+    .relocate-mobile {
+        display: none;
+    }
+
+    .whyme-contact-btn {
+        position: static;
+        display: block;
+        margin: 32px auto 0 auto;
     }
 }
 

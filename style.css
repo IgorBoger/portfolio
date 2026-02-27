@@ -552,10 +552,20 @@ main {
 }
 
 
+.whyme-title-mobile {
+    display: none;
+    /* position: absolute; */
+    /* left: 80px; */
+    /* top: -12px; */
+    /* height: 216px; */
+    /* width: 64px; */
+    /* object-fit: cover; */
+}
+
+
 .whyme-text {
     max-width: 740px;
-    margin: 0;
-    margin-left: 120px;
+    margin: 0 0 0 120px;
     color: rgba(255, 255, 255, 1);
     font-size: 18px;
     line-height: 140%;

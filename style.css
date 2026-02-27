@@ -48,12 +48,7 @@ html {
 
 
 body {
-    /* margin: 0 auto;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: var(--bg);
-    max-width: var(--content-max);
-    width: 100%; */
-
+    overflow-y: hidden;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
@@ -401,10 +396,8 @@ main {
 }
 
 
-.hero {
-    height: 100vh;
-    align-items: center;
-    position: relative;
+.hero-panel {
+    height: 100%;
 }
 
 
@@ -419,13 +412,21 @@ main {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 10%;
+    bottom: 5%;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0 36px;
+}
+
+
+.front-dev-mobile {
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 24px;
+    margin: 0;
+    color: var(--accent);
+    display: none;
 }
 
 
@@ -506,6 +507,12 @@ main {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+
+.sections-track::-webkit-scrollbar {
+    display: none;
 }
 
 

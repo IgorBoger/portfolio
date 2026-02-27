@@ -1,11 +1,12 @@
 @media (max-width: 900px) {
-    .header {
-        display: none;
+
+    html,
+    body {
+        overflow-x: hidden;
     }
 
-    main {
-        margin-left: 0;
-        max-width: 100%;
+    .header {
+        display: none;
     }
 
     .sidebar {
@@ -62,10 +63,20 @@
     }
 
     .sections-track {
-        background: var(--whyme-bg);
-        height: 100vh;
         margin-left: 0;
         width: 100vw;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        height: 100vh;
+    }
+
+    .section-panel {
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: start;
     }
 
     .hero-panel {
@@ -81,7 +92,8 @@
         display: flex;
     }
 
-    .hero-content img {
+    .hero-content img,
+    .section-arrow-img {
         display: none;
     }
 

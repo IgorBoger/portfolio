@@ -1,8 +1,12 @@
+/**
+ * Initializes all UI and navigation features.
+ */
 function init() {
     initMobileMenu();
     initHeroArrow();
     initSidebarNavigation();
     initLogoNavigation();
+    initMobileMenuNavigation();
 }
 
 
@@ -88,7 +92,6 @@ function getSidebarLogo() {
 function scrollOnePanelRight() {
     const track = getSectionsTrack();
     if (!track) return;
-
     const panelWidth = track.clientWidth;
     track.scrollBy({ left: panelWidth, behavior: "smooth" });
 }
@@ -123,16 +126,38 @@ function getHeroArrow() {
 
 
 /**
- * Scrolls to a specific panel.
+ * Scrolls to a specific panel/section depending on viewport.
  * @param {string} targetId
  */
 function scrollToPanel(targetId) {
+    if (isMobileView()) {
+        scrollToSectionVertical(targetId);
+        return;
+    }
     const track = getSectionsTrack();
     const target = document.querySelector(targetId);
     if (!track || !target) return;
+    track.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+}
 
-    const offset = target.offsetLeft;
-    track.scrollTo({ left: offset, behavior: "smooth" });
+
+/**
+ * Checks if the current viewport is considered mobile.
+ * @returns {boolean}
+ */
+function isMobileView() {
+    return window.matchMedia("(max-width: 900px)").matches;
+}
+
+
+/**
+ * Scrolls vertically to a section (mobile behavior).
+ * @param {string} targetId
+ */
+function scrollToSectionVertical(targetId) {
+    const target = document.querySelector(targetId);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 
@@ -141,11 +166,29 @@ function scrollToPanel(targetId) {
  */
 function initSidebarNavigation() {
     const buttons = document.querySelectorAll(".sidebar-btn");
-
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             const target = btn.dataset.target;
             if (target) scrollToPanel(target);
+        });
+    });
+}
+
+
+/**
+ * Initializes mobile menu navigation (scroll + close).
+ */
+function initMobileMenuNavigation() {
+    const menu = document.getElementById("mobileMenu");
+    const toggleBtn = document.getElementById("mobileMenuToggle");
+    const links = document.querySelectorAll(".mobile-menu-link");
+    if (!menu || !toggleBtn || links.length === 0) return;
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            const target = link.dataset.target;
+            if (target) scrollToPanel(target);
+            closeMobileMenu(menu, toggleBtn);
         });
     });
 }

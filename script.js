@@ -4,6 +4,7 @@
 function init() {
     initMobileMenu();
     initHeroArrow();
+    initSectionArrows();
     initSidebarNavigation();
     initLogoNavigation();
     initMobileMenuNavigation();
@@ -139,6 +140,25 @@ function scrollToPanel(targetId) {
     const target = document.querySelector(targetId);
     if (!track || !target) return;
     track.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+}
+
+
+/**
+ * Initializes section arrow scroll behavior.
+ */
+function initSectionArrows() {
+    const arrows = getSectionArrows();
+    if (arrows.length === 0) return;
+    arrows.forEach(arrow => arrow.addEventListener("click", scrollOnePanelRight));
+}
+
+
+/**
+ * Returns all section arrow button elements.
+ * @returns {NodeListOf<HTMLButtonElement>}
+ */
+function getSectionArrows() {
+    return document.querySelectorAll(".section-arrow");
 }
 
 

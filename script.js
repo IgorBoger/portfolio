@@ -7,6 +7,7 @@ function init() {
     initSidebarNavigation();
     initLogoNavigation();
     initMobileMenuNavigation();
+    initTrackBackground();
 }
 
 
@@ -183,7 +184,6 @@ function initMobileMenuNavigation() {
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const links = document.querySelectorAll(".mobile-menu-link");
     if (!menu || !toggleBtn || links.length === 0) return;
-
     links.forEach(link => {
         link.addEventListener("click", () => {
             const target = link.dataset.target;
@@ -191,4 +191,70 @@ function initMobileMenuNavigation() {
             closeMobileMenu(menu, toggleBtn);
         });
     });
+}
+
+
+/**
+ * Initializes fullscreen background syncing to horizontal track scroll.
+ */
+function initTrackBackground() {
+    const track = getSectionsTrack();
+    if (!track) return;
+    applyTrackBackground(track);
+    track.addEventListener("scroll", () => requestAnimationFrame(() => applyTrackBackground(track)));
+    window.addEventListener("resize", () => applyTrackBackground(track));
+}
+
+
+/**
+ * Applies CSS variables for background-size and background-position based on track scroll.
+ * @param {HTMLElement} track
+ */
+function applyTrackBackground(track) {
+    if (isMobileView()) return resetTrackBackground();
+    const gutters = getTrackGutters(track);
+    const bgWidth = track.scrollWidth + gutters.left + gutters.right;
+    const bgX = -track.scrollLeft + gutters.left;
+    setTrackBackgroundSize(`${bgWidth}px 100%`);
+    setTrackBackgroundX(`${bgX}px`);
+}
+
+
+/**
+ * Resets the background variables (mobile behavior).
+ */
+function resetTrackBackground() {
+    setTrackBackgroundSize("100% 100%");
+    setTrackBackgroundX("0px");
+}
+
+
+/**
+ * Sets the background-size variable on body.
+ * @param {string} size
+ */
+function setTrackBackgroundSize(size) {
+    document.body.style.setProperty("--track-bg-size", size);
+}
+
+
+/**
+ * Sets the background-position-x variable on body.
+ * @param {string} x
+ */
+function setTrackBackgroundX(x) {
+    document.body.style.setProperty("--track-bg-x", x);
+}
+
+
+/**
+ * Returns left/right gutter widths between track and viewport edges.
+ * @param {HTMLElement} track
+ * @returns {{left:number,right:number}}
+ */
+function getTrackGutters(track) {
+    const rect = track.getBoundingClientRect();
+    const left = Math.max(0, rect.left);
+    const right = Math.max(0, window.innerWidth - rect.right);
+    return { left, right };
 }

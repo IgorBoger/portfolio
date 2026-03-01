@@ -12,154 +12,156 @@
 </head>
 
 <body>
+    <div class="layout-shell" id="layoutShell">
 
-    <aside class="sidebar" aria-label="Seitenleiste">
-        <div class="sidebar-inner">
-            <a class="sidebar-logo" href="#top" aria-label="Zur Startseite">
-                <span class="logo-frame" aria-hidden="true">
-                    <svg class="logo-arc" viewBox="0 0 130 100">
-                        <defs>
-                            <path id="logoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
-                        </defs>
+        <aside class="sidebar" aria-label="Seitenleiste">
+            <div class="sidebar-inner">
+                <a class="sidebar-logo" href="#top" aria-label="Zur Startseite">
+                    <span class="logo-frame" aria-hidden="true">
+                        <svg class="logo-arc" viewBox="0 0 130 100">
+                            <defs>
+                                <path id="logoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
+                            </defs>
 
-                        <text class="logo-arc-text">
-                            <textPath href="#logoArcPath" startOffset="50%" text-anchor="middle">
-                                frontend developer
-                            </textPath>
-                        </text>
-                    </svg>
+                            <text class="logo-arc-text">
+                                <textPath href="#logoArcPath" startOffset="50%" text-anchor="middle">
+                                    frontend developer
+                                </textPath>
+                            </text>
+                        </svg>
 
-                    <span class="logo-initials">IB</span>
-                </span>
-            </a>
+                        <span class="logo-initials">IB</span>
+                    </span>
+                </a>
 
-            <nav class="sidebar-nav" aria-label="Sektionen">
-                <button class="sidebar-btn" type="button" data-target="#about">Why me</button>
-                <button class="sidebar-btn" type="button" data-target="#skills">Skills</button>
-                <button class="sidebar-btn" type="button" data-target="#projects">My work</button>
-                <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
-            </nav>
-
-            <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü öffnen"
-                aria-expanded="false">
-                <img class="sidebar-burger-icon" src="img/burger-menu.png" alt="Menü">
-            </button>
-        </div>
-    </aside>
-
-    <div class="mobile-menu d-none" id="mobileMenu" aria-hidden="true">
-        <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Menü schließen">
-            <img src="img/close-burger-menu.png" alt="">
-        </button>
-
-        <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
-            <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
-            <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
-            <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
-            <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
-        </nav>
-
-        <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
-            <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
-            <span class="lang-sep" aria-hidden="true">|</span>
-            <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
-        </div>
-    </div>
-
-
-    <header class="header" aria-label="Header">
-        <div class="header-inner">
-            <div class="header-actions" aria-label="Social Media und Sprache">
-
-                <nav class="social" aria-label="Social Media">
-                    <a class="social-link" href="mailto:deinname@domain.de" aria-label="E-Mail schreiben">
-                        <span class="social-ico ico-mail" aria-hidden="true"></span>
-                    </a>
-
-                    <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"
-                        aria-label="GitHub (öffnet in neuem Tab)">
-                        <span class="social-ico ico-github" aria-hidden="true"></span>
-                    </a>
-
-                    <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-                        aria-label="LinkedIn (öffnet in neuem Tab)">
-                        <span class="social-ico ico-linkedin" aria-hidden="true"></span>
-                    </a>
+                <nav class="sidebar-nav" aria-label="Sektionen">
+                    <button class="sidebar-btn" type="button" data-target="#about">Why me</button>
+                    <button class="sidebar-btn" type="button" data-target="#skills">Skills</button>
+                    <button class="sidebar-btn" type="button" data-target="#projects">My work</button>
+                    <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
                 </nav>
 
-                <div class="lang-switch" role="group" aria-label="Sprache wählen">
-                    <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
-                    <span class="lang-sep" aria-hidden="true">|</span>
-                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
-                </div>
+                <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü öffnen"
+                    aria-expanded="false">
+                    <img class="sidebar-burger-icon" src="img/burger-menu.png" alt="Menü">
+                </button>
+            </div>
+        </aside>
 
+        <div class="mobile-menu d-none" id="mobileMenu" aria-hidden="true">
+            <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Menü schließen">
+                <img src="img/close-burger-menu.png" alt="">
+            </button>
+
+            <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
+                <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
+                <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
+                <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
+                <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
+            </nav>
+
+            <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
+                <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
             </div>
         </div>
-    </header>
 
-    <div class="sections-track" id="sectionsTrack" aria-label="Sections">
 
-        <section class="section-panel hero-panel" id="top" aria-label="Hero section">
-            <div class="hero-inner">
+        <header class="header" aria-label="Header">
+            <div class="header-inner">
+                <div class="header-actions" aria-label="Social Media und Sprache">
 
-                <div class="hero-content">
-                    <h2 class="front-dev-mobile">FRONTEND DEVELOPER</h2>
-                    <h1 class="hero-title">Igor Boger</h1>
-                    <img src="img/front-dev.png" alt="Frontend Developer">
+                    <nav class="social" aria-label="Social Media">
+                        <a class="social-link" href="mailto:deinname@domain.de" aria-label="E-Mail schreiben">
+                            <span class="social-ico ico-mail" aria-hidden="true"></span>
+                        </a>
+
+                        <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub (öffnet in neuem Tab)">
+                            <span class="social-ico ico-github" aria-hidden="true"></span>
+                        </a>
+
+                        <a class="social-link" href="https://www.linkedin.com/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
+                            <span class="social-ico ico-linkedin" aria-hidden="true"></span>
+                        </a>
+                    </nav>
+
+                    <div class="lang-switch" role="group" aria-label="Sprache wählen">
+                        <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+                    </div>
 
                 </div>
-
-                <div class="hero-image-wrapper">
-                    <img src="img/igor-boger-prototyp.png" alt="Igor Boger" class="hero-image">
-                </div>
-
-                <button class="hero-arrow" aria-label="Scroll to next section">
-                    <img src="img/switch-arrow-to-right.png" alt="img/switch-arrow-to-right.png">
-                </button>
-
             </div>
-        </section>
+        </header>
 
-        <section class="section-panel whyme-section" id="about" aria-label="Why me section">
+        <div class="sections-track" id="sectionsTrack" aria-label="Sections">
 
-            <div class="whyme-inner">
-                <div class="whyme-stage">
-                    <img class="whyme-title" src="img/why-me.png" alt="Why me">
-                    <img class="whyme-title-mobile" src="img/why-me-mobile.png" alt="Why me">
+            <section class="section-panel hero-panel" id="top" aria-label="Hero section">
+                <div class="hero-inner">
 
-                    <p class="whyme-text">
-                        Write some information about yourself that is IT related. Why are you passionate
-                        about coding? What is your source of inspiration for improving your programming
-                        skills?
-                    </p>
+                    <div class="hero-content">
+                        <h2 class="front-dev-mobile">FRONTEND DEVELOPER</h2>
+                        <h1 class="hero-title">Igor Boger</h1>
+                        <img src="img/front-dev.png" alt="Frontend Developer">
 
-                    <h2 class="whyme-i-am">I am</h2>
+                    </div>
 
-                    <div class="whyme-info">
-                        <div class="whyme-info-item  relocate-mobile">
-                            <img class="whyme-icon" src="img/location.png" alt="">
-                            <span class="whyme-info-text">located in city name</span>
-                        </div>
+                    <div class="hero-image-wrapper">
+                        <img src="img/igor-boger-prototyp.png" alt="Igor Boger" class="hero-image">
+                    </div>
 
-                        <div class="whyme-info-item">
-                            <img class="whyme-icon work-remote" src="img/work-remote.png" alt="">
-                            <span class="whyme-info-text">open to work remote</span>
-                        </div>
+                    <button class="hero-arrow" aria-label="Scroll to next section">
+                        <img src="img/switch-arrow-to-right.png" alt="img/switch-arrow-to-right.png">
+                    </button>
 
-                        <div class="whyme-info-item">
-                            <img class="whyme-icon" src="img/relocate.png" alt="">
-                            <span class="whyme-info-text">open to relocate</span>
+                </div>
+            </section>
+
+            <section class="section-panel whyme-section" id="about" aria-label="Why me section">
+
+                <div class="whyme-inner">
+                    <div class="whyme-stage">
+                        <img class="whyme-title" src="img/why-me.png" alt="Why me">
+                        <img class="whyme-title-mobile" src="img/why-me-mobile.png" alt="Why me">
+
+                        <p class="whyme-text">
+                            Write some information about yourself that is IT related. Why are you passionate
+                            about coding? What is your source of inspiration for improving your programming
+                            skills?
+                        </p>
+
+                        <h2 class="whyme-i-am">I am</h2>
+
+                        <div class="whyme-info">
+                            <div class="whyme-info-item  relocate-mobile">
+                                <img class="whyme-icon" src="img/location.png" alt="">
+                                <span class="whyme-info-text">located in city name</span>
+                            </div>
+
+                            <div class="whyme-info-item">
+                                <img class="whyme-icon work-remote" src="img/work-remote.png" alt="">
+                                <span class="whyme-info-text">open to work remote</span>
+                            </div>
+
+                            <div class="whyme-info-item">
+                                <img class="whyme-icon" src="img/relocate.png" alt="">
+                                <span class="whyme-info-text">open to relocate</span>
+                            </div>
                         </div>
                     </div>
+
+                    <button class="whyme-contact-btn" type="button">Contact me</button>
                 </div>
 
-                <button class="whyme-contact-btn" type="button">Contact me</button>
-            </div>
-
-            <button class="section-arrow" type="button" aria-label="Scroll to next section">
-                <img class="section-arrow-img" src="img/switch-arrow-to-right.png" alt="">
-            </button>
-        </section>
+                <button class="section-arrow" type="button" aria-label="Scroll to next section">
+                    <img class="section-arrow-img" src="img/switch-arrow-to-right.png" alt="">
+                </button>
+            </section>
+        </div>
     </div>
 </body>
 

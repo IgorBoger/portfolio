@@ -44,6 +44,7 @@
 
 html {
     scroll-behavior: smooth;
+    background: var(--bg);
 }
 
 
@@ -51,8 +52,34 @@ body {
     overflow-y: hidden;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: var(--bg);
+    background: transparent;
     width: 100%;
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: var(--whyme-bg);
+    background-repeat: no-repeat;
+    background-size: var(--track-bg-size, 100% 100%);
+    background-position: var(--track-bg-x, 0px) 0;
+}
+
+
+.layout-shell {
+    position: relative;
+    width: 100%;
+    max-width: var(--content-max);
+    height: 100vh;
+    margin-left: 0;
+    margin-right: auto;
+    background: transparent;
+    overflow: hidden;
+    z-index: 1;
 }
 
 
@@ -65,16 +92,11 @@ body {
 }
 
 
-main {
-    max-width: var(--content-max);
-    margin-right: auto;
-    margin-left: var(--side);
-}
-
-
 .sidebar {
-    position: fixed;
-    inset: 0 auto 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: 172px;
     height: 100vh;
     background: var(--accent);
@@ -274,12 +296,11 @@ main {
 
 
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    max-width: var(--content-max);
-    margin: 0 auto;
+    width: min(100%, var(--content-max));
+    margin: 0;
     height: 62px;
     z-index: 60;
     background: transparent;
@@ -445,14 +466,6 @@ main {
 }
 
 
-.hero-subtitle {
-    font-family: "Quantico";
-    font-size: 32px;
-    color: var(--accent);
-    margin-top: 16px;
-}
-
-
 .hero-image-wrapper {
     position: absolute;
     left: 50%;
@@ -465,8 +478,9 @@ main {
 
 
 .hero-image {
-    height: 100vh;
-    width: auto;
+    width: min(600px, 70vw);
+    height: auto;
+    max-height: 80vh;
     object-fit: contain;
     display: block;
 }
@@ -499,10 +513,11 @@ main {
 
 
 .sections-track {
-    background: var(--whyme-bg);
+    background: transparent;
     height: 100vh;
     margin-left: var(--side);
-    width: calc(100% - var(--side));
+    width: min(calc(100vw - var(--side)), calc(var(--content-max) - var(--side)));
+    max-width: calc(var(--content-max) - var(--side));
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
@@ -521,11 +536,7 @@ main {
     height: 100%;
     position: relative;
     scroll-snap-align: start;
-}
-
-
-.whyme-section {
-    max-width: var(--content-max);
+    overflow: hidden;
 }
 
 
@@ -554,12 +565,6 @@ main {
 
 .whyme-title-mobile {
     display: none;
-    /* position: absolute; */
-    /* left: 80px; */
-    /* top: -12px; */
-    /* height: 216px; */
-    /* width: 64px; */
-    /* object-fit: cover; */
 }
 
 

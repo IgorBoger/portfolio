@@ -666,6 +666,8 @@ body::before {
 .skills-section {
     font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-size: 18px;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0.4px;
 }
 
 
@@ -699,7 +701,7 @@ body::before {
     max-width: 860px;
     margin: 0 0 0 120px;
     color: rgba(255, 255, 255, 1);
-    line-height: 140%;
+    line-height: 120%;
 }
 
 
@@ -732,33 +734,35 @@ body::before {
 
 .skill-icon,
 .skills-challenge-icon {
-    width: 55.8px;
+    width: 60px;
     height: 60px;
     object-fit: contain;
     display: block;
 }
 
-
-.skill-label {
-    color: rgba(255, 255, 255, 1);
-    font-size: 14px;
-    letter-spacing: 0.4px;
+.skill-label,
+.skill-challenge-label {
+    text-align: center;
+    line-height: 120%;
 }
 
 
-.skills-challenge {
+.skills-challenge-wrap {
     display: flex;
     align-items: flex-start;
     gap: 24px;
     flex: 0 0 339px;
+}
 
+
+.skills-challenge-wrap .skills-challenge {
+    flex: 0 0 auto;
 }
 
 
 .skills-challenge-text {
     margin: 0;
     width: 215px;
-    color: rgba(255, 255, 255, 1);
     font-size: 16px;
     line-height: 120%;
 }
@@ -773,4 +777,20 @@ body::before {
 
 .skills-arrow:hover {
     transform: translateY(-50%) translateX(6px);
+}
+
+
+.skills-talk-btn {
+    display: none;
+    margin-top: 28px;
+    background: var(--accent);
+    border: 0;
+    padding: 14px 34px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.skills-talk-btn:hover {
+    transform: translateY(-1px);
 }

@@ -1,3 +1,10 @@
+@media (max-width: 1100px) {
+    .skills-break {
+        display: none;
+    }
+}
+
+
 @media (max-width: 900px) {
 
     html,
@@ -94,11 +101,10 @@
         height: 100vh;
         scroll-snap-align: start;
         padding-top: 73px;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
-    /* .hero-panel {
-        padding-top: 73px;
-    } */
 
     .hero-inner,
     .whyme-inner {
@@ -108,7 +114,9 @@
         height: 100%;
     }
 
-    .front-dev-mobile {
+    .front-dev-mobile,
+    .whyme-title-mobile,
+    .skills-title-mobile {
         display: flex;
     }
 
@@ -145,13 +153,9 @@
         display: none;
     }
 
-
-    .whyme-title-mobile {
-        display: flex;
-    }
-
-    .whyme-text {
-        margin: 12px 0 0 0;
+    .whyme-text,
+    .skills-text {
+        margin: 8px 0 0 0;
         font-size: 16px;
     }
 
@@ -191,6 +195,99 @@
         position: static;
         display: block;
         margin: 32px auto 0 auto;
+    }
+
+    .skills-section {
+        font-size: 16px;
+    }
+
+    .skills-inner {
+        padding: 0 20px;
+        align-items: flex-start;
+        height: 100%;
+    }
+
+    .skills-stage {
+        padding: 0;
+        width: 100%;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .skills-title {
+        display: none;
+    }
+
+    .skills-grid {
+        margin: 12px 0 0 0;
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        justify-items: center;
+        align-items: start;
+    }
+
+    .skill-item,
+    .skills-challenge-tile {
+        width: auto;
+    }
+
+    .skill-icon,
+    .skills-challenge-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .skill-label {
+        display: none;
+    }
+
+    .skills-challenge-wrap {
+        display: contents;
+    }
+
+    .skills-challenge {
+        display: flex;
+        grid-column: auto;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        justify-self: center;
+    }
+
+    .skills-challenge {
+        display: flex;
+        grid-column: auto;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .skill-challenge-label {
+        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        white-space: nowrap;
+    }
+
+    .skills-challenge-text {
+        grid-column: 1 / -1;
+        padding: 0;
+        display: block;
+        width: 100%;
+        text-align: left;
+        max-width: 38ch;
+    }
+
+    .skills-talk-btn {
+        display: block;
+        margin: 12px auto 12px auto;
+        padding: 12px 70px;
+        min-width: 220px;
     }
 }
 

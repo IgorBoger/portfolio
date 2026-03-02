@@ -9,6 +9,8 @@ function init() {
     initLogoNavigation();
     initMobileMenuNavigation();
     initTrackBackground();
+    initDragScroll();
+    initDragScrollResize();
 }
 
 
@@ -88,14 +90,22 @@ function getSidebarLogo() {
 }
 
 
-/**
- * Scrolls exactly one panel to the right.
- */
 function scrollOnePanelRight() {
     const track = getSectionsTrack();
     if (!track) return;
-    const panelWidth = track.clientWidth;
-    track.scrollBy({ left: panelWidth, behavior: "smooth" });
+    const next = getNearestPanelIndex(track) + 1;
+    track.scrollTo({ left: next * track.clientWidth, behavior: "smooth" });
+}
+
+
+/**
+ * Returns the nearest panel index based on current scroll position.
+ * @param {HTMLElement} track
+ * @returns {number}
+ */
+function getNearestPanelIndex(track) {
+    const width = track.clientWidth || 1;
+    return Math.round(track.scrollLeft / width);
 }
 
 
@@ -139,7 +149,33 @@ function scrollToPanel(targetId) {
     const track = getSectionsTrack();
     const target = document.querySelector(targetId);
     if (!track || !target) return;
-    track.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+    scrollToTrackGrid(track, target);
+}
+
+
+/**
+ * Scrolls to the nearest track-width grid position for a target.
+ * @param {HTMLElement} track
+ * @param {Element} target
+ */
+function scrollToTrackGrid(track, target) {
+    const width = track.clientWidth || 1;
+    const rawIndex = target.offsetLeft / width;
+    const index = Math.round(rawIndex);
+    track.scrollTo({ left: index * width, behavior: "smooth" });
+}
+
+
+/**
+ * Returns the index of a section panel inside the sections track.
+ * @param {Element} panel
+ * @returns {number}
+ */
+function getPanelIndex(panel) {
+    const track = getSectionsTrack();
+    if (!track) return -1;
+    const panels = Array.from(track.querySelectorAll(".section-panel"));
+    return panels.indexOf(panel);
 }
 
 
@@ -277,4 +313,150 @@ function getTrackGutters(track) {
     const left = Math.max(0, rect.left);
     const right = Math.max(0, window.innerWidth - rect.right);
     return { left, right };
+}
+
+
+/**
+ * Initializes drag-to-scroll on horizontal containers (desktop only).
+ */
+function initDragScroll() {
+    if (isMobileView()) return;
+    const targets = getDragScrollTargets();
+    targets.forEach(setupDragScroll);
+}
+
+
+/**
+ * Returns all drag-scroll targets that exist in DOM.
+ * @returns {HTMLElement[]}
+ */
+function getDragScrollTargets() {
+    const sectionsTrack = document.getElementById("sectionsTrack");
+    return [sectionsTrack].filter(Boolean);
+}
+
+
+/**
+ * Sets up drag-to-scroll interaction for one container.
+ * @param {HTMLElement} el
+ */
+function setupDragScroll(el) {
+    if (isDragScrollInitialized(el)) return;
+    markDragScrollInitialized(el);
+    const state = createDragState();
+    el.addEventListener("pointerdown", (event) => onDragPointerDown(event, el, state));
+    el.addEventListener("pointermove", (event) => onDragPointerMove(event, el, state));
+    el.addEventListener("pointerup", () => endDrag(state));
+    el.addEventListener("pointerleave", () => endDrag(state));
+    el.addEventListener("pointercancel", () => endDrag(state));
+}
+
+
+/**
+ * Creates a fresh drag state object.
+ * @returns {{isDown:boolean,startX:number,scrollLeft:number}}
+ */
+function createDragState() {
+    return { isDown: false, startX: 0, scrollLeft: 0 };
+}
+
+
+/**
+ * Starts dragging on left mouse button.
+ * @param {PointerEvent} event
+ * @param {HTMLElement} el
+ * @param {{isDown:boolean,startX:number,scrollLeft:number}} state
+ */
+function onDragPointerDown(event, el, state) {
+    event.stopPropagation();
+    if (event.button !== 0) return;
+    if (!isDragStartAllowed(event)) return;
+    event.preventDefault();
+    state.isDown = true;
+    state.startX = event.clientX;
+    state.scrollLeft = el.scrollLeft;
+    el.setPointerCapture(event.pointerId);
+    setDraggingClass(true);
+}
+
+
+/**
+ * Handles pointer move and updates horizontal scroll.
+ * @param {PointerEvent} event
+ * @param {HTMLElement} el
+ * @param {{isDown:boolean,startX:number,scrollLeft:number}} state
+ */
+function onDragPointerMove(event, el, state) {
+    event.stopPropagation();
+    if (!state.isDown) return;
+    event.preventDefault();
+    const delta = state.startX - event.clientX;
+    el.scrollLeft = state.scrollLeft + delta;
+}
+
+
+/**
+ * Ends dragging state and resets UI.
+ * @param {{isDown:boolean}} state
+ */
+function endDrag(state) {
+    if (!state.isDown) return;
+    state.isDown = false;
+    setDraggingClass(false);
+    releaseSnapAfterDrag();
+}
+
+
+/**
+ * Toggles dragging class on body for cursor/user-select.
+ * @param {boolean} isDragging
+ */
+function setDraggingClass(isDragging) {
+    document.body.classList.toggle("is-dragging", isDragging);
+}
+
+
+/**
+ * Releases scroll snapping right after dragging ends.
+ */
+function releaseSnapAfterDrag() {
+    requestAnimationFrame(() => setDraggingClass(false));
+}
+
+
+/**
+ * Initializes drag scroll on resize when switching to desktop.
+ */
+function initDragScrollResize() {
+    window.addEventListener("resize", () => initDragScroll());
+}
+
+
+/**
+ * Checks if drag scroll was already initialized on an element.
+ * @param {HTMLElement} el
+ * @returns {boolean}
+ */
+function isDragScrollInitialized(el) {
+    return el.dataset.dragScrollInitialized === "true";
+}
+
+
+/**
+ * Marks an element as drag-scroll initialized.
+ * @param {HTMLElement} el
+ */
+function markDragScrollInitialized(el) {
+    el.dataset.dragScrollInitialized = "true";
+}
+
+
+/**
+ * Checks if dragging should start for the current pointer event.
+ * @param {PointerEvent} event
+ * @returns {boolean}
+ */
+function isDragStartAllowed(event) {
+    const blocked = event.target.closest("button, a, input, textarea, select, label");
+    return !blocked;
 }

@@ -813,7 +813,7 @@ body::before {
     padding: 0 0 80px 80px;
     margin-top: 164px;
     height: 100%;
-    gap: 80px;
+    gap: 36px;
 }
 
 
@@ -999,4 +999,9 @@ body::before {
 .is-dragging .drag-scroll {
     cursor: default;
     user-select: none;
+}
+
+
+.project-pollo-loco {
+    margin: 0;
 }

@@ -11,6 +11,8 @@ function init() {
     initTrackBackground();
     initDragScroll();
     initDragScrollResize();
+    initProjectCards();
+    initReferenceSlider();
 }
 
 
@@ -459,4 +461,203 @@ function markDragScrollInitialized(el) {
 function isDragStartAllowed(event) {
     const blocked = event.target.closest("button, a, input, textarea, select, label");
     return !blocked;
+}
+
+
+/**
+ * Initializes all project card toggles.
+ */
+function initProjectCards() {
+    const cards = getProjectCards();
+    if (cards.length === 0) return;
+    cards.forEach(initProjectCard);
+}
+
+
+/**
+ * Returns all project cards.
+ * @returns {HTMLElement[]}
+ */
+function getProjectCards() {
+    return Array.from(document.querySelectorAll(".project-container"));
+}
+
+
+/**
+ * Initializes one project card.
+ * @param {HTMLElement} card
+ */
+function initProjectCard(card) {
+    const insideButton = getInsideProjectButton(card);
+    const outsideButton = getOutsideProjectButton(card);
+    if (!insideButton && !outsideButton) return;
+    setInitialProjectCardState(card);
+    syncProjectCardState(card, insideButton, outsideButton);
+    addProjectCardListeners(card, insideButton, outsideButton);
+}
+
+
+/**
+ * Adds click listeners to both project card buttons.
+ * @param {HTMLElement} card
+ * @param {HTMLButtonElement|null} insideButton
+ * @param {HTMLButtonElement|null} outsideButton
+ */
+function addProjectCardListeners(card, insideButton, outsideButton) {
+    if (insideButton) {
+        insideButton.addEventListener("click", () => toggleProjectCard(card));
+    }
+
+    if (outsideButton) {
+        outsideButton.addEventListener("click", () => toggleProjectCard(card));
+    }
+}
+
+
+/**
+ * Returns the button inside the project card.
+ * @param {HTMLElement} card
+ * @returns {HTMLButtonElement|null}
+ */
+function getInsideProjectButton(card) {
+    return card.querySelector(".project-card-toggle");
+}
+
+
+/**
+ * Returns the button directly after the project card.
+ * @param {HTMLElement} card
+ * @returns {HTMLButtonElement|null}
+ */
+function getOutsideProjectButton(card) {
+    const nextElement = card.nextElementSibling;
+    if (!nextElement) return null;
+    if (!nextElement.classList.contains("project-card-toggle")) return null;
+    return nextElement;
+}
+
+
+/**
+ * Sets the initial project card state for the current viewport.
+ * @param {HTMLElement} card
+ */
+function setInitialProjectCardState(card) {
+    if (!isMobileView()) return;
+    card.dataset.projectExpanded = "false";
+}
+
+
+/**
+ * Toggles the expanded state of one project card.
+ * @param {HTMLElement} card
+ */
+function toggleProjectCard(card) {
+    const nextState = !isProjectCardExpanded(card);
+    setProjectCardExpanded(card, nextState);
+}
+
+
+/**
+ * Syncs the initial project card state.
+ * @param {HTMLElement} card
+ * @param {HTMLButtonElement|null} insideButton
+ * @param {HTMLButtonElement|null} outsideButton
+ */
+function syncProjectCardState(card, insideButton, outsideButton) {
+    const isExpanded = isProjectCardExpanded(card);
+    updateProjectButtons(insideButton, outsideButton, isExpanded);
+}
+
+
+/**
+ * Checks whether a project card is expanded.
+ * @param {HTMLElement} card
+ * @returns {boolean}
+ */
+function isProjectCardExpanded(card) {
+    return card.dataset.projectExpanded === "true";
+}
+
+
+/**
+ * Sets the expanded state of one project card.
+ * @param {HTMLElement} card
+ * @param {boolean} isExpanded
+ */
+function setProjectCardExpanded(card, isExpanded) {
+    const insideButton = getInsideProjectButton(card);
+    const outsideButton = getOutsideProjectButton(card);
+    card.dataset.projectExpanded = String(isExpanded);
+    updateProjectButtons(insideButton, outsideButton, isExpanded);
+}
+
+
+/**
+ * Updates both project card buttons.
+ * @param {HTMLButtonElement|null} insideButton
+ * @param {HTMLButtonElement|null} outsideButton
+ * @param {boolean} isExpanded
+ */
+function updateProjectButtons(insideButton, outsideButton, isExpanded) {
+    updateInsideProjectButton(insideButton, isExpanded);
+    updateOutsideProjectButton(outsideButton, isExpanded);
+}
+
+
+/**
+ * Updates the inside project button.
+ * @param {HTMLButtonElement|null} button
+ * @param {boolean} isExpanded
+ */
+function updateInsideProjectButton(button, isExpanded) {
+    if (!button) return;
+    button.setAttribute("aria-expanded", String(isExpanded));
+    setProjectButtonContent(button, "Show me more", "▼", !isExpanded);
+}
+
+
+/**
+ * Updates the outside project button.
+ * @param {HTMLButtonElement|null} button
+ * @param {boolean} isExpanded
+ */
+function updateOutsideProjectButton(button, isExpanded) {
+    if (!button) return;
+    button.setAttribute("aria-expanded", String(isExpanded));
+    setProjectButtonContent(button, "Show me less", "▲", isExpanded);
+}
+
+
+/**
+ * Sets the label and icon of one project button.
+ * @param {HTMLButtonElement} button
+ * @param {string} text
+ * @param {string} iconText
+ * @param {boolean} shouldShow
+ */
+function setProjectButtonContent(button, text, iconText, shouldShow) {
+    const label = getProjectButtonLabel(button);
+    const icon = getProjectButtonIcon(button);
+    if (label) label.textContent = shouldShow ? text : "";
+    if (icon) icon.textContent = shouldShow ? iconText : "";
+}
+
+
+/**
+ * Returns the text span of one project button.
+ * @param {HTMLButtonElement} button
+ * @returns {HTMLSpanElement|null}
+ */
+function getProjectButtonLabel(button) {
+    return button.querySelector("span");
+}
+
+
+/**
+ * Returns the icon span of one project button.
+ * @param {HTMLButtonElement} button
+ * @returns {HTMLSpanElement|null}
+ */
+function getProjectButtonIcon(button) {
+    return button.querySelector(".project-card-toggle-icon");
 }

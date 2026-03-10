@@ -540,7 +540,9 @@ body::before {
 }
 
 
-.whyme-title-mobile {
+.whyme-title-mobile,
+.skills-title-mobile,
+.mywork-title-mobile {
     display: none;
 }
 
@@ -671,11 +673,6 @@ body::before {
     position: absolute;
     left: 80px;
     object-fit: cover;
-}
-
-
-.skills-title-mobile {
-    display: none;
 }
 
 
@@ -877,12 +874,6 @@ body::before {
 }
 
 
-.project-block p,
-.project-learned p {
-    margin-left: 24px;
-}
-
-
 .project-preview {
     display: flex;
     flex-direction: column;
@@ -941,6 +932,11 @@ body::before {
 .project-learned {
     padding-left: 40px;
     width: 100%;
+}
+
+
+.project-card-toggle {
+    display: none;
 }
 
 
@@ -1011,8 +1007,6 @@ body::before {
 
 .ongoing-text {
     margin: 18px 0 0 0;
-    font-size: 18px;
-    line-height: 120%;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1077,14 +1071,12 @@ body::before {
 .reference-text {
     max-width: 100%;
     margin: 0;
-    font-size: 16px;
-    line-height: 140%;
     color: rgba(255, 255, 255, 1);
 }
 
 
 .reference-author {
-    min-width: 150px;
+    min-width: 180px;
     padding-left: 24px;
     border-left: 1px solid var(--accent);
     display: flex;
@@ -1096,15 +1088,14 @@ body::before {
 
 .reference-name {
     color: var(--accent);
-    font-size: 20px;
-    line-height: 120%;
+    font-size: 24px;
     white-space: nowrap;
 }
 
 
 .reference-role {
+    color: var(--accent);
     font-size: 14px;
-    line-height: 120%;
     white-space: nowrap;
 }
 

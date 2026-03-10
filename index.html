@@ -259,8 +259,9 @@
             <section class="section-panel mywork-section" id="projects" aria-label="My Work section">
                 <div class="mywork-stage">
                     <img class="mywork-title" src="img/my-work/my-work.png" alt="My Work">
+                    <img class="mywork-title-mobile" src="img/my-work/my-work-mobile.png" alt="My Work">
 
-                    <div class="project-container project-join">
+                    <div class="project-container project-join" data-project-expanded="true">
 
                         <div class="project-header">
                             <img class="project-number" src="img/my-work/project-number-1.png" alt="Project number 1">
@@ -312,9 +313,19 @@
                             </p>
                         </div>
 
+                        <button class="project-card-toggle" type="button" aria-expanded="false">
+                            <span>Show me more</span>
+                            <span class="project-card-toggle-icon" aria-hidden="true">▼</span>
+                        </button>
+
                     </div>
 
-                    <div class="project-container project-pollo-loco">
+                    <button class="project-card-toggle" type="button" aria-expanded="true">
+                        <span>Show me less</span>
+                        <span class="project-card-toggle-icon" aria-hidden="true">▲</span>
+                    </button>
+
+                    <div class="project-container project-pollo-loco" data-project-expanded="true">
 
                         <div class="project-header">
                             <img class="project-number" src="img/my-work/project-number-2.png" alt="Project number 2">
@@ -367,9 +378,19 @@
                             </p>
                         </div>
 
+                        <button class="project-card-toggle" type="button" aria-expanded="false">
+                            <span>Show me more</span>
+                            <span class="project-card-toggle-icon" aria-hidden="true">▼</span>
+                        </button>
+
                     </div>
 
-                    <div class="project-container project-da-bubble">
+                    <button class="project-card-toggle" type="button" aria-expanded="true">
+                        <span>Show me less</span>
+                        <span class="project-card-toggle-icon" aria-hidden="true">▲</span>
+                    </button>
+
+                    <div class="project-container project-da-bubble" data-project-expanded="true">
 
                         <div class="project-header">
                             <img class="project-number" src="img/my-work/project-number-3.png" alt="Project number 3">
@@ -421,7 +442,17 @@
                             </p>
                         </div>
 
+                        <button class="project-card-toggle" type="button" aria-expanded="false">
+                            <span>Show me more</span>
+                            <span class="project-card-toggle-icon" aria-hidden="true">▼</span>
+                        </button>
+
                     </div>
+
+                    <button class="project-card-toggle" type="button" aria-expanded="true">
+                        <span>Show me less</span>
+                        <span class="project-card-toggle-icon" aria-hidden="true">▲</span>
+                    </button>
 
                     <div class="ongoing-container">
 

@@ -1048,8 +1048,8 @@ body::before {
 
 
 .references-grid {
-    width: 466px;
-    max-width: 466px;
+    width: 480px;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1072,13 +1072,13 @@ body::before {
     max-width: 100%;
     margin: 0;
     color: rgba(255, 255, 255, 1);
+    border-right: 1px solid var(--accent);
+    padding-right: 12px;
 }
 
 
 .reference-author {
-    min-width: 180px;
-    padding-left: 24px;
-    border-left: 1px solid var(--accent);
+    min-width: 140px;
     display: flex;
     flex-direction: column;
     justify-content: center;

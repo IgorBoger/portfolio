@@ -465,7 +465,155 @@
         display: inline-flex;
     }
 
+    .ongoing-container {
+        height: auto;
+        padding: 12px 0 0;
+    }
 
+    .ongoing-header {
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .ongoing-text {
+        font-size: 16px;
+        line-height: 130%;
+    }
+
+    .ongoing-btn,
+    .ongoing-arrow {
+        display: none;
+    }
+
+    .references-container {
+        height: auto;
+        padding: 12px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        overflow: hidden;
+        scroll-snap-type: x mandatory;
+    }
+
+    .references-title {
+        display: none;
+    }
+
+    .references-mobile-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .references-mobile-heading {
+        margin: 22px 0 0 0;
+        color: var(--accent);
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    .references-mobile-text {
+        margin: 0;
+        color: rgba(255, 255, 255, 1);
+        font-size: 16px;
+        line-height: 130%;
+    }
+
+    .references-grid {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        padding-top: 20px;
+        scroll-snap-type: none;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .references-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reference-card {
+        flex: 0 0 300px;
+        min-width: 300px;
+        height: auto;
+        padding: 20px 14px;
+        gap: 0;
+        display: flex;
+        justify-content: space-between;
+        min-height: 128px;
+        scroll-snap-align: start;
+    }
+
+    .reference-text {
+        font-size: 14px;
+    }
+
+    .reference-author {
+        gap: 20px;
+        flex: 0 0 125px;
+        width: 125px;
+        min-width: 125px;
+        padding-left: 12px;
+    }
+
+    .reference-name {
+        font-size: 22px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .reference-role {
+        width: 100%;
+    }
+
+    .references-mobile-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 0 8px;
+        scrollbar-width: none;
+    }
+
+    .references-mobile-controls::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reference-control-btn {
+        flex: 0 0 18px;
+        width: 18px;
+        height: 6px;
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        background: transparent;
+        cursor: pointer;
+
+        transform: scaleX(0.5);
+        transform-origin: center;
+        transition: transform 120ms ease-in-out, background-color 120ms ease-in-out;
+        will-change: transform, background-color;
+    }
+
+    .reference-control-btn.is-active {
+        background-color: var(--accent);
+        transform: scaleX(1);
+    }
+
+    .references-arrow {
+        display: none;
+    }
 }
 
 

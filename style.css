@@ -1213,7 +1213,26 @@ body::before {
 
 
 .contact-feedback {
-    min-height: 0;
+    min-height: 18px;
+    padding: 6px 12px 0 22px;
+    color: rgb(255, 106, 106);
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+
+.contact-feedback-visible {
+    display: block;
+}
+
+
+.contact-input-invalid {
+    border-color: rgb(255, 106, 106);
+}
+
+
+.contact-policy-checkbox-invalid {
+    border-color: rgb(255, 106, 106);
 }
 
 

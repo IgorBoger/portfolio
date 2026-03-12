@@ -8,11 +8,13 @@ function init() {
     initSidebarNavigation();
     initLogoNavigation();
     initMobileMenuNavigation();
+    initContactArrowNavigation();
     initTrackBackground();
     initDragScroll();
     initDragScrollResize();
     initProjectCards();
     initReferenceSlider();
+    initContactForm();
 }
 
 
@@ -136,6 +138,35 @@ function initHeroArrow() {
  */
 function getHeroArrow() {
     return document.querySelector(".hero-arrow");
+}
+
+
+/**
+ * Initializes contact arrow navigation back to the hero section.
+ */
+function initContactArrowNavigation() {
+    const arrow = getContactArrowLink();
+    if (!arrow) return;
+    arrow.addEventListener("click", handleContactArrowClick);
+}
+
+
+/**
+ * Returns the contact arrow link element.
+ * @returns {HTMLAnchorElement|null}
+ */
+function getContactArrowLink() {
+    return document.querySelector(".contact-arrow-link-right");
+}
+
+
+/**
+ * Handles smooth navigation from contact back to the hero section.
+ * @param {MouseEvent} event
+ */
+function handleContactArrowClick(event) {
+    event.preventDefault();
+    scrollToPanel("#top");
 }
 
 
@@ -791,4 +822,270 @@ function setActiveReferenceButton(buttons, activeIndex) {
     buttons.forEach((button, index) => {
         button.classList.toggle("is-active", index === activeIndex);
     });
+}
+
+
+/**
+ * Initializes contact form interactions.
+ */
+function initContactForm() {
+    const form = getContactForm();
+    if (!form) return;
+    bindContactValidation(form);
+    syncContactSubmitState(form);
+}
+
+
+/**
+ * Returns the contact form element.
+ * @returns {HTMLFormElement|null}
+ */
+function getContactForm() {
+    return document.getElementById("contactForm");
+}
+
+
+/**
+ * Binds all contact form validation events.
+ * @param {HTMLFormElement} form
+ */
+function bindContactValidation(form) {
+    form.addEventListener("submit", (event) => handleContactSubmit(event, form));
+    getContactFields(form).forEach((field) => bindFieldValidation(field, form));
+    getPrivacyCheckbox(form)?.addEventListener("change", () => syncContactSubmitState(form));
+}
+
+
+/**
+ * Returns all contact form fields.
+ * @param {HTMLFormElement} form
+ * @returns {HTMLElement[]}
+ */
+function getContactFields(form) {
+    return [form.contactName, form.contactEmail, form.contactMessage].filter(Boolean);
+}
+
+
+/**
+ * Binds validation events for one field.
+ * @param {HTMLElement} field
+ * @param {HTMLFormElement} form
+ */
+function bindFieldValidation(field, form) {
+    field.addEventListener("blur", () => validateField(field));
+    field.addEventListener("input", () => handleFieldInput(field, form));
+}
+
+
+/**
+ * Handles field input updates.
+ * @param {HTMLElement} field
+ * @param {HTMLFormElement} form
+ */
+function handleFieldInput(field, form) {
+    if (hasFeedback(field)) validateField(field);
+    syncContactSubmitState(form);
+}
+
+
+/**
+ * Handles contact form submit validation.
+ * @param {SubmitEvent} event
+ * @param {HTMLFormElement} form
+ */
+function handleContactSubmit(event, form) {
+    const isValid = validateContactForm(form);
+    if (!isValid) event.preventDefault();
+}
+
+
+/**
+ * Validates the full contact form.
+ * @param {HTMLFormElement} form
+ * @returns {boolean}
+ */
+function validateContactForm(form) {
+    const fieldsValid = getContactFields(form).every((field) => validateField(field));
+    const policyValid = validatePrivacyCheckbox(form);
+    syncContactSubmitState(form);
+    return fieldsValid && policyValid;
+}
+
+
+/**
+ * Validates one contact field.
+ * @param {HTMLElement} field
+ * @returns {boolean}
+ */
+function validateField(field) {
+    const message = getFieldErrorMessage(field);
+    showFieldFeedback(field, message);
+    toggleInvalidClass(field, Boolean(message));
+    return !message;
+}
+
+
+/**
+ * Returns the validation error message for one field.
+ * @param {HTMLElement} field
+ * @returns {string}
+ */
+function getFieldErrorMessage(field) {
+    if (field.id === "contactName") return getNameError(field.value);
+    if (field.id === "contactEmail") return getEmailError(field.value);
+    return getMessageError(field.value);
+}
+
+
+/**
+ * Returns the name validation message.
+ * @param {string} value
+ * @returns {string}
+ */
+function getNameError(value) {
+    const trimmed = value.trim();
+    if (trimmed.length >= 2) return "";
+    return "Please enter your name.";
+}
+
+
+/**
+ * Returns the email validation message.
+ * @param {string} value
+ * @returns {string}
+ */
+function getEmailError(value) {
+    const email = value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (regex.test(email)) return "";
+    return "Please enter a valid e-mail address.";
+}
+
+
+/**
+ * Returns the message validation message.
+ * @param {string} value
+ * @returns {string}
+ */
+function getMessageError(value) {
+    const trimmed = value.trim();
+    if (trimmed.length >= 10) return "";
+    return "Please enter a message with at least 10 characters.";
+}
+
+
+/**
+ * Shows one field validation message.
+ * @param {HTMLElement} field
+ * @param {string} message
+ */
+function showFieldFeedback(field, message) {
+    const feedback = getFieldFeedback(field);
+    if (!feedback) return;
+    feedback.textContent = message;
+    feedback.classList.toggle("contact-feedback-visible", Boolean(message));
+}
+
+
+/**
+ * Returns one field feedback element.
+ * @param {HTMLElement} field
+ * @returns {HTMLElement|null}
+ */
+function getFieldFeedback(field) {
+    return field.parentElement?.querySelector(".contact-feedback") ?? null;
+}
+
+
+/**
+ * Returns whether one field already shows feedback.
+ * @param {HTMLElement} field
+ * @returns {boolean}
+ */
+function hasFeedback(field) {
+    return Boolean(getFieldFeedback(field)?.textContent.trim());
+}
+
+
+/**
+ * Toggles invalid class on one field.
+ * @param {HTMLElement} field
+ * @param {boolean} isInvalid
+ */
+function toggleInvalidClass(field, isInvalid) {
+    field.classList.toggle("contact-input-invalid", isInvalid);
+}
+
+
+/**
+ * Validates the privacy checkbox.
+ * @param {HTMLFormElement} form
+ * @returns {boolean}
+ */
+function validatePrivacyCheckbox(form) {
+    const checkbox = getPrivacyCheckbox(form);
+    if (!checkbox) return false;
+    checkbox.classList.toggle("contact-policy-checkbox-invalid", !checkbox.checked);
+    return checkbox.checked;
+}
+
+
+/**
+ * Returns the privacy checkbox element.
+ * @param {HTMLFormElement} form
+ * @returns {HTMLInputElement|null}
+ */
+function getPrivacyCheckbox(form) {
+    return form.querySelector("#privacyPolicy");
+}
+
+
+/**
+ * Returns the send button element.
+ * @param {HTMLFormElement} form
+ * @returns {HTMLButtonElement|null}
+ */
+function getSendButton(form) {
+    return form.querySelector("#sendBtn");
+}
+
+
+/**
+ * Syncs send button state with the privacy checkbox.
+ * @param {HTMLFormElement} form
+ */
+function syncContactSubmitState(form) {
+    const checkbox = getPrivacyCheckbox(form);
+    const button = getSendButton(form);
+    if (!checkbox || !button) return;
+    button.disabled = !checkbox.checked;
+}
+
+
+/**
+ * Initializes contact arrow navigation back to the hero section.
+ */
+function initContactArrowNavigation() {
+    const arrow = getContactArrowLink();
+    if (!arrow) return;
+    arrow.addEventListener("click", handleContactArrowClick);
+}
+
+
+/**
+ * Returns the contact arrow link element.
+ * @returns {HTMLAnchorElement|null}
+ */
+function getContactArrowLink() {
+    return document.querySelector(".contact-arrow-link-right");
+}
+
+
+/**
+ * Handles smooth navigation from contact back to the hero section.
+ * @param {MouseEvent} event
+ */
+function handleContactArrowClick(event) {
+    event.preventDefault();
+    scrollToPanel("#top");
 }

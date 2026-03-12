@@ -542,7 +542,9 @@ body::before {
 
 .whyme-title-mobile,
 .skills-title-mobile,
-.mywork-title-mobile {
+.mywork-title-mobile,
+.references-mobile-copy,
+.references-mobile-controls {
     display: none;
 }
 

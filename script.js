@@ -15,6 +15,7 @@ function init() {
     initProjectCards();
     initReferenceSlider();
     initContactForm();
+    initLegalNoticeFlow();
 }
 
 
@@ -152,15 +153,6 @@ function initContactArrowNavigation() {
 
 
 /**
- * Returns the contact arrow link element.
- * @returns {HTMLAnchorElement|null}
- */
-function getContactArrowLink() {
-    return document.querySelector(".contact-arrow-link-right");
-}
-
-
-/**
  * Handles smooth navigation from contact back to the hero section.
  * @param {MouseEvent} event
  */
@@ -171,18 +163,18 @@ function handleContactArrowClick(event) {
 
 
 /**
- * Scrolls to a specific panel/section depending on viewport.
+ * Scrolls to a specific panel or legal notice target.
  * @param {string} targetId
  */
 function scrollToPanel(targetId) {
-    if (isMobileView()) {
-        scrollToSectionVertical(targetId);
-        return;
-    }
-    const track = getSectionsTrack();
-    const target = document.querySelector(targetId);
-    if (!track || !target) return;
-    scrollToTrackGrid(track, target);
+    if (!isLegalNoticeTarget(targetId)) closeLegalNotice();
+    requestAnimationFrame(() => {
+        if (isMobileView()) return scrollToSectionVertical(targetId);
+        const track = getSectionsTrack();
+        const target = document.querySelector(targetId);
+        if (!track || !target) return;
+        scrollToTrackGrid(track, target);
+    });
 }
 
 
@@ -218,7 +210,7 @@ function getPanelIndex(panel) {
 function initSectionArrows() {
     const arrows = getSectionArrows();
     if (arrows.length === 0) return;
-    arrows.forEach(arrow => arrow.addEventListener("click", scrollOnePanelRight));
+    arrows.forEach(bindSectionArrow);
 }
 
 
@@ -227,7 +219,18 @@ function initSectionArrows() {
  * @returns {NodeListOf<HTMLButtonElement>}
  */
 function getSectionArrows() {
-    return document.querySelectorAll(".section-arrow");
+    return document.querySelectorAll(
+        ".hero-arrow, .whyme-arrow, .skills-arrow, .ongoing-arrow, .references-arrow"
+    );
+}
+
+
+/**
+ * Binds one main section arrow to the sections track.
+ * @param {HTMLButtonElement} arrow
+ */
+function bindSectionArrow(arrow) {
+    arrow.addEventListener("click", scrollOnePanelRight);
 }
 
 
@@ -365,7 +368,8 @@ function initDragScroll() {
  */
 function getDragScrollTargets() {
     const sectionsTrack = document.getElementById("sectionsTrack");
-    return [sectionsTrack].filter(Boolean);
+    const legalTrack = document.getElementById("legalNoticeTrack");
+    return [sectionsTrack, legalTrack].filter(Boolean);
 }
 
 
@@ -1063,16 +1067,6 @@ function syncContactSubmitState(form) {
 
 
 /**
- * Initializes contact arrow navigation back to the hero section.
- */
-function initContactArrowNavigation() {
-    const arrow = getContactArrowLink();
-    if (!arrow) return;
-    arrow.addEventListener("click", handleContactArrowClick);
-}
-
-
-/**
  * Returns the contact arrow link element.
  * @returns {HTMLAnchorElement|null}
  */
@@ -1082,10 +1076,131 @@ function getContactArrowLink() {
 
 
 /**
- * Handles smooth navigation from contact back to the hero section.
- * @param {MouseEvent} event
+ * Initializes the legal notice flow behaviour.
  */
-function handleContactArrowClick(event) {
+function initLegalNoticeFlow() {
+    const flow = document.getElementById("legalNoticeFlow");
+    const track = document.getElementById("legalNoticeTrack");
+    const links = document.querySelectorAll('.footer-link[href="#legalNotice"]');
+    if (!flow || !track || links.length === 0) return;
+    bindFooterLinks(links, flow, track);
+    initLegalArrows(track);
+}
+
+
+/**
+ * Binds footer links to legal notice navigation.
+ * @param {NodeListOf<HTMLAnchorElement>} links
+ * @param {HTMLElement} flow
+ * @param {HTMLElement} track
+ */
+function bindFooterLinks(links, flow, track) {
+    links.forEach((link) => {
+        link.addEventListener("click", (event) => handleFooterLinkClick(event, link, flow, track));
+    });
+}
+
+
+/**
+ * Handles footer navigation to the legal notice start page.
+ * @param {MouseEvent} event
+ * @param {HTMLAnchorElement} link
+ * @param {HTMLElement} flow
+ * @param {HTMLElement} track
+ */
+function handleFooterLinkClick(event, link, flow, track) {
     event.preventDefault();
-    scrollToPanel("#top");
+    if (link.closest("#legalNoticeFlow")) return scrollTrackTo(track, 0);
+    openLegalNotice(flow);
+    requestAnimationFrame(() => scrollTrackTo(track, 0));
+}
+
+
+/**
+ * Initializes arrow navigation inside legal notice.
+ * @param {HTMLElement} track
+ */
+function initLegalArrows(track) {
+    const rightArrow = document.querySelector(".imprint-row");
+    const leftArrow = document.querySelector(".legal-back-arrow");
+    bindTrackArrow(rightArrow, track, () => track.clientWidth);
+    bindTrackArrow(leftArrow, track, () => 0);
+}
+
+
+/**
+ * Binds one arrow to a horizontal track position.
+ * @param {HTMLButtonElement|null} arrow
+ * @param {HTMLElement} track
+ * @param {() => number} getPosition
+ */
+function bindTrackArrow(arrow, track, getPosition) {
+    if (!arrow) return;
+    arrow.addEventListener("click", () => scrollTrackTo(track, getPosition()));
+}
+
+
+/**
+ * Scrolls one track horizontally to a target position.
+ * @param {HTMLElement} track
+ * @param {number} position
+ */
+function scrollTrackTo(track, position) {
+    track.scrollTo({ left: position, behavior: "smooth" });
+}
+
+
+/**
+ * Opens the legal notice flow and hides normal sections.
+ * @param {HTMLElement} flow
+ */
+function openLegalNotice(flow) {
+    hideMainSections();
+    flow.classList.remove("d-none");
+}
+
+
+/**
+ * Closes the legal notice flow and shows normal sections.
+ */
+function closeLegalNotice() {
+    const flow = document.getElementById("legalNoticeFlow");
+    if (!flow) return;
+    flow.classList.add("d-none");
+    showMainSections();
+}
+
+
+/**
+ * Returns whether a target belongs to the legal notice flow.
+ * @param {string} targetId
+ * @returns {boolean}
+ */
+function isLegalNoticeTarget(targetId) {
+    return targetId === "#legalNotice" || targetId === "#legalNoticePageTwo";
+}
+
+
+/**
+ * Shows all main section panels except the legal notice flow.
+ */
+function showMainSections() {
+    getSectionPanels().forEach((panel) => panel.classList.remove("d-none"));
+}
+
+
+/**
+ * Hides all main section panels except the legal notice flow.
+ */
+function hideMainSections() {
+    getSectionPanels().forEach((panel) => panel.classList.add("d-none"));
+}
+
+
+/**
+ * Returns all normal section panels.
+ * @returns {HTMLElement[]}
+ */
+function getSectionPanels() {
+    return Array.from(document.querySelectorAll(".section-panel")).filter((panel) => panel.id !== "legalNoticeFlow");
 }

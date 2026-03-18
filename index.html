@@ -554,8 +554,9 @@
             <section class="section-panel contact-section" id="contact" aria-label="Contact section">
                 <div class="contact-stage">
                     <div class="contact-title-box">
-                        <img class="contact-title-img" src="img/contact-me/contact-me.png" alt="Contact me">
-                        <h2 class="contact-title-mobile">Contact me</h2>
+                        <img class="contact-title" src="img/contact-me/contact-me.png" alt="Contact me">
+                        <img class="contact-title-mobile" src="img/contact-me/contact-me-mobile.png" alt="Contact me">
+
                     </div>
 
                     <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
@@ -620,11 +621,57 @@
                             src="img/contact-me/switch-arrow-to-hero.png" alt="">
                     </a>
 
+                    <nav class="contact-social" aria-label="Contact social links">
+                        <a class="contact-social-link" href="https://github.com/IgorBoger" target="_blank"
+                            rel="noopener noreferrer" aria-label="GitHub (öffnet in neuem Tab)">
+                            <span class="social-ico ico-github" aria-hidden="true"></span>
+                        </a>
+
+                        <a class="contact-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry"
+                            target="_blank" rel="noopener noreferrer" aria-label="E-Mail schreiben">
+                            <span class="social-ico ico-mail" aria-hidden="true"></span>
+                        </a>
+
+                        <a class="contact-social-link" href="https://www.linkedin.com/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
+                            <span class="social-ico ico-linkedin" aria-hidden="true"></span>
+                        </a>
+                    </nav>
+
+                    <div class="contact-mobile-footer">
+                        <a class="contact-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
+                            <span class="logo-frame" aria-hidden="true">
+                                <svg class="logo-arc" viewBox="0 0 130 100">
+                                    <defs>
+                                        <path id="contactLogoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
+                                    </defs>
+
+                                    <text class="logo-arc-text">
+                                        <textPath href="#contactLogoArcPath" startOffset="50%" text-anchor="middle">
+                                            frontend developer
+                                        </textPath>
+                                    </text>
+                                </svg>
+
+                                <span class="logo-initials">IB</span>
+                            </span>
+                        </a>
+
+                        <p class="contact-mobile-footer-copy">© Igor Boger 2026</p>
+
+                        <div class="contact-mobile-footer-links">
+                            <a class="contact-mobile-footer-link" href="#legalNotice" data-target="#legalNotice">Legal
+                                notice</a>
+                            <a class="contact-mobile-footer-link" href="#privacyPolicy">Privacy policy</a>
+                        </div>
+                    </div>
+
                     <div class="contact-footer-box">
                         <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
                         <a class="footer-link" href="#privacyPolicy">Privacy policy</a>
                         <p class="contact-footer-copy">© Igor Boger 2026</p>
                     </div>
+
                 </div>
             </section>
 
@@ -768,8 +815,7 @@
 
                                 <button class="section-arrow legal-back-arrow" type="button"
                                     aria-label="Back to first legal notice page">
-                                    <img class="section-arrow-img" src="img/imprint/switch-arrow-to-left.png"
-                                        alt="">
+                                    <img class="section-arrow-img" src="img/imprint/switch-arrow-to-left.png" alt="">
                                 </button>
                             </div>
 

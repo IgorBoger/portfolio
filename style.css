@@ -1116,6 +1116,7 @@ body::before {
     font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 120%;
     font-size: 18px;
+    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1155,7 +1156,7 @@ body::before {
 }
 
 
-.contact-title-img {
+.contact-title {
     width: 54px;
     height: 274px;
     object-fit: contain;
@@ -1307,8 +1308,9 @@ body::before {
 
 .contact-submit-btn {
     align-self: flex-end;
-    min-width: 84px;
-    height: 40px;
+    /* min-width: 84px; */
+    /* height: 40px; */
+    padding: 12px 24px;
     border: 0;
     border-radius: 999px;
     background-color: rgb(158, 157, 157);
@@ -1358,7 +1360,6 @@ body::before {
 
 .contact-copy-text {
     margin: 18px 0 0 0;
-    font-size: 18px;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1379,7 +1380,6 @@ body::before {
     gap: 10px;
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
-    font-size: 14px;
 }
 
 
@@ -1429,6 +1429,7 @@ body::before {
     gap: 14px;
     text-align: right;
     margin-right: 20px;
+    font-size: 14px;
 }
 
 
@@ -1660,4 +1661,39 @@ body::before {
     margin: 0;
     font-size: 14px;
     color: rgba(255, 255, 255, 1);
+}
+
+
+.contact-social,
+.contact-mobile-footer {
+    display: none;
+}
+
+
+.contact-social-link {
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+    text-decoration: none;
+}
+
+
+.contact-mobile-footer-logo {
+    display: inline-flex;
+    text-decoration: none;
+    color: rgb(74, 74, 74);
+}
+
+
+.contact-mobile-footer-links {
+    display: flex;
+    gap: 16px;
+}
+
+
+.contact-mobile-footer-link {
+    color: rgb(74, 74, 74);
+    text-decoration: none;
+    font-size: 14px;
 }

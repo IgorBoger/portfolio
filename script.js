@@ -1081,7 +1081,7 @@ function getContactArrowLink() {
 function initLegalNoticeFlow() {
     const flow = document.getElementById("legalNoticeFlow");
     const track = document.getElementById("legalNoticeTrack");
-    const links = document.querySelectorAll('.footer-link[href="#legalNotice"]');
+    const links = document.querySelectorAll('[data-target="#legalNotice"]');
     if (!flow || !track || links.length === 0) return;
     bindFooterLinks(links, flow, track);
     initLegalArrows(track);

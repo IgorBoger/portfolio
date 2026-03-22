@@ -16,6 +16,8 @@ function init() {
     initReferenceSlider();
     initContactForm();
     initLegalNoticeFlow();
+    initLegalMobileBack();
+    initLegalMobileTopArrow();
 }
 
 
@@ -1203,4 +1205,56 @@ function hideMainSections() {
  */
 function getSectionPanels() {
     return Array.from(document.querySelectorAll(".section-panel")).filter((panel) => panel.id !== "legalNoticeFlow");
+}
+
+
+/**
+ * Initializes the mobile legal notice back navigation.
+ */
+function initLegalMobileBack() {
+    const backLink = document.querySelector(".legal-notice-mobile-back");
+    if (!backLink) return;
+    backLink.addEventListener("click", handleLegalMobileBackClick);
+}
+
+
+/**
+ * Handles navigation from legal notice back to contact.
+ * @param {MouseEvent} event
+ */
+function handleLegalMobileBackClick(event) {
+    event.preventDefault();
+    scrollToPanel("#contact");
+}
+
+
+/**
+ * Initializes the legal notice mobile top arrow.
+ */
+function initLegalMobileTopArrow() {
+    const arrow = document.querySelector(".legal-mobile-top-arrow");
+    if (!arrow) return;
+    arrow.addEventListener("click", scrollLegalTrackToTop);
+}
+
+
+/**
+ * Scrolls the legal notice flow to the top.
+ */
+function scrollLegalTrackToTop() {
+    const flow = document.getElementById("legalNoticeFlow");
+    const track = document.getElementById("legalNoticeTrack");
+    if (isMobileView()) return scrollLegalFlowToTop(flow);
+    if (!track) return;
+    track.scrollTo({ left: 0, behavior: "smooth" });
+}
+
+
+/**
+ * Scrolls the legal notice flow vertically to the top on mobile.
+ * @param {HTMLElement|null} flow
+ */
+function scrollLegalFlowToTop(flow) {
+    if (!flow) return;
+    flow.scrollTo({ top: 0, behavior: "smooth" });
 }

@@ -504,11 +504,6 @@ body::before {
 }
 
 
-.sections-track::-webkit-scrollbar {
-    display: none;
-}
-
-
 .section-panel {
     flex: 0 0 100%;
     height: 100%;
@@ -545,7 +540,17 @@ body::before {
 .mywork-title-mobile,
 .references-mobile-copy,
 .references-mobile-controls,
-.legal-notice-title-mobile {
+.legal-notice-title-mobile,
+.sections-track::-webkit-scrollbar,
+.project-card-toggle,
+.contact-title-mobile,
+.contact-social,
+.contact-mobile-footer,
+.legal-notice-track::-webkit-scrollbar,
+.legal-notice-mobile-back,
+.legal-mobile-top-arrow,
+.legal-mobile-social,
+.legal-mobile-footer {
     display: none;
 }
 
@@ -938,11 +943,6 @@ body::before {
 }
 
 
-.project-card-toggle {
-    display: none;
-}
-
-
 .mywork-item {
     color: white;
 }
@@ -1160,12 +1160,6 @@ body::before {
     width: 54px;
     height: 274px;
     object-fit: contain;
-}
-
-
-.contact-title-mobile {
-    display: none;
-    margin: 0;
 }
 
 
@@ -1452,6 +1446,35 @@ body::before {
 }
 
 
+.contact-social-link {
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+    text-decoration: none;
+}
+
+
+.contact-mobile-footer-logo {
+    display: inline-flex;
+    text-decoration: none;
+    color: rgb(74, 74, 74);
+}
+
+
+.contact-mobile-footer-links {
+    display: flex;
+    gap: 16px;
+}
+
+
+.contact-mobile-footer-link {
+    color: rgb(74, 74, 74);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
 .legal-notice-flow {
     flex: 0 0 100%;
     width: 100%;
@@ -1460,6 +1483,7 @@ body::before {
     font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-size: 18px;
     line-height: 120%;
+    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1471,11 +1495,6 @@ body::before {
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-}
-
-
-.legal-notice-track::-webkit-scrollbar {
-    display: none;
 }
 
 
@@ -1664,35 +1683,35 @@ body::before {
 }
 
 
-.contact-social,
-.contact-mobile-footer {
-    display: none;
+.legal-notice-mobile-back {
+    text-decoration: none;
 }
 
 
-.contact-social-link {
+.legal-mobile-top-arrow,
+.legal-mobile-social-link,
+.legal-mobile-footer-logo {
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+}
+
+
+.legal-mobile-social-link {
     width: 30px;
     height: 30px;
     display: inline-grid;
     place-items: center;
-    text-decoration: none;
 }
 
 
-.contact-mobile-footer-logo {
-    display: inline-flex;
-    text-decoration: none;
-    color: rgb(74, 74, 74);
-}
-
-
-.contact-mobile-footer-links {
+.legal-mobile-footer-links {
     display: flex;
     gap: 16px;
 }
 
 
-.contact-mobile-footer-link {
+.legal-mobile-footer-link {
     color: rgb(74, 74, 74);
     text-decoration: none;
     font-size: 14px;

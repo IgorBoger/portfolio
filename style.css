@@ -1716,3 +1716,246 @@ body::before {
     text-decoration: none;
     font-size: 14px;
 }
+
+
+.privacy-policy-flow {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+
+.privacy-policy-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+
+.privacy-policy-page {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.privacy-policy-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 136px 0 80px 80px;
+}
+
+
+.privacy-policy-title,
+.privacy-policy-title-mobile {
+    margin: 0;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent);
+}
+
+
+.privacy-policy-title {
+    position: absolute;
+    left: 80px;
+    top: 136px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+
+.privacy-policy-title-mobile,
+.privacy-policy-mobile-back,
+.privacy-mobile-top-arrow,
+.privacy-mobile-social,
+.privacy-mobile-footer {
+    display: none;
+}
+
+
+.privacy-policy-content {
+    width: 100%;
+    max-width: 760px;
+}
+
+
+.privacy-policy-column {
+    width: 100%;
+    margin-left: 120px;
+}
+
+
+.privacy-policy-block+.privacy-policy-block {
+    margin-top: 26px;
+}
+
+
+.privacy-policy-heading {
+    margin: 0 0 10px 0;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+
+.privacy-policy-text {
+    margin: 0;
+    color: rgba(255, 255, 255, 1);
+}
+
+
+.privacy-policy-stage-split {
+    position: relative;
+    display: block;
+    padding: 0;
+}
+
+
+.privacy-policy-stage-split::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background: var(--accent);
+}
+
+
+.privacy-policy-page-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 136px 0 80px 80px;
+}
+
+
+.privacy-policy-right {
+    max-width: 740px;
+}
+
+
+.privacy-policy-back-arrow {
+    top: 50%;
+    right: 120px;
+    left: auto;
+    transform: none;
+    z-index: 1;
+}
+
+
+.privacy-policy-back-arrow:hover {
+    transform: translateX(-6px);
+}
+
+
+.privacy-policy-next-arrow {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.privacy-policy-next-arrow:hover {
+    transform: translateY(-50%) translateX(6px);
+}
+
+
+.privacy-policy-side-content {
+    position: absolute;
+    top: 136px;
+    right: 120px;
+    bottom: 78px;
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+}
+
+
+.privacy-policy-direct-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+
+.privacy-policy-direct-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.privacy-policy-direct-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    flex: 0 0 18px;
+}
+
+
+.privacy-policy-footer-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+
+.privacy-policy-mobile-back {
+    text-decoration: none;
+}
+
+
+.privacy-mobile-top-arrow,
+.privacy-mobile-social-link,
+.privacy-mobile-footer-logo {
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+}
+
+
+.privacy-mobile-social-link {
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+}
+
+
+.privacy-mobile-footer-links {
+    display: flex;
+    gap: 16px;
+}
+
+
+.privacy-mobile-footer-link {
+    color: rgb(74, 74, 74);
+    text-decoration: none;
+    font-size: 14px;
+}

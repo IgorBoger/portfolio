@@ -578,8 +578,8 @@
                             <div class="contact-feedback"></div>
                         </div>
 
-                        <label class="contact-policy-row" for="privacyPolicy">
-                            <input class="contact-policy-checkbox" id="privacyPolicy" name="privacyPolicy"
+                        <label class="contact-policy-row" for="privacyPolicyConsent">
+                            <input class="contact-policy-checkbox" id="privacyPolicyConsent" name="privacyPolicyConsent"
                                 type="checkbox">
                             <span class="contact-policy-text">
                                 I’ve read the <a class="contact-policy-link" href="#">privacy policy</a> and agree to
@@ -662,13 +662,15 @@
                         <div class="contact-mobile-footer-links">
                             <a class="contact-mobile-footer-link" href="#legalNotice" data-target="#legalNotice">Legal
                                 notice</a>
-                            <a class="contact-mobile-footer-link" href="#privacyPolicy">Privacy policy</a>
+                            <a class="contact-mobile-footer-link" href="#privacyPolicy"
+                                data-target="#privacyPolicy">Privacy policy</a>
                         </div>
                     </div>
 
                     <div class="contact-footer-box">
                         <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                        <a class="footer-link" href="#privacyPolicy">Privacy policy</a>
+                        <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy
+                            policy</a>
                         <p class="contact-footer-copy">© Igor Boger 2026</p>
                     </div>
 
@@ -840,7 +842,8 @@
                                 <div class="legal-notice-footer-box">
                                     <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal
                                         notice</a>
-                                    <a class="footer-link" href="#privacyPolicy">Privacy policy</a>
+                                    <a class="footer-link" href="#privacyPolicy"
+                                        data-target="#privacyPolicy">Privacy policy</a>
                                     <p class="contact-footer-copy">© Igor Boger 2026</p>
                                 </div>
 
@@ -895,12 +898,222 @@
                                     <div class="legal-mobile-footer-links">
                                         <a class="legal-mobile-footer-link" href="#legalNotice"
                                             data-target="#legalNotice">Legal notice</a>
-                                        <a class="legal-mobile-footer-link" href="#privacyPolicy">Privacy policy</a>
+                                        <a class="legal-mobile-footer-link" href="#privacyPolicy"
+                                            data-target="#privacyPolicy">Privacy policy</a>
                                     </div>
                                 </div>
                             </div>
 
 
+                        </div>
+                    </section>
+
+                </div>
+            </section>
+
+            <section class="section-panel privacy-policy-flow d-none" id="privacyPolicyFlow"
+                aria-label="Privacy policy flow">
+                <div class="privacy-policy-track" id="privacyPolicyTrack">
+
+                    <section class="privacy-policy-page" id="privacyPolicy">
+                        <div class="privacy-policy-stage">
+                            <a class="privacy-policy-mobile-back" href="#contact" data-target="#contact"
+                                aria-label="Back to contact section">
+                                <img class="privacy-policy-mobile-back-icon" src="img/imprint/arrow-back-mobile.png"
+                                    alt="">
+                            </a>
+
+                            <h1 class="privacy-policy-title">Privacy Policy</h1>
+                            <h1 class="privacy-policy-title-mobile">Privacy Policy</h1>
+
+                            <div class="privacy-policy-content">
+                                <div class="privacy-policy-column">
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">General information</h2>
+                                        <p class="privacy-policy-text">
+                                            This privacy policy explains how personal data is processed on this website.
+                                            Personal data means any information that can identify you personally.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Responsible party</h2>
+                                        <p class="privacy-policy-text">
+                                            Igor Boger<br>
+                                            Hauptstraße 32<br>
+                                            5743 Gerach bei Idar-Oberstein<br>
+                                            E-mail: igorboger26@gmail.com
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Data collection on this website</h2>
+                                        <p class="privacy-policy-text">
+                                            Personal data may be collected when you contact me via the contact form or
+                                            by e-mail. The specific data depends on the information you provide.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Purpose of processing</h2>
+                                        <p class="privacy-policy-text">
+                                            The collected data is processed exclusively to handle your request, to
+                                            communicate with you, and to ensure the technical functionality of this
+                                            portfolio website.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Storage period</h2>
+                                        <p class="privacy-policy-text">
+                                            Personal data is stored only for as long as necessary to process your
+                                            request or for as long as legal retention periods require.
+                                        </p>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <button class="section-arrow privacy-policy-next-arrow" type="button"
+                                aria-label="Show second privacy policy page">
+                                <img class="section-arrow-img" src="img/switch-arrow-to-right.png" alt="">
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="privacy-policy-page" id="privacyPolicyPageTwo">
+                        <div class="privacy-policy-stage privacy-policy-stage-split">
+                            <div class="privacy-policy-page-main">
+                                <div class="privacy-policy-content privacy-policy-right">
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Your rights</h2>
+                                        <p class="privacy-policy-text">
+                                            You have the right to request information about your stored data, the right
+                                            to rectification, erasure, restriction of processing, and the right to data
+                                            portability, provided the legal requirements are met.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Revocation of consent</h2>
+                                        <p class="privacy-policy-text">
+                                            You may revoke any consent you have given for data processing at any time
+                                            with effect for the future. The lawfulness of processing carried out before
+                                            the revocation remains unaffected.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Right to lodge a complaint</h2>
+                                        <p class="privacy-policy-text">
+                                            In the event of data protection violations, you have the right to lodge a
+                                            complaint with the responsible supervisory authority.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <h2 class="privacy-policy-heading">Contact form</h2>
+                                        <p class="privacy-policy-text">
+                                            If you send me an inquiry via the contact form, your details from the form,
+                                            including the contact data you provide there, will be stored for the
+                                            purpose of processing the inquiry and in case of follow-up questions.
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <p class="privacy-policy-text">
+                                            For privacy-related requests, please contact: igorboger26@gmail.com
+                                        </p>
+                                    </section>
+
+                                    <section class="privacy-policy-block">
+                                        <p class="privacy-policy-text">Date: March 03, 2026</p>
+                                    </section>
+                                </div>
+
+                                <button class="section-arrow privacy-policy-back-arrow" type="button"
+                                    aria-label="Back to first privacy policy page">
+                                    <img class="section-arrow-img" src="img/imprint/switch-arrow-to-left.png" alt="">
+                                </button>
+                            </div>
+
+                            <div class="privacy-policy-side-content">
+                                <div class="privacy-policy-direct-links">
+                                    <a class="privacy-policy-direct-link" href="mailto:igorboger26@gmail.com">
+                                        <img class="privacy-policy-direct-icon" src="img/contact-me/email.png" alt="">
+                                        <span>E-mail: igorboger26@gmail.com</span>
+                                    </a>
+
+                                    <a class="privacy-policy-direct-link" href="tel:+4917662045018">
+                                        <img class="privacy-policy-direct-icon" src="img/contact-me/phone.png" alt="">
+                                        <span>Tel: 017662045018</span>
+                                    </a>
+                                </div>
+
+                                <div class="privacy-policy-footer-box">
+                                    <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal
+                                        notice</a>
+                                    <a class="footer-link" href="#privacyPolicy"
+                                        data-target="#privacyPolicy">Privacy policy</a>
+                                    <p class="contact-footer-copy">© Igor Boger 2026</p>
+                                </div>
+
+                                <button class="privacy-mobile-top-arrow" type="button"
+                                    aria-label="Back to top of privacy policy">
+                                    <img class="privacy-mobile-top-arrow-icon"
+                                        src="img/contact-me/switch-arrow-to-hero.png" alt="">
+                                </button>
+
+                                <nav class="privacy-mobile-social" aria-label="Privacy policy social links">
+                                    <a class="privacy-mobile-social-link" href="https://github.com/IgorBoger"
+                                        target="_blank" rel="noopener noreferrer"
+                                        aria-label="GitHub (öffnet in neuem Tab)">
+                                        <span class="social-ico ico-github" aria-hidden="true"></span>
+                                    </a>
+
+                                    <a class="privacy-mobile-social-link"
+                                        href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank"
+                                        rel="noopener noreferrer" aria-label="E-Mail schreiben">
+                                        <span class="social-ico ico-mail" aria-hidden="true"></span>
+                                    </a>
+
+                                    <a class="privacy-mobile-social-link" href="https://www.linkedin.com/"
+                                        target="_blank" rel="noopener noreferrer"
+                                        aria-label="LinkedIn (öffnet in neuem Tab)">
+                                        <span class="social-ico ico-linkedin" aria-hidden="true"></span>
+                                    </a>
+                                </nav>
+
+                                <div class="privacy-mobile-footer">
+                                    <a class="privacy-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
+                                        <span class="logo-frame" aria-hidden="true">
+                                            <svg class="logo-arc" viewBox="0 0 130 100">
+                                                <defs>
+                                                    <path id="privacyMobileLogoArcPath"
+                                                        d="M 15 65 A 50 50 0 0 1 115 65" />
+                                                </defs>
+
+                                                <text class="logo-arc-text">
+                                                    <textPath href="#privacyMobileLogoArcPath" startOffset="50%"
+                                                        text-anchor="middle">
+                                                        frontend developer
+                                                    </textPath>
+                                                </text>
+                                            </svg>
+
+                                            <span class="logo-initials">IB</span>
+                                        </span>
+                                    </a>
+
+                                    <p class="privacy-mobile-footer-copy">© Igor Boger 2026</p>
+
+                                    <div class="privacy-mobile-footer-links">
+                                        <a class="privacy-mobile-footer-link" href="#legalNotice"
+                                            data-target="#legalNotice">Legal notice</a>
+                                        <a class="privacy-mobile-footer-link" href="#privacyPolicy"
+                                            data-target="#privacyPolicy">Privacy policy</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
 

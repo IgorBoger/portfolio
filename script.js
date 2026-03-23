@@ -18,6 +18,7 @@ function init() {
     initLegalNoticeFlow();
     initLegalMobileBack();
     initLegalMobileTopArrow();
+    initPrivacyPolicyFlow();
 }
 
 
@@ -169,7 +170,10 @@ function handleContactArrowClick(event) {
  * @param {string} targetId
  */
 function scrollToPanel(targetId) {
-    if (!isLegalNoticeTarget(targetId)) closeLegalNotice();
+    if (!isStaticFlowTarget(targetId)) {
+        closeLegalNotice();
+        closePrivacyPolicy();
+    }
     requestAnimationFrame(() => {
         if (isMobileView()) return scrollToSectionVertical(targetId);
         const track = getSectionsTrack();
@@ -177,6 +181,16 @@ function scrollToPanel(targetId) {
         if (!track || !target) return;
         scrollToTrackGrid(track, target);
     });
+}
+
+
+/**
+ * Returns whether a target belongs to a static flow section.
+ * @param {string} targetId
+ * @returns {boolean}
+ */
+function isStaticFlowTarget(targetId) {
+    return isLegalNoticeTarget(targetId) || isPrivacyPolicyTarget(targetId);
 }
 
 
@@ -371,7 +385,8 @@ function initDragScroll() {
 function getDragScrollTargets() {
     const sectionsTrack = document.getElementById("sectionsTrack");
     const legalTrack = document.getElementById("legalNoticeTrack");
-    return [sectionsTrack, legalTrack].filter(Boolean);
+    const privacyTrack = document.getElementById("privacyPolicyTrack");
+    return [sectionsTrack, legalTrack, privacyTrack].filter(Boolean);
 }
 
 
@@ -1042,7 +1057,7 @@ function validatePrivacyCheckbox(form) {
  * @returns {HTMLInputElement|null}
  */
 function getPrivacyCheckbox(form) {
-    return form.querySelector("#privacyPolicy");
+    return form.querySelector("#privacyPolicyConsent");
 }
 
 
@@ -1184,6 +1199,16 @@ function isLegalNoticeTarget(targetId) {
 
 
 /**
+ * Returns whether a target belongs to the privacy policy flow.
+ * @param {string} targetId
+ * @returns {boolean}
+ */
+function isPrivacyPolicyTarget(targetId) {
+    return targetId === "#privacyPolicy" || targetId === "#privacyPolicyPageTwo";
+}
+
+
+/**
  * Shows all main section panels except the legal notice flow.
  */
 function showMainSections() {
@@ -1204,7 +1229,9 @@ function hideMainSections() {
  * @returns {HTMLElement[]}
  */
 function getSectionPanels() {
-    return Array.from(document.querySelectorAll(".section-panel")).filter((panel) => panel.id !== "legalNoticeFlow");
+    return Array.from(document.querySelectorAll(".section-panel"))
+        .filter((panel) => panel.id !== "legalNoticeFlow")
+        .filter((panel) => panel.id !== "privacyPolicyFlow");
 }
 
 
@@ -1257,4 +1284,85 @@ function scrollLegalTrackToTop() {
 function scrollLegalFlowToTop(flow) {
     if (!flow) return;
     flow.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+/**
+ * Initializes the privacy policy flow behaviour.
+ */
+function initPrivacyPolicyFlow() {
+    const flow = document.getElementById("privacyPolicyFlow");
+    const track = document.getElementById("privacyPolicyTrack");
+    const links = document.querySelectorAll('[data-target="#privacyPolicy"]');
+    if (!flow || !track || links.length === 0) return;
+    bindPrivacyFooterLinks(links, flow, track);
+    initPrivacyArrows(track);
+}
+
+
+/**
+ * Binds footer links to privacy policy navigation.
+ * @param {NodeListOf<HTMLAnchorElement>} links
+ * @param {HTMLElement} flow
+ * @param {HTMLElement} track
+ */
+function bindPrivacyFooterLinks(links, flow, track) {
+    links.forEach((link) => {
+        link.addEventListener("click", (event) => handlePrivacyFooterLinkClick(event, link, flow, track));
+    });
+}
+
+
+/**
+ * Handles footer navigation to the privacy policy start page.
+ * @param {MouseEvent} event
+ * @param {HTMLAnchorElement} link
+ * @param {HTMLElement} flow
+ * @param {HTMLElement} track
+ */
+function handlePrivacyFooterLinkClick(event, link, flow, track) {
+    event.preventDefault();
+    if (link.closest("#privacyPolicyFlow")) {
+        return scrollTrackTo(track, 0);
+    }
+    if (link.closest("#legalNoticeFlow")) {
+        closeLegalNotice();
+        openPrivacyPolicy(flow);
+        return requestAnimationFrame(() => scrollTrackTo(track, 0));
+    }
+    openPrivacyPolicy(flow);
+    requestAnimationFrame(() => scrollTrackTo(track, 0));
+}
+
+
+/**
+ * Initializes arrow navigation inside privacy policy.
+ * @param {HTMLElement} track
+ */
+function initPrivacyArrows(track) {
+    const rightArrow = document.querySelector(".privacy-policy-next-arrow");
+    const leftArrow = document.querySelector(".privacy-policy-back-arrow");
+    bindTrackArrow(rightArrow, track, () => track.clientWidth);
+    bindTrackArrow(leftArrow, track, () => 0);
+}
+
+
+/**
+ * Opens the privacy policy flow and hides normal sections.
+ * @param {HTMLElement} flow
+ */
+function openPrivacyPolicy(flow) {
+    hideMainSections();
+    flow.classList.remove("d-none");
+}
+
+
+/**
+ * Closes the privacy policy flow and shows normal sections.
+ */
+function closePrivacyPolicy() {
+    const flow = document.getElementById("privacyPolicyFlow");
+    if (!flow) return;
+    flow.classList.add("d-none");
+    showMainSections();
 }

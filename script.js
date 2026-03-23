@@ -19,6 +19,8 @@ function init() {
     initLegalMobileBack();
     initLegalMobileTopArrow();
     initPrivacyPolicyFlow();
+    initPrivacyMobileBack();
+    initPrivacyMobileTopArrow();
 }
 
 
@@ -1138,7 +1140,7 @@ function handleFooterLinkClick(event, link, flow, track) {
  * @param {HTMLElement} track
  */
 function initLegalArrows(track) {
-    const rightArrow = document.querySelector(".imprint-row");
+    const rightArrow = document.querySelector(".imprint-arrow");
     const leftArrow = document.querySelector(".legal-back-arrow");
     bindTrackArrow(rightArrow, track, () => track.clientWidth);
     bindTrackArrow(leftArrow, track, () => 0);
@@ -1365,4 +1367,56 @@ function closePrivacyPolicy() {
     if (!flow) return;
     flow.classList.add("d-none");
     showMainSections();
+}
+
+
+/**
+ * Initializes the mobile privacy policy back navigation.
+ */
+function initPrivacyMobileBack() {
+    const backLink = document.querySelector(".privacy-policy-mobile-back");
+    if (!backLink) return;
+    backLink.addEventListener("click", handlePrivacyMobileBackClick);
+}
+
+
+/**
+ * Handles navigation from privacy policy back to contact.
+ * @param {MouseEvent} event
+ */
+function handlePrivacyMobileBackClick(event) {
+    event.preventDefault();
+    scrollToPanel("#contact");
+}
+
+
+/**
+ * Initializes the privacy policy mobile top arrow.
+ */
+function initPrivacyMobileTopArrow() {
+    const arrow = document.querySelector(".privacy-mobile-top-arrow");
+    if (!arrow) return;
+    arrow.addEventListener("click", scrollPrivacyTrackToTop);
+}
+
+
+/**
+ * Scrolls the privacy policy flow to the top.
+ */
+function scrollPrivacyTrackToTop() {
+    const flow = document.getElementById("privacyPolicyFlow");
+    const track = document.getElementById("privacyPolicyTrack");
+    if (isMobileView()) return scrollPrivacyFlowToTop(flow);
+    if (!track) return;
+    track.scrollTo({ left: 0, behavior: "smooth" });
+}
+
+
+/**
+ * Scrolls the privacy policy flow vertically to the top on mobile.
+ * @param {HTMLElement|null} flow
+ */
+function scrollPrivacyFlowToTop(flow) {
+    if (!flow) return;
+    flow.scrollTo({ top: 0, behavior: "smooth" });
 }

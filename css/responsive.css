@@ -789,14 +789,16 @@
         padding-top: 12px;
     }
 
-    .legal-notice-flow {
+    .legal-notice-flow,
+    .privacy-policy-flow {
         height: 100vh;
         overflow-x: hidden;
         overflow-y: auto;
         font-size: 16px;
     }
 
-    .legal-notice-track {
+    .legal-notice-track,
+    .privacy-policy-track {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -804,49 +806,58 @@
         overflow: visible;
     }
 
-    .legal-notice-page {
+    .legal-notice-page,
+    .privacy-policy-page {
         width: 100%;
         height: auto;
         overflow: visible;
     }
 
-    .legal-notice-stage {
+    .legal-notice-stage,
+    .privacy-policy-stage {
         width: 100%;
         height: auto;
         padding: 20px 20px 0;
     }
 
-    .legal-notice-page-main {
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
         width: 100%;
         height: auto;
         padding: 0;
     }
 
-    .legal-notice-stage-split {
+    .legal-notice-stage-split,
+    .privacy-policy-stage-split {
         display: flex;
         flex-direction: column;
     }
 
-    .legal-notice-stage-split::after {
+    .legal-notice-stage-split::after,
+    .privacy-policy-stage-split::after {
         display: none;
     }
 
-    .legal-notice-title {
+    .legal-notice-title,
+    .privacy-policy-title {
         display: none;
     }
 
-    .legal-notice-title-mobile {
+    .legal-notice-title-mobile,
+    .privacy-policy-title-mobile {
         display: block;
     }
 
-    .legal-notice-mobile-back {
+    .legal-notice-mobile-back,
+    .privacy-policy-mobile-back {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         margin: 8px 0 30px 0;
     }
 
-    .legal-notice-mobile-back-icon {
+    .legal-notice-mobile-back-icon,
+    .privacy-policy-mobile-back-icon {
         width: 16px;
         height: 16px;
         display: block;
@@ -854,28 +865,40 @@
     }
 
     .legal-notice-content,
+    .privacy-policy-content,
     .legal-notice-column,
-    .legal-notice-right {
+    .privacy-policy-column,
+    .legal-notice-right,
+    .privacy-policy-right {
         width: 100%;
         max-width: 100%;
     }
 
-    .legal-notice-column {
+
+    .legal-notice-column,
+    .privacy-policy-column {
         margin-left: 0;
     }
 
-    .legal-notice-block+.legal-notice-block {
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
         margin-top: 12px;
     }
 
     .imprint-row,
     .legal-back-arrow,
+    .privacy-policy-back-arrow,
     .legal-notice-direct-links,
-    .legal-notice-footer-box {
+    .privacy-policy-direct-links,
+    .legal-notice-footer-box,
+    .privacy-policy-footer-box,
+    .privacy-policy-next-arrow {
         display: none;
     }
 
-    .legal-notice-side-content {
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
         position: static;
         top: auto;
         right: auto;
@@ -890,18 +913,8 @@
         text-align: center;
     }
 
-    .legal-notice-heading {
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .imprint-mobile {
-        font-weight: 700;
-        font-size: 24px;
-        margin: 20px 0 12px 0;
-    }
-
-    .legal-mobile-top-arrow {
+    .legal-mobile-top-arrow,
+    .privacy-mobile-top-arrow {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -909,7 +922,8 @@
         cursor: pointer;
     }
 
-    .legal-mobile-top-arrow-icon {
+    .legal-mobile-top-arrow-icon,
+    .privacy-mobile-top-arrow-icon {
         width: 42px;
         height: auto;
         display: block;
@@ -917,7 +931,8 @@
         transform: rotate(90deg);
     }
 
-    .legal-mobile-social {
+    .legal-mobile-social,
+    .privacy-mobile-social {
         order: 2;
         display: flex;
         align-items: center;
@@ -927,18 +942,21 @@
         margin-bottom: 24px;
     }
 
-    .legal-mobile-social-link {
+    .legal-mobile-social-link,
+    .privacy-mobile-social-link {
         width: 24px;
         height: 24px;
     }
 
-    .legal-mobile-social-link .social-ico {
+    .legal-mobile-social-link .social-ico,
+    .privacy-mobile-social-link .social-ico {
         width: 24px;
         height: 24px;
         background-color: rgba(255, 255, 255, 1);
     }
 
-    .legal-mobile-footer {
+    .legal-mobile-footer,
+    .privacy-mobile-footer {
         order: 3;
         display: flex;
         flex-direction: column;
@@ -950,14 +968,16 @@
         text-align: center;
     }
 
-    .legal-mobile-footer-logo {
+    .legal-mobile-footer-logo,
+    .privacy-mobile-footer-logo {
         width: 72px;
         height: 58px;
         display: inline-flex;
         color: rgb(74, 74, 74);
     }
 
-    .legal-mobile-footer-logo .logo-frame {
+    .legal-mobile-footer-logo .logo-frame,
+    .privacy-mobile-footer-logo .logo-frame {
         width: 72px;
         height: 58px;
         position: relative;
@@ -965,18 +985,39 @@
     }
 
     .legal-mobile-footer-copy,
-    .legal-mobile-footer-link {
+    .privacy-mobile-footer-copy,
+    .legal-mobile-footer-link,
+    .privacy-mobile-footer-link {
         margin: 0;
         color: rgb(74, 74, 74);
         font-size: 14px;
     }
 
-    .legal-mobile-footer-links {
+    .legal-mobile-footer-links,
+    .privacy-mobile-footer-links {
         display: flex;
         justify-content: center;
         gap: 18px;
         flex-wrap: wrap;
         padding-top: 12px;
+    }
+
+    .legal-notice-heading,
+    .privacy-policy-heading {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .imprint-mobile {
+        font-weight: 700;
+        font-size: 24px;
+        margin: 20px 0 12px 0;
+    }
+
+    .privacy-policy-title-mobile {
+        display: block;
+        font-size: 32px;
+        margin: 0 0 20px 0;
     }
 }
 

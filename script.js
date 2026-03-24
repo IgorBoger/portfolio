@@ -100,11 +100,17 @@ function getSidebarLogo() {
 }
 
 
+/**
+ * Scrolls the sections track one panel step to the right.
+ */
 function scrollOnePanelRight() {
     const track = getSectionsTrack();
     if (!track) return;
     const next = getNearestPanelIndex(track) + 1;
-    track.scrollTo({ left: next * track.clientWidth, behavior: "smooth" });
+    const panelWidth = getSectionPanelWidth(track);
+    const maxScroll = getTrackMaxScroll(track);
+    const nextLeft = Math.min(next * panelWidth, maxScroll);
+    track.scrollTo({ left: nextLeft, behavior: "smooth" });
 }
 
 
@@ -114,8 +120,8 @@ function scrollOnePanelRight() {
  * @returns {number}
  */
 function getNearestPanelIndex(track) {
-    const width = track.clientWidth || 1;
-    return Math.round(track.scrollLeft / width);
+    const panelWidth = getSectionPanelWidth(track);
+    return Math.round(track.scrollLeft / panelWidth);
 }
 
 
@@ -125,6 +131,27 @@ function getNearestPanelIndex(track) {
  */
 function getSectionsTrack() {
     return document.getElementById("sectionsTrack");
+}
+
+
+/**
+ * Returns the current section panel width.
+ * @param {HTMLElement} track
+ * @returns {number}
+ */
+function getSectionPanelWidth(track) {
+    const panel = track.querySelector(".section-panel");
+    return panel?.clientWidth || track.clientWidth || 1;
+}
+
+
+/**
+ * Returns the maximum horizontal scroll position.
+ * @param {HTMLElement} track
+ * @returns {number}
+ */
+function getTrackMaxScroll(track) {
+    return Math.max(0, track.scrollWidth - track.clientWidth);
 }
 
 
@@ -202,10 +229,14 @@ function isStaticFlowTarget(targetId) {
  * @param {Element} target
  */
 function scrollToTrackGrid(track, target) {
-    const width = track.clientWidth || 1;
-    const rawIndex = target.offsetLeft / width;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.id === "contact") {
+        return scrollTrackTo(track, getTrackMaxScroll(track));
+    }
+    const panelWidth = getSectionPanelWidth(track);
+    const rawIndex = target.offsetLeft / panelWidth;
     const index = Math.round(rawIndex);
-    track.scrollTo({ left: index * width, behavior: "smooth" });
+    scrollTrackTo(track, index * panelWidth);
 }
 
 
@@ -228,18 +259,18 @@ function getPanelIndex(panel) {
 function initSectionArrows() {
     const arrows = getSectionArrows();
     if (arrows.length === 0) return;
-    arrows.forEach(bindSectionArrow);
+    arrows.forEach((arrow) => bindSectionArrow(arrow));
 }
 
 
 /**
  * Returns all section arrow button elements.
- * @returns {NodeListOf<HTMLButtonElement>}
+ * @returns {HTMLButtonElement[]}
  */
 function getSectionArrows() {
-    return document.querySelectorAll(
+    return Array.from(document.querySelectorAll(
         ".hero-arrow, .whyme-arrow, .skills-arrow, .ongoing-arrow, .references-arrow"
-    );
+    ));
 }
 
 
@@ -248,7 +279,45 @@ function getSectionArrows() {
  * @param {HTMLButtonElement} arrow
  */
 function bindSectionArrow(arrow) {
-    arrow.addEventListener("click", scrollOnePanelRight);
+    arrow.addEventListener("click", () => handleSectionArrowClick(arrow));
+}
+
+
+/**
+ * Handles one section arrow click by arrow type.
+ * @param {HTMLButtonElement} arrow
+ */
+function handleSectionArrowClick(arrow) {
+    if (arrow.classList.contains("ongoing-arrow")) return scrollToReferences();
+    if (arrow.classList.contains("references-arrow")) return scrollToPanel("#contact");
+    scrollOnePanelRight();
+}
+
+
+/**
+ * Scrolls the main track to the references block inside My Work.
+ */
+function scrollToReferences() {
+    const track = getSectionsTrack();
+    const refs = document.querySelector(".references-container");
+    if (!track || !refs) return;
+    const left = getReferencesScrollLeft(track, refs);
+    scrollTrackTo(track, left);
+}
+
+
+/**
+ * Returns the aligned scroll position for the references block.
+ * @param {HTMLElement} track
+ * @param {HTMLElement} refs
+ * @returns {number}
+ */
+function getReferencesScrollLeft(track, refs) {
+    const trackRect = track.getBoundingClientRect();
+    const refsRect = refs.getBoundingClientRect();
+    const maxScroll = getTrackMaxScroll(track);
+    const left = track.scrollLeft + refsRect.left - trackRect.left;
+    return Math.max(0, Math.min(left, maxScroll));
 }
 
 

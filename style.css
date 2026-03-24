@@ -487,7 +487,7 @@ body::before {
 
 
 .hero-arrow {
-    top: 40%;
+    top: 340px;
 }
 
 
@@ -505,7 +505,7 @@ body::before {
 
 
 .section-panel {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 150px);
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -633,7 +633,7 @@ body::before {
 
 .section-arrow {
     position: absolute;
-    right: 80px;
+    right: 20px;
     background: transparent;
     border: none;
     border: 0;
@@ -644,7 +644,7 @@ body::before {
 
 
 .whyme-arrow {
-    bottom: 80px;
+    bottom: 140px;
 }
 
 
@@ -761,7 +761,7 @@ body::before {
 
 
 .skills-arrow {
-    top: 40%;
+    top: 350px;
 }
 
 
@@ -1038,7 +1038,7 @@ body::before {
     width: 45vw;
     height: calc(100% - 164px);
     position: relative;
-    padding-left: 92px;
+    padding-left: 150px;
     display: flex;
     align-items: flex-end;
     margin-top: auto;
@@ -1052,6 +1052,7 @@ body::before {
     width: 60px;
     height: 286px;
     object-fit: contain;
+    margin-left: 44px;
 }
 
 
@@ -1109,7 +1110,7 @@ body::before {
 
 
 .references-arrow {
-    top: 30%;
+    top: 55px;
 }
 
 .contact-section {
@@ -1307,8 +1308,6 @@ body::before {
 
 .contact-submit-btn {
     align-self: flex-end;
-    /* min-width: 84px; */
-    /* height: 40px; */
     padding: 12px 24px;
     border: 0;
     border-radius: 999px;

@@ -12,6 +12,8 @@ function init() {
     initTrackBackground();
     initDragScroll();
     initDragScrollResize();
+    initActiveSectionTracking();
+    initFadeInOnScroll();
     initProjectCards();
     initReferenceSlider();
     initContactForm();
@@ -152,6 +154,108 @@ function getSectionPanelWidth(track) {
  */
 function getTrackMaxScroll(track) {
     return Math.max(0, track.scrollWidth - track.clientWidth);
+}
+
+
+/**
+ * Initializes active sidebar tracking.
+ */
+function initActiveSectionTracking() {
+    const track = getSectionsTrack();
+    if (!track) return;
+    updateActiveSection();
+    track.addEventListener("scroll", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
+}
+
+
+/**
+ * Updates the active sidebar button based on scroll position.
+ */
+function updateActiveSection() {
+    const track = getSectionsTrack();
+    const buttons = getSidebarButtons();
+    if (!track || buttons.length === 0 || isMobileView()) return clearActiveSidebarButtons(buttons);
+    if (track.scrollLeft < 50) return clearActiveSidebarButtons(buttons);
+    const activeTarget = getActiveSidebarTarget(track, buttons);
+    setActiveSidebarButton(buttons, activeTarget);
+}
+
+
+/**
+ * Returns all sidebar buttons.
+ * @returns {HTMLButtonElement[]}
+ */
+function getSidebarButtons() {
+    return Array.from(document.querySelectorAll(".sidebar-btn"));
+}
+
+
+/**
+ * Clears the active state from all sidebar buttons.
+ * @param {HTMLButtonElement[]} buttons
+ */
+function clearActiveSidebarButtons(buttons) {
+    buttons.forEach((button) => button.classList.remove("is-active"));
+}
+
+
+/**
+ * Returns the active sidebar target id.
+ * @param {HTMLElement} track
+ * @param {HTMLButtonElement[]} buttons
+ * @returns {string}
+ */
+function getActiveSidebarTarget(track, buttons) {
+    let activeTarget = "";
+    let minDistance = Number.POSITIVE_INFINITY;
+    buttons.forEach((button) => updateActiveTarget(track, button, minDistance, (target, distance) => {
+        activeTarget = target;
+        minDistance = distance;
+    }));
+    return activeTarget;
+}
+
+
+/**
+ * Updates the current closest sidebar target.
+ * @param {HTMLElement} track
+ * @param {HTMLButtonElement} button
+ * @param {number} minDistance
+ * @param {(target:string,distance:number) => void} setActive
+ */
+function updateActiveTarget(track, button, minDistance, setActive) {
+    const targetId = button.dataset.target;
+    const target = targetId ? document.querySelector(targetId) : null;
+    if (!targetId || !(target instanceof HTMLElement)) return;
+    const distance = Math.abs(track.scrollLeft - getSidebarTargetLeft(track, target));
+    if (distance < minDistance) setActive(targetId, distance);
+}
+
+
+/**
+ * Returns the aligned scroll position for one sidebar target.
+ * @param {HTMLElement} track
+ * @param {HTMLElement} target
+ * @returns {number}
+ */
+function getSidebarTargetLeft(track, target) {
+    if (target.id === "contact") return getTrackMaxScroll(track);
+    const panelWidth = getSectionPanelWidth(track);
+    const rawIndex = target.offsetLeft / panelWidth;
+    return Math.round(rawIndex) * panelWidth;
+}
+
+
+/**
+ * Sets the active sidebar button.
+ * @param {HTMLButtonElement[]} buttons
+ * @param {string} activeTarget
+ */
+function setActiveSidebarButton(buttons, activeTarget) {
+    buttons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.target === activeTarget);
+    });
 }
 
 
@@ -584,6 +688,45 @@ function markDragScrollInitialized(el) {
 function isDragStartAllowed(event) {
     const blocked = event.target.closest("button, a, input, textarea, select, label");
     return !blocked;
+}
+
+
+/**
+ * Initializes fade-in animation on scroll.
+ */
+function initFadeInOnScroll() {
+    const elements = document.querySelectorAll(".fade-in");
+    if (elements.length === 0) return;
+    const observer = createFadeInObserver();
+    elements.forEach((element) => observer.observe(element));
+}
+
+
+/**
+ * Creates the fade-in intersection observer.
+ * @returns {IntersectionObserver}
+ */
+function createFadeInObserver() {
+    return new IntersectionObserver(handleFadeInEntries, { threshold: 0.2 });
+}
+
+
+/**
+ * Handles fade-in observer entries.
+ * @param {IntersectionObserverEntry[]} entries
+ */
+function handleFadeInEntries(entries) {
+    entries.forEach((entry) => toggleFadeInVisibility(entry));
+}
+
+
+/**
+ * Toggles one fade-in element visibility.
+ * @param {IntersectionObserverEntry} entry
+ */
+function toggleFadeInVisibility(entry) {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
 }
 
 

@@ -24,6 +24,11 @@
         align-items: center;
         position: fixed;
         right: auto;
+        transform: translateY(-100%);
+    }
+
+    .sidebar.is-visible {
+        transform: translateY(0);
     }
 
     .sidebar-inner {

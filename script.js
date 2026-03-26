@@ -14,6 +14,7 @@ function init() {
     initDragScrollResize();
     initActiveSectionTracking();
     initFadeInOnScroll();
+    initSidebarReveal();
     initProjectCards();
     initReferenceSlider();
     initContactForm();
@@ -728,6 +729,25 @@ function handleFadeInEntries(entries) {
  */
 function toggleFadeInVisibility(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
+}
+
+
+/**
+ * Initializes the sidebar intro animation.
+ */
+function initSidebarReveal() {
+    const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return;
+    requestAnimationFrame(() => showSidebar(sidebar));
+}
+
+
+/**
+ * Shows the sidebar with its intro state.
+ * @param {HTMLElement} sidebar
+ */
+function showSidebar(sidebar) {
+    sidebar.classList.add("is-visible");
 }
 
 

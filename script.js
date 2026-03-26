@@ -695,7 +695,9 @@ function isDragStartAllowed(event) {
  * Initializes fade-in animation on scroll.
  */
 function initFadeInOnScroll() {
-    const elements = document.querySelectorAll(".fade-in");
+    const elements = document.querySelectorAll(
+        ".fade-in, .contact-section, .contact-mobile-reveal"
+    );
     if (elements.length === 0) return;
     const observer = createFadeInObserver();
     elements.forEach((element) => observer.observe(element));
@@ -725,8 +727,7 @@ function handleFadeInEntries(entries) {
  * @param {IntersectionObserverEntry} entry
  */
 function toggleFadeInVisibility(entry) {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("is-visible");
+    entry.target.classList.toggle("is-visible", entry.isIntersecting);
 }
 
 

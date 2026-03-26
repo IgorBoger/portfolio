@@ -101,10 +101,10 @@
 
         <div class="sections-track drag-scroll" id="sectionsTrack" aria-label="Sections">
 
-            <section class="section-panel hero-panel" id="top" aria-label="Hero section">
+            <section class="section-panel hero-panel fade-in" id="top" aria-label="Hero section">
                 <div class="hero-inner">
 
-                    <div class="hero-content fade-in">
+                    <div class="hero-content">
                         <h2 class="front-dev-mobile">FRONTEND DEVELOPER</h2>
                         <h1 class="hero-title">Igor Boger</h1>
                         <img src="img/front-dev.png" alt="Frontend Developer">
@@ -471,8 +471,7 @@
                                 achieving great results.
                             </p>
 
-                            <button class="ongoing-btn project-btn btn-primary contact-trigger-btn"
-                                type="button">
+                            <button class="ongoing-btn project-btn btn-primary contact-trigger-btn" type="button">
                                 Let's talk
                             </button>
                         </div>
@@ -615,13 +614,16 @@
                         </div>
                     </div>
 
-                    <a class="contact-arrow-link contact-arrow-link-right" href="#top"
+                    <!-- <a class="contact-arrow-link contact-arrow-link-right" href="#top"
+                        aria-label="Back to hero section"> -->
+                    <a class="contact-arrow-link contact-arrow-link-right contact-mobile-reveal" href="#top"
                         aria-label="Back to hero section">
                         <img class="contact-arrow-icon contact-arrow-icon-back"
                             src="img/contact-me/switch-arrow-to-hero.png" alt="">
                     </a>
 
-                    <nav class="contact-social" aria-label="Contact social links">
+                    <!-- <nav class="contact-social" aria-label="Contact social links"> -->
+                    <nav class="contact-social contact-mobile-reveal" aria-label="Contact social links">
                         <a class="contact-social-link" href="https://github.com/IgorBoger" target="_blank"
                             rel="noopener noreferrer" aria-label="GitHub (öffnet in neuem Tab)">
                             <span class="social-ico ico-github" aria-hidden="true"></span>
@@ -638,7 +640,8 @@
                         </a>
                     </nav>
 
-                    <div class="contact-mobile-footer">
+                    <!-- <div class="contact-mobile-footer"> -->
+                    <div class="contact-mobile-footer contact-mobile-reveal">
                         <a class="contact-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
                             <span class="logo-frame" aria-hidden="true">
                                 <svg class="logo-arc" viewBox="0 0 130 100">
@@ -663,7 +666,8 @@
                             <a class="contact-mobile-footer-link" href="#legalNotice" data-target="#legalNotice">Legal
                                 notice</a>
                             <a class="contact-mobile-footer-link" href="#privacyPolicy"
-                                data-target="#privacyPolicy">Privacy policy</a>
+                                data-target="#privacyPolicy">Privacy
+                                policy</a>
                         </div>
                     </div>
 

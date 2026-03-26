@@ -982,13 +982,19 @@ body::before {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    transform: translateY(24px) scale(0.985);
+    filter: blur(6px);
+    transition:
+        opacity 420ms ease-out,
+        transform 420ms ease-out,
+        filter 420ms ease-out;
+    will-change: opacity, transform, filter;
 }
 
 .fade-in.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
 
@@ -1152,6 +1158,16 @@ body::before {
     width: 100px;
     height: 100%;
     background: var(--accent);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 420ms ease-out, transform 420ms ease-out;
+    will-change: opacity, transform;
+}
+
+
+.contact-section.is-visible::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 

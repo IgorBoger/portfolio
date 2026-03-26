@@ -262,15 +262,6 @@
         grid-column: auto;
         flex-direction: column;
         align-items: center;
-        width: auto;
-        justify-self: center;
-    }
-
-    .skills-challenge {
-        display: flex;
-        grid-column: auto;
-        flex-direction: column;
-        align-items: center;
         width: 100%;
         justify-self: center;
     }
@@ -292,7 +283,6 @@
     .skills-talk-btn {
         display: block;
         margin: 36px auto 24px auto;
-        padding: 12px 50px;
     }
 
     .mywork-section {
@@ -788,6 +778,18 @@
         gap: 18px;
         flex-wrap: wrap;
         padding-top: 12px;
+    }
+
+    .contact-mobile-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 420ms ease-out, transform 420ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .contact-mobile-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .legal-notice-flow,

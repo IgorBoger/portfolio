@@ -9,7 +9,7 @@ function init() {
     initLogoNavigation();
     initMobileMenuNavigation();
     initContactArrowNavigation();
-    initTrackBackground();
+    initShellBackground();
     initDragScroll();
     initDragScrollResize();
     initActiveSectionTracking();
@@ -479,68 +479,100 @@ function initMobileMenuNavigation() {
 
 
 /**
- * Initializes fullscreen background syncing to horizontal track scroll.
+ * Initializes shell background syncing.
  */
-function initTrackBackground() {
+function initShellBackground() {
     const track = getSectionsTrack();
-    if (!track) return;
-    applyTrackBackground(track);
-    track.addEventListener("scroll", () => requestAnimationFrame(() => applyTrackBackground(track)));
-    window.addEventListener("resize", () => applyTrackBackground(track));
+    const shell = getLayoutShell();
+    if (!track || !shell) return;
+    bindShellBackgroundEvents(track, shell);
+    queueShellBackgroundSync(track, shell);
 }
 
 
 /**
- * Applies CSS variables for background-size and background-position based on track scroll.
+ * Returns the layout shell element.
+ * @returns {HTMLElement|null}
+ */
+function getLayoutShell() {
+    return document.getElementById("layoutShell");
+}
+
+
+/**
+ * Binds shell background events.
  * @param {HTMLElement} track
+ * @param {HTMLElement} shell
  */
-function applyTrackBackground(track) {
-    if (isMobileView()) return resetTrackBackground();
-    const gutters = getTrackGutters(track);
-    const bgWidth = track.scrollWidth + gutters.left + gutters.right;
-    const bgX = -track.scrollLeft + gutters.left;
-    setTrackBackgroundSize(`${bgWidth}px 100%`);
-    setTrackBackgroundX(`${bgX}px`);
+function bindShellBackgroundEvents(track, shell) {
+    track.addEventListener("scroll", () => queueShellBackgroundSync(track, shell));
+    window.addEventListener("resize", () => queueShellBackgroundSync(track, shell));
 }
 
 
 /**
- * Resets the background variables (mobile behavior).
+ * Queues one shell background sync.
+ * @param {HTMLElement} track
+ * @param {HTMLElement} shell
  */
-function resetTrackBackground() {
-    setTrackBackgroundSize("100% 100%");
-    setTrackBackgroundX("0px");
+function queueShellBackgroundSync(track, shell) {
+    requestAnimationFrame(() => applyShellBackground(track, shell));
 }
 
 
 /**
- * Sets the background-size variable on body.
+ * Applies shell background values.
+ * @param {HTMLElement} track
+ * @param {HTMLElement} shell
+ */
+function applyShellBackground(track, shell) {
+    if (isMobileView()) return resetShellBackground(shell);
+    const bgWidth = `${getShellBackgroundRenderWidth(track)}px 100%`;
+    const bgX = `${-track.scrollLeft}px`;
+    setShellBackgroundSize(shell, bgWidth);
+    setShellBackgroundX(shell, bgX);
+    shell.classList.add("has-shell-bg");
+}
+
+
+/**
+ * Returns the shell background width.
+ * @param {HTMLElement} track
+ * @returns {number}
+ */
+function getShellBackgroundRenderWidth(track) {
+    return track.scrollWidth + track.offsetLeft;
+}
+
+
+/**
+ * Resets shell background values.
+ * @param {HTMLElement} shell
+ */
+function resetShellBackground(shell) {
+    shell.style.removeProperty("--shell-bg-size");
+    shell.style.removeProperty("--shell-bg-x");
+    shell.classList.remove("has-shell-bg");
+}
+
+
+/**
+ * Sets shell background size.
+ * @param {HTMLElement} shell
  * @param {string} size
  */
-function setTrackBackgroundSize(size) {
-    document.body.style.setProperty("--track-bg-size", size);
+function setShellBackgroundSize(shell, size) {
+    shell.style.setProperty("--shell-bg-size", size);
 }
 
 
 /**
- * Sets the background-position-x variable on body.
+ * Sets shell background position x.
+ * @param {HTMLElement} shell
  * @param {string} x
  */
-function setTrackBackgroundX(x) {
-    document.body.style.setProperty("--track-bg-x", x);
-}
-
-
-/**
- * Returns left/right gutter widths between track and viewport edges.
- * @param {HTMLElement} track
- * @returns {{left:number,right:number}}
- */
-function getTrackGutters(track) {
-    const rect = track.getBoundingClientRect();
-    const left = Math.max(0, rect.left);
-    const right = Math.max(0, window.innerWidth - rect.right);
-    return { left, right };
+function setShellBackgroundX(shell, x) {
+    shell.style.setProperty("--shell-bg-x", x);
 }
 
 

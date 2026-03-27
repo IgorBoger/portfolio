@@ -17,18 +17,23 @@
 
 
 :root {
-    --whyme-bg: linear-gradient(250deg,
-            rgb(30, 30, 30) 0%,
-            rgb(32, 32, 32) 12.5%,
-            rgb(33, 33, 33) 25%,
-            rgb(35, 35, 35) 37.5%,
-            rgb(40, 40, 40) 50%,
-            rgb(42, 42, 42) 62.5%,
-            rgb(35, 35, 35) 75%,
-            rgb(34, 34, 34) 85.5%,
-            rgb(25, 25, 25) 96%);
-
-    --bg: #0b0f14;
+    --page-black: rgb(0, 0, 0);
+    --shell-bg-gradient: linear-gradient(75deg,
+            rgb(0, 0, 0) 0%,
+            rgb(6, 6, 6) 5%,
+            rgb(15, 15, 15) 10%,
+            rgb(25, 25, 25) 15%,
+            rgb(43, 43, 43) 20%,
+            rgb(25, 25, 25) 30%,
+            rgb(21, 21, 21) 38%,
+            rgb(28, 28, 28) 46%,
+            rgb(43, 43, 43) 54%,
+            rgb(28, 28, 28) 62%,
+            rgb(21, 21, 21) 70%,
+            rgb(18, 18, 18) 78%,
+            rgb(14, 14, 14) 86%,
+            rgb(10, 10, 10) 94%,
+            rgb(0, 0, 0) 100%);
     --accent: rgb(181, 233, 59);
     --content-max: 1440px;
     --side: 172px;
@@ -44,7 +49,7 @@
 
 html {
     scroll-behavior: smooth;
-    background: var(--bg);
+    background: var(--page-black);
 }
 
 
@@ -58,34 +63,31 @@ body {
 }
 
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background: var(--whyme-bg);
-    background-repeat: no-repeat;
-    background-size: var(--track-bg-size, 100% 100%);
-    background-position: var(--track-bg-x, 0px) 0;
+.layout-shell {
+    position: relative;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent;
+    overflow: hidden;
+    z-index: 1;
 }
 
 
-.layout-shell {
-    position: relative;
-    width: 100%;
-    max-width: var(--content-max);
-    height: 100vh;
-    margin-left: 0;
-    margin-right: auto;
-    background: transparent;
-    overflow: hidden;
-    z-index: 1;
+.layout-shell.has-shell-bg {
+    background-image: var(--shell-bg-gradient);
+    background-repeat: no-repeat;
+    background-size: var(--shell-bg-size);
+    background-position: var(--shell-bg-x) 0;
 }
 
 
 .d-none {
     display: none !important;
 }
+
 
 .d-flex {
     display: flex !important;

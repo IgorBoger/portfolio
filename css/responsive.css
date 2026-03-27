@@ -129,7 +129,7 @@
         display: flex;
     }
 
-    .hero-content img,
+    .frontend-developer,
     .section-arrow-img {
         display: none;
     }
@@ -788,7 +788,7 @@
     .contact-mobile-reveal {
         opacity: 0;
         transform: translateY(28px);
-        transition: opacity 420ms ease-out, transform 420ms ease-out;
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
         will-change: opacity, transform;
     }
 
@@ -1046,7 +1046,7 @@
         font-size: 54px;
     }
 
-    .hero-content img {
+    .frontend-developer {
         width: min(320px, 85vw);
     }
 

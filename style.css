@@ -105,7 +105,7 @@ body {
     z-index: 50;
     opacity: 0;
     transform: translateX(-100%);
-    transition: opacity 420ms ease-out, transform 420ms ease-out;
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
     will-change: opacity, transform;
 }
 
@@ -317,6 +317,18 @@ body {
     z-index: 60;
     background: transparent;
     padding-left: var(--side);
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
+}
+
+
+.header.is-visible,
+.fade-in.is-visible,
+.contact-mobile-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -468,13 +480,31 @@ body {
     font-size: 100px;
     color: var(--accent);
     margin: 0;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
 }
 
 
-.hero-content img {
+.hero-title.is-visible,
+.frontend-developer.is-visible,
+.hero-arrow-img.is-visible,
+.contact-section.is-visible::after,
+.sidebar.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.frontend-developer {
     width: 455px;
     height: auto;
     display: block;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
 }
 
 
@@ -495,11 +525,29 @@ body {
     max-height: 80vh;
     object-fit: contain;
     display: block;
+    opacity: 0;
+    transform: scale(1.08);
+    transition: opacity 700ms ease-out, transform 900ms ease-out;
+    will-change: opacity, transform;
+}
+
+
+.hero-image.is-visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 
 .hero-arrow {
     top: 340px;
+}
+
+
+.hero-arrow-img {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
 }
 
 
@@ -991,14 +1039,13 @@ body {
     transform: translateY(24px) scale(0.985);
     filter: blur(6px);
     transition:
-        opacity 420ms ease-out,
-        transform 420ms ease-out,
-        filter 420ms ease-out;
+        opacity 700ms ease-out,
+        transform 700ms ease-out,
+        filter 700ms ease-out;
     will-change: opacity, transform, filter;
 }
 
 .fade-in.is-visible {
-    opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
 }
@@ -1166,15 +1213,8 @@ body {
     background: var(--accent);
     opacity: 0;
     transform: translateX(100%);
-    transition: opacity 420ms ease-out, transform 420ms ease-out;
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
     will-change: opacity, transform;
-}
-
-
-.contact-section.is-visible::after,
-.sidebar.is-visible {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 

@@ -486,15 +486,6 @@ body {
 }
 
 
-.front-dev-mobile {
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 24px;
-    margin: 0;
-    color: var(--accent);
-    display: none;
-}
-
-
 .hero-title {
     font-family: "Quantico";
     font-size: 100px;
@@ -518,9 +509,13 @@ body {
 
 
 .frontend-developer {
-    width: 455px;
-    height: auto;
-    display: block;
+    margin: 0;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent);
     opacity: 0;
     transform: translateX(40px);
     transition: opacity 700ms ease-out, transform 700ms ease-out;
@@ -607,18 +602,10 @@ body {
 }
 
 
-.whyme-title {
-    position: absolute;
-    left: 80px;
-    top: -12px;
-    height: 216px;
-    width: 64px;
-    object-fit: cover;
-}
-
-
+.frontend-developer-mobile,
 .whyme-title-mobile,
 .skills-title-mobile,
+.skills-talk-btn,
 .mywork-title-mobile,
 .references-mobile-copy,
 .references-mobile-controls,
@@ -629,6 +616,7 @@ body {
 .contact-social,
 .contact-mobile-footer,
 .legal-notice-track::-webkit-scrollbar,
+.privacy-policy-track::-webkit-scrollbar,
 .legal-notice-mobile-back,
 .legal-mobile-top-arrow,
 .legal-mobile-social,
@@ -754,13 +742,6 @@ body {
 }
 
 
-.skills-title {
-    position: absolute;
-    left: 80px;
-    object-fit: cover;
-}
-
-
 .skills-text {
     max-width: 860px;
     margin: 0 0 0 120px;
@@ -837,11 +818,6 @@ body {
 }
 
 
-.skills-talk-btn {
-    display: none;
-}
-
-
 .mywork-section {
     flex: 0 0 auto;
     width: max-content;
@@ -863,16 +839,6 @@ body {
     height: calc(100% - 164px);
     gap: 36px;
     width: max-content;
-}
-
-
-.mywork-title {
-    width: 52px;
-    position: absolute;
-    left: 80px;
-    top: -10px;
-    height: 240px;
-    object-fit: contain;
 }
 
 
@@ -1141,17 +1107,6 @@ body {
 }
 
 
-.references-title {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 60px;
-    height: 286px;
-    object-fit: contain;
-    margin-left: 44px;
-}
-
-
 .references-grid {
     width: 480px;
     max-width: 480px;
@@ -1259,13 +1214,6 @@ body {
     align-items: flex-start;
     justify-content: center;
     padding-top: 2px;
-}
-
-
-.contact-title {
-    width: 54px;
-    height: 274px;
-    object-fit: contain;
 }
 
 
@@ -1609,12 +1557,6 @@ body {
 }
 
 
-.legal-notice-track::-webkit-scrollbar,
-.privacy-policy-track::-webkit-scrollbar {
-    display: none;
-}
-
-
 .legal-notice-page,
 .privacy-policy-page {
     flex: 0 0 100%;
@@ -1632,16 +1574,6 @@ body {
     width: 100%;
     height: 100%;
     padding: 136px 0 80px 80px;
-}
-
-
-.legal-notice-title {
-    position: absolute;
-    left: 80px;
-    top: 136px;
-    width: 64px;
-    height: 286px;
-    object-fit: contain;
 }
 
 
@@ -1863,21 +1795,22 @@ body {
 }
 
 
+.whyme-title,
+.skills-title,
+.mywork-title,
+.contact-title,
+.references-title,
 .privacy-policy-title,
-.privacy-policy-title-mobile {
+.legal-notice-title {
     margin: 0;
     font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-weight: 400;
     font-size: 54px;
+    line-height: 120%;
     color: transparent;
-    -webkit-text-stroke: 1px var(--accent);
-}
-
-
-.privacy-policy-title {
+    -webkit-text-stroke: 2px var(--accent);
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
     position: absolute;
     left: 80px;
-    top: 136px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
 }

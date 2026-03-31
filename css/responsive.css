@@ -12,10 +12,6 @@
         overflow-x: hidden;
     }
 
-    .header {
-        display: none;
-    }
-
     .sidebar {
         width: 100%;
         height: 73px;
@@ -45,10 +41,6 @@
         position: static;
         transform: none;
         height: 56px;
-    }
-
-    .sidebar-nav {
-        display: none;
     }
 
     .sidebar-burger {
@@ -122,16 +114,15 @@
         align-items: flex-start;
     }
 
-    .front-dev-mobile,
-    .whyme-title-mobile,
-    .skills-title-mobile,
-    .mywork-title-mobile {
+    .frontend-developer-mobile {
+        margin: 0;
+        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: var(--accent);
         display: flex;
-    }
-
-    .frontend-developer,
-    .section-arrow-img {
-        display: none;
+        text-transform: uppercase;
     }
 
     .hero-image-wrapper {
@@ -149,17 +140,9 @@
         width: auto;
     }
 
-    .hero-arrow {
-        display: none;
-    }
-
     .whyme-stage {
         margin-top: 0;
         padding: 5% 0 0 0;
-    }
-
-    .whyme-title {
-        display: none;
     }
 
     .whyme-text,
@@ -196,10 +179,6 @@
         height: 46.99px;
     }
 
-    .relocate-mobile {
-        display: none;
-    }
-
     .whyme-contact-btn {
         position: static;
         display: block;
@@ -226,9 +205,41 @@
         text-align: left;
     }
 
+    .header,
+    .sidebar-nav,
     .skills-title,
     .mywork-title,
-    .whyme-title {
+    .whyme-title,
+    .contact-title,
+    .references-title,
+    .legal-notice-title,
+    .privacy-policy-title,
+    .frontend-developer,
+    .section-arrow-img,
+    .relocate-mobile,
+    .hero-arrow,
+    .skill-label,
+    .ongoing-btn,
+    .ongoing-arrow,
+    .references-grid::-webkit-scrollbar,
+    .references-mobile-controls::-webkit-scrollbar,
+    .references-arrow,
+    .contact-section::after,
+    .contact-footer-box,
+    .legal-notice-stage-split::after,
+    .privacy-policy-stage-split::after,
+    .imprint-row,
+    .legal-back-arrow,
+    .privacy-policy-back-arrow,
+    .legal-notice-direct-links,
+    .privacy-policy-direct-links,
+    .legal-notice-footer-box,
+    .privacy-policy-footer-box,
+    .privacy-policy-next-arrow,
+    .project-container[data-project-expanded="false"] .project-learned,
+    .project-container[data-project-expanded="false"] .project-preview,
+    .project-container[data-project-expanded="false"] .project-block:last-child,
+    .project-container[data-project-expanded="true"]>.project-card-toggle {
         display: none;
     }
 
@@ -252,10 +263,6 @@
     .skills-challenge-icon {
         width: 45px;
         height: 45px;
-    }
-
-    .skill-label {
-        display: none;
     }
 
     .skills-challenge-wrap {
@@ -307,12 +314,6 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-    }
-
-    .mywork-title-mobile {
-        display: block;
-        width: 124px;
-        height: auto;
     }
 
     .project-container,
@@ -446,16 +447,6 @@
         margin-top: -6px;
     }
 
-    .project-container[data-project-expanded="false"] .project-learned,
-    .project-container[data-project-expanded="false"] .project-preview,
-    .project-container[data-project-expanded="false"] .project-block:last-child {
-        display: none;
-    }
-
-    .project-container[data-project-expanded="true"]>.project-card-toggle {
-        display: none;
-    }
-
     .project-container[data-project-expanded="true"]+.project-card-toggle {
         display: inline-flex;
     }
@@ -475,11 +466,6 @@
         line-height: 130%;
     }
 
-    .ongoing-btn,
-    .ongoing-arrow {
-        display: none;
-    }
-
     .references-container {
         height: auto;
         padding: 12px 0 0;
@@ -489,10 +475,6 @@
         gap: 16px;
         overflow: hidden;
         scroll-snap-type: x mandatory;
-    }
-
-    .references-title {
-        display: none;
     }
 
     .references-mobile-copy {
@@ -529,10 +511,6 @@
         scroll-snap-type: none;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-    }
-
-    .references-grid::-webkit-scrollbar {
-        display: none;
     }
 
     .reference-card {
@@ -582,10 +560,6 @@
         scrollbar-width: none;
     }
 
-    .references-mobile-controls::-webkit-scrollbar {
-        display: none;
-    }
-
     .reference-control-btn {
         flex: 0 0 18px;
         width: 18px;
@@ -606,19 +580,11 @@
         transform: scaleX(1);
     }
 
-    .references-arrow {
-        display: none;
-    }
-
     .contact-section {
         min-height: 100vh;
         height: 100vh;
         overflow-x: hidden;
         overflow-y: auto;
-    }
-
-    .contact-section::after {
-        display: none;
     }
 
     .contact-stage {
@@ -634,13 +600,24 @@
         padding-top: 0;
     }
 
-    .contact-title {
-        display: none;
-    }
-
     .contact-title-mobile {
         display: block;
-        color: var(--accent);
+    }
+
+    .whyme-title-mobile,
+    .skills-title-mobile,
+    .mywork-title-mobile,
+    .contact-title-mobile,
+    .privacy-policy-title-mobile,
+    .legal-notice-title-mobile {
+        margin: 0;
+        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 120%;
+        color: transparent;
+        -webkit-text-stroke: 0.3px var(--accent);
+        display: block;
     }
 
     .contact-copy {
@@ -742,10 +719,6 @@
         background-color: rgba(255, 255, 255, 1);
     }
 
-    .contact-footer-box {
-        display: none;
-    }
-
     .contact-mobile-footer {
         order: 5;
         display: flex;
@@ -841,21 +814,6 @@
         flex-direction: column;
     }
 
-    .legal-notice-stage-split::after,
-    .privacy-policy-stage-split::after {
-        display: none;
-    }
-
-    .legal-notice-title,
-    .privacy-policy-title {
-        display: none;
-    }
-
-    .legal-notice-title-mobile,
-    .privacy-policy-title-mobile {
-        display: block;
-    }
-
     .legal-notice-mobile-back,
     .privacy-policy-mobile-back {
         display: inline-flex;
@@ -892,17 +850,6 @@
     .legal-notice-block+.legal-notice-block,
     .privacy-policy-block+.privacy-policy-block {
         margin-top: 12px;
-    }
-
-    .imprint-row,
-    .legal-back-arrow,
-    .privacy-policy-back-arrow,
-    .legal-notice-direct-links,
-    .privacy-policy-direct-links,
-    .legal-notice-footer-box,
-    .privacy-policy-footer-box,
-    .privacy-policy-next-arrow {
-        display: none;
     }
 
     .legal-notice-side-content,
@@ -1023,8 +970,6 @@
     }
 
     .privacy-policy-title-mobile {
-        display: block;
-        font-size: 32px;
         margin: 0 0 20px 0;
     }
 }

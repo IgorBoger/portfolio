@@ -5,6 +5,7 @@ function init() {
     initMobileMenu();
     initHeroArrow();
     initSectionArrows();
+    initSectionArrowAlignment();
     initSidebarNavigation();
     initLogoNavigation();
     initMobileMenuNavigation();
@@ -425,6 +426,127 @@ function getReferencesScrollLeft(track, refs) {
     const maxScroll = getTrackMaxScroll(track);
     const left = track.scrollLeft + refsRect.left - trackRect.left;
     return Math.max(0, Math.min(left, maxScroll));
+}
+
+
+/**
+ * Initializes dynamic desktop arrow alignment.
+ */
+function initSectionArrowAlignment() {
+    updateSectionArrowAlignment();
+    queueSectionArrowAlignment();
+    window.addEventListener("resize", queueSectionArrowAlignment);
+    window.addEventListener("load", queueSectionArrowAlignment);
+    document.fonts?.ready.then(queueSectionArrowAlignment);
+}
+
+
+/**
+ * Queues repeated arrow alignment after layout updates.
+ */
+function queueSectionArrowAlignment() {
+    requestAnimationFrame(() => {
+        updateSectionArrowAlignment();
+        requestAnimationFrame(updateSectionArrowAlignment);
+    });
+}
+
+
+/**
+ * Updates all desktop section arrow positions.
+ */
+function updateSectionArrowAlignment() {
+    if (isMobileView()) return resetSectionArrowAlignment();
+    getDynamicSectionArrows().forEach(updateSingleSectionArrow);
+}
+
+
+/**
+ * Returns all dynamically aligned section arrows.
+ * @returns {HTMLButtonElement[]}
+ */
+function getDynamicSectionArrows() {
+    return Array.from(document.querySelectorAll(".section-arrow[data-arrow-target]"));
+}
+
+
+/**
+ * Updates one arrow against its target title.
+ * @param {HTMLButtonElement} arrow
+ */
+function updateSingleSectionArrow(arrow) {
+    const target = getArrowTarget(arrow);
+    const container = getArrowContainer(arrow);
+    if (!target || !container) return;
+    setArrowTop(arrow, getArrowTopOffset(container, target, arrow));
+}
+
+
+/**
+ * Returns the target element for one arrow.
+ * @param {HTMLButtonElement} arrow
+ * @returns {HTMLElement|null}
+ */
+function getArrowTarget(arrow) {
+    const selector = arrow.dataset.arrowTarget;
+    const target = selector ? document.querySelector(selector) : null;
+    return target instanceof HTMLElement ? target : null;
+}
+
+
+/**
+ * Returns the positioning container for one arrow.
+ * @param {HTMLButtonElement} arrow
+ * @returns {HTMLElement|null}
+ */
+function getArrowContainer(arrow) {
+    const parent = arrow.offsetParent;
+    return parent instanceof HTMLElement ? parent : arrow.parentElement;
+}
+
+
+/**
+ * Returns the computed top offset for one arrow.
+ * @param {HTMLElement} container
+ * @param {HTMLElement} target
+ * @param {HTMLButtonElement} arrow
+ * @returns {number}
+ */
+function getArrowTopOffset(container, target, arrow) {
+    const containerRect = container.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const arrowHeight = arrow.offsetHeight || 0;
+    const top = targetRect.top - containerRect.top + targetRect.height - arrowHeight;
+    return Math.max(0, Math.round(top));
+}
+
+
+/**
+ * Sets the top position for one arrow.
+ * @param {HTMLButtonElement} arrow
+ * @param {number} top
+ */
+function setArrowTop(arrow, top) {
+    arrow.style.top = `${top}px`;
+    arrow.style.bottom = "auto";
+}
+
+
+/**
+ * Resets desktop arrow alignment on mobile.
+ */
+function resetSectionArrowAlignment() {
+    getDynamicSectionArrows().forEach(resetSingleSectionArrow);
+}
+
+
+/**
+ * Resets one arrow inline position.
+ * @param {HTMLButtonElement} arrow
+ */
+function resetSingleSectionArrow(arrow) {
+    arrow.style.removeProperty("top");
+    arrow.style.removeProperty("bottom");
 }
 
 
@@ -890,6 +1012,7 @@ function handleFadeInEntries(entries) {
  */
 function toggleFadeInVisibility(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
+    queueSectionArrowAlignment();
 }
 
 

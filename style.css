@@ -553,11 +553,6 @@ body {
 }
 
 
-.hero-arrow {
-    top: 340px;
-}
-
-
 .hero-arrow-img {
     opacity: 0;
     transform: translateX(-40px);
@@ -702,11 +697,6 @@ body {
 }
 
 
-.whyme-arrow {
-    bottom: 140px;
-}
-
-
 .section-arrow:hover {
     transform: translateX(6px);
     opacity: 0.8;
@@ -810,11 +800,6 @@ body {
     width: 215px;
     font-size: 16px;
     line-height: 120%;
-}
-
-
-.skills-arrow {
-    top: 350px;
 }
 
 
@@ -1091,11 +1076,6 @@ body {
 }
 
 
-.ongoing-arrow {
-    bottom: 0;
-}
-
-
 .references-container {
     width: 45vw;
     height: calc(100% - 164px);
@@ -1159,10 +1139,6 @@ body {
     white-space: nowrap;
 }
 
-
-.references-arrow {
-    top: 55px;
-}
 
 .contact-section {
     flex: 0 0 100%;

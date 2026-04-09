@@ -140,6 +140,14 @@
         width: auto;
     }
 
+    .whyme-title-wrap {
+        position: static;
+    }
+
+    .whyme-title {
+        display: none;
+    }
+
     .whyme-stage {
         margin-top: 0;
         padding: 5% 0 0 0;

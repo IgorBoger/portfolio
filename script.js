@@ -9,12 +9,14 @@ function init() {
     initSidebarNavigation();
     initLogoNavigation();
     initMobileMenuNavigation();
+    initContactButton();
     initContactArrowNavigation();
     initShellBackground();
     initDragScroll();
     initDragScrollResize();
     initActiveSectionTracking();
     initFadeInOnScroll();
+    initWhymeTitleReveal();
     initHeaderReveal();
     initHeroTitle();
     initFrontendDeveloper();
@@ -279,6 +281,18 @@ function initHeroArrow() {
  */
 function getHeroArrow() {
     return document.querySelector(".hero-arrow");
+}
+
+
+function initContactButton() {
+    const buttons = document.querySelectorAll(".whyme-contact-btn");
+    if (buttons.length === 0) return;
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            scrollToPanel("#contact");
+        });
+    });
 }
 
 
@@ -1013,6 +1027,27 @@ function handleFadeInEntries(entries) {
 function toggleFadeInVisibility(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
     queueSectionArrowAlignment();
+}
+
+
+/**
+ * Initializes why-me title animation.
+ */
+function initWhymeTitleReveal() {
+    const title = getWhymeTitle();
+    if (!title) return;
+    requestAnimationFrame(() => {
+        title.classList.add("is-visible");
+    });
+}
+
+
+/**
+ * Returns the why-me title.
+ * @returns {HTMLHeadingElement|null}
+ */
+function getWhymeTitle() {
+    return document.querySelector(".whyme-title");
 }
 
 

@@ -41,32 +41,31 @@
                     <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
                 </nav>
 
-                <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü öffnen"
+                <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü umschalten"
                     aria-expanded="false">
-                    <img class="sidebar-burger-icon" src="img/burger-menu.png" alt="Menü">
+                    <span class="sidebar-burger-box" aria-hidden="true">
+                        <span class="sidebar-burger-line"></span>
+                        <span class="sidebar-burger-line"></span>
+                        <span class="sidebar-burger-line"></span>
+                    </span>
                 </button>
             </div>
-        </aside>
 
-        <div class="mobile-menu d-none" id="mobileMenu" aria-hidden="true">
-            <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Menü schließen">
-                <img src="img/close-burger-menu.png" alt="">
-            </button>
+            <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+                <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
+                    <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
+                    <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
+                    <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
+                    <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
+                </nav>
 
-            <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
-                <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
-                <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
-                <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
-                <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
-            </nav>
-
-            <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
-                <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
-                <span class="lang-sep" aria-hidden="true">|</span>
-                <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+                <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
+                    <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+                    <span class="lang-sep" aria-hidden="true">|</span>
+                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+                </div>
             </div>
-        </div>
-
+        </aside>
 
         <header class="header" aria-label="Header">
             <div class="header-inner">

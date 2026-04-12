@@ -36,13 +36,23 @@ function init() {
 
 
 /**
-* Opens the mobile menu.
-* @param {HTMLElement} menu
-* @param {HTMLButtonElement} toggleBtn
-*/
+ * Returns the mobile sidebar element.
+ * @returns {HTMLElement|null}
+ */
+function getSidebar() {
+    return document.querySelector(".sidebar");
+}
+
+
+/**
+ * Opens the mobile menu.
+ * @param {HTMLElement} menu
+ * @param {HTMLButtonElement} toggleBtn
+ */
 function openMobileMenu(menu, toggleBtn) {
-    menu.classList.remove("d-none");
-    menu.classList.add("d-flex");
+    const sidebar = getSidebar();
+    if (!sidebar) return;
+    sidebar.classList.add("is-menu-open");
     menu.setAttribute("aria-hidden", "false");
     toggleBtn.setAttribute("aria-expanded", "true");
 }
@@ -51,11 +61,12 @@ function openMobileMenu(menu, toggleBtn) {
 /**
  * Closes the mobile menu.
  * @param {HTMLElement} menu
-* @param {HTMLButtonElement} toggleBtn
-*/
+ * @param {HTMLButtonElement} toggleBtn
+ */
 function closeMobileMenu(menu, toggleBtn) {
-    menu.classList.add("d-none");
-    menu.classList.remove("d-flex");
+    const sidebar = getSidebar();
+    if (!sidebar) return;
+    sidebar.classList.remove("is-menu-open");
     menu.setAttribute("aria-hidden", "true");
     toggleBtn.setAttribute("aria-expanded", "false");
 }
@@ -64,25 +75,27 @@ function closeMobileMenu(menu, toggleBtn) {
 /**
  * Toggles the mobile menu state.
  * @param {HTMLElement} menu
-* @param {HTMLButtonElement} toggleBtn
-*/
+ * @param {HTMLButtonElement} toggleBtn
+ */
 function toggleMobileMenu(menu, toggleBtn) {
-    const isHidden = menu.classList.contains("d-none");
-    if (isHidden) openMobileMenu(menu, toggleBtn);
-    else closeMobileMenu(menu, toggleBtn);
+    const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
+        closeMobileMenu(menu, toggleBtn);
+        return;
+    }
+
+    openMobileMenu(menu, toggleBtn);
 }
 
 
 /**
- * Initializes mobile menu event listeners..
+ * Initializes mobile menu event listeners.
  */
 function initMobileMenu() {
     const menu = document.getElementById("mobileMenu");
     const toggleBtn = document.getElementById("mobileMenuToggle");
-    const closeBtn = document.getElementById("mobileMenuClose");
-    if (!menu || !toggleBtn || !closeBtn) return;
+    if (!menu || !toggleBtn) return;
     toggleBtn.addEventListener("click", () => toggleMobileMenu(menu, toggleBtn));
-    closeBtn.addEventListener("click", () => closeMobileMenu(menu, toggleBtn));
 }
 
 

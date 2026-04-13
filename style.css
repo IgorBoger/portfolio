@@ -16,6 +16,15 @@
 }
 
 
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/poppins-v22-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     --page-black: rgb(0, 0, 0);
     --shell-bg-gradient: linear-gradient(75deg,
@@ -68,10 +77,14 @@ html {
 body {
     overflow-y: hidden;
     margin: 0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: transparent;
     width: 100%;
     position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
 }
 
 
@@ -127,8 +140,6 @@ body {
     transform: translateX(-100%);
     transition: opacity 700ms ease-out, transform 700ms ease-out;
     will-change: opacity, transform;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    line-height: 120%;
 }
 
 
@@ -175,8 +186,6 @@ body {
 
 
 .logo-arc-text {
-    font-size: 18px;
-    font-weight: 400;
     text-transform: lowercase;
     fill: rgb(74, 74, 74);
 }
@@ -389,10 +398,7 @@ body {
 
 
 .lang-sep {
-    font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: rgba(255, 253, 253, 1);
 }
 
@@ -446,8 +452,9 @@ body {
 
 
 .hero-title {
-    font-family: "Quantico";
     font-size: 100px;
+    font-weight: 700;
+    line-height: 120%;
     color: var(--accent);
     margin: 0;
     opacity: 0;
@@ -469,10 +476,9 @@ body {
 
 .frontend-developer {
     margin: 0;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-weight: 700;
-    font-size: 48px;
     line-height: 120%;
+    font-size: 48px;
     color: transparent;
     -webkit-text-stroke: 1px var(--accent);
     opacity: 0;
@@ -530,10 +536,9 @@ body {
 .whyme-title {
     margin: 0;
     display: block;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-weight: 400;
     font-size: 54px;
-    line-height: 1;
+    line-height: 120%;
     color: transparent;
     -webkit-text-stroke: 2px var(--accent);
     writing-mode: vertical-rl;
@@ -551,10 +556,9 @@ body {
 }
 
 
-.whyme-section {
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 18px;
-    color: rgba(255, 255, 255, 1);
+.whyme-section,
+.skills-section {
+    color: rgba(255, 253, 253, 1);
 }
 
 
@@ -608,7 +612,6 @@ body {
 
 .whyme-i-am {
     margin: 40px 0 0 100px;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-size: 48px;
     color: var(--accent);
 }
@@ -785,14 +788,6 @@ body {
 }
 
 
-.skills-section {
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 18px;
-    color: rgba(255, 255, 255, 1);
-    letter-spacing: 0.4px;
-}
-
-
 .skills-inner {
     position: relative;
     width: 100%;
@@ -810,8 +805,6 @@ body {
 .skills-text {
     max-width: 860px;
     margin: 0 0 0 120px;
-    color: rgba(255, 255, 255, 1);
-    line-height: 120%;
 }
 
 
@@ -853,7 +846,6 @@ body {
 .skill-label,
 .skill-challenge-label {
     text-align: center;
-    line-height: 120%;
 }
 
 
@@ -883,10 +875,7 @@ body {
     width: max-content;
     height: 100%;
     overflow: hidden;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 120%;
-    color: white;
+    color: rgba(255, 255, 255, 1);
 }
 
 
@@ -1011,9 +1000,7 @@ body {
     border: 1px solid var(--accent);
     color: var(--accent);
     padding: 13px 30px;
-    font-family: "Quantico", system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 120%;
     border-radius: 999px;
     transition: background-color 120ms ease-in-out;
@@ -1210,16 +1197,14 @@ body {
 }
 
 
-.contact-section {
+.contact-section,
+.legal-notice-flow,
+.privacy-policy-flow {
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    line-height: 120%;
-    font-size: 18px;
-    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1315,7 +1300,7 @@ body {
     padding: 6px 12px 0 22px;
     color: rgb(255, 106, 106);
     font-size: 12px;
-    line-height: 1.2;
+    line-height: 120;
 }
 
 
@@ -1403,7 +1388,7 @@ body {
 .contact-submit-btn {
     font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 120%;
     border-radius: 999px;
     border: 0;
@@ -1583,10 +1568,6 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 120%;
-    font-weight: 400;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1848,7 +1829,6 @@ body {
 .privacy-policy-title,
 .legal-notice-title {
     margin: 0;
-    font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-weight: 400;
     font-size: 54px;
     line-height: 120%;

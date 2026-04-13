@@ -213,7 +213,7 @@
     }
 
     .mobile-menu-lang {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         gap: 4px;
         padding-bottom: 12px;
@@ -221,12 +221,9 @@
 
     .mobile-menu .lang-btn,
     .mobile-menu .lang-sep {
-        display: inline-flex;
-        align-items: center;
         color: rgb(74, 74, 74);
-        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         font-weight: 400;
-        font-size: 18px;
         line-height: 120%;
     }
 

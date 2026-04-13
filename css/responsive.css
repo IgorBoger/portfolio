@@ -222,7 +222,6 @@
     .mobile-menu .lang-btn,
     .mobile-menu .lang-sep {
         color: rgb(74, 74, 74);
-        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         font-weight: 400;
         line-height: 120%;
     }
@@ -266,6 +265,38 @@
         align-items: flex-start;
     }
 
+    .hero-content {
+        bottom: 10%;
+    }
+
+    .hero-title {
+        font-weight: 400;
+        font-size: 40px;
+        transform: translateY(-40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .hero-title.is-visible {
+        transform: translateY(0);
+    }
+
+    .hero-location {
+        display: flex;
+        margin: 8px 0 0 0;
+        color: rgba(255, 253, 253, 1);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .hero-location.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .frontend-developer-mobile {
         margin: 0;
         font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -275,6 +306,15 @@
         color: var(--accent);
         display: flex;
         text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(-40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .frontend-developer-mobile.is-visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .hero-image-wrapper {
@@ -1144,10 +1184,6 @@
     .header-actions {
         padding-right: 16px;
         gap: 18px;
-    }
-
-    .hero-title {
-        font-size: 54px;
     }
 
     .frontend-developer {

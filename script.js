@@ -19,7 +19,9 @@ function init() {
     initWhymeTitleReveal();
     initHeaderReveal();
     initHeroTitle();
+    initHeroLocation();
     initFrontendDeveloper();
+    initFrontendDeveloperMobile();
     initHeroImage();
     initHeroArrowImgReveal();
     initSidebarReveal();
@@ -1099,6 +1101,45 @@ function initHeroTitle() {
  */
 function showHeroTitle(heroTitle) {
     heroTitle.classList.add("is-visible");
+}
+
+
+/**
+ * Initializes the hero location intro animation.
+ */
+function initHeroLocation() {
+    const heroLocation = document.querySelector(".hero-location");
+    if (!heroLocation) return;
+    requestAnimationFrame(() => showHeroLocation(heroLocation));
+}
+
+
+/**
+ * Shows the hero location with its intro state.
+ * @param {HTMLElement} heroLocation
+ */
+function showHeroLocation(heroLocation) {
+    heroLocation.classList.add("is-visible");
+}
+
+
+
+/**
+ * Initializes the frontend developer mobile intro animation.
+ */
+function initFrontendDeveloperMobile() {
+    const frontendDeveloperMobile = document.querySelector(".frontend-developer-mobile");
+    if (!frontendDeveloperMobile) return;
+    requestAnimationFrame(() => showFrontendDeveloperMobile(frontendDeveloperMobile));
+}
+
+
+/**
+ * Shows the frontend developer mobile with its intro state.
+ * @param {HTMLElement} frontendDeveloperMobile
+ */
+function showFrontendDeveloperMobile(frontendDeveloperMobile) {
+    frontendDeveloperMobile.classList.add("is-visible");
 }
 
 

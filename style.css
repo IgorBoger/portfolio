@@ -466,7 +466,8 @@ body {
 
 .hero-title.is-visible,
 .frontend-developer.is-visible,
-.section-arrow-img-reveal.is-visible,
+.arrow-reveal-right.is-visible,
+.arrow-reveal-left.is-visible,
 .contact-section.is-visible::after,
 .sidebar.is-visible {
     opacity: 1;
@@ -523,11 +524,21 @@ body {
 }
 
 
-.section-arrow-img-reveal {
+.arrow-reveal-right,
+.arrow-reveal-left {
     opacity: 0;
-    transform: translateX(-40px);
     transition: opacity 700ms ease-out, transform 700ms ease-out;
     will-change: opacity, transform;
+}
+
+
+.arrow-reveal-right {
+    transform: translateX(-40px);
+}
+
+
+.arrow-reveal-left {
+    transform: translateX(40px);
 }
 
 
@@ -1483,7 +1494,6 @@ body {
 
 
 .contact-arrow-link {
-    position: absolute;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1491,20 +1501,16 @@ body {
 }
 
 
-.contact-arrow-link-right {
+.contact-arrow-back {
     top: 63.5%;
     right: 120px;
+    left: auto;
+    transform: none;
+    z-index: 1;
 }
 
 
-.contact-arrow-icon {
-    width: 78px;
-    height: auto;
-    object-fit: contain;
-}
-
-
-.contact-arrow-icon-back {
+.contact-arrow-back .section-arrow-img {
     width: 92px;
 }
 
@@ -1721,7 +1727,8 @@ body {
 
 
 .legal-back-arrow:hover,
-.privacy-policy-back-arrow:hover {
+.privacy-policy-back-arrow:hover,
+.contact-arrow-back:hover {
     transform: translateX(-6px);
 }
 

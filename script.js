@@ -283,7 +283,7 @@ function setActiveSidebarButton(buttons, activeTarget) {
  * Initializes contact button navigation to the contact section.
  */
 function initContactButton() {
-    const buttons = document.querySelectorAll(".whyme-contact-btn");
+    const buttons = document.querySelectorAll(".whyme-contact-btn, .contact-trigger-btn");
     if (buttons.length === 0) return;
     buttons.forEach((btn) => {
         btn.addEventListener("click", (event) => {
@@ -323,13 +323,6 @@ function scrollToPanel(targetId) {
         closeLegalNotice();
         closePrivacyPolicy();
     }
-    // requestAnimationFrame(() => {
-    //     if (isMobileView()) return scrollToSectionVertical(targetId);
-    //     const track = getSectionsTrack();
-    //     const target = document.querySelector(targetId);
-    //     if (!track || !target) return;
-    //     scrollToTrackGrid(track, target);
-    // });
     requestAnimationFrame(() => {
         if (isMobileView()) return scrollToSectionVertical(targetId);
         const track = getSectionsTrack();
@@ -1067,7 +1060,7 @@ function initSectionViewportReveal() {
  */
 function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
-        ".whyme-title, .skills-title, .section-arrow-img-reveal"
+        ".whyme-title, .skills-title, .arrow-reveal-right, .arrow-reveal-left"
     ));
 }
 
@@ -1880,7 +1873,7 @@ function syncContactSubmitState(form) {
  * @returns {HTMLAnchorElement|null}
  */
 function getContactArrowLink() {
-    return document.querySelector(".contact-arrow-link-right");
+    return document.querySelector(".contact-arrow-back");
 }
 
 

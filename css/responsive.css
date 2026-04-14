@@ -888,7 +888,7 @@
         max-width: 100%;
     }
 
-    .contact-arrow-link-right {
+    .contact-arrow-back {
         position: static;
         order: 3;
         display: inline-flex;
@@ -897,8 +897,13 @@
         margin: 40px 0 40px 0;
     }
 
-    .contact-arrow-icon-back {
+    .legal-mobile-top-arrow-icon,
+    .privacy-mobile-top-arrow-icon,
+    .contact-arrow-back .section-arrow-img {
         width: 42px;
+        height: auto;
+        display: block;
+        object-fit: contain;
         transform: rotate(90deg);
     }
 
@@ -1079,15 +1084,6 @@
         justify-content: center;
         margin-bottom: 40px;
         cursor: pointer;
-    }
-
-    .legal-mobile-top-arrow-icon,
-    .privacy-mobile-top-arrow-icon {
-        width: 42px;
-        height: auto;
-        display: block;
-        object-fit: contain;
-        transform: rotate(90deg);
     }
 
     .legal-mobile-social,

@@ -3,7 +3,6 @@
  */
 function init() {
     initMobileMenu();
-    // initHeroArrow();
     initSectionArrows();
     initSectionArrowAlignment();
     initSidebarNavigation();
@@ -280,25 +279,6 @@ function setActiveSidebarButton(buttons, activeTarget) {
 }
 
 
-// /**
-//  * Initializes hero arrow scroll behavior.
-//  */
-// function initHeroArrow() {
-//     const arrow = getHeroArrow();
-//     if (!arrow) return;
-//     arrow.addEventListener("click", scrollOnePanelRight);
-// }
-
-
-// /**
-//  * Returns the hero arrow button element.
-//  * @returns {HTMLButtonElement|null}
-//  */
-// function getHeroArrow() {
-//     return document.querySelector(".hero-arrow");
-// }
-
-
 /**
  * Initializes contact button navigation to the contact section.
  */
@@ -343,12 +323,20 @@ function scrollToPanel(targetId) {
         closeLegalNotice();
         closePrivacyPolicy();
     }
+    // requestAnimationFrame(() => {
+    //     if (isMobileView()) return scrollToSectionVertical(targetId);
+    //     const track = getSectionsTrack();
+    //     const target = document.querySelector(targetId);
+    //     if (!track || !target) return;
+    //     scrollToTrackGrid(track, target);
+    // });
     requestAnimationFrame(() => {
         if (isMobileView()) return scrollToSectionVertical(targetId);
         const track = getSectionsTrack();
         const target = document.querySelector(targetId);
         if (!track || !target) return;
         scrollToTrackGrid(track, target);
+        queueMainArrowRefresh();
     });
 }
 
@@ -377,6 +365,17 @@ function scrollToTrackGrid(track, target) {
     const rawIndex = target.offsetLeft / panelWidth;
     const index = Math.round(rawIndex);
     scrollTrackTo(track, index * panelWidth);
+}
+
+
+/**
+ * Queues repeated main arrow alignment after section visibility changes.
+ */
+function queueMainArrowRefresh() {
+    requestAnimationFrame(() => {
+        queueSectionArrowAlignment();
+        requestAnimationFrame(queueSectionArrowAlignment);
+    });
 }
 
 
@@ -1089,7 +1088,6 @@ function createSectionRevealObserver() {
 /**
  * Handles section reveal entries.
  * @param {IntersectionObserverEntry[]} entries
- * @param {IntersectionObserver} observer
  */
 function handleSectionRevealEntries(entries) {
     entries.forEach((entry) => revealSectionItem(entry));
@@ -1099,7 +1097,6 @@ function handleSectionRevealEntries(entries) {
 /**
  * Reveals one section item when visible.
  * @param {IntersectionObserverEntry} entry
- * @param {IntersectionObserver} observer
  */
 function revealSectionItem(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);

@@ -340,7 +340,8 @@
         width: auto;
     }
 
-    .whyme-title-wrap {
+    .whyme-title-wrap,
+    .skills-title-wrap {
         position: static;
     }
 

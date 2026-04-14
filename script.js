@@ -3,7 +3,7 @@
  */
 function init() {
     initMobileMenu();
-    initHeroArrow();
+    // initHeroArrow();
     initSectionArrows();
     initSectionArrowAlignment();
     initSidebarNavigation();
@@ -16,14 +16,14 @@ function init() {
     initDragScrollResize();
     initActiveSectionTracking();
     initFadeInOnScroll();
-    initWhymeTitleReveal();
+    initSectionViewportReveal();
+    initSkillsTitleWrapPosition();
     initHeaderReveal();
     initHeroTitle();
     initHeroLocation();
     initFrontendDeveloper();
     initFrontendDeveloperMobile();
     initHeroImage();
-    initHeroArrowImgReveal();
     initSidebarReveal();
     initProjectCards();
     initReferenceSlider();
@@ -280,25 +280,28 @@ function setActiveSidebarButton(buttons, activeTarget) {
 }
 
 
-/**
- * Initializes hero arrow scroll behavior.
- */
-function initHeroArrow() {
-    const arrow = getHeroArrow();
-    if (!arrow) return;
-    arrow.addEventListener("click", scrollOnePanelRight);
-}
+// /**
+//  * Initializes hero arrow scroll behavior.
+//  */
+// function initHeroArrow() {
+//     const arrow = getHeroArrow();
+//     if (!arrow) return;
+//     arrow.addEventListener("click", scrollOnePanelRight);
+// }
+
+
+// /**
+//  * Returns the hero arrow button element.
+//  * @returns {HTMLButtonElement|null}
+//  */
+// function getHeroArrow() {
+//     return document.querySelector(".hero-arrow");
+// }
 
 
 /**
- * Returns the hero arrow button element.
- * @returns {HTMLButtonElement|null}
+ * Initializes contact button navigation to the contact section.
  */
-function getHeroArrow() {
-    return document.querySelector(".hero-arrow");
-}
-
-
 function initContactButton() {
     const buttons = document.querySelectorAll(".whyme-contact-btn");
     if (buttons.length === 0) return;
@@ -631,6 +634,9 @@ function initMobileMenuNavigation() {
 }
 
 
+/**
+ * Initializes layout shell background syncing.
+ */
 function initShellBackground() {
     const shell = getLayoutShell();
     if (!shell) return;
@@ -1046,23 +1052,109 @@ function toggleFadeInVisibility(entry) {
 
 
 /**
- * Initializes why-me title animation.
+ * Initializes one-time reveal animations for section titles and reveal arrows.
  */
-function initWhymeTitleReveal() {
-    const title = getWhymeTitle();
-    if (!title) return;
-    requestAnimationFrame(() => {
-        title.classList.add("is-visible");
+function initSectionViewportReveal() {
+    const items = getSectionRevealItems();
+    if (items.length === 0) return;
+    const observer = createSectionRevealObserver();
+    items.forEach((item) => observer.observe(item));
+}
+
+
+/**
+ * Returns all section elements that should reveal on view.
+ * @returns {HTMLElement[]}
+ */
+function getSectionRevealItems() {
+    return Array.from(document.querySelectorAll(
+        ".whyme-title, .skills-title, .section-arrow-img-reveal"
+    ));
+}
+
+
+/**
+ * Creates the section reveal observer.
+ * @returns {IntersectionObserver}
+ */
+function createSectionRevealObserver() {
+    const root = isMobileView() ? null : getSectionsTrack();
+    return new IntersectionObserver(handleSectionRevealEntries, {
+        root,
+        threshold: 0.35
     });
 }
 
 
 /**
- * Returns the why-me title.
- * @returns {HTMLHeadingElement|null}
+ * Handles section reveal entries.
+ * @param {IntersectionObserverEntry[]} entries
+ * @param {IntersectionObserver} observer
  */
-function getWhymeTitle() {
-    return document.querySelector(".whyme-title");
+function handleSectionRevealEntries(entries) {
+    entries.forEach((entry) => revealSectionItem(entry));
+}
+
+
+/**
+ * Reveals one section item when visible.
+ * @param {IntersectionObserverEntry} entry
+ * @param {IntersectionObserver} observer
+ */
+function revealSectionItem(entry) {
+    entry.target.classList.toggle("is-visible", entry.isIntersecting);
+}
+
+
+/**
+ * Initializes the skills title wrap position sync.
+ */
+function initSkillsTitleWrapPosition() {
+    syncSkillsTitleWrapPosition();
+    window.addEventListener("resize", syncSkillsTitleWrapPosition);
+    window.addEventListener("load", syncSkillsTitleWrapPosition);
+    document.fonts?.ready.then(syncSkillsTitleWrapPosition);
+}
+
+
+/**
+ * Syncs the skills title wrap with the skills stage top.
+ */
+function syncSkillsTitleWrapPosition() {
+    if (isMobileView()) return resetSkillsTitleWrapPosition();
+    const wrap = getSkillsTitleWrap();
+    const stage = getSkillsStage();
+    if (!wrap || !stage) return;
+    wrap.style.top = `${stage.offsetTop}px`;
+    queueSectionArrowAlignment();
+}
+
+
+/**
+ * Resets the skills title wrap position.
+ */
+function resetSkillsTitleWrapPosition() {
+    const wrap = getSkillsTitleWrap();
+    if (!wrap) return;
+    wrap.style.removeProperty("top");
+}
+
+
+/**
+ * Returns the skills title wrap.
+ * @returns {HTMLElement|null}
+ */
+function getSkillsTitleWrap() {
+    return document.querySelector(".skills-title-wrap");
+}
+
+
+/**
+ * Returns the skills stage.
+ * @returns {HTMLElement|null}
+ */
+function getSkillsStage() {
+    return document.querySelector(".skills-stage");
 }
 
 
@@ -1197,34 +1289,6 @@ function delayHeroImage(heroImage) {
  */
 function showHeroImage(heroImage) {
     heroImage.classList.add("is-visible");
-}
-
-
-/**
- * Initializes the hero arrow intro animation.
- */
-function initHeroArrowImgReveal() {
-    const heroArrowImg = document.querySelector(".hero-arrow-img");
-    if (!heroArrowImg) return;
-    requestAnimationFrame(() => delayHeroArrowImg(heroArrowImg));
-}
-
-
-/**
- * Delays the hero arrow reveal for staggered animation.
- * @param {HTMLElement} heroArrowImg
- */
-function delayHeroArrowImg(heroArrowImg) {
-    setTimeout(() => showHeroArrowImg(heroArrowImg), 320);
-}
-
-
-/**
- * Shows the hero arrow with its intro state.
- * @param {HTMLElement} heroArrowImg
- */
-function showHeroArrowImg(heroArrowImg) {
-    heroArrowImg.classList.add("is-visible");
 }
 
 

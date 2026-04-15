@@ -431,10 +431,9 @@ body {
 }
 
 
-.hero-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.skills-inner,
+.mywork-inner {
+    padding: 0 0 80px 80px;
 }
 
 
@@ -543,7 +542,8 @@ body {
 
 
 .whyme-title-wrap,
-.skills-title-wrap {
+.skills-title-wrap,
+.mywork-title-wrap {
     position: absolute;
     z-index: 2;
     pointer-events: none;
@@ -551,7 +551,8 @@ body {
 
 
 .whyme-title,
-.skills-title {
+.skills-title,
+.mywork-title {
     margin: 0;
     display: block;
     font-weight: 400;
@@ -569,7 +570,8 @@ body {
 
 
 .whyme-title.is-visible,
-.skills-title.is-visible {
+.skills-title.is-visible,
+.mywork-title.is-visible {
     opacity: 1;
     transform: rotate(180deg) translateX(0);
 }
@@ -807,12 +809,12 @@ body {
     display: block;
 }
 
-
-.skills-inner {
+.hero-inner,
+.skills-inner,
+.mywork-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 0 0 80px 80px;
 }
 
 
@@ -904,7 +906,7 @@ body {
     position: relative;
     display: flex;
     align-items: flex-start;
-    padding: 0 0 80px 80px;
+    padding: 0 0 80px 0;
     margin-top: 164px;
     height: calc(100% - 164px);
     gap: 36px;
@@ -1839,7 +1841,6 @@ body {
 }
 
 
-.mywork-title,
 .contact-title,
 .references-title,
 .privacy-policy-title,

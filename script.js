@@ -2,6 +2,7 @@
  * Initializes all UI and navigation features.
  */
 function init() {
+    renderProjects();
     initMobileMenu();
     initSectionArrows();
     initSectionArrowAlignment();

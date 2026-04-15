@@ -914,6 +914,11 @@ body {
 }
 
 
+.projects-list {
+    display: contents;
+}
+
+
 .project-container {
     margin-left: 120px;
     width: 50vw;
@@ -942,8 +947,9 @@ body {
 
 
 .project-title {
-    font-size: 54px;
     font-weight: 400;
+    font-size: 54px;
+    line-height: 120%;
     color: var(--accent);
     margin: 0;
 }

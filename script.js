@@ -1061,7 +1061,7 @@ function initSectionViewportReveal() {
  */
 function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
-        ".whyme-title, .skills-title, .mywork-title, .arrow-reveal-right, .arrow-reveal-left"
+        ".whyme-title, .skills-title, .mywork-title, .references-title, .arrow-reveal-right, .arrow-reveal-left"
     ));
 }
 

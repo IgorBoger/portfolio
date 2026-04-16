@@ -543,7 +543,8 @@ body {
 
 .whyme-title-wrap,
 .skills-title-wrap,
-.mywork-title-wrap {
+.mywork-title-wrap,
+.references-title-wrap {
     position: absolute;
     z-index: 2;
     pointer-events: none;
@@ -552,7 +553,8 @@ body {
 
 .whyme-title,
 .skills-title,
-.mywork-title {
+.mywork-title,
+.references-title {
     margin: 0;
     display: block;
     font-weight: 400;
@@ -571,7 +573,8 @@ body {
 
 .whyme-title.is-visible,
 .skills-title.is-visible,
-.mywork-title.is-visible {
+.mywork-title.is-visible,
+.references-title.is-visible {
     opacity: 1;
     transform: rotate(180deg) translateX(0);
 }
@@ -909,7 +912,7 @@ body {
     padding: 0 0 80px 0;
     margin-left: 100px;
     margin-top: 164px;
-    height: calc(100% - 164px);
+    height: 100vh;
     gap: 36px;
     width: max-content;
 }
@@ -1178,14 +1181,19 @@ body {
     width: 45vw;
     height: calc(100% - 164px);
     position: relative;
-    padding-left: 150px;
+    padding-left: 44px;
     display: flex;
     align-items: flex-end;
-    margin-top: auto;
+}
+
+
+.references-title-wrap {
+    bottom: 0;
 }
 
 
 .references-grid {
+    margin: 0 0 0 100px;
     width: 480px;
     max-width: 480px;
     display: flex;
@@ -1860,7 +1868,6 @@ body {
 
 
 .contact-title,
-.references-title,
 .privacy-policy-title,
 .legal-notice-title {
     margin: 0;

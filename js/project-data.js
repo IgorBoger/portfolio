@@ -6,6 +6,7 @@ const projectItems = [
     {
         projectClass: "project-join",
         numberSrc: "img/my-work/project-number-1.png",
+        numberSrcMobile: "img/my-work/project-number-1-mobile.png",
         numberAlt: "Project number 1",
         title: "Project Join",
         aboutTitle: "About the project",
@@ -23,6 +24,7 @@ const projectItems = [
     {
         projectClass: "project-pollo-loco",
         numberSrc: "img/my-work/project-number-2.png",
+        numberSrcMobile: "img/my-work/project-number-2-mobile.png",
         numberAlt: "Project number 2",
         title: "Project Pollo Loco",
         aboutTitle: "About the project",
@@ -40,6 +42,7 @@ const projectItems = [
     {
         projectClass: "project-da-bubble",
         numberSrc: "img/my-work/project-number-3.png",
+        numberSrcMobile: "img/my-work/project-number-3-mobile.png",
         numberAlt: "Project number 3",
         title: "Project DA Bubble",
         aboutTitle: "About the project",

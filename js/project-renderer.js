@@ -53,6 +53,7 @@ function createProjectHeaderMarkup(project) {
     return `
         <div class="project-header">
             <img class="project-number" src="${project.numberSrc}" alt="${project.numberAlt}">
+            <img class="project-number-mobile" src="${project.numberSrcMobile}" alt="${project.numberAlt}">
             <h2 class="project-title">${project.title}</h2>
         </div>
     `;
@@ -164,7 +165,7 @@ function createProjectLearnedMarkup(project) {
 function createInsideToggleMarkup() {
     return `
         <button class="project-card-toggle" type="button" aria-expanded="false">
-            <span>Show me more</span>
+            <span class="show-me-more">Show me more</span>
             <span class="project-card-toggle-icon" aria-hidden="true">▼</span>
         </button>
     `;
@@ -178,7 +179,7 @@ function createInsideToggleMarkup() {
 function createOutsideToggleMarkup() {
     return `
         <button class="project-card-toggle" type="button" aria-expanded="true">
-            <span>Show me less</span>
+            <span class="show-me-less">Show me less</span>
             <span class="project-card-toggle-icon" aria-hidden="true">▲</span>
         </button>
     `;

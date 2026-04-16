@@ -959,6 +959,12 @@ body {
 }
 
 
+.project-number-mobile,
+.ongoing-number-mobile {
+    display: none;
+}
+
+
 .project-title {
     font-weight: 400;
     font-size: 54px;

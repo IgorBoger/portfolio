@@ -1194,55 +1194,74 @@ body {
 
 .references-grid {
     margin: 0 0 0 100px;
-    width: 480px;
-    max-width: 480px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
 }
 
 
 .reference-card {
-    min-height: 132px;
+    width: 100%;
+    min-height: 200px;
     border: 1px solid var(--accent);
     border-radius: 30px;
-    padding: 24px 28px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+    gap: 0;
 }
 
 
 .reference-text {
-    max-width: 100%;
+    position: relative;
+    max-width: 250px;
     margin: 0;
     color: rgba(255, 255, 255, 1);
-    border-right: 1px solid var(--accent);
-    padding-right: 12px;
+    padding: 24px 12px 24px 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+.reference-text::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: var(--accent);
 }
 
 
 .reference-author {
-    min-width: 140px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 8px;
+    padding: 24px 24px 24px 12px;
 }
 
 
 .reference-name {
     color: var(--accent);
     font-size: 24px;
+    line-height: 120%;
     white-space: nowrap;
+    text-align: center;
 }
 
 
 .reference-role {
-    color: var(--accent);
-    font-size: 14px;
+    color: rgb(211, 237, 151);
+    font-size: 16px;
+    line-height: 120%;
     white-space: nowrap;
+    text-align: center;
 }
 
 

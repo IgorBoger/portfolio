@@ -1008,7 +1008,7 @@ function isDragStartAllowed(event) {
  */
 function initFadeInOnScroll() {
     const elements = document.querySelectorAll(
-        ".fade-in, .contact-section, .contact-mobile-reveal"
+        ".reference-card, .fade-in, .contact-section, .contact-mobile-reveal"
     );
     if (elements.length === 0) return;
     const observer = createFadeInObserver();
@@ -1509,6 +1509,7 @@ function initReferenceSlider() {
     const buttons = getReferenceControlButtons();
     const cards = getReferenceCards();
     if (!grid || buttons.length === 0 || cards.length === 0) return;
+    setInitialReferenceButton(grid, buttons);
     bindReferenceControlButtons(grid, buttons, cards);
     syncReferenceButtonsOnScroll(grid, buttons, cards);
 }
@@ -1542,6 +1543,41 @@ function getReferenceControlButtons() {
 
 
 /**
+ * Sets the initial active reference button state.
+ * @param {HTMLElement} grid
+ * @param {HTMLButtonElement[]} buttons
+ */
+function setInitialReferenceButton(grid, buttons) {
+    storeActiveReferenceIndex(grid, 0);
+    setActiveReferenceButton(grid, buttons, 0);
+}
+
+
+/**
+ * Stores the current active reference index.
+ * @param {HTMLElement} grid
+ * @param {number} index
+ */
+function storeActiveReferenceIndex(grid, index) {
+    grid.dataset.activeReferenceIndex = String(index);
+}
+
+
+/**
+ * Updates the active state of all reference buttons.
+ * @param {HTMLElement} grid
+ * @param {HTMLButtonElement[]} buttons
+ * @param {number} activeIndex
+ */
+function setActiveReferenceButton(grid, buttons, activeIndex) {
+    storeActiveReferenceIndex(grid, activeIndex);
+    buttons.forEach((button, index) => {
+        button.classList.toggle("is-active", index === activeIndex);
+    });
+}
+
+
+/**
  * Binds click events to all reference control buttons.
  * @param {HTMLElement} grid
  * @param {HTMLButtonElement[]} buttons
@@ -1549,14 +1585,59 @@ function getReferenceControlButtons() {
  */
 function bindReferenceControlButtons(grid, buttons, cards) {
     buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const index = getReferenceButtonIndex(button);
-            const card = cards[index];
-            if (!card) return;
-            scrollReferenceCardIntoView(grid, card);
-            setActiveReferenceButton(buttons, index);
-        });
+        button.addEventListener("click", () => handleReferenceButtonClick(grid, buttons, cards, button));
     });
+}
+
+
+/**
+ * Handles one reference control button click.
+ * @param {HTMLElement} grid
+ * @param {HTMLButtonElement[]} buttons
+ * @param {HTMLElement[]} cards
+ * @param {HTMLButtonElement} button
+ */
+function handleReferenceButtonClick(grid, buttons, cards, button) {
+    const index = getReferenceButtonIndex(button);
+    const card = cards[index];
+    if (!card || isSameReferenceIndex(grid, index)) return;
+    scrollReferenceCardIntoView(grid, card);
+    setActiveReferenceButton(grid, buttons, index);
+}
+
+
+/**
+ * Syncs the active button with the current scroll position.
+ * @param {HTMLElement} grid
+ * @param {HTMLButtonElement[]} buttons
+ * @param {HTMLElement[]} cards
+ */
+function syncReferenceButtonsOnScroll(grid, buttons, cards) {
+    grid.addEventListener("scroll", () => handleReferenceGridScroll(grid, buttons, cards));
+}
+
+
+/**
+ * Handles the reference grid scroll sync.
+ * @param {HTMLElement} grid
+ * @param {HTMLButtonElement[]} buttons
+ * @param {HTMLElement[]} cards
+ */
+function handleReferenceGridScroll(grid, buttons, cards) {
+    const activeIndex = getActiveReferenceIndex(grid, cards);
+    if (isSameReferenceIndex(grid, activeIndex)) return;
+    setActiveReferenceButton(grid, buttons, activeIndex);
+}
+
+
+/**
+ * Checks whether the reference index is already active.
+ * @param {HTMLElement} grid
+ * @param {number} index
+ * @returns {boolean}
+ */
+function isSameReferenceIndex(grid, index) {
+    return Number(grid.dataset.activeReferenceIndex) === index;
 }
 
 
@@ -1585,20 +1666,6 @@ function scrollReferenceCardIntoView(grid, card) {
 
 
 /**
- * Syncs the active button with the current scroll position.
- * @param {HTMLElement} grid
- * @param {HTMLButtonElement[]} buttons
- * @param {HTMLElement[]} cards
- */
-function syncReferenceButtonsOnScroll(grid, buttons, cards) {
-    grid.addEventListener("scroll", () => {
-        const activeIndex = getActiveReferenceIndex(grid, cards);
-        setActiveReferenceButton(buttons, activeIndex);
-    });
-}
-
-
-/**
  * Returns the currently closest visible reference card index.
  * @param {HTMLElement} grid
  * @param {HTMLElement[]} cards
@@ -1617,18 +1684,6 @@ function getActiveReferenceIndex(grid, cards) {
     });
 
     return activeIndex;
-}
-
-
-/**
- * Updates the active state of all reference buttons.
- * @param {HTMLButtonElement[]} buttons
- * @param {number} activeIndex
- */
-function setActiveReferenceButton(buttons, activeIndex) {
-    buttons.forEach((button, index) => {
-        button.classList.toggle("is-active", index === activeIndex);
-    });
 }
 
 

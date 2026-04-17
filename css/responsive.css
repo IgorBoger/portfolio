@@ -741,6 +741,15 @@
         display: flex;
         justify-content: space-between;
         scroll-snap-align: start;
+        opacity: 0;
+        transform: translateX(40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .reference-card.is-visible {
+        opacity: 1;
+        transform: translateX(0);
     }
 
     .reference-text {
@@ -781,10 +790,8 @@
         align-items: center;
         justify-content: center;
         gap: 4px;
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 4px 0 16px;
+        width: max-content;
+        margin: 0 auto;
         scrollbar-width: none;
     }
 
@@ -792,14 +799,16 @@
         flex: 0 0 18px;
         width: 18px;
         height: 6px;
+        padding: 0;
         border: 1px solid var(--accent);
-        border-radius: 6px;
+        border-radius: 999px;
         background: transparent;
         cursor: pointer;
-
         transform: scaleX(0.5);
         transform-origin: center;
-        transition: transform 120ms ease-in-out, background-color 120ms ease-in-out;
+        transition:
+            transform 120ms ease-in-out,
+            background-color 120ms ease-in-out;
         will-change: transform, background-color;
     }
 

@@ -18,6 +18,7 @@ function init() {
     initFadeInOnScroll();
     initSectionViewportReveal();
     initSkillsTitleWrapPosition();
+    initContactTitleWrapPosition();
     initHeaderReveal();
     initHeroTitle();
     initHeroLocation();
@@ -1061,7 +1062,7 @@ function initSectionViewportReveal() {
  */
 function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
-        ".whyme-title, .skills-title, .mywork-title, .references-title, .arrow-reveal-right, .arrow-reveal-left"
+        ".whyme-title, .skills-title, .mywork-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left"
     ));
 }
 
@@ -1146,6 +1147,58 @@ function getSkillsTitleWrap() {
  */
 function getSkillsStage() {
     return document.querySelector(".skills-stage");
+}
+
+
+/**
+ * Initializes the contact title wrap position sync.
+ */
+function initContactTitleWrapPosition() {
+    syncContactTitleWrapPosition();
+    window.addEventListener("resize", syncContactTitleWrapPosition);
+    window.addEventListener("load", syncContactTitleWrapPosition);
+    document.fonts?.ready.then(syncContactTitleWrapPosition);
+}
+
+
+/**
+ * Syncs the contact title wrap with the contact stage top.
+ */
+function syncContactTitleWrapPosition() {
+    if (isMobileView()) return resetContactTitleWrapPosition();
+    const wrap = getContactTitleWrap();
+    const stage = getContactStage();
+    if (!wrap || !stage) return;
+    wrap.style.top = `${stage.offsetTop}px`;
+    queueSectionArrowAlignment();
+}
+
+
+/**
+ * Resets the contact title wrap position.
+ */
+function resetContactTitleWrapPosition() {
+    const wrap = getContactTitleWrap();
+    if (!wrap) return;
+    wrap.style.removeProperty("top");
+}
+
+
+/**
+ * Returns the contact title wrap.
+ * @returns {HTMLElement|null}
+ */
+function getContactTitleWrap() {
+    return document.querySelector(".contact-title-wrap");
+}
+
+
+/**
+ * Returns the contact stage.
+ * @returns {HTMLElement|null}
+ */
+function getContactStage() {
+    return document.querySelector(".contact-stage");
 }
 
 

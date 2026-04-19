@@ -392,129 +392,134 @@
             </section>
 
             <section class="section-panel contact-section" id="contact" aria-label="Contact section">
-                <div class="contact-stage">
-                    <div class="contact-title-box">
+                <div class="contact-inner">
+                    <div class="contact-title-wrap">
                         <h1 class="contact-title">Contact me</h1>
                         <h1 class="contact-title-mobile">Contact me</h1>
-
                     </div>
 
-                    <form class="contact-form fade-in" id="contactForm" action="#" method="post" novalidate>
-                        <div class="contact-field">
-                            <input class="contact-input" id="contactName" name="name" type="text"
-                                placeholder="Your name" autocomplete="name">
-                            <div class="contact-feedback"></div>
+                    <div class="contact-stage">
+                        <form class="contact-form fade-in" id="contactForm" action="#" method="post" novalidate>
+                            <div class="contact-field">
+                                <input class="contact-input" id="contactName" name="name" type="text"
+                                    placeholder="Your name" autocomplete="name">
+                                <div class="contact-feedback"></div>
+                            </div>
+
+                            <div class="contact-field">
+                                <input class="contact-input" id="contactEmail" name="email" type="email"
+                                    placeholder="Your e-mail" autocomplete="email">
+                                <div class="contact-feedback"></div>
+                            </div>
+
+                            <div class="contact-field contact-field-message">
+                                <textarea class="contact-input contact-textarea" id="contactMessage" name="message"
+                                    placeholder="Your message"></textarea>
+                                <div class="contact-feedback"></div>
+                            </div>
+
+                            <label class="contact-policy-row" for="privacyPolicyConsent">
+                                <input class="contact-policy-checkbox" id="privacyPolicyConsent"
+                                    name="privacyPolicyConsent" type="checkbox">
+                                <span class="contact-policy-text">
+                                    I’ve read the <a class="contact-policy-link" href="#">privacy policy</a> and agree
+                                    to
+                                    the processing of my
+                                    data as outlined.
+                                </span>
+                            </label>
+
+                            <button class="contact-submit-btn" id="sendBtn" type="submit" disabled>
+                                Send
+                            </button>
+                        </form>
+
+                        <div class="contact-copy-box fade-in">
+                            <div class="contact-copy">
+                                <h3 class="contact-copy-title">Let us work together.</h3>
+
+                                <p class="contact-copy-text">
+                                    Encourage people to contact you and describe what role you are interested in.
+                                    Express
+                                    confidence in your ability to make a meaningful contribution to a team through your
+                                    expertise and enthusiasm for improving your skills.
+                                </p>
+
+                                <div class="contact-direct-links">
+                                    <a class="contact-direct-link" href="mailto:igorboga@gmail.com">
+                                        <img class="contact-direct-icon" src="img/contact-me/email.png" alt="">
+                                        <span>E-mail: igorboga@gmail.com</span>
+                                    </a>
+
+                                    <a class="contact-direct-link" href="tel:+4917662045018">
+                                        <img class="contact-direct-icon" src="img/contact-me/phone.png" alt="">
+                                        <span>Tel: 017662045018</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="contact-field">
-                            <input class="contact-input" id="contactEmail" name="email" type="email"
-                                placeholder="Your e-mail" autocomplete="email">
-                            <div class="contact-feedback"></div>
-                        </div>
+                        <a class="section-arrow contact-arrow-link contact-arrow-back contact-mobile-reveal" href="#top"
+                            aria-label="Back to hero section">
+                            <img class="section-arrow-img arrow-reveal-left"
+                                src="img/contact-me/switch-arrow-to-hero.png" alt="">
+                        </a>
 
-                        <div class="contact-field contact-field-message">
-                            <textarea class="contact-input contact-textarea" id="contactMessage" name="message"
-                                placeholder="Your message"></textarea>
-                            <div class="contact-feedback"></div>
-                        </div>
-
-                        <label class="contact-policy-row" for="privacyPolicyConsent">
-                            <input class="contact-policy-checkbox" id="privacyPolicyConsent" name="privacyPolicyConsent"
-                                type="checkbox">
-                            <span class="contact-policy-text">
-                                I’ve read the <a class="contact-policy-link" href="#">privacy policy</a> and agree to
-                                the processing of my
-                                data as outlined.
-                            </span>
-                        </label>
-
-                        <button class="contact-submit-btn" id="sendBtn" type="submit" disabled>
-                            Send
-                        </button>
-                    </form>
-
-                    <div class="contact-copy fade-in">
-                        <h3 class="contact-copy-title">Let us work together.</h3>
-
-                        <p class="contact-copy-text">
-                            Encourage people to contact you and describe what role you are interested in. Express
-                            confidence in your ability to make a meaningful contribution to a team through your
-                            expertise and enthusiasm for improving your skills.
-                        </p>
-
-                        <div class="contact-direct-links">
-                            <a class="contact-direct-link" href="mailto:igorboga@gmail.com">
-                                <img class="contact-direct-icon" src="img/contact-me/email.png" alt="">
-                                <span>E-mail: igorboga@gmail.com</span>
+                        <nav class="contact-social contact-mobile-reveal" aria-label="Contact social links">
+                            <a class="contact-social-link" href="https://github.com/IgorBoger" target="_blank"
+                                rel="noopener noreferrer" aria-label="GitHub (öffnet in neuem Tab)">
+                                <span class="social-ico ico-github" aria-hidden="true"></span>
                             </a>
 
-                            <a class="contact-direct-link" href="tel:+4917662045018">
-                                <img class="contact-direct-icon" src="img/contact-me/phone.png" alt="">
-                                <span>Tel: 017662045018</span>
+                            <a class="contact-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry"
+                                target="_blank" rel="noopener noreferrer" aria-label="E-Mail schreiben">
+                                <span class="social-ico ico-mail" aria-hidden="true"></span>
                             </a>
+
+                            <a class="contact-social-link" href="https://www.linkedin.com/" target="_blank"
+                                rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
+                                <span class="social-ico ico-linkedin" aria-hidden="true"></span>
+                            </a>
+                        </nav>
+
+                        <div class="contact-mobile-footer contact-mobile-reveal">
+                            <a class="contact-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
+                                <span class="logo-frame" aria-hidden="true">
+                                    <svg class="logo-arc" viewBox="0 0 130 100">
+                                        <defs>
+                                            <path id="contactLogoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
+                                        </defs>
+
+                                        <text class="logo-arc-text">
+                                            <textPath href="#contactLogoArcPath" startOffset="50%" text-anchor="middle">
+                                                frontend developer
+                                            </textPath>
+                                        </text>
+                                    </svg>
+
+                                    <span class="logo-initials">IB</span>
+                                </span>
+                            </a>
+
+                            <p class="contact-mobile-footer-copy">© Igor Boger 2026</p>
+
+                            <div class="contact-mobile-footer-links">
+                                <a class="contact-mobile-footer-link" href="#legalNotice"
+                                    data-target="#legalNotice">Legal
+                                    notice</a>
+                                <a class="contact-mobile-footer-link" href="#privacyPolicy"
+                                    data-target="#privacyPolicy">Privacy
+                                    policy</a>
+                            </div>
                         </div>
-                    </div>
 
-                    <a class="section-arrow contact-arrow-link contact-arrow-back contact-mobile-reveal" href="#top"
-                        aria-label="Back to hero section">
-                        <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png"
-                            alt="">
-                    </a>
-
-                    <nav class="contact-social contact-mobile-reveal" aria-label="Contact social links">
-                        <a class="contact-social-link" href="https://github.com/IgorBoger" target="_blank"
-                            rel="noopener noreferrer" aria-label="GitHub (öffnet in neuem Tab)">
-                            <span class="social-ico ico-github" aria-hidden="true"></span>
-                        </a>
-
-                        <a class="contact-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry"
-                            target="_blank" rel="noopener noreferrer" aria-label="E-Mail schreiben">
-                            <span class="social-ico ico-mail" aria-hidden="true"></span>
-                        </a>
-
-                        <a class="contact-social-link" href="https://www.linkedin.com/" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
-                            <span class="social-ico ico-linkedin" aria-hidden="true"></span>
-                        </a>
-                    </nav>
-
-                    <div class="contact-mobile-footer contact-mobile-reveal">
-                        <a class="contact-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
-                            <span class="logo-frame" aria-hidden="true">
-                                <svg class="logo-arc" viewBox="0 0 130 100">
-                                    <defs>
-                                        <path id="contactLogoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
-                                    </defs>
-
-                                    <text class="logo-arc-text">
-                                        <textPath href="#contactLogoArcPath" startOffset="50%" text-anchor="middle">
-                                            frontend developer
-                                        </textPath>
-                                    </text>
-                                </svg>
-
-                                <span class="logo-initials">IB</span>
-                            </span>
-                        </a>
-
-                        <p class="contact-mobile-footer-copy">© Igor Boger 2026</p>
-
-                        <div class="contact-mobile-footer-links">
-                            <a class="contact-mobile-footer-link" href="#legalNotice" data-target="#legalNotice">Legal
-                                notice</a>
-                            <a class="contact-mobile-footer-link" href="#privacyPolicy"
-                                data-target="#privacyPolicy">Privacy
+                        <div class="contact-footer-box">
+                            <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
+                            <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy
                                 policy</a>
+                            <p class="contact-footer-copy">© Igor Boger 2026</p>
                         </div>
                     </div>
-
-                    <div class="contact-footer-box">
-                        <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                        <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy
-                            policy</a>
-                        <p class="contact-footer-copy">© Igor Boger 2026</p>
-                    </div>
-
                 </div>
             </section>
 

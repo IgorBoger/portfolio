@@ -432,7 +432,8 @@ body {
 
 
 .skills-inner,
-.mywork-inner {
+.mywork-inner,
+.contact-inner {
     padding: 0 0 80px 80px;
 }
 
@@ -544,7 +545,8 @@ body {
 .whyme-title-wrap,
 .skills-title-wrap,
 .mywork-title-wrap,
-.references-title-wrap {
+.references-title-wrap,
+.contact-title-wrap {
     position: absolute;
     z-index: 2;
     pointer-events: none;
@@ -554,7 +556,8 @@ body {
 .whyme-title,
 .skills-title,
 .mywork-title,
-.references-title {
+.references-title,
+.contact-title {
     margin: 0;
     display: block;
     font-weight: 400;
@@ -574,7 +577,8 @@ body {
 .whyme-title.is-visible,
 .skills-title.is-visible,
 .mywork-title.is-visible,
-.references-title.is-visible {
+.references-title.is-visible,
+.contact-title.is-visible {
     opacity: 1;
     transform: rotate(180deg) translateX(0);
 }
@@ -814,7 +818,8 @@ body {
 
 .hero-inner,
 .skills-inner,
-.mywork-inner {
+.mywork-inner,
+.contact-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -1298,27 +1303,22 @@ body {
 }
 
 
+.contact-title-wrap {
+    top: 136px;
+}
+
+
 .contact-stage {
     width: 100%;
     max-width: 100%;
     height: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: 62px 400px 1fr;
+    grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr auto;
     column-gap: 42px;
-    padding: 136px 100px 80px 80px;
+    padding: 136px 100px 80px 100px;
     z-index: 1;
-}
-
-
-.contact-title-box {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 2px;
 }
 
 
@@ -1492,12 +1492,18 @@ body {
 }
 
 
-.contact-copy {
-    grid-column: 3;
+.contact-copy-box {
+    grid-column: 2;
     grid-row: 1;
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.contact-copy {
+    width: 100%;
     max-width: 370px;
-    justify-self: end;
     text-align: right;
     padding-top: 6px;
     margin-right: 20px;
@@ -1892,7 +1898,6 @@ body {
 }
 
 
-.contact-title,
 .privacy-policy-title,
 .legal-notice-title {
     margin: 0;

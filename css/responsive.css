@@ -265,7 +265,8 @@
     .hero-inner,
     .whyme-inner,
     .skills-inner,
-    .mywork-inner {
+    .mywork-inner,
+    .contact-inner {
         padding: 20px;
         position: unset;
         width: 100%;
@@ -343,7 +344,8 @@
 
     .whyme-title-wrap,
     .skills-title-wrap,
-    .mywork-title-wrap {
+    .mywork-title-wrap,
+    .contact-title-wrap {
         position: static;
     }
 
@@ -828,11 +830,11 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 20px 20px 0;
+        padding: 0;
         min-height: calc(100vh - 73px);
     }
 
-    .contact-title-box {
+    .contact-title-wrap {
         display: block;
         padding-top: 0;
     }
@@ -857,8 +859,13 @@
         display: block;
     }
 
-    .contact-copy {
+    .contact-copy-box {
         order: 1;
+        width: 100%;
+    }
+
+
+    .contact-copy {
         width: 100%;
         max-width: 100%;
         margin-right: 0;

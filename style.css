@@ -1284,7 +1284,7 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 253, 253, 1);
 }
 
 
@@ -1303,33 +1303,26 @@ body {
 }
 
 
-.contact-title-wrap {
-    top: 136px;
-}
-
-
 .contact-stage {
     width: 100%;
     max-width: 100%;
-    height: 100%;
     position: relative;
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    grid-template-rows: 1fr auto;
-    column-gap: 42px;
-    padding: 136px 100px 80px 100px;
+    height: calc(100% - 136px);
+    padding: 0 100px 0 0;
+    margin-top: 136px;
     z-index: 1;
+    display: flex;
+    flex-direction: row;
 }
 
 
 .contact-form {
-    grid-column: 2;
-    grid-row: 1;
     width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin: 0 0 0 100px;
 }
 
 
@@ -1350,8 +1343,10 @@ body {
     border: 1px solid var(--accent);
     border-radius: 30px;
     background: transparent;
-    color: rgba(255, 255, 255, 1);
-    font-size: 14px;
+    color: rgba(255, 253, 253, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
     outline: none;
 }
 
@@ -1449,12 +1444,13 @@ body {
 .contact-policy-text {
     max-width: 332px;
     color: var(--accent);
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 120%;
 }
 
 
 .contact-policy-link {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 253, 253, 1);
     text-decoration: none;
 }
 
@@ -1493,11 +1489,11 @@ body {
 
 
 .contact-copy-box {
-    grid-column: 2;
-    grid-row: 1;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 
@@ -1520,7 +1516,6 @@ body {
 
 .contact-copy-text {
     margin: 18px 0 0 0;
-    color: rgba(255, 255, 255, 1);
 }
 
 
@@ -1538,7 +1533,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 253, 253, 1);
     text-decoration: none;
 }
 
@@ -1575,23 +1570,21 @@ body {
 
 
 .contact-footer-box {
-    grid-column: 3;
-    grid-row: 2;
     justify-self: end;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: 14px;
     text-align: right;
     margin-right: 20px;
-    font-size: 14px;
+    color: rgba(255, 253, 253, 1);
+    font-size: 16px;
+    line-height: 120%;
 }
 
 
 .footer-link {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 253, 253, 1);
     text-decoration: none;
-    font-size: 14px;
     transition: color 120ms ease-in-out;
 }
 
@@ -1602,8 +1595,6 @@ body {
 
 .contact-footer-copy {
     margin: 0;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 1);
 }
 
 

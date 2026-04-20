@@ -349,7 +349,8 @@
         position: static;
     }
 
-    .whyme-stage {
+    .whyme-stage,
+    .contact-stage {
         margin-top: 0;
         padding: 0;
     }
@@ -829,8 +830,7 @@
     .contact-stage {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 0;
+        gap: 16px;
         min-height: calc(100vh - 73px);
     }
 
@@ -875,13 +875,18 @@
         line-height: 130%;
     }
 
+    .contact-copy-title {
+        margin: 16px 0 0 0;
+        font-size: 16px;
+    }
+
     .contact-copy-text {
         margin-top: 16px;
         max-width: 320px;
     }
 
     .contact-direct-links {
-        margin-top: 20px;
+        margin-top: 16px;
         align-items: flex-start;
         gap: 12px;
     }
@@ -894,6 +899,7 @@
         order: 2;
         max-width: 100%;
         gap: 10px;
+        margin: 0;
     }
 
     .contact-field {
@@ -926,6 +932,10 @@
 
     .contact-policy-text {
         max-width: 100%;
+    }
+
+    .contact-submit-btn {
+        font-size: 14px;
     }
 
     .contact-arrow-back {

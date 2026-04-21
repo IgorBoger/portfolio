@@ -10,6 +10,7 @@
 
     <script src="js/project-data.js" defer></script>
     <script src="js/project-renderer.js" defer></script>
+    <script src="js/shared-templates.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -53,7 +54,7 @@
                 </button>
             </div>
 
-            <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu" id="mobileMenu" inert>
                 <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
                     <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
                     <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
@@ -466,59 +467,8 @@
                             </div>
                         </div>
 
-                        <a class="section-arrow contact-arrow-link contact-arrow-back contact-mobile-reveal" href="#top"
-                            aria-label="Back to hero section">
-                            <img class="section-arrow-img arrow-reveal-left"
-                                src="img/contact-me/switch-arrow-to-hero.png" alt="">
-                        </a>
+                        <div class="shared-area contact-mobile-reveal" id="contactSharedArea"></div>
 
-                        <nav class="contact-social contact-mobile-reveal" aria-label="Contact social links">
-                            <a class="contact-social-link" href="https://github.com/IgorBoger" target="_blank"
-                                rel="noopener noreferrer" aria-label="GitHub (öffnet in neuem Tab)">
-                                <span class="social-ico ico-github" aria-hidden="true"></span>
-                            </a>
-
-                            <a class="contact-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry"
-                                target="_blank" rel="noopener noreferrer" aria-label="E-Mail schreiben">
-                                <span class="social-ico ico-mail" aria-hidden="true"></span>
-                            </a>
-
-                            <a class="contact-social-link" href="https://www.linkedin.com/" target="_blank"
-                                rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
-                                <span class="social-ico ico-linkedin" aria-hidden="true"></span>
-                            </a>
-                        </nav>
-
-                        <div class="contact-mobile-footer contact-mobile-reveal">
-                            <a class="contact-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
-                                <span class="logo-frame" aria-hidden="true">
-                                    <svg class="logo-arc" viewBox="0 0 130 100">
-                                        <defs>
-                                            <path id="contactLogoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
-                                        </defs>
-
-                                        <text class="logo-arc-text">
-                                            <textPath href="#contactLogoArcPath" startOffset="50%" text-anchor="middle">
-                                                frontend developer
-                                            </textPath>
-                                        </text>
-                                    </svg>
-
-                                    <span class="logo-initials">IB</span>
-                                </span>
-                            </a>
-
-                            <p class="contact-mobile-footer-copy">© Igor Boger 2026</p>
-
-                            <div class="contact-mobile-footer-links">
-                                <a class="contact-mobile-footer-link" href="#legalNotice"
-                                    data-target="#legalNotice">Legal
-                                    notice</a>
-                                <a class="contact-mobile-footer-link" href="#privacyPolicy"
-                                    data-target="#privacyPolicy">Privacy
-                                    policy</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -695,61 +645,8 @@
                                     <p class="contact-footer-copy">© Igor Boger 2026</p>
                                 </div>
 
-                                <button class="legal-mobile-top-arrow" type="button"
-                                    aria-label="Back to top of legal notice">
-                                    <img class="legal-mobile-top-arrow-icon"
-                                        src="img/contact-me/switch-arrow-to-hero.png" alt="">
-                                </button>
+                                <div class="shared-area" id="legalSharedArea"></div>
 
-                                <nav class="legal-mobile-social" aria-label="Legal notice social links">
-                                    <a class="legal-mobile-social-link" href="https://github.com/IgorBoger"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="GitHub (öffnet in neuem Tab)">
-                                        <span class="social-ico ico-github" aria-hidden="true"></span>
-                                    </a>
-
-                                    <a class="legal-mobile-social-link"
-                                        href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank"
-                                        rel="noopener noreferrer" aria-label="E-Mail schreiben">
-                                        <span class="social-ico ico-mail" aria-hidden="true"></span>
-                                    </a>
-
-                                    <a class="legal-mobile-social-link" href="https://www.linkedin.com/" target="_blank"
-                                        rel="noopener noreferrer" aria-label="LinkedIn (öffnet in neuem Tab)">
-                                        <span class="social-ico ico-linkedin" aria-hidden="true"></span>
-                                    </a>
-                                </nav>
-
-                                <div class="legal-mobile-footer">
-                                    <a class="legal-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
-                                        <span class="logo-frame" aria-hidden="true">
-                                            <svg class="logo-arc" viewBox="0 0 130 100">
-                                                <defs>
-                                                    <path id="legalMobileLogoArcPath"
-                                                        d="M 15 65 A 50 50 0 0 1 115 65" />
-                                                </defs>
-
-                                                <text class="logo-arc-text">
-                                                    <textPath href="#legalMobileLogoArcPath" startOffset="50%"
-                                                        text-anchor="middle">
-                                                        frontend developer
-                                                    </textPath>
-                                                </text>
-                                            </svg>
-
-                                            <span class="logo-initials">IB</span>
-                                        </span>
-                                    </a>
-
-                                    <p class="legal-mobile-footer-copy">© Igor Boger 2026</p>
-
-                                    <div class="legal-mobile-footer-links">
-                                        <a class="legal-mobile-footer-link" href="#legalNotice"
-                                            data-target="#legalNotice">Legal notice</a>
-                                        <a class="legal-mobile-footer-link" href="#privacyPolicy"
-                                            data-target="#privacyPolicy">Privacy policy</a>
-                                    </div>
-                                </div>
                             </div>
 
 
@@ -907,62 +804,8 @@
                                     <p class="contact-footer-copy">© Igor Boger 2026</p>
                                 </div>
 
-                                <button class="privacy-mobile-top-arrow" type="button"
-                                    aria-label="Back to top of privacy policy">
-                                    <img class="privacy-mobile-top-arrow-icon"
-                                        src="img/contact-me/switch-arrow-to-hero.png" alt="">
-                                </button>
+                                <div class="shared-area" id="privacySharedArea"></div>
 
-                                <nav class="privacy-mobile-social" aria-label="Privacy policy social links">
-                                    <a class="privacy-mobile-social-link" href="https://github.com/IgorBoger"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="GitHub (öffnet in neuem Tab)">
-                                        <span class="social-ico ico-github" aria-hidden="true"></span>
-                                    </a>
-
-                                    <a class="privacy-mobile-social-link"
-                                        href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank"
-                                        rel="noopener noreferrer" aria-label="E-Mail schreiben">
-                                        <span class="social-ico ico-mail" aria-hidden="true"></span>
-                                    </a>
-
-                                    <a class="privacy-mobile-social-link" href="https://www.linkedin.com/"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="LinkedIn (öffnet in neuem Tab)">
-                                        <span class="social-ico ico-linkedin" aria-hidden="true"></span>
-                                    </a>
-                                </nav>
-
-                                <div class="privacy-mobile-footer">
-                                    <a class="privacy-mobile-footer-logo" href="#top" aria-label="Zur Startseite">
-                                        <span class="logo-frame" aria-hidden="true">
-                                            <svg class="logo-arc" viewBox="0 0 130 100">
-                                                <defs>
-                                                    <path id="privacyMobileLogoArcPath"
-                                                        d="M 15 65 A 50 50 0 0 1 115 65" />
-                                                </defs>
-
-                                                <text class="logo-arc-text">
-                                                    <textPath href="#privacyMobileLogoArcPath" startOffset="50%"
-                                                        text-anchor="middle">
-                                                        frontend developer
-                                                    </textPath>
-                                                </text>
-                                            </svg>
-
-                                            <span class="logo-initials">IB</span>
-                                        </span>
-                                    </a>
-
-                                    <p class="privacy-mobile-footer-copy">© Igor Boger 2026</p>
-
-                                    <div class="privacy-mobile-footer-links">
-                                        <a class="privacy-mobile-footer-link" href="#legalNotice"
-                                            data-target="#legalNotice">Legal notice</a>
-                                        <a class="privacy-mobile-footer-link" href="#privacyPolicy"
-                                            data-target="#privacyPolicy">Privacy policy</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </section>

@@ -3,6 +3,7 @@
  */
 function init() {
     renderProjects();
+    renderSharedSections();
     initMobileMenu();
     initSectionArrows();
     initSectionArrowAlignment();
@@ -39,6 +40,46 @@ function init() {
 
 
 /**
+ * Renders all shared mobile footer sections.
+ */
+function renderSharedSections() {
+    renderContactSharedArea();
+    renderLegalSharedArea();
+    renderPrivacySharedArea();
+}
+
+
+/**
+ * Renders the shared contact area.
+ */
+function renderContactSharedArea() {
+    const container = document.getElementById("contactSharedArea");
+    if (!container) return;
+    container.innerHTML = createContactSharedMarkup();
+}
+
+
+/**
+ * Renders the shared legal area.
+ */
+function renderLegalSharedArea() {
+    const container = document.getElementById("legalSharedArea");
+    if (!container) return;
+    container.innerHTML = createLegalSharedMarkup();
+}
+
+
+/**
+ * Renders the shared privacy area.
+ */
+function renderPrivacySharedArea() {
+    const container = document.getElementById("privacySharedArea");
+    if (!container) return;
+    container.innerHTML = createPrivacySharedMarkup();
+}
+
+
+/**
  * Returns the mobile sidebar element.
  * @returns {HTMLElement|null}
  */
@@ -56,7 +97,7 @@ function openMobileMenu(menu, toggleBtn) {
     const sidebar = getSidebar();
     if (!sidebar) return;
     sidebar.classList.add("is-menu-open");
-    menu.setAttribute("aria-hidden", "false");
+    menu.removeAttribute("inert");
     toggleBtn.setAttribute("aria-expanded", "true");
 }
 
@@ -70,8 +111,17 @@ function closeMobileMenu(menu, toggleBtn) {
     const sidebar = getSidebar();
     if (!sidebar) return;
     sidebar.classList.remove("is-menu-open");
-    menu.setAttribute("aria-hidden", "true");
+    menu.setAttribute("inert", "");
     toggleBtn.setAttribute("aria-expanded", "false");
+    moveFocusAfterMenuClose(toggleBtn);
+}
+
+
+/**
+ * Moves focus to a safe element after menu closes.
+ */
+function moveFocusAfterMenuClose(toggleBtn) {
+    toggleBtn.focus();
 }
 
 

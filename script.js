@@ -119,6 +119,7 @@ function closeMobileMenu(menu, toggleBtn) {
 
 /**
  * Moves focus to a safe element after menu closes.
+ * @param {HTMLButtonElement} toggleBtn
  */
 function moveFocusAfterMenuClose(toggleBtn) {
     toggleBtn.focus();
@@ -2071,9 +2072,22 @@ function bindFooterLinks(links, flow, track) {
  */
 function handleFooterLinkClick(event, link, flow, track) {
     event.preventDefault();
-    if (link.closest("#legalNoticeFlow")) return scrollTrackTo(track, 0);
+    if (link.closest("#legalNoticeFlow")) return resetFlowStart(flow, track);
+    if (link.closest("#privacyPolicyFlow")) closePrivacyPolicy();
     openLegalNotice(flow);
-    requestAnimationFrame(() => scrollTrackTo(track, 0));
+    requestAnimationFrame(() => resetFlowStart(flow, track));
+}
+
+
+/**
+ * Scrolls one flow to its start position.
+ * @param {HTMLElement|null} flow
+ * @param {HTMLElement|null} track
+ */
+function resetFlowStart(flow, track) {
+    if (isMobileView()) return flow?.scrollTo({ top: 0, behavior: "auto" });
+    if (!track) return;
+    scrollTrackTo(track, 0);
 }
 
 
@@ -2271,16 +2285,10 @@ function bindPrivacyFooterLinks(links, flow, track) {
  */
 function handlePrivacyFooterLinkClick(event, link, flow, track) {
     event.preventDefault();
-    if (link.closest("#privacyPolicyFlow")) {
-        return scrollTrackTo(track, 0);
-    }
-    if (link.closest("#legalNoticeFlow")) {
-        closeLegalNotice();
-        openPrivacyPolicy(flow);
-        return requestAnimationFrame(() => scrollTrackTo(track, 0));
-    }
+    if (link.closest("#privacyPolicyFlow")) return resetFlowStart(flow, track);
+    if (link.closest("#legalNoticeFlow")) closeLegalNotice();
     openPrivacyPolicy(flow);
-    requestAnimationFrame(() => scrollTrackTo(track, 0));
+    requestAnimationFrame(() => resetFlowStart(flow, track));
 }
 
 

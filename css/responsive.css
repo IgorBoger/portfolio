@@ -85,6 +85,10 @@
         transform: none;
     }
 
+    .logo-arc-text {
+        font-size: 18px;
+    }
+
     .sidebar-nav {
         display: none;
     }
@@ -159,7 +163,7 @@
         top: 50%;
         left: 50%;
         font-size: 28px;
-        letter-spacing: 1px;
+        line-height: 120%;
         transform: translate(-50%, -50%);
         -webkit-text-stroke: 0.5px rgb(74, 74, 74);
     }
@@ -960,55 +964,6 @@
         transform: rotate(90deg);
     }
 
-    .contact-social {
-        order: 4;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        width: 100%;
-        padding-bottom: 12px;
-    }
-
-    .contact-mobile-footer {
-        order: 5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        padding: 18px 20px 20px;
-        background: var(--accent);
-        text-align: center;
-    }
-
-    .contact-mobile-footer-logo {
-        width: 72px;
-        height: 58px;
-    }
-
-    .contact-mobile-footer-logo .logo-frame {
-        width: 72px;
-        height: 58px;
-        position: relative;
-        display: block;
-    }
-
-    .contact-mobile-footer-copy,
-    .contact-mobile-footer-link {
-        margin: 0;
-        color: rgb(74, 74, 74);
-        font-size: 14px;
-    }
-
-    .contact-mobile-footer-links {
-        justify-content: center;
-        gap: 18px;
-        flex-wrap: wrap;
-        padding-top: 12px;
-    }
-
     .contact-mobile-reveal {
         opacity: 0;
         transform: translateY(28px);
@@ -1126,10 +1081,27 @@
         justify-content: center;
         margin-bottom: 40px;
         cursor: pointer;
+        border: 0;
+        background: transparent;
+        text-decoration: none;
     }
 
-    .legal-mobile-social,
-    .privacy-mobile-social {
+    .shared-area {
+        display: contents;
+    }
+
+    #contactSharedArea .shared-social {
+        order: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+        padding-bottom: 12px;
+    }
+
+    #legalSharedArea .shared-social,
+    #privacySharedArea .shared-social {
         order: 2;
         display: flex;
         align-items: center;
@@ -1139,8 +1111,21 @@
         margin-bottom: 24px;
     }
 
-    .legal-mobile-footer,
-    .privacy-mobile-footer {
+    #contactSharedArea .shared-footer {
+        order: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        padding: 18px 20px 20px;
+        background: var(--accent);
+        text-align: center;
+    }
+
+    #legalSharedArea .shared-footer,
+    #privacySharedArea .shared-footer {
         order: 3;
         display: flex;
         flex-direction: column;
@@ -1152,38 +1137,38 @@
         text-align: center;
     }
 
-    .legal-mobile-footer-logo,
-    .privacy-mobile-footer-logo {
+    .shared-footer-logo {
         width: 72px;
         height: 58px;
         display: inline-flex;
         color: rgb(74, 74, 74);
     }
 
-    .legal-mobile-footer-logo .logo-frame,
-    .privacy-mobile-footer-logo .logo-frame {
+    .shared-footer-logo .logo-frame {
         width: 72px;
         height: 58px;
         position: relative;
         display: block;
     }
 
-    .legal-mobile-footer-copy,
-    .privacy-mobile-footer-copy,
-    .legal-mobile-footer-link,
-    .privacy-mobile-footer-link {
+    .footer-copy,
+    .footer-link-mobile {
         margin: 0;
         color: rgb(74, 74, 74);
-        font-size: 14px;
+        line-height: 120%;
+        padding-top: 12px;
     }
 
-    .legal-mobile-footer-links,
-    .privacy-mobile-footer-links {
+    .footer-link-mobile {
+        text-decoration: none;
+        transition: color 120ms ease-in-out;
+    }
+
+    .footer-links {
         display: flex;
         justify-content: center;
         gap: 18px;
         flex-wrap: wrap;
-        padding-top: 12px;
     }
 
     .legal-notice-heading,

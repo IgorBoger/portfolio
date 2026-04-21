@@ -1,20 +1,19 @@
 /**
  * Returns the shared social links markup.
- * @param {string} blockClass
  * @returns {string}
  */
-function createSharedSocialMarkup(blockClass) {
+function createSharedSocialMarkup() {
     return `
-        <nav class="${blockClass}-social" aria-label="Social links">
-            <a class="${blockClass}-social-link" href="https://github.com/IgorBoger" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <nav class="shared-social" aria-label="Social links">
+            <a class="shared-social-link" href="https://github.com/IgorBoger" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <span class="social-ico ico-github" aria-hidden="true"></span>
             </a>
 
-            <a class="${blockClass}-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank" rel="noopener noreferrer" aria-label="E-Mail">
+            <a class="shared-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank" rel="noopener noreferrer" aria-label="E-Mail">
                 <span class="social-ico ico-mail" aria-hidden="true"></span>
             </a>
 
-            <a class="${blockClass}-social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a class="shared-social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <span class="social-ico ico-linkedin" aria-hidden="true"></span>
             </a>
         </nav>
@@ -24,14 +23,13 @@ function createSharedSocialMarkup(blockClass) {
 
 /**
  * Returns the shared footer markup.
- * @param {string} blockClass
  * @param {string} logoPathId
  * @returns {string}
  */
-function createSharedFooterMarkup(blockClass, logoPathId) {
+function createSharedFooterMarkup(logoPathId) {
     return `
-        <div class="${blockClass}-footer">
-            <a class="${blockClass}-footer-logo" href="#top" aria-label="Zur Startseite">
+        <div class="shared-footer">
+            <a class="shared-footer-logo" href="#top" aria-label="Zur Startseite">
                 <span class="logo-frame" aria-hidden="true">
                     <svg class="logo-arc" viewBox="0 0 130 100">
                         <defs>
@@ -49,11 +47,11 @@ function createSharedFooterMarkup(blockClass, logoPathId) {
                 </span>
             </a>
 
-            <p class="${blockClass}-footer-copy">© Igor Boger 2026</p>
+            <p class="footer-copy">© Igor Boger 2026</p>
 
-            <div class="${blockClass}-footer-links">
-                <a class="${blockClass}-footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                <a class="${blockClass}-footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+            <div class="footer-links">
+                <a class="footer-link-mobile" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
+                <a class="footer-link-mobile" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
             </div>
         </div>
     `;
@@ -70,8 +68,8 @@ function createContactSharedMarkup() {
             <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
         </a>
 
-        ${createSharedSocialMarkup("contact")}
-        ${createSharedFooterMarkup("contact-mobile", "contactSharedLogoArcPath")}
+        ${createSharedSocialMarkup()}
+        ${createSharedFooterMarkup("contactSharedLogoArcPath")}
     `;
 }
 
@@ -86,8 +84,8 @@ function createLegalSharedMarkup() {
             <img class="legal-mobile-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
         </button>
 
-        ${createSharedSocialMarkup("legal-mobile")}
-        ${createSharedFooterMarkup("legal-mobile", "legalSharedLogoArcPath")}
+        ${createSharedSocialMarkup()}
+        ${createSharedFooterMarkup("legalSharedLogoArcPath")}
     `;
 }
 
@@ -102,7 +100,7 @@ function createPrivacySharedMarkup() {
             <img class="privacy-mobile-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
         </button>
 
-        ${createSharedSocialMarkup("privacy-mobile")}
-        ${createSharedFooterMarkup("privacy-mobile", "privacySharedLogoArcPath")}
+       ${createSharedSocialMarkup()}
+${createSharedFooterMarkup("privacySharedLogoArcPath")}
     `;
 }

@@ -1,10 +1,65 @@
 /**
+ * Returns the shared desktop direct links markup.
+ * @returns {string}
+ */
+function createSharedDirectLinksMarkup() {
+    return `
+        <div class="shared-direct-links">
+            <a class="shared-direct-link" href="mailto:igorboger26@gmail.com">
+                <img class="shared-direct-icon" src="img/contact-me/email.png" alt="">
+                <span>E-mail: igorboger26@gmail.com</span>
+            </a>
+
+            <a class="shared-direct-link" href="tel:+4917662045018">
+                <img class="shared-direct-icon" src="img/contact-me/phone.png" alt="">
+                <span>Tel: 017662045018</span>
+            </a>
+        </div>
+    `;
+}
+
+
+/**
+ * Returns the shared desktop footer markup.
+ * @returns {string}
+ */
+function createSharedDesktopFooterMarkup() {
+    return `
+        <div class="shared-footer">
+            <div class="footer-links">
+                <a class="footer-link-mobile" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
+                <a class="footer-link-mobile" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+            </div>
+
+            <p class="footer-copy">© Igor Boger 2026</p>
+        </div>
+    `;
+}
+
+
+/**
+ * Returns the desktop shared contact markup.
+ * @returns {string}
+ */
+function createDesktopContactSharedMarkup() {
+    return `
+        <a class="section-arrow contact-arrow-link contact-arrow-back" href="#top" aria-label="Back to hero section">
+            <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
+        </a>
+
+        ${createSharedDirectLinksMarkup()}
+        ${createSharedDesktopFooterMarkup()}
+    `;
+}
+
+
+/**
  * Returns the shared social links markup.
  * @returns {string}
  */
 function createSharedSocialMarkup() {
     return `
-        <nav class="shared-social" aria-label="Social links">
+        <nav class="shared-social fade-in" aria-label="Social links">
             <a class="shared-social-link" href="https://github.com/IgorBoger" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <span class="social-ico ico-github" aria-hidden="true"></span>
             </a>
@@ -28,7 +83,7 @@ function createSharedSocialMarkup() {
  */
 function createSharedFooterMarkup(logoPathId) {
     return `
-        <div class="shared-footer">
+        <div class="shared-footer fade-in">
             <a class="shared-footer-logo" href="#top" aria-label="Zur Startseite">
                 <span class="logo-frame" aria-hidden="true">
                     <svg class="logo-arc" viewBox="0 0 130 100">
@@ -64,7 +119,7 @@ function createSharedFooterMarkup(logoPathId) {
  */
 function createContactSharedMarkup() {
     return `
-        <a class="section-arrow contact-arrow-link contact-arrow-back" href="#top" aria-label="Back to hero section">
+        <a class="section-arrow contact-arrow-link contact-arrow-back fade-in" href="#top" aria-label="Back to hero section">
             <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
         </a>
 
@@ -100,7 +155,7 @@ function createPrivacySharedMarkup() {
             <img class="privacy-mobile-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
         </button>
 
-       ${createSharedSocialMarkup()}
-${createSharedFooterMarkup("privacySharedLogoArcPath")}
+        ${createSharedSocialMarkup()}
+        ${createSharedFooterMarkup("privacySharedLogoArcPath")}
     `;
 }

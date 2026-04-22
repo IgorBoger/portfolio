@@ -872,7 +872,9 @@
     }
 
 
-    .contact-copy {
+    .desktop-shared-area {
+        position: relative;
+        right: 0;
         width: 100%;
         max-width: 100%;
         margin-right: 0;
@@ -880,6 +882,18 @@
         text-align: left;
         font-size: 16px;
         line-height: 130%;
+    }
+
+    .desktop-shared-area .contact-arrow-back,
+    .desktop-shared-area .shared-footer {
+        display: none;
+    }
+
+    .shared-direct-links {
+        margin-top: 20px;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
     }
 
     .contact-copy-title {
@@ -1124,6 +1138,10 @@
         text-align: center;
     }
 
+    #contactSharedArea .footer-links {
+        flex-direction: row;
+    }
+
     #legalSharedArea .shared-footer,
     #privacySharedArea .shared-footer {
         order: 3;
@@ -1156,7 +1174,6 @@
         margin: 0;
         color: rgb(74, 74, 74);
         line-height: 120%;
-        padding-top: 12px;
     }
 
     .footer-link-mobile {
@@ -1167,7 +1184,7 @@
     .footer-links {
         display: flex;
         justify-content: center;
-        gap: 18px;
+        gap: 12px;
         flex-wrap: wrap;
     }
 

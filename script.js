@@ -3,6 +3,7 @@
  */
 function init() {
     renderProjects();
+    renderDesktopSharedSections();
     renderSharedSections();
     initMobileMenu();
     initSectionArrows();
@@ -36,6 +37,24 @@ function init() {
     initPrivacyPolicyFlow();
     initPrivacyMobileBack();
     initPrivacyMobileTopArrow();
+}
+
+
+/**
+ * Renders all shared desktop contact sections.
+ */
+function renderDesktopSharedSections() {
+    renderDesktopContactSharedArea();
+}
+
+
+/**
+ * Renders the desktop shared contact area.
+ */
+function renderDesktopContactSharedArea() {
+    const container = document.getElementById("desktopContactSharedArea");
+    if (!container) return;
+    container.innerHTML += createDesktopContactSharedMarkup();
 }
 
 

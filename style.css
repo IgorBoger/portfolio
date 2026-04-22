@@ -1497,12 +1497,37 @@ body {
 }
 
 
-.contact-copy {
+.desktop-shared-area {
+    position: absolute;
+    top: 0;
+    right: 120px;
+    bottom: 78px;
     width: 100%;
+    height: 100%;
     max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     text-align: right;
-    padding-top: 6px;
-    margin-right: 20px;
+}
+
+
+.shared-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    text-align: right;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 
@@ -1519,34 +1544,6 @@ body {
 }
 
 
-.contact-direct-links {
-    margin-top: 34px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
-}
-
-
-.contact-direct-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    color: rgba(255, 253, 253, 1);
-    text-decoration: none;
-}
-
-
-.contact-direct-icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    display: block;
-    flex: 0 0 18px;
-}
-
-
 .contact-arrow-link {
     display: inline-flex;
     align-items: center;
@@ -1557,15 +1554,10 @@ body {
 
 .contact-arrow-back {
     top: 63.5%;
-    right: 120px;
+    right: 0;
     left: auto;
     transform: none;
     z-index: 1;
-}
-
-
-.contact-arrow-back .section-arrow-img {
-    width: 92px;
 }
 
 
@@ -1582,7 +1574,7 @@ body {
 }
 
 
-.footer-link {
+.footer-link-mobile {
     color: rgba(255, 253, 253, 1);
     text-decoration: none;
     transition: color 120ms ease-in-out;
@@ -1593,14 +1585,14 @@ body {
 }
 
 
-.contact-footer-copy {
+.footer-copy {
     margin: 0;
 }
 
 
 .shared-area {
     display: none;
-} 
+}
 
 
 .legal-notice-flow,
@@ -1775,30 +1767,26 @@ body {
 }
 
 
-.legal-notice-direct-links,
-.privacy-policy-direct-links {
+.shared-direct-links {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 14px;
-    margin-top: 34px;
+    gap: 12px;
+    margin-top: 32px;
 }
 
 
-.legal-notice-direct-link,
-.privacy-policy-direct-link {
+.shared-direct-link {
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 253, 253, 1);
     text-decoration: none;
-    font-size: 14px;
 }
 
 
-.legal-notice-direct-icon,
-.privacy-policy-direct-icon {
+.shared-direct-icon {
     width: 18px;
     height: 18px;
     object-fit: contain;

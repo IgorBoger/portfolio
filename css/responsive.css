@@ -428,10 +428,7 @@
     .references-grid::-webkit-scrollbar,
     .references-mobile-controls::-webkit-scrollbar,
     .references-arrow,
-    .contact-section::after,
     .contact-footer-box,
-    .legal-notice-stage-split::after,
-    .privacy-policy-stage-split::after,
     .imprint-row,
     .legal-back-arrow,
     .privacy-policy-back-arrow,
@@ -830,6 +827,10 @@
         overflow-x: hidden;
     }
 
+    .accent-bar {
+        display: none;
+    }
+
     .contact-inner {
         padding-bottom: 0;
     }
@@ -865,12 +866,6 @@
         -webkit-text-stroke: 0.3px var(--accent);
         display: block;
     }
-
-    .contact-copy-box {
-        order: 1;
-        width: 100%;
-    }
-
 
     .desktop-shared-area {
         position: relative;

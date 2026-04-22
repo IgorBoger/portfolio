@@ -19,6 +19,7 @@ function init() {
     initActiveSectionTracking();
     initFadeInOnScroll();
     initSectionViewportReveal();
+    initAccentBarReveal();
     initSkillsTitleWrapPosition();
     initContactTitleWrapPosition();
     initHeaderReveal();
@@ -59,7 +60,7 @@ function renderDesktopContactSharedArea() {
 
 
 /**
- * Renders all shared mobile footer sections.
+ * Renders all shared mobile sections.
  */
 function renderSharedSections() {
     renderContactSharedArea();
@@ -1079,7 +1080,7 @@ function isDragStartAllowed(event) {
  */
 function initFadeInOnScroll() {
     const elements = document.querySelectorAll(
-        ".reference-card, .fade-in, .contact-section, .contact-mobile-reveal"
+        ".reference-card, .fade-in, .contact-mobile-reveal"
     );
     if (elements.length === 0) return;
     const observer = createFadeInObserver();
@@ -1165,6 +1166,72 @@ function handleSectionRevealEntries(entries) {
  */
 function revealSectionItem(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
+}
+
+
+/**
+ * Initializes accent bar observers for all horizontal tracks.
+ */
+function initAccentBarReveal() {
+    bindAccentBarReveal("#contact .accent-bar", getSectionsTrack());
+    bindAccentBarReveal("#legalNoticePageTwo .accent-bar", getLegalNoticeTrack());
+    bindAccentBarReveal("#privacyPolicyPageTwo .accent-bar", getPrivacyPolicyTrack());
+}
+
+
+/**
+ * Returns the legal notice track.
+ * @returns {HTMLElement|null}
+ */
+function getLegalNoticeTrack() {
+    return document.getElementById("legalNoticeTrack");
+}
+
+
+/**
+ * Returns the privacy policy track.
+ * @returns {HTMLElement|null}
+ */
+function getPrivacyPolicyTrack() {
+    return document.getElementById("privacyPolicyTrack");
+}
+
+
+/**
+ * Binds one accent bar to its track observer.
+ * @param {string} selector
+ * @param {HTMLElement|null} root
+ */
+function bindAccentBarReveal(selector, root) {
+    const bar = document.querySelector(selector);
+    if (!bar) return;
+    createAccentBarObserver(root).observe(bar);
+}
+
+
+/**
+ * Creates one accent bar observer.
+ * @param {HTMLElement|null} root
+ * @returns {IntersectionObserver}
+ */
+function createAccentBarObserver(root) {
+    const observerRoot = isMobileView() ? null : root;
+    return new IntersectionObserver(handleAccentBarEntries, {
+        root: observerRoot,
+        threshold: 0,
+        rootMargin: "0px 120px 0px 0px"
+    });
+}
+
+
+/**
+ * Handles accent bar visibility entries.
+ * @param {IntersectionObserverEntry[]} entries
+ */
+function handleAccentBarEntries(entries) {
+    entries.forEach((entry) => {
+        entry.target.classList.toggle("is-visible", entry.isIntersecting);
+    });
 }
 
 

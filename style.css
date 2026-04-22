@@ -468,7 +468,7 @@ body {
 .frontend-developer.is-visible,
 .arrow-reveal-right.is-visible,
 .arrow-reveal-left.is-visible,
-.contact-section.is-visible::after,
+.accent-bar.is-visible,
 .sidebar.is-visible {
     opacity: 1;
     transform: translateX(0);
@@ -1288,8 +1288,7 @@ body {
 }
 
 
-.contact-section::after {
-    content: "";
+.accent-bar {
     position: absolute;
     top: 0;
     right: 0;
@@ -1297,7 +1296,7 @@ body {
     height: 100%;
     background: var(--accent);
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(90%);
     transition: opacity 700ms ease-out, transform 700ms ease-out;
     will-change: opacity, transform;
 }
@@ -1488,15 +1487,6 @@ body {
 }
 
 
-.contact-copy-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
-
 .desktop-shared-area {
     position: absolute;
     top: 0;
@@ -1558,19 +1548,6 @@ body {
     left: auto;
     transform: none;
     z-index: 1;
-}
-
-
-.contact-footer-box {
-    justify-self: end;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    text-align: right;
-    margin-right: 20px;
-    color: rgba(255, 253, 253, 1);
-    font-size: 16px;
-    line-height: 120%;
 }
 
 
@@ -1704,18 +1681,6 @@ body {
     position: relative;
     display: block;
     padding: 0;
-}
-
-
-.legal-notice-stage-split::after,
-.privacy-policy-stage-split::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100%;
-    background: var(--accent);
 }
 
 

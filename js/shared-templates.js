@@ -41,7 +41,7 @@ function createSharedDesktopFooterMarkup() {
  * Returns the desktop shared contact markup.
  * @returns {string}
  */
-function createDesktopContactSharedMarkup() {
+function createDesktopSharedMarkup() {
     return `
         <a class="section-arrow contact-arrow-link contact-arrow-back" href="#top" aria-label="Back to hero section">
             <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">

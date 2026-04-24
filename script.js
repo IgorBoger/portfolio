@@ -46,6 +46,8 @@ function init() {
  */
 function renderDesktopSharedSections() {
     renderDesktopContactSharedArea();
+    renderDesktopLegalSharedArea();
+    renderDesktopPrivacySharedArea();
 }
 
 
@@ -55,7 +57,27 @@ function renderDesktopSharedSections() {
 function renderDesktopContactSharedArea() {
     const container = document.getElementById("desktopContactSharedArea");
     if (!container) return;
-    container.innerHTML += createDesktopContactSharedMarkup();
+    container.innerHTML += createDesktopSharedMarkup();
+}
+
+
+/**
+ * Renders the desktop shared area for legal notice.
+ */
+function renderDesktopLegalSharedArea() {
+    const container = document.getElementById("desktopLegalSharedArea");
+    if (!container) return;
+    container.innerHTML = createDesktopSharedMarkup();
+}
+
+
+/**
+ * Renders the desktop shared area for privacy policy.
+ */
+function renderDesktopPrivacySharedArea() {
+    const container = document.getElementById("desktopPrivacySharedArea");
+    if (!container) return;
+    container.innerHTML = createDesktopSharedMarkup();
 }
 
 

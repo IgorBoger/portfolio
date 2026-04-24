@@ -1724,11 +1724,18 @@ body {
     bottom: 78px;
     width: 100%;
     max-width: 370px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right;
+}
+
+
+.legal-notice-side-content .desktop-shared-area,
+.privacy-policy-side-content .desktop-shared-area {
+    right: 0;
+}
+
+
+.legal-notice-side-content .shared-direct-links,
+.privacy-policy-side-content .shared-direct-links {
+    margin-top: 0;
 }
 
 
@@ -1757,22 +1764,6 @@ body {
     object-fit: contain;
     display: block;
     flex: 0 0 18px;
-}
-
-
-.legal-notice-footer-box,
-.privacy-policy-footer-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
-}
-
-
-.legal-notice-footer-copy {
-    margin: 0;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 1);
 }
 
 

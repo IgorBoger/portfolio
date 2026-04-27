@@ -554,9 +554,7 @@ function getReferencesScrollLeft(track, refs) {
 function initSectionArrowAlignment() {
     updateSectionArrowAlignment();
     queueSectionArrowAlignment();
-    window.addEventListener("resize", queueSectionArrowAlignment);
-    window.addEventListener("load", queueSectionArrowAlignment);
-    document.fonts?.ready.then(queueSectionArrowAlignment);
+    bindArrowAlignmentEvents();
 }
 
 
@@ -648,6 +646,18 @@ function getArrowTopOffset(container, target, arrow) {
 function setArrowTop(arrow, top) {
     arrow.style.top = `${top}px`;
     arrow.style.bottom = "auto";
+}
+
+
+/**
+ * Binds all layout events that can affect arrow alignment.
+ */
+function bindArrowAlignmentEvents() {
+    const track = getSectionsTrack();
+    if (track) track.addEventListener("scroll", queueSectionArrowAlignment);
+    window.addEventListener("resize", queueSectionArrowAlignment);
+    window.addEventListener("load", queueSectionArrowAlignment);
+    document.fonts?.ready.then(queueSectionArrowAlignment);
 }
 
 
@@ -1102,7 +1112,7 @@ function isDragStartAllowed(event) {
  */
 function initFadeInOnScroll() {
     const elements = document.querySelectorAll(
-        ".reference-card, .fade-in, .contact-mobile-reveal"
+        ".reference-card, .references-mobile-controls, .fade-in, .contact-mobile-reveal"
     );
     if (elements.length === 0) return;
     const observer = createFadeInObserver();
@@ -1155,7 +1165,7 @@ function initSectionViewportReveal() {
  */
 function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
-        ".whyme-title, .skills-title, .mywork-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left"
+        ".whyme-title, .skills-title, .mywork-title, .references-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left"
     ));
 }
 
@@ -2230,6 +2240,18 @@ function bindTrackArrow(arrow, track, getPosition) {
  */
 function scrollTrackTo(track, position) {
     track.scrollTo({ left: position, behavior: "smooth" });
+    queueArrowAlignmentAfterScroll(track);
+}
+
+
+/**
+ * Updates arrows shortly after smooth scrolling starts.
+ * @param {HTMLElement} track
+ */
+function queueArrowAlignmentAfterScroll(track) {
+    queueSectionArrowAlignment();
+    window.setTimeout(queueSectionArrowAlignment, 180);
+    window.setTimeout(queueSectionArrowAlignment, 360);
 }
 
 

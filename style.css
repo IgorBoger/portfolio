@@ -290,7 +290,8 @@ body {
 .fade-in.is-visible,
 .contact-mobile-reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
 
@@ -1132,11 +1133,6 @@ body {
         transform 700ms ease-out,
         filter 700ms ease-out;
     will-change: opacity, transform, filter;
-}
-
-.fade-in.is-visible {
-    transform: translateY(0) scale(1);
-    filter: blur(0);
 }
 
 

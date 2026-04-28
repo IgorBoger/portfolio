@@ -27,10 +27,9 @@ function createSharedDesktopFooterMarkup() {
     return `
         <div class="shared-footer">
             <div class="footer-links">
-                <a class="footer-link-mobile" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                <a class="footer-link-mobile" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+                <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
+                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
             </div>
-
             <p class="footer-copy">© Igor Boger 2026</p>
         </div>
     `;
@@ -43,12 +42,13 @@ function createSharedDesktopFooterMarkup() {
  */
 function createDesktopSharedMarkup() {
     return `
-        <a class="section-arrow contact-arrow-link contact-arrow-back" href="#top" aria-label="Back to hero section">
-            <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
-        </a>
-
-        ${createSharedDirectLinksMarkup()}
-        ${createSharedDesktopFooterMarkup()}
+        <div class="shared-actions">
+            ${createSharedDirectLinksMarkup()}
+            <a class="section-arrow shared-back-arrow" href="#top" aria-label="Back to hero section">
+                <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
+            </a>
+            ${createSharedDesktopFooterMarkup()}
+        </div>
     `;
 }
 
@@ -63,11 +63,9 @@ function createSharedSocialMarkup() {
             <a class="shared-social-link" href="https://github.com/IgorBoger" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <span class="social-ico ico-github" aria-hidden="true"></span>
             </a>
-
             <a class="shared-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank" rel="noopener noreferrer" aria-label="E-Mail">
                 <span class="social-ico ico-mail" aria-hidden="true"></span>
             </a>
-
             <a class="shared-social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <span class="social-ico ico-linkedin" aria-hidden="true"></span>
             </a>
@@ -90,25 +88,35 @@ function createSharedFooterMarkup(logoPathId) {
                         <defs>
                             <path id="${logoPathId}" d="M 15 65 A 50 50 0 0 1 115 65" />
                         </defs>
-
                         <text class="logo-arc-text">
                             <textPath href="#${logoPathId}" startOffset="50%" text-anchor="middle">
                                 frontend developer
                             </textPath>
                         </text>
                     </svg>
-
                     <span class="logo-initials">IB</span>
                 </span>
             </a>
-
             <p class="footer-copy">© Igor Boger 2026</p>
-
             <div class="footer-links">
-                <a class="footer-link-mobile" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                <a class="footer-link-mobile" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+                <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
+                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
             </div>
         </div>
+    `;
+}
+
+
+/**
+ * Returns the shared top arrow markup.
+ * @param {string} label
+ * @returns {string}
+ */
+function createSharedTopArrowMarkup(label) {
+    return `
+        <button class="shared-top-arrow fade-in" type="button" aria-label="${label}">
+            <img class="shared-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
+        </button>
     `;
 }
 
@@ -119,10 +127,7 @@ function createSharedFooterMarkup(logoPathId) {
  */
 function createContactSharedMarkup() {
     return `
-        <a class="section-arrow contact-arrow-link contact-arrow-back fade-in" href="#top" aria-label="Back to hero section">
-            <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
-        </a>
-
+        ${createSharedTopArrowMarkup("Back to hero section")}
         ${createSharedSocialMarkup()}
         ${createSharedFooterMarkup("contactSharedLogoArcPath")}
     `;
@@ -135,10 +140,7 @@ function createContactSharedMarkup() {
  */
 function createLegalSharedMarkup() {
     return `
-        <button class="legal-mobile-top-arrow" type="button" aria-label="Back to top of legal notice">
-            <img class="legal-mobile-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
-        </button>
-
+        ${createSharedTopArrowMarkup("Back to top of legal notice")}
         ${createSharedSocialMarkup()}
         ${createSharedFooterMarkup("legalSharedLogoArcPath")}
     `;
@@ -151,10 +153,7 @@ function createLegalSharedMarkup() {
  */
 function createPrivacySharedMarkup() {
     return `
-        <button class="privacy-mobile-top-arrow" type="button" aria-label="Back to top of privacy policy">
-            <img class="privacy-mobile-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
-        </button>
-
+        ${createSharedTopArrowMarkup("Back to top of privacy policy")}
         ${createSharedSocialMarkup()}
         ${createSharedFooterMarkup("privacySharedLogoArcPath")}
     `;

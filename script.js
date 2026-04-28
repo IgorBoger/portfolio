@@ -12,7 +12,8 @@ function init() {
     initLogoNavigation();
     initMobileMenuNavigation();
     initContactButton();
-    initContactArrowNavigation();
+    initSharedTopArrows();
+    initSharedBackArrows();
     initShellBackground();
     initDragScroll();
     initDragScrollResize();
@@ -34,10 +35,8 @@ function init() {
     initContactForm();
     initLegalNoticeFlow();
     initLegalMobileBack();
-    initLegalMobileTopArrow();
     initPrivacyPolicyFlow();
     initPrivacyMobileBack();
-    initPrivacyMobileTopArrow();
 }
 
 
@@ -386,26 +385,6 @@ function initContactButton() {
             scrollToPanel("#contact");
         });
     });
-}
-
-
-/**
- * Initializes contact arrow navigation back to the hero section.
- */
-function initContactArrowNavigation() {
-    const arrow = getContactArrowLink();
-    if (!arrow) return;
-    arrow.addEventListener("click", handleContactArrowClick);
-}
-
-
-/**
- * Handles smooth navigation from contact back to the hero section.
- * @param {MouseEvent} event
- */
-function handleContactArrowClick(event) {
-    event.preventDefault();
-    scrollToPanel("#top");
 }
 
 
@@ -1165,7 +1144,7 @@ function initSectionViewportReveal() {
  */
 function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
-        ".whyme-title, .skills-title, .mywork-title, .references-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left"
+        ".whyme-title, .skills-title, .mywork-title, .references-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left, .legal-notice-title, .privacy-policy-title"
     ));
 }
 
@@ -2147,15 +2126,6 @@ function syncContactSubmitState(form) {
 
 
 /**
- * Returns the contact arrow link element.
- * @returns {HTMLAnchorElement|null}
- */
-function getContactArrowLink() {
-    return document.querySelector(".contact-arrow-back");
-}
-
-
-/**
  * Initializes the legal notice flow behaviour.
  */
 function initLegalNoticeFlow() {
@@ -2349,34 +2319,117 @@ function handleLegalMobileBackClick(event) {
 
 
 /**
- * Initializes the legal notice mobile top arrow.
+ * Initializes all shared desktop back arrows.
  */
-function initLegalMobileTopArrow() {
-    const arrow = document.querySelector(".legal-mobile-top-arrow");
-    if (!arrow) return;
-    arrow.addEventListener("click", scrollLegalTrackToTop);
+function initSharedBackArrows() {
+    getSharedBackArrows().forEach(bindSharedBackArrow);
 }
 
 
 /**
- * Scrolls the legal notice flow to the top.
+ * Returns all shared desktop back arrows.
+ * @returns {HTMLAnchorElement[]}
  */
-function scrollLegalTrackToTop() {
-    const flow = document.getElementById("legalNoticeFlow");
+function getSharedBackArrows() {
+    return Array.from(document.querySelectorAll(".shared-back-arrow"));
+}
+
+
+/**
+ * Binds one shared desktop back arrow.
+ * @param {HTMLAnchorElement} arrow
+ */
+function bindSharedBackArrow(arrow) {
+    arrow.addEventListener("click", handleSharedBackArrowClick);
+}
+
+
+/**
+ * Handles one shared desktop back arrow click.
+ * @param {MouseEvent} event
+ */
+function handleSharedBackArrowClick(event) {
+    event.preventDefault();
+    if (isInsideFlow(event, "legalNoticeFlow")) return scrollLegalNoticeToStart();
+    if (isInsideFlow(event, "privacyPolicyFlow")) return scrollPrivacyPolicyToStart();
+    scrollToPanel("#top");
+}
+
+
+/**
+ * Scrolls the legal notice flow to its first page.
+ */
+function scrollLegalNoticeToStart() {
     const track = document.getElementById("legalNoticeTrack");
-    if (isMobileView()) return scrollLegalFlowToTop(flow);
     if (!track) return;
-    track.scrollTo({ left: 0, behavior: "smooth" });
+    scrollTrackTo(track, 0);
 }
 
 
 /**
- * Scrolls the legal notice flow vertically to the top on mobile.
- * @param {HTMLElement|null} flow
+ * Scrolls the privacy policy flow to its first page.
  */
-function scrollLegalFlowToTop(flow) {
-    if (!flow) return;
-    flow.scrollTo({ top: 0, behavior: "smooth" });
+function scrollPrivacyPolicyToStart() {
+    const track = document.getElementById("privacyPolicyTrack");
+    if (!track) return;
+    scrollTrackTo(track, 0);
+}
+
+
+/**
+ * Initializes all shared mobile top arrows.
+ */
+function initSharedTopArrows() {
+    getSharedTopArrows().forEach(bindSharedTopArrow);
+}
+
+
+/**
+ * Returns all shared top arrow buttons.
+ * @returns {HTMLButtonElement[]}
+ */
+function getSharedTopArrows() {
+    return Array.from(document.querySelectorAll(".shared-top-arrow"));
+}
+
+
+/**
+ * Binds one shared top arrow.
+ * @param {HTMLButtonElement} arrow
+ */
+function bindSharedTopArrow(arrow) {
+    arrow.addEventListener("click", handleSharedTopArrowClick);
+}
+
+
+/**
+ * Handles one shared top arrow click.
+ * @param {MouseEvent} event
+ */
+function handleSharedTopArrowClick(event) {
+    if (isInsideFlow(event, "legalNoticeFlow")) return scrollFlowToTop("legalNoticeFlow");
+    if (isInsideFlow(event, "privacyPolicyFlow")) return scrollFlowToTop("privacyPolicyFlow");
+    scrollToPanel("#top");
+}
+
+
+/**
+ * Checks whether the event target is inside one flow.
+ * @param {MouseEvent} event
+ * @param {string} flowId
+ * @returns {boolean}
+ */
+function isInsideFlow(event, flowId) {
+    return event.target instanceof Element && Boolean(event.target.closest(`#${flowId}`));
+}
+
+
+/**
+ * Scrolls one flow to top.
+ * @param {string} flowId
+ */
+function scrollFlowToTop(flowId) {
+    document.getElementById(flowId)?.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 
@@ -2477,38 +2530,6 @@ function initPrivacyMobileBack() {
 function handlePrivacyMobileBackClick(event) {
     event.preventDefault();
     scrollToPanel("#contact");
-}
-
-
-/**
- * Initializes the privacy policy mobile top arrow.
- */
-function initPrivacyMobileTopArrow() {
-    const arrow = document.querySelector(".privacy-mobile-top-arrow");
-    if (!arrow) return;
-    arrow.addEventListener("click", scrollPrivacyTrackToTop);
-}
-
-
-/**
- * Scrolls the privacy policy flow to the top.
- */
-function scrollPrivacyTrackToTop() {
-    const flow = document.getElementById("privacyPolicyFlow");
-    const track = document.getElementById("privacyPolicyTrack");
-    if (isMobileView()) return scrollPrivacyFlowToTop(flow);
-    if (!track) return;
-    track.scrollTo({ left: 0, behavior: "smooth" });
-}
-
-
-/**
- * Scrolls the privacy policy flow vertically to the top on mobile.
- * @param {HTMLElement|null} flow
- */
-function scrollPrivacyFlowToTop(flow) {
-    if (!flow) return;
-    flow.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 

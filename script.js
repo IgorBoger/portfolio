@@ -168,6 +168,18 @@ function moveFocusAfterMenuClose(toggleBtn) {
 
 
 /**
+ * Initializes mobile menu event listeners.
+ */
+function initMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const toggleBtn = document.getElementById("mobileMenuToggle");
+    if (!menu || !toggleBtn) return;
+    toggleBtn.addEventListener("click", () => toggleMobileMenu(menu, toggleBtn));
+    document.addEventListener("click", (event) => closeMobileMenuOnOutsideClick(event, menu, toggleBtn));
+}
+
+
+/**
  * Toggles the mobile menu state.
  * @param {HTMLElement} menu
  * @param {HTMLButtonElement} toggleBtn
@@ -178,19 +190,31 @@ function toggleMobileMenu(menu, toggleBtn) {
         closeMobileMenu(menu, toggleBtn);
         return;
     }
-
     openMobileMenu(menu, toggleBtn);
 }
 
 
 /**
- * Initializes mobile menu event listeners.
+ * Closes the mobile menu when clicking outside the sidebar.
+ * @param {MouseEvent} event
+ * @param {HTMLElement} menu
+ * @param {HTMLButtonElement} toggleBtn
  */
-function initMobileMenu() {
-    const menu = document.getElementById("mobileMenu");
-    const toggleBtn = document.getElementById("mobileMenuToggle");
-    if (!menu || !toggleBtn) return;
-    toggleBtn.addEventListener("click", () => toggleMobileMenu(menu, toggleBtn));
+function closeMobileMenuOnOutsideClick(event, menu, toggleBtn) {
+    const sidebar = getSidebar();
+    if (!sidebar || !isMobileMenuOpen(toggleBtn)) return;
+    if (sidebar.contains(event.target)) return;
+    closeMobileMenu(menu, toggleBtn);
+}
+
+
+/**
+ * Returns whether the mobile menu is currently open.
+ * @param {HTMLButtonElement} toggleBtn
+ * @returns {boolean}
+ */
+function isMobileMenuOpen(toggleBtn) {
+    return toggleBtn.getAttribute("aria-expanded") === "true";
 }
 
 

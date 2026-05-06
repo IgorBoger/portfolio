@@ -132,9 +132,11 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
+    overflow: visible;
     width: 172px;
     height: 100vh;
     background: var(--accent);
+    box-shadow: 24px 0 24px rgba(0, 0, 0, 0.55);
     z-index: 50;
     opacity: 0;
     transform: translateX(-100%);
@@ -881,7 +883,15 @@ body {
     height: 60px;
     object-fit: contain;
     display: block;
+    transition: filter 120ms ease-in-out;
 }
+
+
+.skill-item:hover .skill-icon,
+.skills-challenge-tile:hover .skills-challenge-icon {
+    filter: drop-shadow(0 0 10px rgba(181, 233, 59, 0.45));
+}
+
 
 .skill-label,
 .skill-challenge-label {

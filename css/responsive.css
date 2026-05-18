@@ -95,6 +95,61 @@
 }
 
 
+@media (max-width: 1000px) and (min-width: 901px) {
+    .mywork-stage {
+        margin-top: 120px;
+    }
+
+    .project-container {
+        width: 520px;
+        min-height: clamp(700px, 80vh, 760px);
+        padding: 24px 24px;
+    }
+
+    .project-content {
+        display: contents;
+    }
+
+    .project-description {
+        padding-left: 20px;
+        order: 2;
+    }
+
+    .project-description .project-block:first-child {
+        order: 1;
+    }
+
+    .project-description .project-block:last-child {
+        order: 2;
+    }
+
+    .project-subtitle {
+        margin: 16px 0 8px 0;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 8px 0;
+    }
+
+    .project-learned {
+        padding-left: 20px;
+        order: 4;
+    }
+
+    .project-preview {
+        padding-top: 24px;
+        align-items: center;
+        width: 100%;
+        order: 5;
+    }
+
+    .project-preview img {
+        max-width: 320px;
+    }
+}
+
+
 @media (max-width: 1100px) {
     .skills-break {
         display: none;

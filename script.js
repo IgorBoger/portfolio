@@ -1118,36 +1118,49 @@ function initFadeInOnScroll() {
         ".reference-card, .references-mobile-controls, .fade-in, .contact-mobile-reveal"
     );
     if (elements.length === 0) return;
-    const observer = createFadeInObserver();
+    const observer = createRevealObserver(true);
     elements.forEach((element) => observer.observe(element));
 }
 
 
 /**
- * Creates the fade-in intersection observer.
+ * Creates a shared reveal observer.
+ * @param {boolean} shouldRefreshArrows
  * @returns {IntersectionObserver}
  */
-function createFadeInObserver() {
-    return new IntersectionObserver(handleFadeInEntries, { threshold: 0.2 });
+function createRevealObserver(shouldRefreshArrows = false) {
+    const root = isMobileView() ? null : getSectionsTrack();
+    return new IntersectionObserver((entries) => {
+        handleRevealEntries(entries, shouldRefreshArrows);
+    }, {
+        root,
+        threshold: 0.35
+    });
 }
 
 
 /**
- * Handles fade-in observer entries.
+ * Handles reveal observer entries.
  * @param {IntersectionObserverEntry[]} entries
+ * @param {boolean} shouldRefreshArrows
  */
-function handleFadeInEntries(entries) {
-    entries.forEach((entry) => toggleFadeInVisibility(entry));
+function handleRevealEntries(entries, shouldRefreshArrows) {
+    entries.forEach((entry) => {
+        toggleRevealVisibility(entry);
+
+        if (shouldRefreshArrows) {
+            queueSectionArrowAlignment();
+        }
+    });
 }
 
 
 /**
- * Toggles one fade-in element visibility.
+ * Toggles reveal visibility for one element.
  * @param {IntersectionObserverEntry} entry
  */
-function toggleFadeInVisibility(entry) {
+function toggleRevealVisibility(entry) {
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
-    queueSectionArrowAlignment();
 }
 
 
@@ -1157,7 +1170,7 @@ function toggleFadeInVisibility(entry) {
 function initSectionViewportReveal() {
     const items = getSectionRevealItems();
     if (items.length === 0) return;
-    const observer = createSectionRevealObserver();
+    const observer = createRevealObserver();
     items.forEach((item) => observer.observe(item));
 }
 
@@ -1170,37 +1183,6 @@ function getSectionRevealItems() {
     return Array.from(document.querySelectorAll(
         ".whyme-title, .skills-title, .mywork-title, .references-title, .contact-title, .arrow-reveal-right, .arrow-reveal-left, .legal-notice-title, .privacy-policy-title"
     ));
-}
-
-
-/**
- * Creates the section reveal observer.
- * @returns {IntersectionObserver}
- */
-function createSectionRevealObserver() {
-    const root = isMobileView() ? null : getSectionsTrack();
-    return new IntersectionObserver(handleSectionRevealEntries, {
-        root,
-        threshold: 0.35
-    });
-}
-
-
-/**
- * Handles section reveal entries.
- * @param {IntersectionObserverEntry[]} entries
- */
-function handleSectionRevealEntries(entries) {
-    entries.forEach((entry) => revealSectionItem(entry));
-}
-
-
-/**
- * Reveals one section item when visible.
- * @param {IntersectionObserverEntry} entry
- */
-function revealSectionItem(entry) {
-    entry.target.classList.toggle("is-visible", entry.isIntersecting);
 }
 
 

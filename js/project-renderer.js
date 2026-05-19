@@ -43,6 +43,11 @@ function createProjectCardMarkup(project) {
 }
 
 
+/**
+ * Creates the project content section with expandable mobile content.
+ * @param {Object} project
+ * @returns {string}
+ */
 function createProjectContentMarkup(project) {
     return `
         <div class="project-content">

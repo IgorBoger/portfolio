@@ -707,7 +707,7 @@ function scrollToSectionVertical(targetId) {
  */
 function initSidebarNavigation() {
     const buttons = document.querySelectorAll(".sidebar-btn");
-    buttons.forEach(btn => {
+    buttons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const target = btn.dataset.target;
             if (target) scrollToPanel(target);
@@ -724,7 +724,7 @@ function initMobileMenuNavigation() {
     const toggleBtn = document.getElementById("mobileMenuToggle");
     const links = document.querySelectorAll(".mobile-menu-link");
     if (!menu || !toggleBtn || links.length === 0) return;
-    links.forEach(link => {
+    links.forEach((link) => {
         link.addEventListener("click", () => {
             const target = link.dataset.target;
             if (target) scrollToPanel(target);
@@ -1111,6 +1111,21 @@ function isDragStartAllowed(event) {
 
 
 /**
+ * Creates a project card reveal observer.
+ * @returns {IntersectionObserver}
+ */
+function createProjectRevealObserver() {
+    const root = isMobileView() ? null : getSectionsTrack();
+    return new IntersectionObserver((entries) => {
+        handleRevealEntries(entries, true);
+    }, {
+        root,
+        threshold: 0.1
+    });
+}
+
+
+/**
  * Initializes fade-in animation on scroll.
  */
 function initFadeInOnScroll() {
@@ -1119,7 +1134,14 @@ function initFadeInOnScroll() {
     );
     if (elements.length === 0) return;
     const observer = createRevealObserver(true);
-    elements.forEach((element) => observer.observe(element));
+    const projectObserver = createProjectRevealObserver();
+    elements.forEach((element) => {
+        if (element.classList.contains("project-container")) {
+            projectObserver.observe(element);
+            return;
+        }
+        observer.observe(element);
+    });
 }
 
 
@@ -1134,7 +1156,7 @@ function createRevealObserver(shouldRefreshArrows = false) {
         handleRevealEntries(entries, shouldRefreshArrows);
     }, {
         root,
-        threshold: 0.35
+        threshold: 0.25
     });
 }
 

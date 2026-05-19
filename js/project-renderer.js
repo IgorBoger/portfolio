@@ -37,8 +37,23 @@ function createProjectCardMarkup(project) {
         <div class="project-container ${project.projectClass} fade-in" data-project-expanded="true">
             ${createProjectHeaderMarkup(project)}
             ${createProjectContentMarkup(project)}
-            ${createProjectLearnedMarkup(project)}
             ${createInsideToggleMarkup()}
+        </div>
+    `;
+}
+
+
+function createProjectContentMarkup(project) {
+    return `
+        <div class="project-content">
+            <div class="project-description">
+                ${createProjectBlockMarkup(project.aboutTitle, project.aboutText)}
+                <div class="project-expandable">
+                    ${createProjectBlockMarkup(project.technologiesTitle, project.technologiesText)}
+                    ${createProjectLearnedMarkup(project)}
+                    ${createProjectPreviewMarkup(project)}
+                </div>
+            </div>
         </div>
     `;
 }
@@ -55,21 +70,6 @@ function createProjectHeaderMarkup(project) {
             <img class="project-number" src="${project.numberSrc}" alt="${project.numberAlt}">
             <img class="project-number-mobile" src="${project.numberSrcMobile}" alt="${project.numberAlt}">
             <h2 class="project-title">${project.title}</h2>
-        </div>
-    `;
-}
-
-
-/**
- * Creates the project content section.
- * @param {Object} project
- * @returns {string}
- */
-function createProjectContentMarkup(project) {
-    return `
-        <div class="project-content">
-            ${createProjectDescriptionMarkup(project)}
-            ${createProjectPreviewMarkup(project)}
         </div>
     `;
 }

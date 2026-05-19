@@ -52,17 +52,11 @@
         width: calc(100vw - var(--side));
     }
 
-    .whyme-inner,
-    .skills-inner,
-    .mywork-inner,
-    .contact-inner {
-        padding: 0 0 80px 68px;
-    }
-
     .whyme-text,
     .whyme-i-am,
     .skills-text,
-    .skills-grid {
+    .skills-grid,
+    .mywork-stage {
         margin-left: 80px;
     }
 
@@ -111,7 +105,6 @@
     }
 
     .project-description {
-        padding-left: 20px;
         order: 2;
     }
 
@@ -133,7 +126,6 @@
     }
 
     .project-learned {
-        padding-left: 20px;
         order: 4;
     }
 
@@ -621,12 +613,27 @@
     .privacy-policy-back-arrow,
     .legal-notice-direct-links,
     .privacy-policy-direct-links,
-    .privacy-policy-next-arrow,
-    .project-container[data-project-expanded="false"] .project-learned,
-    .project-container[data-project-expanded="false"] .project-preview,
-    .project-container[data-project-expanded="false"] .project-block:last-child,
-    .project-container[data-project-expanded="true"]>.project-card-toggle {
+    .privacy-policy-next-arrow {
         display: none;
+    }
+
+    .project-expandable {
+        order: 2;
+        overflow: hidden;
+        max-height: 900px;
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+            max-height 420ms ease,
+            opacity 320ms ease,
+            transform 320ms ease;
+    }
+
+    .project-container[data-project-expanded="false"] .project-expandable {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
     }
 
     .skills-grid {
@@ -716,8 +723,7 @@
         padding: 24px 16px;
         border-radius: 26px;
         /* background: radial-gradient(circle at center, rgba(125, 153, 39, 0.95) 0%, rgba(61, 74, 26, 0.98) 100%); */
-        gap: 14px;
-
+        gap: 8px;
         display: flex;
         flex-direction: column;
     }
@@ -758,7 +764,6 @@
         padding-left: 0;
         display: flex;
         flex-direction: column;
-        gap: 18px;
         order: 2;
     }
 
@@ -778,6 +783,7 @@
 
     .project-subtitle {
         font-size: 22px;
+        margin: 12px 0 0 0;
     }
 
     .project-subtitle::before {
@@ -786,13 +792,17 @@
 
     .project-block p,
     .project-learned p {
-        margin: 0 0 0 20px;
+        margin: 12px 0 12px 20px;
     }
 
     .project-preview {
         margin-top: 14px;
         align-items: center;
         order: 5;
+    }
+
+    .project-preview-inner {
+        margin-top: 20px;
     }
 
     .project-preview img {

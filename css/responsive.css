@@ -96,7 +96,7 @@
 
     .project-container {
         width: 520px;
-        min-height: clamp(700px, 80vh, 760px);
+        min-height: 780px;
         padding: 24px 24px;
     }
 
@@ -104,36 +104,18 @@
         display: contents;
     }
 
-    .project-description {
-        order: 2;
-    }
-
-    .project-description .project-block:first-child {
-        order: 1;
-    }
-
-    .project-description .project-block:last-child {
-        order: 2;
-    }
-
     .project-subtitle {
         margin: 16px 0 8px 0;
     }
 
-    .project-block p,
-    .project-learned p {
-        margin: 8px 0;
-    }
-
     .project-learned {
-        order: 4;
+        padding: 0;
     }
 
     .project-preview {
-        padding-top: 24px;
+        margin: auto 0 20px;
         align-items: center;
         width: 100%;
-        order: 5;
     }
 
     .project-preview img {
@@ -618,7 +600,8 @@
     }
 
     .project-expandable {
-        order: 2;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         max-height: 900px;
         opacity: 1;
@@ -724,15 +707,12 @@
         border-radius: 26px;
         /* background: radial-gradient(circle at center, rgba(125, 153, 39, 0.95) 0%, rgba(61, 74, 26, 0.98) 100%); */
         gap: 8px;
-        display: flex;
-        flex-direction: column;
     }
 
     .project-header {
         gap: 10px;
         align-items: flex-start;
         padding-left: 8px;
-        order: 1;
     }
 
     .project-number,
@@ -764,21 +744,6 @@
         padding-left: 0;
         display: flex;
         flex-direction: column;
-        order: 2;
-    }
-
-    .project-description .project-block:first-child {
-        order: 1;
-    }
-
-    .project-description .project-block:last-child {
-        order: 2;
-    }
-
-    .project-learned {
-        max-width: 100%;
-        padding-left: 0;
-        order: 4;
     }
 
     .project-subtitle {
@@ -790,15 +755,9 @@
         margin-right: 10px;
     }
 
-    .project-block p,
-    .project-learned p {
-        margin: 12px 0 12px 20px;
-    }
-
     .project-preview {
         margin-top: 14px;
         align-items: center;
-        order: 5;
     }
 
     .project-preview-inner {
@@ -806,7 +765,6 @@
     }
 
     .project-preview img {
-        width: 100%;
         max-width: 290px;
         border-radius: 30px;
     }
@@ -850,16 +808,6 @@
     .project-container>.project-card-toggle {
         display: inline-flex;
         margin-top: 14px;
-        order: 6;
-    }
-
-    .project-container+.project-card-toggle {
-        display: none;
-        margin-top: -6px;
-    }
-
-    .project-container[data-project-expanded="true"]+.project-card-toggle {
-        display: inline-flex;
     }
 
     .ongoing-container {

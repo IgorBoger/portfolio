@@ -1621,6 +1621,7 @@ function setInitialProjectCardState(card) {
 function toggleProjectCard(card) {
     const nextState = !isProjectCardExpanded(card);
     setProjectCardExpanded(card, nextState);
+    scrollProjectCardAfterClose(card, nextState);
 }
 
 
@@ -1727,6 +1728,41 @@ function getProjectButtonLabel(button) {
  */
 function getProjectButtonIcon(button) {
     return button.querySelector(".project-card-toggle-icon");
+}
+
+
+/**
+ * Scrolls back to the project card after the close animation.
+ * @param {HTMLElement} card
+ * @param {boolean} isExpanded
+ */
+function scrollProjectCardAfterClose(card, isExpanded) {
+    if (!isMobileView() || isExpanded) return;
+    window.setTimeout(() => scrollProjectCardToTop(card), 500);
+}
+
+
+/**
+ * Scrolls one project card into a stable mobile position.
+ * @param {HTMLElement} card
+ */
+function scrollProjectCardToTop(card) {
+    const panel = card.closest(".section-panel");
+    if (!(panel instanceof HTMLElement)) return;
+    panel.scrollTo({ top: getProjectCardPanelTop(card, panel), behavior: "smooth" });
+}
+
+
+/**
+ * Returns the target scroll position for one project card.
+ * @param {HTMLElement} card
+ * @param {HTMLElement} panel
+ * @returns {number}
+ */
+function getProjectCardPanelTop(card, panel) {
+    const cardTop = card.getBoundingClientRect().top;
+    const panelTop = panel.getBoundingClientRect().top;
+    return panel.scrollTop + cardTop - panelTop - 120;
 }
 
 

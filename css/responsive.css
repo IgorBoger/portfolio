@@ -56,7 +56,9 @@
     .whyme-i-am,
     .skills-text,
     .skills-grid,
-    .mywork-stage {
+    .mywork-stage,
+    .legal-notice-column,
+    .privacy-policy-column {
         margin-left: 80px;
     }
 
@@ -705,7 +707,6 @@
         min-height: auto;
         padding: 24px 16px;
         border-radius: 26px;
-        /* background: radial-gradient(circle at center, rgba(125, 153, 39, 0.95) 0%, rgba(61, 74, 26, 0.98) 100%); */
         gap: 8px;
     }
 

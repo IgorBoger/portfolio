@@ -1129,9 +1129,7 @@ function createProjectRevealObserver() {
  * Initializes fade-in animation on scroll.
  */
 function initFadeInOnScroll() {
-    const elements = document.querySelectorAll(
-        ".reference-card, .references-mobile-controls, .fade-in, .contact-mobile-reveal"
-    );
+    const elements = document.querySelectorAll(getRevealSelector());
     if (elements.length === 0) return;
     const observer = createRevealObserver(true);
     const projectObserver = createProjectRevealObserver();
@@ -1142,6 +1140,25 @@ function initFadeInOnScroll() {
         }
         observer.observe(element);
     });
+}
+
+
+/**
+ * Returns the selector for all reveal elements.
+ * @returns {string}
+ */
+function getRevealSelector() {
+    return [
+        ".reference-card",
+        ".references-mobile-controls",
+        ".fade-in",
+        ".contact-mobile-reveal",
+        ".hero-title",
+        ".frontend-developer",
+        ".frontend-developer-mobile",
+        ".hero-location",
+        ".hero-image"
+    ].join(", ");
 }
 
 
@@ -1169,7 +1186,6 @@ function createRevealObserver(shouldRefreshArrows = false) {
 function handleRevealEntries(entries, shouldRefreshArrows) {
     entries.forEach((entry) => {
         toggleRevealVisibility(entry);
-
         if (shouldRefreshArrows) {
             queueSectionArrowAlignment();
         }
@@ -1182,6 +1198,11 @@ function handleRevealEntries(entries, shouldRefreshArrows) {
  * @param {IntersectionObserverEntry} entry
  */
 function toggleRevealVisibility(entry) {
+    if (entry.target.classList.contains("reference-card") && entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        return;
+    }
+    if (entry.target.classList.contains("reference-card")) return;
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
 }
 

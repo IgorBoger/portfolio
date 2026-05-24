@@ -943,7 +943,10 @@ body {
 .project-container {
     width: clamp(700px, 44vw, 960px);
     min-height: 550px;
-    background-color: rgb(56, 66, 31);
+    background: linear-gradient(80deg,
+            rgb(70, 80, 45) 0%,
+            rgb(56, 66, 31) 50%,
+            rgb(45, 55, 20) 100%);
     border-radius: 30px;
     padding: 24px 40px;
     display: flex;
@@ -1217,7 +1220,7 @@ body {
 
 
 .references-container {
-    width: 45vw;
+    width: clamp(630px, 60vw, 900px);
     height: calc(100% - 164px);
     position: relative;
     padding-left: clamp(20px, 1.7vw, 24px);
@@ -1233,6 +1236,7 @@ body {
 
 .references-grid {
     margin: 0 0 0 100px;
+    width: clamp(350px, 36vw, 600px);
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -1243,7 +1247,7 @@ body {
 
 .reference-card {
     width: 100%;
-    min-height: 200px;
+    min-height: clamp(180px, 13vw, 200px);
     border: 1px solid var(--accent);
     border-radius: 30px;
     display: flex;
@@ -1253,7 +1257,8 @@ body {
 
 .reference-text {
     position: relative;
-    max-width: 250px;
+    flex: 0 0 60%;
+    max-width: none;
     margin: 0;
     color: rgba(255, 255, 255, 1);
     padding: 24px 12px 24px 24px;
@@ -1276,7 +1281,7 @@ body {
 
 
 .reference-author {
-    width: 100%;
+    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1602,7 +1602,7 @@ body {
 }
 
 .footer-link:hover {
-    color: var(--accent);
+    color: rgb(211, 237, 151);
 }
 
 

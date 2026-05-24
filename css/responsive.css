@@ -407,6 +407,25 @@
         height: 100vh;
     }
 
+    .sections-track,
+    .legal-notice-flow,
+    .privacy-policy-flow {
+        background-image: linear-gradient(180deg,
+                rgb(0, 0, 0) 0%,
+                rgb(10, 10, 10) 8%,
+                rgb(18, 18, 18) 18%,
+                rgb(28, 28, 28) 32%,
+                rgb(43, 43, 43) 46%,
+                rgb(28, 28, 28) 60%,
+                rgb(21, 21, 21) 74%,
+                rgb(10, 10, 10) 88%,
+                rgb(0, 0, 0) 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 500vh;
+        background-position: top center;
+        background-attachment: local;
+    }
+
     .section-panel {
         flex: 0 0 100%;
         width: 100%;
@@ -1331,6 +1350,10 @@
     .footer-link {
         text-decoration: none;
         transition: color 120ms ease-in-out;
+    }
+
+    .footer-link:hover {
+        color: white;
     }
 
     .footer-links {

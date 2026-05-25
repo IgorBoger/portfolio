@@ -3,10 +3,6 @@
         --side: 132px;
     }
 
-    .section-arrow {
-        right: 8px;
-    }
-
     .sidebar {
         width: var(--side);
     }
@@ -58,6 +54,7 @@
     .skills-grid,
     .mywork-stage,
     .references-grid,
+    .contact-form,
     .legal-notice-column,
     .privacy-policy-column {
         margin-left: 80px;
@@ -107,6 +104,37 @@
         overflow-wrap: anywhere;
         text-align: left;
     }
+
+    .contact-stage {
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: clamp(28px, 3vw, 42px);
+    }
+
+    .contact-form {
+        max-width: 380px;
+        gap: 10px;
+    }
+
+    .contact-field-message {
+        min-height: 180px;
+    }
+
+    .contact-input {
+        min-height: clamp(48px, 4vw, 54px);
+        padding: 0 clamp(16px, 1.5vw, 22px);
+        font-size: clamp(14px, 1.2vw, 16px);
+    }
+
+    .contact-textarea {
+        min-height: clamp(180px, 18vw, 255px);
+        padding-top: 16px;
+    }
+
+    .contact-feedback {
+        padding: 4px 10px 0 18px;
+        font-size: 11px;
+    }
 }
 
 
@@ -145,6 +173,63 @@
 
     .project-preview img {
         max-width: 320px;
+    }
+
+    .contact-stage {
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .contact-form {
+        width: 380px;
+        max-width: 380px;
+        margin-left: 80px;
+        order: 2;
+    }
+
+    .shared-area {
+        position: static;
+        width: auto;
+        height: auto;
+        max-width: none;
+        margin: 0 120px 0 80px;
+        align-items: stretch;
+        text-align: left;
+        display: contents;
+    }
+
+    .shared-actions {
+        order: 3;
+        max-width: calc(100% - 200px);
+        margin: 24px 0 0 80px;
+        position: static;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .shared-direct-links {
+        margin-top: 0;
+        align-items: flex-start;
+        justify-self: start;
+    }
+
+    .shared-direct-link {
+        justify-content: flex-start;
+    }
+
+    .shared-back-arrow {
+        position: absolute;
+        right: 120px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .shared-copy {
+        order: 1;
+        max-width: calc(100% - 200px);
+        margin-left: 80px;
     }
 }
 

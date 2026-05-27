@@ -55,8 +55,8 @@
     .mywork-stage,
     .references-grid,
     .contact-form,
-    .legal-notice-column,
-    .privacy-policy-column {
+    .legal-notice-content,
+    .privacy-policy-content {
         margin-left: 80px;
     }
 
@@ -112,8 +112,7 @@
     }
 
     .contact-form {
-        max-width: 380px;
-        gap: 10px;
+        gap: 8px;
     }
 
     .contact-field-message {
@@ -134,6 +133,53 @@
     .contact-feedback {
         padding: 4px 10px 0 18px;
         font-size: 11px;
+    }
+
+
+    .legal-notice-content,
+    .privacy-policy-content {
+        max-width: 600px;
+    }
+
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
+        max-width: 300px;
+    }
+
+    .legal-notice-title,
+    .privacy-policy-title {
+        left: 50px;
+    }
+
+    .imprint-arrow,
+    .privacy-policy-next-arrow {
+        right: 20px;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        margin-left: 0;
+        max-height: calc(100vh - 216px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(181, 233, 59, 0.55) transparent;
+    }
+
+
+    .legal-notice-right::-webkit-scrollbar,
+    .privacy-policy-right::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #legalNoticePageTwo .legal-notice-right::-webkit-scrollbar-track,
+    #privacyPolicyPageTwo .privacy-policy-right::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #legalNoticePageTwo .legal-notice-right::-webkit-scrollbar-thumb,
+    #privacyPolicyPageTwo .privacy-policy-right::-webkit-scrollbar-thumb {
+        background: rgba(181, 233, 59, 0.55);
+        border-radius: 999px;
     }
 }
 
@@ -183,7 +229,6 @@
 
     .contact-form {
         width: 380px;
-        max-width: 380px;
         margin-left: 80px;
         order: 2;
     }
@@ -223,13 +268,17 @@
         position: absolute;
         right: 120px;
         top: 50%;
-        transform: translateY(-50%);
     }
 
     .shared-copy {
         order: 1;
         max-width: calc(100% - 200px);
         margin-left: 80px;
+    }
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
+        margin-top: 16px;
     }
 }
 
@@ -1193,7 +1242,7 @@
 
     .contact-form {
         order: 2;
-        max-width: 100%;
+        width: 100%;
         gap: 10px;
         margin: 0;
     }
@@ -1283,6 +1332,7 @@
         width: 100%;
         height: auto;
         padding: 20px 20px 0;
+        margin-top: 0;
     }
 
     .legal-notice-page-main,
@@ -1325,8 +1375,8 @@
     }
 
 
-    .legal-notice-column,
-    .privacy-policy-column {
+    .legal-notice-content,
+    .privacy-policy-content {
         margin-left: 0;
     }
 
@@ -1452,7 +1502,6 @@
     .legal-notice-heading,
     .privacy-policy-heading {
         font-size: 16px;
-        margin: 0;
     }
 
     .imprint-mobile {

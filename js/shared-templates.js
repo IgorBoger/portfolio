@@ -44,7 +44,7 @@ function createDesktopSharedMarkup() {
     return `
         <div class="shared-actions">
             ${createSharedDirectLinksMarkup()}
-            <a class="section-arrow shared-back-arrow" href="#top" aria-label="Back to hero section">
+            <a class="shared-back-arrow" href="#top" aria-label="Back to hero section">
                 <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
             </a>
             ${createSharedDesktopFooterMarkup()}

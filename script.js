@@ -1152,6 +1152,7 @@ function getRevealSelector() {
         ".reference-card",
         ".references-mobile-controls",
         ".fade-in",
+        ".shared-actions",
         ".contact-mobile-reveal",
         ".hero-title",
         ".frontend-developer",

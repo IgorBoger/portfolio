@@ -162,7 +162,7 @@
         max-height: calc(100vh - 216px);
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: rgba(181, 233, 59, 0.55) transparent;
+        scrollbar-color: var(--accent) transparent;
     }
 
 
@@ -171,14 +171,14 @@
         width: 6px;
     }
 
-    #legalNoticePageTwo .legal-notice-right::-webkit-scrollbar-track,
-    #privacyPolicyPageTwo .privacy-policy-right::-webkit-scrollbar-track {
+    .legal-notice-right::-webkit-scrollbar-track,
+    .privacy-policy-right::-webkit-scrollbar-track {
         background: transparent;
     }
 
-    #legalNoticePageTwo .legal-notice-right::-webkit-scrollbar-thumb,
-    #privacyPolicyPageTwo .privacy-policy-right::-webkit-scrollbar-thumb {
-        background: rgba(181, 233, 59, 0.55);
+    .legal-notice-right::-webkit-scrollbar-thumb,
+    .privacy-policy-right::-webkit-scrollbar-thumb {
+        background: var(--accent);
         border-radius: 999px;
     }
 }
@@ -245,6 +245,22 @@
     }
 
     .shared-actions {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        filter: blur(6px);
+        transition:
+            opacity 700ms ease-out,
+            transform 700ms ease-out,
+            filter 700ms ease-out;
+    }
+
+    .shared-actions.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+
+    .shared-actions {
         order: 3;
         max-width: calc(100% - 200px);
         margin: 24px 0 0 80px;
@@ -264,10 +280,39 @@
         justify-content: flex-start;
     }
 
-    .shared-back-arrow {
+    #desktopContactSharedArea .shared-back-arrow {
         position: absolute;
-        right: 120px;
-        top: 50%;
+        right: 0;
+        top: -350%;
+    }
+
+    #desktopLegalSharedArea .shared-back-arrow,
+    #desktopPrivacySharedArea .shared-back-arrow {
+        position: absolute;
+        top: -100%;
+        right: 0;
+    }
+
+    #desktopContactSharedArea {
+        position: relative;
+    }
+
+    #desktopContactSharedArea .shared-back-arrow {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 48px);
+    }
+
+    #desktopLegalSharedArea,
+    #desktopPrivacySharedArea {
+        position: relative;
+    }
+
+    #desktopLegalSharedArea .shared-back-arrow,
+    #desktopPrivacySharedArea .shared-back-arrow {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 24px);
     }
 
     .shared-copy {
@@ -279,6 +324,48 @@
     .legal-notice-block+.legal-notice-block,
     .privacy-policy-block+.privacy-policy-block {
         margin-top: 16px;
+    }
+
+    .legal-notice-stage-split,
+    .privacy-policy-stage-split {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+        justify-content: space-between;
+    }
+
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        width: 100%;
+        max-width: calc(100% - 120px);
+        max-height: 55vh;
+        overflow-y: auto;
+    }
+
+    #legalNoticePageTwo .legal-notice-side-content,
+    #privacyPolicyPageTwo .privacy-policy-side-content {
+        position: static;
+        width: auto;
+        max-width: none;
+        padding-left: clamp(50px, 5vw, 60px);
+    }
+
+    #legalNoticePageTwo .shared-area,
+    #privacyPolicyPageTwo .shared-area {
+        display: block;
+        margin: 0;
+    }
+
+    #legalNoticePageTwo .shared-actions,
+    #privacyPolicyPageTwo .shared-actions {
+        margin: 24px 0 0 0;
+        max-width: calc(100% - 120px);
     }
 }
 

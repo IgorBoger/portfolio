@@ -378,6 +378,9 @@
 
 
 @media (max-width: 900px) {
+    :root {
+        --mobile-section-padding: 20px;
+    }
 
     html,
     body {
@@ -667,7 +670,7 @@
     .skills-inner,
     .mywork-inner,
     .contact-inner {
-        padding: 20px;
+        padding: var(--mobile-section-padding);
         position: unset;
         width: 100%;
         height: auto;
@@ -769,11 +772,15 @@
     .contact-stage {
         margin-top: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .whyme-text {
+    .whyme-text,
+    .skills-text {
         width: 100%;
-        max-width: 100%;
+        max-width: 560px;
     }
 
     .whyme-text,
@@ -829,11 +836,6 @@
         flex-direction: column;
         align-items: center;
         text-align: left;
-    }
-
-    .skills-text {
-        max-width: 560px;
-        align-self: flex-start;
     }
 
     .header,
@@ -1247,8 +1249,6 @@
     }
 
     .contact-stage {
-        display: flex;
-        flex-direction: column;
         gap: 16px;
         min-height: calc(100vh - 73px);
     }
@@ -1281,8 +1281,8 @@
     .shared-area {
         position: relative;
         right: 0;
-        width: 100%;
-        max-width: 100%;
+        width: min(100%, 500px);
+        max-width: 500px;
         margin-right: 0;
         padding-top: 0;
         text-align: left;
@@ -1314,7 +1314,6 @@
 
     .contact-copy-text {
         margin-top: 16px;
-        max-width: 320px;
     }
 
     .contact-direct-links {
@@ -1329,7 +1328,8 @@
 
     .contact-form {
         order: 2;
-        width: 100%;
+        width: min(100%, 500px);
+        max-width: 500px;
         gap: 10px;
         margin: 0;
     }
@@ -1371,7 +1371,7 @@
     }
 
     .shared-top-arrow-icon {
-        width: 42px;
+        width: 45px;
         height: auto;
         display: block;
         object-fit: contain;
@@ -1479,12 +1479,11 @@
         top: auto;
         right: auto;
         bottom: auto;
-        width: calc(100% + 40px);
         max-width: none;
-        margin-left: -20px;
         margin-top: 40px;
         display: flex;
         flex-direction: column;
+        align-self: center;
         align-items: center;
         text-align: center;
         gap: 16px;
@@ -1538,14 +1537,13 @@
 
     #contactSharedArea .shared-footer {
         order: 5;
-        width: calc(100% + 40px);
-        margin-left: -20px;
+        width: calc(100% + (var(--mobile-section-padding) * 2));
     }
 
     #legalSharedArea .shared-footer,
     #privacySharedArea .shared-footer {
         order: 3;
-        width: 100%;
+        width: calc(100% + (var(--mobile-section-padding) * 2));
     }
 
     .shared-footer-logo {

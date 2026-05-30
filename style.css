@@ -1129,7 +1129,7 @@ body {
 
 
 .btn-primary:hover,
-.contact-form:has(.contact-policy-checkbox:checked) .contact-submit-btn:hover {
+.contact-submit-btn:not(:disabled):hover {
     box-shadow: inset 0 -16px 12px -8px rgba(0, 0, 0, 0.35);
 }
 
@@ -1505,17 +1505,12 @@ body {
 }
 
 
-.contact-policy-checkbox:checked~.contact-policy-text+.contact-submit-btn {
-    background: var(--accent);
-}
-
-
 .contact-submit-btn:disabled {
     opacity: 1;
 }
 
 
-.contact-form:has(.contact-policy-checkbox:checked) .contact-submit-btn {
+.contact-submit-btn:not(:disabled) {
     background: var(--accent);
     color: rgb(37, 37, 37);
     cursor: pointer;

@@ -272,10 +272,15 @@ function handleContactMailSubmit(event, form) {
  * @param {HTMLFormElement} form
  */
 async function sendContactMail(form) {
-    const response = await fetch("send_mail_portfolio.php", createMailRequest(form));
-    const result = await response.json();
-    handleMailResponse(form, response.ok && result.success);
+    try {
+        const response = await fetch("send_mail_portfolio.php", createMailRequest(form));
+        const result = await response.json();
+        handleMailResponse(form, response.ok && result.success);
+    } catch {
+        handleMailResponse(form, false);
+    }
 }
+
 
 
 /**
@@ -312,7 +317,10 @@ function getMailPayload(form) {
  * @param {boolean} isSuccess
  */
 function handleMailResponse(form, isSuccess) {
-    if (!isSuccess) return;
+    if (!isSuccess) {
+        showContactErrorMessage();
+        return;
+    }
     form.reset();
     syncContactSubmitState(form);
     showContactSuccessMessage();
@@ -346,6 +354,36 @@ function hideContactSuccessMessage() {
  */
 function getContactSuccessMessage() {
     return document.getElementById("contactSuccessMessage");
+}
+
+
+/**
+ * Shows the contact form error message.
+ */
+function showContactErrorMessage() {
+    const message = getContactErrorMessage();
+    if (!message) return;
+    message.classList.add("is-visible");
+    window.setTimeout(hideContactErrorMessage, 4000);
+}
+
+
+/**
+ * Hides the contact form error message.
+ */
+function hideContactErrorMessage() {
+    const message = getContactErrorMessage();
+    if (!message) return;
+    message.classList.remove("is-visible");
+}
+
+
+/**
+ * Returns the contact error message element.
+ * @returns {HTMLElement|null}
+ */
+function getContactErrorMessage() {
+    return document.getElementById("contactErrorMessage");
 }
 
 

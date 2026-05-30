@@ -1177,6 +1177,17 @@ body {
 }
 
 
+.contact-error-box {
+    border-color: rgb(255, 106, 106);
+}
+
+
+.contact-error-icon {
+    color: rgb(255, 106, 106);
+    font-size: 28px;
+}
+
+
 .project-learned {
     grid-column: 1 / -1;
     width: 100%;

@@ -1999,7 +1999,7 @@ function getContactForm() {
  * @param {HTMLFormElement} form
  */
 function bindContactValidation(form) {
-    form.addEventListener("submit", (event) => handleContactSubmit(event, form));
+    // form.addEventListener("submit", (event) => handleContactSubmit(event, form));
     getContactFields(form).forEach((field) => bindFieldValidation(field, form));
     getPrivacyCheckbox(form)?.addEventListener("change", () => syncContactSubmitState(form));
 }

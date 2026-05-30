@@ -142,8 +142,8 @@ function getEmailError(value) {
  */
 function getMessageError(value) {
     const trimmed = value.trim();
-    if (trimmed.length >= 10) return "";
-    return "Please enter a message with at least 10 characters.";
+    if (trimmed.length > 0) return "";
+    return "Please enter a message.";
 }
 
 
@@ -315,6 +315,37 @@ function handleMailResponse(form, isSuccess) {
     if (!isSuccess) return;
     form.reset();
     syncContactSubmitState(form);
+    showContactSuccessMessage();
+}
+
+
+/**
+ * Shows the contact form success message.
+ */
+function showContactSuccessMessage() {
+    const message = getContactSuccessMessage();
+    if (!message) return;
+    message.classList.add("is-visible");
+    window.setTimeout(hideContactSuccessMessage, 4000);
+}
+
+
+/**
+ * Hides the contact form success message.
+ */
+function hideContactSuccessMessage() {
+    const message = getContactSuccessMessage();
+    if (!message) return;
+    message.classList.remove("is-visible");
+}
+
+
+/**
+ * Returns the contact success message element.
+ * @returns {HTMLElement|null}
+ */
+function getContactSuccessMessage() {
+    return document.getElementById("contactSuccessMessage");
 }
 
 

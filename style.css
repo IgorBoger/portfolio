@@ -608,6 +608,7 @@ body {
 .whyme-stage {
     padding: 0 0 80px 0;
     margin-top: 136px;
+    max-width: 900px;
 }
 
 
@@ -650,11 +651,12 @@ body {
 
 
 .whyme-info {
-    margin-left: clamp(100px, 8vw, 150px);
-    display: flex;
-    gap: clamp(20px, 2.5vw, 36px);
+    margin: 0 0 0 100px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 170px));
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: center;
+    gap: clamp(20px, 2.5vw, 36px);
 }
 
 
@@ -664,7 +666,8 @@ body {
     grid-template-rows: 56px auto;
     justify-items: center;
     row-gap: 14px;
-    min-width: clamp(100px, 8vw, 170px);
+    width: 100%;
+    min-width: 0;
     transition: color 120ms ease-in-out;
 }
 
@@ -851,10 +854,10 @@ body {
 
 .skills-grid {
     margin: 42px 0 0 100px;
-    flex-wrap: wrap;
-    row-gap: 12px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 100px);
+    column-gap: 12px;
+    row-gap: 24px;
     align-items: start;
     justify-items: center;
 }
@@ -867,7 +870,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    flex: 1 1 100px;
     max-width: 100px;
 }
 
@@ -895,10 +897,11 @@ body {
 
 
 .skills-challenge-wrap {
+    grid-column: 6 / 7;
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    flex: 0 0 clamp(295px, 24vw, 340px);
+    width: max-content;
 }
 
 

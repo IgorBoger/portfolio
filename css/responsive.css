@@ -60,6 +60,15 @@
         margin-left: 80px;
     }
 
+    .whyme-stage {
+        padding-right: 80px;
+        max-width: 760px;
+    }
+
+    .whyme-text {
+        width: clamp(500px, 50vw, 800px);
+    }
+
     .skills-stage {
         max-width: 650px;
     }

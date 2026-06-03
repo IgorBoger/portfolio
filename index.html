@@ -12,8 +12,11 @@
     <script src="js/project-data.js" defer></script>
     <script src="js/project-renderer.js" defer></script>
     <script src="js/shared-templates.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/language-switch.js" defer></script>
     <script src="script.js" defer></script>
     <script src="js/contact-mail.js" defer></script>
+
 </head>
 
 <body>
@@ -40,10 +43,14 @@
                 </a>
 
                 <nav class="sidebar-nav" aria-label="Sektionen">
-                    <button class="sidebar-btn" type="button" data-target="#about">Why me</button>
-                    <button class="sidebar-btn" type="button" data-target="#skills">Skills</button>
-                    <button class="sidebar-btn" type="button" data-target="#projects">My work</button>
-                    <button class="sidebar-btn" type="button" data-target="#contact">Contact</button>
+                    <button class="sidebar-btn" type="button" data-target="#about" data-i18n="navWhyMe">Why me</button>
+                    <button class="sidebar-btn" type="button" data-target="#skills"
+                        data-i18n="navSkills">Skills</button>
+                    <button class="sidebar-btn" type="button" data-target="#projects" data-i18n="navProjects">My
+                        work</button>
+                    <button class="sidebar-btn" type="button" data-target="#contact"
+                        data-i18n="navContact">Contact</button>
+
                 </nav>
 
                 <button class="sidebar-burger" id="mobileMenuToggle" type="button" aria-label="Menü umschalten"
@@ -58,16 +65,20 @@
 
             <div class="mobile-menu" id="mobileMenu" inert>
                 <nav class="mobile-menu-nav" aria-label="Mobile Navigation">
-                    <button class="mobile-menu-link" type="button" data-target="#about">Why me</button>
-                    <button class="mobile-menu-link" type="button" data-target="#skills">My Skill Set</button>
-                    <button class="mobile-menu-link" type="button" data-target="#projects">My Work</button>
-                    <button class="mobile-menu-link" type="button" data-target="#contact">Contact me</button>
+                    <button class="mobile-menu-link" type="button" data-target="#about" data-i18n="mobileNavWhyMe">Why
+                        me</button>
+                    <button class="mobile-menu-link" type="button" data-target="#skills" data-i18n="mobileNavSkills">My
+                        Skill Set</button>
+                    <button class="mobile-menu-link" type="button" data-target="#projects"
+                        data-i18n="mobileNavProjects">My Work</button>
+                    <button class="mobile-menu-link" type="button" data-target="#contact"
+                        data-i18n="mobileNavContact">Contact me</button>
                 </nav>
 
                 <div class="mobile-menu-lang" role="group" aria-label="Sprache wählen">
-                    <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+                    <button class="lang-btn" type="button" data-lang="de" aria-pressed="false">DE</button>
                     <span class="lang-sep" aria-hidden="true">|</span>
-                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+                    <button class="lang-btn  is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
                 </div>
             </div>
         </aside>
@@ -94,9 +105,9 @@
                     </nav>
 
                     <div class="lang-switch" role="group" aria-label="Sprache wählen">
-                        <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+                        <button class="lang-btn" type="button" data-lang="de" aria-pressed="false">DE</button>
                         <span class="lang-sep" aria-hidden="true">|</span>
-                        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+                        <button class="lang-btn  is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
                     </div>
 
                 </div>

@@ -5,8 +5,8 @@ function renderProjects() {
     const container = getProjectsList();
     if (!container || !Array.isArray(projectItems)) return;
     container.innerHTML = projectItems.map(createProjectMarkup).join("");
+    translateRenderedProjects();
 }
-
 
 /**
  * Returns the project list element.
@@ -104,8 +104,8 @@ function createProjectDescriptionMarkup(project) {
 function createProjectBlockMarkup(title, text) {
     return `
         <div class="project-block">
-            <h3 class="project-subtitle">${title}</h3>
-            <p>${text}</p>
+            <h3 class="project-subtitle" data-i18n="${title}">${translateProjectKey(title)}</h3>
+            <p data-i18n="${text}">${translateProjectKey(text)}</p>
         </div>
     `;
 }
@@ -156,10 +156,31 @@ function createProjectButtonsMarkup(project) {
 function createProjectLearnedMarkup(project) {
     return `
         <div class="project-learned">
-            <h3 class="project-subtitle">${project.learnedTitle}</h3>
-            <p>${project.learnedText}</p>
+            <h3 class="project-subtitle" data-i18n="${project.learnedTitle}">${translateProjectKey(project.learnedTitle)}</h3>
+            <p data-i18n="${project.learnedText}">${translateProjectKey(project.learnedText)}</p>
         </div>
     `;
+}
+
+
+/**
+ * Returns one translated project value.
+ * @param {string} key
+ * @returns {string}
+ */
+function translateProjectKey(key) {
+    const language = document.documentElement.lang || "en";
+    if (typeof findTranslationValue !== "function") return key;
+    return findTranslationValue(translations[language], key) || key;
+}
+
+
+/**
+ * Updates project translations after rendering.
+ */
+function translateRenderedProjects() {
+    const language = document.documentElement.lang || "en";
+    if (typeof updateTranslatedTexts === "function") updateTranslatedTexts(language);
 }
 
 

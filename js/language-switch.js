@@ -44,8 +44,8 @@ function applyLanguage(language) {
  */
 function updateTranslatedTexts(language) {
     getTranslatedElements().forEach((element) => {
-        const key = element.dataset.i18n;
-        if (translations[language][key]) element.textContent = translations[language][key];
+        const text = findTranslationValue(translations[language], element.dataset.i18n);
+        if (text) element.textContent = text;
     });
 }
 
@@ -56,6 +56,34 @@ function updateTranslatedTexts(language) {
  */
 function getTranslatedElements() {
     return Array.from(document.querySelectorAll("[data-i18n]"));
+}
+
+
+/**
+ * Finds one translation value inside grouped translation objects.
+ * @param {Object} translationData
+ * @param {string} key
+ * @returns {string}
+ */
+function findTranslationValue(translationData, key) {
+    if (!translationData || typeof translationData !== "object") return "";
+    if (typeof translationData[key] === "string") return translationData[key];
+    return findNestedTranslationValue(translationData, key);
+}
+
+
+/**
+ * Finds one translation value inside nested translation objects.
+ * @param {Object} translationData
+ * @param {string} key
+ * @returns {string}
+ */
+function findNestedTranslationValue(translationData, key) {
+    for (const value of Object.values(translationData)) {
+        const text = findTranslationValue(value, key);
+        if (text) return text;
+    }
+    return "";
 }
 
 

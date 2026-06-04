@@ -32,7 +32,8 @@
                             </defs>
 
                             <text class="logo-arc-text">
-                                <textPath href="#logoArcPath" startOffset="50%" text-anchor="middle">
+                                <textPath href="#logoArcPath" startOffset="50%" text-anchor="middle"
+                                    data-i18n="logoArcText">
                                     frontend developer
                                 </textPath>
                             </text>
@@ -122,10 +123,10 @@
                     <div class="hero-media">
                         <img src="img/igor-boger-prototyp.png" alt="Igor Boger" class="hero-image">
                         <div class="hero-content">
-                            <h2 class="frontend-developer-mobile">Frontend Developer</h2>
-                            <h1 class="hero-title">Igor Boger</h1>
-                            <p class="hero-location">Idar-Oberstein</p>
-                            <h2 class="frontend-developer">Frontend Developer</h2>
+                            <h2 class="frontend-developer-mobile" data-i18n="heroRole">Frontend Developer</h2>
+                            <h1 class="hero-title" data-i18n="heroName">Igor Boger</h1>
+                            <p class="hero-location" data-i18n="heroLocation">Idar-Oberstein</p>
+                            <h2 class="frontend-developer" data-i18n="heroRole">Frontend Developer</h2>
                         </div>
                     </div>
 
@@ -142,12 +143,12 @@
 
                 <div class="whyme-inner">
                     <div class="whyme-title-wrap">
-                        <h1 class="whyme-title">Why me</h1>
-                        <h1 class="whyme-title-mobile">Why me</h1>
+                        <h1 class="whyme-title" data-i18n="whyMeTitle">Why me</h1>
+                        <h1 class="whyme-title-mobile" data-i18n="whyMeTitle">Why me</h1>
                     </div>
 
                     <div class="whyme-stage fade-in">
-                        <p class="whyme-text">
+                        <p class="whyme-text" data-i18n="whyMeText">
                             I am passionate about frontend development because it combines creativity with logical
                             problem-solving. I enjoy turning ideas and designs into responsive, user-friendly web
                             applications and continuously improving my technical skills.
@@ -159,33 +160,33 @@
 
                         </p>
 
-                        <h2 class="whyme-i-am">I am</h2>
+                        <h2 class="whyme-i-am" data-i18n="whyMeIam">I am</h2>
 
                         <div class="whyme-info">
                             <div class="whyme-info-item relocate-mobile">
                                 <span class="whyme-icon-shell">
                                     <img class="location-icon" src="img/Why-me/location.png" alt="">
                                 </span>
-                                <span>Located in Idar-Oberstein, Germany</span>
+                                <span data-i18n="whyMeLocation">Located in Idar-Oberstein, Germany</span>
                             </div>
 
                             <div class="whyme-info-item">
                                 <span class="whyme-icon-shell">
                                     <img class="work-remote-icon" src="img/Why-me/work-remote.png" alt="">
                                 </span>
-                                <span>open to work remote</span>
+                                <span data-i18n="whyMeRemote">open to work remote</span>
                             </div>
 
                             <div class="whyme-info-item">
                                 <span class="whyme-icon-shell">
                                     <img class="relocate-icon" src="img/Why-me/relocate.png" alt="">
                                 </span>
-                                <span>open to relocate</span>
+                                <span data-i18n="whyMeRelocate">open to relocate</span>
                             </div>
                         </div>
 
                         <button class="whyme-contact-btn btn-primary contact-trigger-btn" data-target="#contact"
-                            type="button">Contact
+                            data-i18n="whyMeContactBtn" type="button">Contact
                             me</button>
 
                     </div>
@@ -202,12 +203,12 @@
 
                 <div class="skills-inner">
                     <div class="skills-title-wrap">
-                        <h1 class="skills-title">My Skill Set</h1>
-                        <h1 class="skills-title-mobile">My Skill Set</h1>
+                        <h1 class="skills-title" data-i18n="skillsTitle">My Skill Set</h1>
+                        <h1 class="skills-title-mobile" data-i18n="skillsTitle">My Skill Set</h1>
                     </div>
 
                     <div class="skills-stage fade-in">
-                        <p class="skills-text">
+                        <p class="skills-text" data-i18n="skillsText">
                             I build responsive and user-friendly web applications with a strong focus on clean code,
                             maintainable structures, and modern frontend technologies.
 
@@ -273,17 +274,19 @@
                                     <div class="skills-challenge-tile" aria-label="Challenge me">
                                         <img class="skills-challenge-icon" src="img/my-skill-set/challenge-me.png"
                                             alt="Challenge me">
-                                        <span class="skill-challenge-label">Challenge me</span>
+                                        <span class="skill-challenge-label" data-i18n="skillsChallengeLabel">Challenge
+                                            me</span>
                                     </div>
                                 </div>
 
-                                <p class="skills-challenge-text">
+                                <p class="skills-challenge-text" data-i18n="skillsChallengeText">
                                     I am always ready to learn, improve my skills, and take on new challenges in
                                     frontend development.
                                 </p>
                             </div>
                         </div>
-                        <button class="skills-talk-btn btn-primary" type="button">Let's talk</button>
+                        <button class="skills-talk-btn btn-primary" type="button" data-i18n="skillsTalkBtn">Let's
+                            talk</button>
                     </div>
                 </div>
 
@@ -297,8 +300,8 @@
 
                 <div class="mywork-inner">
                     <div class="mywork-title-wrap">
-                        <h1 class="mywork-title">My work</h1>
-                        <h1 class="mywork-title-mobile">My work</h1>
+                        <h1 class="mywork-title" data-i18n="myWorkTitle">My work</h1>
+                        <h1 class="mywork-title-mobile" data-i18n="myWorkTitle">My work</h1>
                     </div>
 
                     <div class="mywork-stage">
@@ -312,11 +315,11 @@
                                         alt="Project number 4">
                                     <img class="ongoing-number-mobile" src="img/my-work/project-number-4-mobile.png"
                                         alt="Project number 4">
-                                    <h2 class="ongoing-title">Ongoing project</h2>
+                                    <h2 class="ongoing-title" data-i18n="ongoingTitle">Ongoing project</h2>
                                 </div>
 
                                 <div class="ongoing-text-wrap">
-                                    <p class="ongoing-text">
+                                    <p class="ongoing-text" data-i18n="ongoingText">
                                         Currently, I am developing DA Bubble, a real-time messaging application focused
                                         on modern communication workflows. The project strengthens my experience with
                                         Angular architecture, Firebase integration, and scalable frontend development
@@ -324,7 +327,7 @@
                                     </p>
 
                                     <button class="ongoing-btn project-btn btn-primary contact-trigger-btn"
-                                        type="button">
+                                        type="button" data-i18n="ongoingBtn">
                                         Let's talk
                                     </button>
                                 </div>
@@ -339,18 +342,20 @@
                         <div class="references-container">
 
                             <div class="references-title-wrap">
-                                <h1 class="references-title">References</h1>
+                                <h1 class="references-title" data-i18n="referencesTitle">References</h1>
                             </div>
 
                             <div class="references-mobile-copy fade-in">
-                                <h3 class="references-mobile-heading">Need a teamplayer?</h3>
-                                <p class="references-mobile-text">Here what my colleagues said about me</p>
+                                <h3 class="references-mobile-heading" data-i18n="referencesMobileHeading">Need a
+                                    teamplayer?</h3>
+                                <p class="references-mobile-text" data-i18n="referencesMobileText">Here what my
+                                    colleagues said about me</p>
                             </div>
 
                             <div class="references-grid fade-in">
 
                                 <div class="reference-card">
-                                    <p class="reference-text">
+                                    <p class="reference-text" data-i18n="reference1Text">
                                         “Michael is a reliable and friendly person. Work in a structured way and write a
                                         clear code.
                                         I recommend him as a colleague.”
@@ -358,24 +363,24 @@
 
                                     <div class="reference-author">
                                         <span class="reference-name">John Carter</span>
-                                        <span class="reference-role">Project Join</span>
+                                        <span class="reference-role" data-i18n="reference1Role">Project Join</span>
                                     </div>
                                 </div>
 
                                 <div class="reference-card">
-                                    <p class="reference-text">
+                                    <p class="reference-text" data-i18n="reference2Text">
                                         “He is a trustworthy team player and can cope with the stress of deadlines.
                                         Structured work and clear code.”
                                     </p>
 
                                     <div class="reference-author">
                                         <span class="reference-name">Sarah Mitchell</span>
-                                        <span class="reference-role">Project DA Bubble</span>
+                                        <span class="reference-role" data-i18n="reference2Role">Project DA Bubble</span>
                                     </div>
                                 </div>
 
                                 <div class="reference-card">
-                                    <p class="reference-text">
+                                    <p class="reference-text" data-i18n="reference3Text">
                                         “Michael had to develop, format and deliver content in collaboration with the
                                         team
                                         members.
@@ -384,7 +389,8 @@
 
                                     <div class="reference-author">
                                         <span class="reference-name">Daniel Roberts</span>
-                                        <span class="reference-role">Project Pollo Loco</span>
+                                        <span class="reference-role" data-i18n="reference3Role">Project Pollo
+                                            Loco</span>
                                     </div>
                                 </div>
 
@@ -412,8 +418,8 @@
                 <div class="accent-bar"></div>
                 <div class="contact-inner">
                     <div class="contact-title-wrap">
-                        <h1 class="contact-title">Contact me</h1>
-                        <h1 class="contact-title-mobile">Contact me</h1>
+                        <h1 class="contact-title" data-i18n="contactTitle">Contact me</h1>
+                        <h1 class="contact-title-mobile" data-i18n="contactTitleMobile">Contact me</h1>
                     </div>
 
                     <div class="contact-stage">
@@ -440,39 +446,44 @@
                                 <input class="contact-policy-checkbox" id="privacyPolicyConsent"
                                     name="privacyPolicyConsent" type="checkbox">
                                 <span class="contact-policy-text">
-                                    I’ve read the
-                                    <a class="contact-policy-link" href="#privacyPolicy"
-                                        data-target="#privacyPolicy">privacy policy</a>
-                                    and agree to the processing of my data as outlined.
+                                    <span data-i18n="contactPolicyIntro">I’ve read the</span>
+                                    <a class="contact-policy-link" href="#privacyPolicy" data-target="#privacyPolicy"
+                                        data-i18n="contactPrivacyPolicy">privacy policy</a>
+                                    <span data-i18n="contactPolicyOutro">and agree to the processing of my data as
+                                        outlined.</span>
                                 </span>
                             </label>
 
                             <button class="contact-submit-btn" id="sendBtn" type="submit" disabled>
-                                Send
+                                <span data-i18n="contactSendBtn">Send</span>
                             </button>
                         </form>
 
                         <div class="contact-success-overlay" id="contactSuccessMessage" aria-live="polite">
                             <div class="contact-success-box">
                                 <span class="contact-success-icon">✓</span>
-                                <p class="contact-success-title">Your message has been sent successfully.</p>
-                                <p class="contact-success-text">I will get back to you soon.</p>
+                                <p class="contact-success-title" data-i18n="contactSuccessTitle">Your message has been
+                                    sent successfully.</p>
+                                <p class="contact-success-text" data-i18n="contactSuccessText">I will get back to you
+                                    soon.</p>
                             </div>
                         </div>
 
                         <div class="contact-success-overlay" id="contactErrorMessage" aria-live="polite">
                             <div class="contact-success-box contact-error-box">
                                 <span class="contact-error-icon">!</span>
-                                <p class="contact-success-title">Your message could not be sent.</p>
-                                <p class="contact-success-text">Please try again later or contact me by e-mail.</p>
+                                <p class="contact-success-title" data-i18n="contactErrorTitle">Your message could not be
+                                    sent.</p>
+                                <p class="contact-success-text" data-i18n="contactErrorText">Please try again later or
+                                    contact me by e-mail.</p>
                             </div>
                         </div>
 
                         <div class="shared-area fade-in" id="desktopContactSharedArea">
                             <div class="shared-copy contact-copy">
-                                <h3 class="contact-copy-title">Let us work together.</h3>
+                                <h3 class="contact-copy-title" data-i18n="contactCopyTitle">Let us work together.</h3>
 
-                                <p class="contact-copy-text">
+                                <p class="contact-copy-text" data-i18n="contactCopyText">
                                     I am looking for an opportunity as a frontend developer where I can contribute to a
                                     motivated team, keep improving my skills, and build user-friendly web applications.
                                 </p>
@@ -496,30 +507,32 @@
                                     alt="">
                             </a>
 
-                            <h1 class="legal-notice-title">Legal Notice</h1>
-                            <h1 class="legal-notice-title-mobile">Legal Notice</h1>
+                            <h1 class="legal-notice-title" data-i18n="legalNoticeTitle">Legal Notice</h1>
+                            <h1 class="legal-notice-title-mobile" data-i18n="legalNoticeTitleMobile">Legal Notice</h1>
 
                             <div class="legal-notice-content">
                                 <div class="legal-notice-column">
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading imprint-mobile">Imprint</h2>
+                                        <h2 class="legal-notice-heading imprint-mobile" data-i18n="imprintHeading">
+                                            Imprint</h2>
                                         <ul class="legal-notice-list">
-                                            <li>Igor Boger</li>
-                                            <li>Hauptstraße 32</li>
-                                            <li>55743 Gerach bei Idar-Oberstein</li>
+                                            <li data-i18n="imprintName">Igor Boger</li>
+                                            <li data-i18n="imprintAddress">Hauptstraße 32</li>
+                                            <li data-i18n="imprintCity">55743 Gerach bei Idar-Oberstein</li>
                                         </ul>
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <p class="legal-notice-text">
+                                        <p class="legal-notice-text" data-i18n="imprintContact">
                                             Exploring the Board<br>
                                             Email: igorboger26@gmail.com
                                         </p>
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Acceptance of terms</h2>
-                                        <p class="legal-notice-text">
+                                        <h2 class="legal-notice-heading" data-i18n="acceptanceHeading">Acceptance of
+                                            terms</h2>
+                                        <p class="legal-notice-text" data-i18n="acceptanceText">
                                             By accessing and using Igor Boger Portfolio, you acknowledge and agree to
                                             the
                                             following
@@ -532,8 +545,9 @@
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Scope and ownership of the product</h2>
-                                        <p class="legal-notice-text">
+                                        <h2 class="legal-notice-heading" data-i18n="scopeHeading">Scope and ownership of
+                                            the product</h2>
+                                        <p class="legal-notice-text" data-i18n="scopeText">
                                             Portfolio has been developed as part of a student group project in a web
                                             development
                                             bootcamp at the Developer Akademie GmbH. It has an educational purpose and
@@ -552,8 +566,9 @@
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Proprietary rights</h2>
-                                        <p class="legal-notice-text">
+                                        <h2 class="legal-notice-heading" data-i18n="proprietaryRightsHeading">
+                                            Proprietary rights</h2>
+                                        <p class="legal-notice-text" data-i18n="proprietaryRightsText">
                                             Aside from the design owned by Developer Akademie GmbH, we, the listed
                                             students,
                                             retain all proprietary rights in Portfolio, including any associated
@@ -578,8 +593,9 @@
                             <div class="legal-notice-page-main">
                                 <div class="legal-notice-content legal-notice-right">
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Use of the product</h2>
-                                        <p class="legal-notice-text">
+                                        <h2 class="legal-notice-heading" data-i18n="useOfProductHeading">Use of the
+                                            product</h2>
+                                        <p class="legal-notice-text" data-i18n="useOfProductText">
                                             Portfolio is intended to be used for lawful purposes only, in accordance
                                             with all
                                             applicable laws and regulations. Any use of Portfolio for illegal
@@ -591,9 +607,10 @@
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Disclaimer of warranties and limitation of
+                                        <h2 class="legal-notice-heading" data-i18n="disclaimerHeading">Disclaimer of
+                                            warranties and limitation of
                                             liability</h2>
-                                        <p class="legal-notice-text">
+                                        <p class="legal-notice-text" data-i18n="disclaimerText">
                                             Disclaimer of warranties and limitation of liability
                                             Portfolio is provided "as is" without warranty of any kind, whether express
                                             or implied, including but not limited to the implied warranties of
@@ -608,8 +625,8 @@
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <h2 class="legal-notice-heading">Indemnity</h2>
-                                        <p class="legal-notice-text">
+                                        <h2 class="legal-notice-heading" data-i18n="indemnityHeading">Indemnity</h2>
+                                        <p class="legal-notice-text" data-i18n="indemnityText">
 
                                             Indemnity
                                             You agree to indemnify, defend and hold harmless us, the listed students,
@@ -621,13 +638,13 @@
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <p class="legal-notice-text">
+                                        <p class="legal-notice-text" data-i18n="contactText">
                                             For any questions or notices, please contact us at igorboger26@gmail.com
                                         </p>
                                     </section>
 
                                     <section class="legal-notice-block fade-in">
-                                        <p class="legal-notice-text">Date: June 01, 2026</p>
+                                        <p class="legal-notice-text" data-i18n="dateText">Date: June 01, 2026</p>
                                     </section>
                                 </div>
                             </div>
@@ -661,22 +678,25 @@
                                     alt="">
                             </a>
 
-                            <h1 class="privacy-policy-title">Privacy Policy</h1>
-                            <h1 class="privacy-policy-title-mobile">Privacy Policy</h1>
+                            <h1 class="privacy-policy-title" data-i18n="privacyPolicyTitle">Privacy Policy</h1>
+                            <h1 class="privacy-policy-title-mobile" data-i18n="privacyPolicyTitleMobile">Privacy Policy
+                            </h1>
 
                             <div class="privacy-policy-content">
                                 <div class="privacy-policy-column">
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">General information</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="generalInformationHeading">General
+                                            information</h2>
+                                        <p class="privacy-policy-text" data-i18n="generalInformationText">
                                             This privacy policy explains how personal data is processed on this website.
                                             Personal data means any information that can identify you personally.
                                         </p>
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Responsible party</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="responsiblePartyHeading">
+                                            Responsible party</h2>
+                                        <p class="privacy-policy-text" data-i18n="responsiblePartyText">
                                             Igor Boger<br>
                                             Hauptstraße 32<br>
                                             5743 Gerach bei Idar-Oberstein<br>
@@ -685,16 +705,18 @@
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Data collection on this website</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="dataCollectionHeading">Data
+                                            collection on this website</h2>
+                                        <p class="privacy-policy-text" data-i18n="dataCollectionText">
                                             Personal data may be collected when you contact me via the contact form or
                                             by e-mail. The specific data depends on the information you provide.
                                         </p>
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Purpose of processing</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="purposeOfProcessingHeading">
+                                            Purpose of processing</h2>
+                                        <p class="privacy-policy-text" data-i18n="purposeOfProcessingText">
                                             The collected data is processed exclusively to handle your request, to
                                             communicate with you, and to ensure the technical functionality of this
                                             portfolio website.
@@ -702,8 +724,9 @@
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Storage period</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="storagePeriodHeading">Storage
+                                            period</h2>
+                                        <p class="privacy-policy-text" data-i18n="storagePeriodText">
                                             Personal data is stored only for as long as necessary to process your
                                             request or for as long as legal retention periods require.
                                         </p>
@@ -725,8 +748,9 @@
                             <div class="privacy-policy-page-main">
                                 <div class="privacy-policy-content privacy-policy-right">
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Your rights</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="yourRightsHeading">Your rights
+                                        </h2>
+                                        <p class="privacy-policy-text" data-i18n="yourRightsText">
                                             You have the right to request information about your stored data, the right
                                             to rectification, erasure, restriction of processing, and the right to data
                                             portability, provided the legal requirements are met.
@@ -734,8 +758,9 @@
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Revocation of consent</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="revocationOfConsentHeading">
+                                            Revocation of consent</h2>
+                                        <p class="privacy-policy-text" data-i18n="revocationOfConsentText">
                                             You may revoke any consent you have given for data processing at any time
                                             with effect for the future. The lawfulness of processing carried out before
                                             the revocation remains unaffected.
@@ -743,16 +768,18 @@
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Right to lodge a complaint</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="rightToLodgeAComplaintHeading">
+                                            Right to lodge a complaint</h2>
+                                        <p class="privacy-policy-text" data-i18n="rightToLodgeAComplaintText">
                                             In the event of data protection violations, you have the right to lodge a
                                             complaint with the responsible supervisory authority.
                                         </p>
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <h2 class="privacy-policy-heading">Contact form</h2>
-                                        <p class="privacy-policy-text">
+                                        <h2 class="privacy-policy-heading" data-i18n="contactFormHeading">Contact form
+                                        </h2>
+                                        <p class="privacy-policy-text" data-i18n="contactFormText">
                                             If you send me an inquiry via the contact form, your details from the form,
                                             including the contact data you provide there, will be stored for the
                                             purpose of processing the inquiry and in case of follow-up questions.
@@ -760,13 +787,15 @@
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <p class="privacy-policy-text">
+                                        <p class="privacy-policy-text" data-i18n="contactInformationText">
                                             For privacy-related requests, please contact: igorboger26@gmail.com
                                         </p>
                                     </section>
 
                                     <section class="privacy-policy-block fade-in">
-                                        <p class="privacy-policy-text">Date: June 01, 2026</p>
+                                        <p class="privacy-policy-text" data-i18n="dateText">
+                                            Date: June 01, 2026
+                                        </p>
                                     </section>
                                 </div>
 

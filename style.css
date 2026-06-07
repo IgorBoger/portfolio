@@ -88,6 +88,18 @@ body {
 }
 
 
+[data-i18n],
+[data-project-i18n] {
+    transition: opacity 120ms ease-in-out;
+}
+
+
+body.is-language-changing [data-i18n],
+body.is-language-changing [data-project-i18n] {
+    opacity: 0;
+}
+
+
 .layout-shell {
     position: relative;
     width: 100vw;

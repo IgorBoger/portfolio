@@ -3,7 +3,7 @@
  */
 function initLanguageSwitch() {
     getLanguageButtons().forEach(bindLanguageButton);
-    applyLanguage("en");
+    applySavedLanguage();
 }
 
 
@@ -17,26 +17,82 @@ function getLanguageButtons() {
 
 
 /**
+ * Applies the saved language or the fallback language.
+ */
+function applySavedLanguage() {
+    const savedLanguage = localStorage.getItem("language");
+    const language = savedLanguage || "en";
+    applyLanguage(language, false);
+}
+
+
+/**
  * Binds one language button.
  * @param {HTMLButtonElement} button
  */
 function bindLanguageButton(button) {
-    button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+    button.addEventListener("click", () => {
+        const language = button.dataset.lang;
+        applyLanguage(language);
+    });
 }
 
 
 /**
  * Applies the selected language.
  * @param {string} language
+ * @param {boolean} shouldAnimate
  */
-function applyLanguage(language) {
+function applyLanguage(language, shouldAnimate = true) {
     if (!translations[language]) return;
+    if (!shouldAnimate) return updateLanguage(language);
+    fadeOutLanguageContent(() => updateLanguage(language));
+}
+
+
+/**
+ * Updates all language related content.
+ * @param {string} language
+ */
+function updateLanguage(language) {
     document.documentElement.lang = language;
     document.title = translations[language].documentTitle;
     updateTranslatedTexts(language);
     updateLanguageButtons(language);
     updateTranslatedPlaceholders(language);
     updateProjectToggleTranslationsSafely();
+    refreshLanguageLayoutSafely();
+    localStorage.setItem("language", language);
+}
+
+
+/**
+ * Fades out language content before replacing text.
+ * @param {Function} updateCallback
+ */
+function fadeOutLanguageContent(updateCallback) {
+    document.body.classList.add("is-language-changing");
+    window.setTimeout(() => finishLanguageTransition(updateCallback), 120);
+}
+
+
+/**
+ * Updates language content and fades it back in.
+ * @param {Function} updateCallback
+ */
+function finishLanguageTransition(updateCallback) {
+    updateCallback();
+    requestAnimationFrame(() => document.body.classList.remove("is-language-changing"));
+}
+
+
+/**
+ * Refreshes layout positions after language changes.
+ */
+function refreshLanguageLayoutSafely() {
+    if (typeof queueSectionArrowAlignment === "function") queueSectionArrowAlignment();
+    if (typeof syncSkillsTitleWrapPosition === "function") syncSkillsTitleWrapPosition();
+    if (typeof syncContactTitleWrapPosition === "function") syncContactTitleWrapPosition();
 }
 
 

@@ -17,6 +17,7 @@ function init() {
     initShellBackground();
     initDragScroll();
     initDragScrollResize();
+    initWheelHorizontalScroll();
     initActiveSectionTracking();
     initFadeInOnScroll();
     initSectionViewportReveal();
@@ -1106,6 +1107,65 @@ function markDragScrollInitialized(el) {
 function isDragStartAllowed(event) {
     const blocked = event.target.closest("button, a, input, textarea, select, label");
     return !blocked;
+}
+
+
+/**
+ * Initializes desktop wheel scrolling for horizontal tracks.
+ */
+function initWheelHorizontalScroll() {
+    getWheelScrollTracks().forEach(bindWheelScrollTrack);
+}
+
+
+/**
+ * Returns all horizontal wheel scroll tracks.
+ * @returns {HTMLElement[]}
+ */
+function getWheelScrollTracks() {
+    return [getSectionsTrack(), getLegalNoticeTrack(), getPrivacyPolicyTrack()].filter(Boolean);
+}
+
+
+/**
+ * Binds mouse wheel scrolling to one horizontal track.
+ * @param {HTMLElement} track
+ */
+function bindWheelScrollTrack(track) {
+    track.addEventListener("wheel", (event) => handleWheelScroll(event, track), { passive: false });
+}
+
+
+/**
+ * Handles vertical wheel input as horizontal scroll.
+ * @param {WheelEvent} event
+ * @param {HTMLElement} track
+ */
+function handleWheelScroll(event, track) {
+    if (!shouldUseHorizontalWheel(event)) return;
+    event.preventDefault();
+    track.scrollLeft += getWheelScrollAmount(event);
+}
+
+
+/**
+ * Checks whether horizontal wheel scrolling is allowed.
+ * @param {WheelEvent} event
+ * @returns {boolean}
+ */
+function shouldUseHorizontalWheel(event) {
+    if (isMobileView()) return false;
+    return !event.target.closest("input, textarea, select");
+}
+
+
+/**
+ * Returns a stronger horizontal wheel scroll amount.
+ * @param {WheelEvent} event
+ * @returns {number}
+ */
+function getWheelScrollAmount(event) {
+    return event.deltaY * 3.2;
 }
 
 

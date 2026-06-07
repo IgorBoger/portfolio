@@ -5,7 +5,7 @@
 function createSharedDirectLinksMarkup() {
     return `
         <div class="shared-direct-links">
-            <a class="shared-direct-link" href="mailto:igorboger26@gmail.com">
+            <a class="shared-direct-link" target="_blank" href="mailto:igorboger26@gmail.com">
                 <img class="shared-direct-icon" src="img/contact-me/email.png" alt="">
                 <span>E-mail: igorboger26@gmail.com</span>
             </a>
@@ -27,8 +27,8 @@ function createSharedDesktopFooterMarkup() {
     return `
         <div class="shared-footer">
             <div class="footer-links">
-                <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+                <a class="footer-link" href="#legalNotice" data-target="#legalNotice" data-i18n="footerLegalNotice">Legal notice</a>
+                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy" data-i18n="footerPrivacyPolicy">Privacy policy</a>
             </div>
             <p class="footer-copy">© Igor Boger 2026</p>
         </div>
@@ -86,10 +86,10 @@ function createSharedFooterMarkup(logoPathId) {
                 <span class="logo-frame" aria-hidden="true">
                     <svg class="logo-arc" viewBox="0 0 130 100">
                         <defs>
-                            <path id="${logoPathId}" d="M 15 65 A 50 50 0 0 1 115 65" />
+                            <path id="${logoPathId}" d="M 12 65 A 50 50 0 0 1 118 65" />
                         </defs>
                         <text class="logo-arc-text">
-                            <textPath href="#${logoPathId}" startOffset="50%" text-anchor="middle">
+                            <textPath href="#${logoPathId}" startOffset="50%" text-anchor="middle" data-i18n="logoArcText">
                                 frontend developer
                             </textPath>
                         </text>
@@ -99,8 +99,8 @@ function createSharedFooterMarkup(logoPathId) {
             </a>
             <p class="footer-copy">© Igor Boger 2026</p>
             <div class="footer-links">
-                <a class="footer-link" href="#legalNotice" data-target="#legalNotice">Legal notice</a>
-                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy">Privacy policy</a>
+                <a class="footer-link" href="#legalNotice" data-target="#legalNotice" data-i18n="footerLegalNotice">Legal notice</a>
+                <a class="footer-link" href="#privacyPolicy" data-target="#privacyPolicy" data-i18n="footerPrivacyPolicy">Privacy policy</a>
             </div>
         </div>
     `;

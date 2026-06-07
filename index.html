@@ -28,7 +28,7 @@
                     <span class="logo-frame" aria-hidden="true">
                         <svg class="logo-arc" viewBox="0 0 130 100">
                             <defs>
-                                <path id="logoArcPath" d="M 15 65 A 50 50 0 0 1 115 65" />
+                                <path id="logoArcPath" d="M 12 65 A 50 50 0 0 1 118 65" />
                             </defs>
 
                             <text class="logo-arc-text">
@@ -426,19 +426,22 @@
                         <form class="contact-form fade-in" id="contactForm" action="#" method="post" novalidate>
                             <div class="contact-field">
                                 <input class="contact-input" id="contactName" name="name" type="text"
-                                    placeholder="Your name" autocomplete="name">
+                                    placeholder="Your name" autocomplete="name"
+                                    data-i18n-placeholder="contactNamePlaceholder">
                                 <div class="contact-feedback"></div>
                             </div>
 
                             <div class="contact-field">
                                 <input class="contact-input" id="contactEmail" name="email" type="email"
-                                    placeholder="Your e-mail" autocomplete="email">
+                                    placeholder="Your e-mail" autocomplete="email"
+                                    data-i18n-placeholder="contactEmailPlaceholder">
                                 <div class="contact-feedback"></div>
                             </div>
 
                             <div class="contact-field contact-field-message">
                                 <textarea class="contact-input contact-textarea" id="contactMessage" name="message"
-                                    placeholder="Your message"></textarea>
+                                    placeholder="Your message"
+                                    data-i18n-placeholder="contactMessagePlaceholder"></textarea>
                                 <div class="contact-feedback"></div>
                             </div>
 

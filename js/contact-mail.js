@@ -118,7 +118,7 @@ function getFieldErrorMessage(field) {
 function getNameError(value) {
     const trimmed = value.trim();
     if (trimmed.length >= 2) return "";
-    return "Please enter your name.";
+    return getContactTranslation("contactNameError");
 }
 
 
@@ -131,7 +131,7 @@ function getEmailError(value) {
     const email = value.trim();
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (regex.test(email)) return "";
-    return "Please enter a valid e-mail address.";
+    return getContactTranslation("contactEmailError");
 }
 
 
@@ -143,7 +143,19 @@ function getEmailError(value) {
 function getMessageError(value) {
     const trimmed = value.trim();
     if (trimmed.length > 0) return "";
-    return "Please enter a message.";
+    return getContactTranslation("contactMessageError");
+}
+
+
+/**
+ * Returns one translated contact text.
+ * @param {string} translationKey
+ * @returns {string}
+ */
+function getContactTranslation(translationKey) {
+    const language = document.documentElement.lang || "en";
+    if (typeof findTranslationValue !== "function") return translationKey;
+    return findTranslationValue(translations[language], translationKey) || translationKey;
 }
 
 

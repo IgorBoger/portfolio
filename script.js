@@ -1694,6 +1694,25 @@ function updateProjectButtons(insideButton, outsideButton, isExpanded) {
 
 
 /**
+ * Updates all project toggle translations.
+ */
+function updateProjectToggleTranslations() {
+    getProjectCards().forEach(updateProjectToggleTranslation);
+}
+
+
+/**
+ * Updates one project card toggle translation.
+ * @param {HTMLElement} card
+ */
+function updateProjectToggleTranslation(card) {
+    const insideButton = getInsideProjectButton(card);
+    const outsideButton = getOutsideProjectButton(card);
+    updateProjectButtons(insideButton, outsideButton, isProjectCardExpanded(card));
+}
+
+
+/**
  * Updates the inside project button.
  * @param {HTMLButtonElement|null} button
  * @param {boolean} isExpanded
@@ -1701,7 +1720,7 @@ function updateProjectButtons(insideButton, outsideButton, isExpanded) {
 function updateInsideProjectButton(button, isExpanded) {
     if (!button) return;
     button.setAttribute("aria-expanded", String(isExpanded));
-    setProjectButtonContent(button, "Show me more", "▼", !isExpanded);
+    setProjectButtonContent(button, "projectShowMoreBtn", "▼", !isExpanded);
 }
 
 
@@ -1713,22 +1732,34 @@ function updateInsideProjectButton(button, isExpanded) {
 function updateOutsideProjectButton(button, isExpanded) {
     if (!button) return;
     button.setAttribute("aria-expanded", String(isExpanded));
-    setProjectButtonContent(button, "Show me less", "▲", isExpanded);
+    setProjectButtonContent(button, "projectShowLessBtn", "▲", isExpanded);
 }
 
 
 /**
  * Sets the label and icon of one project button.
  * @param {HTMLButtonElement} button
- * @param {string} text
+ * @param {string} translationKey
  * @param {string} iconText
  * @param {boolean} shouldShow
  */
-function setProjectButtonContent(button, text, iconText, shouldShow) {
+function setProjectButtonContent(button, translationKey, iconText, shouldShow) {
     const label = getProjectButtonLabel(button);
     const icon = getProjectButtonIcon(button);
-    if (label) label.textContent = shouldShow ? text : "";
+    if (label) label.textContent = shouldShow ? getProjectToggleText(translationKey) : "";
     if (icon) icon.textContent = shouldShow ? iconText : "";
+}
+
+
+/**
+ * Returns the translated project toggle text.
+ * @param {string} translationKey
+ * @returns {string}
+ */
+function getProjectToggleText(translationKey) {
+    const language = document.documentElement.lang || "en";
+    if (typeof findTranslationValue !== "function") return translationKey;
+    return findTranslationValue(translations[language], translationKey) || translationKey;
 }
 
 

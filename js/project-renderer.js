@@ -136,12 +136,11 @@ function createProjectPreviewMarkup(project) {
 function createProjectButtonsMarkup(project) {
     return `
         <div class="project-buttons">
-            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-outline">
-                GitHub
+            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-outline" data-i18n="projectGithubBtn">
+                ${translateProjectKey("projectGithubBtn")}
             </a>
-
-            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-btn btn-primary">
-                Live Test
+            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-btn btn-primary" data-i18n="projectLiveTestBtn">
+                ${translateProjectKey("projectLiveTestBtn")}
             </a>
         </div>
     `;
@@ -191,7 +190,9 @@ function translateRenderedProjects() {
 function createInsideToggleMarkup() {
     return `
         <button class="project-card-toggle" type="button" aria-expanded="false">
-            <span class="show-me-more">Show me more</span>
+            <span class="show-me-more" data-project-i18n="projectShowMoreBtn">
+                ${translateProjectKey("projectShowMoreBtn")}
+            </span>
             <span class="project-card-toggle-icon" aria-hidden="true">▼</span>
         </button>
     `;
@@ -205,7 +206,9 @@ function createInsideToggleMarkup() {
 function createOutsideToggleMarkup() {
     return `
         <button class="project-card-toggle" type="button" aria-expanded="true">
-            <span class="show-me-less">Show me less</span>
+            <span class="show-me-less" data-project-i18n="projectShowLessBtn">
+                ${translateProjectKey("projectShowLessBtn")}
+            </span>
             <span class="project-card-toggle-icon" aria-hidden="true">▲</span>
         </button>
     `;

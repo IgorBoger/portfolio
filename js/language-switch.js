@@ -35,6 +35,8 @@ function applyLanguage(language) {
     document.title = translations[language].documentTitle;
     updateTranslatedTexts(language);
     updateLanguageButtons(language);
+    updateTranslatedPlaceholders(language);
+    updateProjectToggleTranslationsSafely();
 }
 
 
@@ -56,6 +58,36 @@ function updateTranslatedTexts(language) {
  */
 function getTranslatedElements() {
     return Array.from(document.querySelectorAll("[data-i18n]"));
+}
+
+
+/**
+ * Updates all translated placeholder elements.
+ * @param {string} language
+ */
+function updateTranslatedPlaceholders(language) {
+    getTranslatedPlaceholderElements().forEach((element) => {
+        const text = findTranslationValue(translations[language], element.dataset.i18nPlaceholder);
+        if (text) element.placeholder = text;
+    });
+}
+
+
+/**
+ * Returns all elements with translated placeholder keys.
+ * @returns {HTMLElement[]}
+ */
+function getTranslatedPlaceholderElements() {
+    return Array.from(document.querySelectorAll("[data-i18n-placeholder]"));
+}
+
+
+/**
+ * Updates project toggle translations if project logic is loaded.
+ */
+function updateProjectToggleTranslationsSafely() {
+    if (typeof updateProjectToggleTranslations !== "function") return;
+    updateProjectToggleTranslations();
 }
 
 

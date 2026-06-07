@@ -23,6 +23,11 @@ const translations = {
                 mobileNavSkills: "Meine Fähigkeiten",
                 mobileNavProjects: "Meine Arbeit",
                 mobileNavContact: "Kontakt aufnehmen"
+            },
+
+            footer: {
+                footerLegalNotice: "Impressum",
+                footerPrivacyPolicy: "Datenschutzerklärung",
             }
         },
 
@@ -58,19 +63,19 @@ const translations = {
                 projectTechnologiesTitle: "Verwendete Technologien",
                 projectLearnedTitle: "Was ich gelernt habe",
                 projectGroupExperienceTitle: "Meine Erfahrung mit Gruppenprojekten",
-
                 joinAboutText: "Eine Kanban-basierte Projektmanagement-Anwendung zum Erstellen, Organisieren und Verwalten von Aufgaben über verschiedene Workflow-Phasen hinweg.",
                 joinLearnedText: "Ich habe meine Fähigkeiten in Teamarbeit, Drag-and-Drop-Funktionalität, Firebase-Integration und dynamischer Datenverwaltung erweitert.",
-
                 polloAboutText: "Ein browserbasiertes Jump-and-Run-Spiel mit interaktiven Gegnern, sammelbaren Objekten und animierten Spielmechaniken.",
                 polloLearnedText: "Ich habe mein Verständnis für objektorientierte Programmierung, Kollisionserkennung, Animationen und Zustandsverwaltung verbessert.",
-
                 bubbleAboutText: "Eine Echtzeit-Kommunikationsplattform, die sich aktuell in Entwicklung befindet und auf strukturierte Nachrichtenabläufe sowie kollaborative Interaktion fokussiert.",
                 bubbleLearnedText: "Ich erweitere meine Erfahrung mit skalierbarer Angular-Architektur, Echtzeit-Datenverarbeitung, Authentifizierungsabläufen und komplexen Benutzeroberflächen.",
-
                 joinTechnologiesText: "HTML, CSS, JavaScript, Firebase",
                 polloTechnologiesText: "HTML, CSS, JavaScript, Firebase",
                 bubbleTechnologiesText: "HTML, CSS, Angular, TypeScript, Firebase",
+                projectGithubBtn: "GitHub",
+                projectLiveTestBtn: "Live Test",
+                projectShowMoreBtn: "Mehr anzeigen",
+                projectShowLessBtn: "Weniger anzeigen"
             }
         },
 
@@ -95,6 +100,12 @@ const translations = {
         contact: {
             contactTitle: "Kontakt aufnehmen",
             contactTitleMobile: "Kontakt aufnehmen",
+            contactNamePlaceholder: "Dein Name",
+            contactEmailPlaceholder: "Deine E-Mail",
+            contactMessagePlaceholder: "Deine Nachricht",
+            contactNameError: "Bitte gib deinen Namen ein.",
+            contactEmailError: "Bitte gib eine gültige E-Mail-Adresse ein.",
+            contactMessageError: "Bitte gib eine Nachricht ein.",
             contactPolicyIntro: "Ich habe die",
             contactPolicyOutro: "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
             contactPrivacyPolicy: "Datenschutzerklärung",
@@ -176,6 +187,11 @@ const translations = {
                 mobileNavSkills: "My Skill Set",
                 mobileNavProjects: "My Work",
                 mobileNavContact: "Contact me"
+            },
+
+            footer: {
+                footerLegalNotice: "Legal notice",
+                footerPrivacyPolicy: "Privacy policy"
             }
         },
 
@@ -211,19 +227,19 @@ const translations = {
                 projectTechnologiesTitle: "Technologies I have used",
                 projectLearnedTitle: "What I have learned",
                 projectGroupExperienceTitle: "My group-projects experience",
-
                 joinAboutText: "A Kanban-based project management application for creating, organizing, and tracking tasks through different workflow stages.",
                 joinLearnedText: "I strengthened my skills in team collaboration, drag-and-drop functionality, Firebase integration, and dynamic data management.",
-
                 polloAboutText: "A browser-based jump-and-run game with interactive enemies, collectible items, and animated gameplay mechanics.",
                 polloLearnedText: "I improved my understanding of object-oriented programming, collision detection, animations, and game state management.",
-
                 bubbleAboutText: "A real-time communication platform currently in development, focused on structured messaging workflows and collaborative interaction.",
                 bubbleLearnedText: "I am expanding my experience in scalable Angular architecture, real-time data handling, authentication flows, and complex user interfaces.",
-
                 joinTechnologiesText: "HTML, CSS, JavaScript, Firebase",
                 polloTechnologiesText: "HTML, CSS, JavaScript, Firebase",
                 bubbleTechnologiesText: "HTML, CSS, Angular, TypeScript, Firebase",
+                projectGithubBtn: "GitHub",
+                projectLiveTestBtn: "Live-Test",
+                projectShowMoreBtn: "Show me more",
+                projectShowLessBtn: "Show me less",
             }
         },
 
@@ -248,6 +264,12 @@ const translations = {
         contact: {
             contactTitle: "Contact me",
             contactTitleMobile: "Contact me",
+            contactNamePlaceholder: "Your name",
+            contactEmailPlaceholder: "Your e-mail",
+            contactMessagePlaceholder: "Your message",
+            contactNameError: "Please enter your name.",
+            contactEmailError: "Please enter a valid e-mail address.",
+            contactMessageError: "Please enter a message.",
             contactPolicyIntro: "I’ve read the",
             contactPolicyOutro: "and agree to the processing of my data as outlined.",
             contactPrivacyPolicy: "privacy policy",

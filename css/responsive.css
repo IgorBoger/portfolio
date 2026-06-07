@@ -69,14 +69,22 @@
         width: clamp(500px, 50vw, 800px);
     }
 
-    .skills-stage {
-        max-width: 650px;
+    .whyme-contact-btn {
+        right: auto;
+        left: 50%;
+        transform: translateX(-20%);
+    }
+
+    .skills-text {
+        width: clamp(400px, 44vw, 600px);
     }
 
     .skills-grid {
         display: grid;
         grid-template-columns: repeat(5, clamp(80px, 8.2vw, 100px));
-        gap: 24px 12px;
+        column-gap: clamp(20px, 2.5vw, 24px);
+        row-gap: 24px;
+        width: clamp(520px, 54vw, 650px);
     }
 
     .skills-challenge-wrap {
@@ -190,6 +198,14 @@
 
 
 @media (max-width: 1000px) and (min-width: 901px) {
+    .whyme-stage {
+        padding-right: 0;
+    }
+
+    .skills-text {
+        width: clamp(340px, 36vw, 600px);
+    }
+
     .mywork-stage {
         margin-top: 120px;
     }
@@ -1150,8 +1166,7 @@
     .reference-card {
         flex: 0 0 300px;
         min-width: 300px;
-        height: auto;
-        min-height: 180px;
+        height: 220px;
         gap: 0;
         display: flex;
         justify-content: space-between;

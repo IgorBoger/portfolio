@@ -613,7 +613,7 @@ body.is-language-changing [data-project-i18n] {
     position: relative;
     width: 80%;
     height: 50%;
-    padding: 0 0 80px clamp(50px, 4vw, 60px);
+    padding: 0 0 0 clamp(50px, 4vw, 60px);
 }
 
 
@@ -854,7 +854,6 @@ body.is-language-changing [data-project-i18n] {
     position: absolute;
     bottom: 0;
     padding: 0 0 80px 0;
-    max-width: 900px;
 }
 
 
@@ -867,7 +866,7 @@ body.is-language-changing [data-project-i18n] {
 .skills-grid {
     margin: 42px 0 0 100px;
     display: grid;
-    grid-template-columns: repeat(6, 100px);
+    grid-template-columns: repeat(6, 90px);
     column-gap: 12px;
     row-gap: 24px;
     align-items: start;

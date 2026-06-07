@@ -648,7 +648,7 @@ body.is-language-changing [data-project-i18n] {
 
 
 .whyme-text {
-    max-width: min(740px, 58vw);
+    max-width: min(740px, 54vw);
     margin: 0 0 12px 100px;
 }
 
@@ -1453,6 +1453,15 @@ body.is-language-changing [data-project-i18n] {
 
 .contact-input::placeholder {
     color: rgba(181, 233, 59, 0.34);
+}
+
+
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgba(255, 253, 253, 1);
+    box-shadow: 0 0 0 1000px rgb(0, 0, 0) inset;
+    caret-color: rgba(255, 253, 253, 1);
 }
 
 

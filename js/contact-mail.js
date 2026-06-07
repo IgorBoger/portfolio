@@ -285,7 +285,7 @@ function handleContactMailSubmit(event, form) {
  */
 async function sendContactMail(form) {
     try {
-        const response = await fetch("send_mail_portfolio.php", createMailRequest(form));
+        const response = await fetch("send-mail-portfolio.php", createMailRequest(form));
         const result = await response.json();
         handleMailResponse(form, response.ok && result.success);
     } catch {

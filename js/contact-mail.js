@@ -294,7 +294,6 @@ async function sendContactMail(form) {
 }
 
 
-
 /**
  * Creates the mail request configuration.
  * @param {HTMLFormElement} form
@@ -397,6 +396,3 @@ function hideContactErrorMessage() {
 function getContactErrorMessage() {
     return document.getElementById("contactErrorMessage");
 }
-
-
-window.addEventListener("DOMContentLoaded", initContactMail, { once: true });

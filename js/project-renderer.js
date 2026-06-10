@@ -74,7 +74,7 @@ function createProjectHeaderMarkup(project) {
         <div class="project-header">
             <img class="project-number" src="${project.numberSrc}" alt="${project.numberAlt}">
             <img class="project-number-mobile" src="${project.numberSrcMobile}" alt="${project.numberAlt}">
-            <h2 class="project-title">${project.title}</h2>
+            <h3 class="project-title">${project.title}</h3>
         </div>
     `;
 }
@@ -104,7 +104,7 @@ function createProjectDescriptionMarkup(project) {
 function createProjectBlockMarkup(title, text) {
     return `
         <div class="project-block">
-            <h3 class="project-subtitle" data-i18n="${title}">${translateProjectKey(title)}</h3>
+            <h4 class="project-subtitle" data-i18n="${title}">${translateProjectKey(title)}</h4>
             <p data-i18n="${text}">${translateProjectKey(text)}</p>
         </div>
     `;
@@ -155,7 +155,7 @@ function createProjectButtonsMarkup(project) {
 function createProjectLearnedMarkup(project) {
     return `
         <div class="project-learned">
-            <h3 class="project-subtitle" data-i18n="${project.learnedTitle}">${translateProjectKey(project.learnedTitle)}</h3>
+            <h4 class="project-subtitle" data-i18n="${project.learnedTitle}">${translateProjectKey(project.learnedTitle)}</h4>
             <p data-i18n="${project.learnedText}">${translateProjectKey(project.learnedText)}</p>
         </div>
     `;

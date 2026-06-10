@@ -79,20 +79,20 @@
 
 
 .ico-mail {
-    -webkit-mask-image: url("../img/email.png");
-    mask-image: url("../img/email.png");
+    -webkit-mask-image: url("../img/social/email.png");
+    mask-image: url("../img/social/email.png");
 }
 
 
 .ico-github {
-    -webkit-mask-image: url("../img/git-hub.png");
-    mask-image: url("../img/git-hub.png");
+    -webkit-mask-image: url("../img/social/git-hub.png");
+    mask-image: url("../img/social/git-hub.png");
 }
 
 
 .ico-linkedin {
-    -webkit-mask-image: url("../img/linked-in.png");
-    mask-image: url("../img/linked-in.png");
+    -webkit-mask-image: url("../img/social/linked-in.png");
+    mask-image: url("../img/social/linked-in.png");
 }
 
 

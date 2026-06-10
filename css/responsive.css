@@ -1,6 +1,6 @@
-@import url("responsive-tablet.css");
-@import url("responsive-mobile-shell.css");
-@import url("responsive-mobile-content.css");
-@import url("responsive-mobile-projects.css");
-@import url("responsive-mobile-contact.css");
-@import url("responsive-small.css");
+@import url("responsive-tablet.css?v=20260610-viewport3");
+@import url("responsive-mobile-shell.css?v=20260610-viewport3");
+@import url("responsive-mobile-content.css?v=20260610-viewport3");
+@import url("responsive-mobile-projects.css?v=20260610-viewport3");
+@import url("responsive-mobile-contact.css?v=20260610-viewport3");
+@import url("responsive-small.css?v=20260610-viewport3");

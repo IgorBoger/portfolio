@@ -16,6 +16,7 @@
     width: 100%;
     height: auto;
     max-height: 88vh;
+    max-height: 88dvh;
     object-fit: contain;
     display: block;
     opacity: 0;

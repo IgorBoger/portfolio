@@ -130,6 +130,7 @@ body.is-language-changing [data-project-i18n] {
     width: 100vw;
     max-width: none;
     height: 100vh;
+    height: 100dvh;
     margin-left: 0;
     margin-right: 0;
     background-color: transparent;

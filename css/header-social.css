@@ -136,6 +136,7 @@
 .sections-track {
     background: transparent;
     height: 100vh;
+    height: 100dvh;
     margin-left: var(--side);
     width: min(calc(100vw - var(--side)), calc(var(--content-max) - var(--side)));
     max-width: calc(var(--content-max) - var(--side));

@@ -173,6 +173,7 @@
     .privacy-policy-right {
         margin-left: 0;
         max-height: calc(100vh - 216px);
+        max-height: calc(100dvh - 216px);
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: var(--accent) transparent;
@@ -207,12 +208,12 @@
     }
 
     .mywork-stage {
-        margin-top: 120px;
+        margin-top: clamp(80px, 10vh, 120px);
     }
 
     .project-container {
         width: 520px;
-        min-height: 780px;
+        min-height: clamp(620px, 78vh, 780px);
         padding: 24px 24px;
         background: linear-gradient(180deg,
                 rgb(66, 76, 41) 0%,
@@ -366,6 +367,7 @@
         width: 100%;
         max-width: calc(100% - 120px);
         max-height: 55vh;
+        max-height: 55dvh;
         overflow-y: auto;
     }
 

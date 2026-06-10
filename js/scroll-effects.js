@@ -159,7 +159,7 @@ function initWheelHorizontalScroll() {
  * @returns {HTMLElement[]}
  */
 function getWheelScrollTracks() {
-    return [getSectionsTrack(), getLegalNoticeTrack(), getPrivacyPolicyTrack()].filter(Boolean);
+    return [getSectionsTrack(), getLegalNoticeTrack(), getPrivacyPolicyTrack(), getReferenceGrid()].filter(Boolean);
 }
 
 
@@ -178,8 +178,9 @@ function bindWheelScrollTrack(track) {
  * @param {HTMLElement} track
  */
 function handleWheelScroll(event, track) {
-    if (!shouldUseHorizontalWheel(event)) return;
+    if (!shouldUseHorizontalWheel(event, track)) return;
     event.preventDefault();
+    event.stopPropagation();
     track.scrollLeft += getWheelScrollAmount(event);
 }
 
@@ -187,11 +188,22 @@ function handleWheelScroll(event, track) {
 /**
  * Checks whether horizontal wheel scrolling is allowed.
  * @param {WheelEvent} event
+ * @param {HTMLElement} track
  * @returns {boolean}
  */
-function shouldUseHorizontalWheel(event) {
-    if (isMobileView()) return false;
+function shouldUseHorizontalWheel(event, track) {
+    if (isMobileView() && !isReferenceWheelTrack(track)) return false;
     return !event.target.closest("input, textarea, select");
+}
+
+
+/**
+ * Checks if one track is the reference card slider.
+ * @param {HTMLElement} track
+ * @returns {boolean}
+ */
+function isReferenceWheelTrack(track) {
+    return track.classList.contains("references-grid");
 }
 
 

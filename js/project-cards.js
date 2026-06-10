@@ -246,7 +246,7 @@ function scrollProjectCardAfterClose(card, isExpanded) {
 function scrollProjectCardToTop(card) {
     const panel = card.closest(".section-panel");
     if (!(panel instanceof HTMLElement)) return;
-    panel.scrollTo({ top: getProjectCardPanelTop(card, panel), behavior: "smooth" });
+    panel.scrollTo({ top: getProjectCardPanelTop(card, panel), behavior: getMotionSafeScrollBehavior() });
 }
 
 

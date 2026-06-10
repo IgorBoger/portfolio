@@ -157,7 +157,7 @@ function scrollReferenceCardIntoView(grid, card) {
     const left = card.offsetLeft - grid.offsetLeft;
     grid.scrollTo({
         left: left,
-        behavior: "smooth"
+        behavior: getMotionSafeScrollBehavior()
     });
 }
 

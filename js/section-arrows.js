@@ -207,7 +207,7 @@ function scrollOnePanelRight() {
     const panelWidth = getSectionPanelWidth(track);
     const maxScroll = getTrackMaxScroll(track);
     const nextLeft = Math.min(next * panelWidth, maxScroll);
-    track.scrollTo({ left: nextLeft, behavior: "smooth" });
+    track.scrollTo({ left: nextLeft, behavior: getMotionSafeScrollBehavior() });
 }
 
 

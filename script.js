@@ -142,12 +142,30 @@ function isMobileView() {
 
 
 /**
+ * Checks if the user prefers reduced motion.
+ * @returns {boolean}
+ */
+function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+
+/**
+ * Returns a scroll behavior that respects motion preferences.
+ * @returns {"auto"|"smooth"}
+ */
+function getMotionSafeScrollBehavior() {
+    return prefersReducedMotion() ? "auto" : "smooth";
+}
+
+
+/**
  * Scrolls one track horizontally to a target position.
  * @param {HTMLElement} track
  * @param {number} position
  */
 function scrollTrackTo(track, position) {
-    track.scrollTo({ left: position, behavior: "smooth" });
+    track.scrollTo({ left: position, behavior: getMotionSafeScrollBehavior() });
     queueArrowAlignmentAfterScroll(track);
 }
 

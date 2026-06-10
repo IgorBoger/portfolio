@@ -230,5 +230,5 @@ function queueMainArrowRefresh() {
 function scrollToSectionVertical(targetId) {
     const target = document.querySelector(targetId);
     if (!target) return;
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.scrollIntoView({ behavior: getMotionSafeScrollBehavior(), block: "start" });
 }

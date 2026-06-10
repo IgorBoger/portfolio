@@ -89,5 +89,5 @@ function isInsideFlow(event, flowId) {
  * @param {string} flowId
  */
 function scrollFlowToTop(flowId) {
-    document.getElementById(flowId)?.scrollTo({ top: 0, behavior: "smooth" });
+    document.getElementById(flowId)?.scrollTo({ top: 0, behavior: getMotionSafeScrollBehavior() });
 }

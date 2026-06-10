@@ -40,6 +40,7 @@ function initMobileMenu() {
     if (!menu || !toggleBtn) return;
     toggleBtn.addEventListener("click", () => toggleMobileMenu(menu, toggleBtn));
     document.addEventListener("click", (event) => closeMobileMenuOnOutsideClick(event, menu, toggleBtn));
+    document.addEventListener("keydown", (event) => closeMobileMenuOnEscape(event, menu, toggleBtn));
 }
 
 
@@ -82,6 +83,18 @@ function closeMobileMenuOnOutsideClick(event, menu, toggleBtn) {
     const sidebar = getSidebar();
     if (!sidebar || !isMobileMenuOpen(toggleBtn)) return;
     if (sidebar.contains(event.target)) return;
+    closeMobileMenu(menu, toggleBtn);
+}
+
+
+/**
+ * Closes the mobile menu when pressing Escape.
+ * @param {KeyboardEvent} event
+ * @param {HTMLElement} menu
+ * @param {HTMLButtonElement} toggleBtn
+ */
+function closeMobileMenuOnEscape(event, menu, toggleBtn) {
+    if (event.key !== "Escape" || !isMobileMenuOpen(toggleBtn)) return;
     closeMobileMenu(menu, toggleBtn);
 }
 

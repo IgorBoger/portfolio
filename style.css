@@ -240,6 +240,30 @@ body.is-language-changing [data-project-i18n] {
 }
 
 
+.sidebar-btn:focus-visible,
+.sidebar-burger:focus-visible,
+.mobile-menu-link:focus-visible,
+.social-link:focus-visible,
+.lang-btn:focus-visible,
+.section-arrow:focus-visible,
+.project-btn:focus-visible,
+.project-card-toggle:focus-visible,
+.reference-control-btn:focus-visible,
+.contact-policy-link:focus-visible,
+.contact-submit-btn:focus-visible,
+.shared-direct-link:focus-visible,
+.shared-back-arrow:focus-visible,
+.shared-social-link:focus-visible,
+.shared-footer-logo:focus-visible,
+.footer-link:focus-visible,
+.shared-top-arrow:focus-visible,
+.legal-notice-mobile-back:focus-visible,
+.privacy-policy-mobile-back:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
@@ -1469,6 +1493,12 @@ body.is-language-changing [data-project-i18n] {
 }
 
 
+.contact-input:focus-visible {
+    border-color: rgba(255, 253, 253, 1);
+    box-shadow: 0 0 0 2px rgba(181, 233, 59, 0.45);
+}
+
+
 .contact-input:-webkit-autofill,
 .contact-input:-webkit-autofill:hover,
 .contact-input:-webkit-autofill:focus {
@@ -1540,6 +1570,12 @@ body.is-language-changing [data-project-i18n] {
             rgba(211, 237, 151, 0.20) 7px,
             rgba(0, 0, 0, 1) 100%);
     box-shadow: 0 0 4px rgba(211, 237, 151, 0.18);
+}
+
+
+.contact-policy-checkbox:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 

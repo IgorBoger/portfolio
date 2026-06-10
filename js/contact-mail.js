@@ -199,6 +199,21 @@ function hasFeedback(field) {
  */
 function toggleInvalidClass(field, isInvalid) {
     field.classList.toggle("contact-input-invalid", isInvalid);
+    toggleAriaInvalid(field, isInvalid);
+}
+
+
+/**
+ * Toggles the ARIA invalid state on one field.
+ * @param {HTMLElement} field
+ * @param {boolean} isInvalid
+ */
+function toggleAriaInvalid(field, isInvalid) {
+    if (isInvalid) {
+        field.setAttribute("aria-invalid", "true");
+        return;
+    }
+    field.removeAttribute("aria-invalid");
 }
 
 
@@ -211,6 +226,7 @@ function validatePrivacyCheckbox(form) {
     const checkbox = getPrivacyCheckbox(form);
     if (!checkbox) return false;
     checkbox.classList.toggle("contact-policy-checkbox-invalid", !checkbox.checked);
+    toggleAriaInvalid(checkbox, !checkbox.checked);
     return checkbox.checked;
 }
 

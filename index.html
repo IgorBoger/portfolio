@@ -441,29 +441,37 @@
                     <div class="contact-stage">
                         <form class="contact-form fade-in" id="contactForm" action="#" method="post" novalidate>
                             <div class="contact-field">
+                                <label class="sr-only" for="contactName" data-i18n="contactNamePlaceholder">Your
+                                    name</label>
                                 <input class="contact-input" id="contactName" name="name" type="text"
-                                    placeholder="Your name" autocomplete="name"
+                                    placeholder="Your name" autocomplete="name" required
+                                    aria-describedby="contactNameFeedback"
                                     data-i18n-placeholder="contactNamePlaceholder">
-                                <div class="contact-feedback"></div>
+                                <div class="contact-feedback" id="contactNameFeedback" aria-live="polite"></div>
                             </div>
 
                             <div class="contact-field">
+                                <label class="sr-only" for="contactEmail" data-i18n="contactEmailPlaceholder">Your
+                                    e-mail</label>
                                 <input class="contact-input" id="contactEmail" name="email" type="email"
-                                    placeholder="Your e-mail" autocomplete="email"
+                                    placeholder="Your e-mail" autocomplete="email" required
+                                    aria-describedby="contactEmailFeedback"
                                     data-i18n-placeholder="contactEmailPlaceholder">
-                                <div class="contact-feedback"></div>
+                                <div class="contact-feedback" id="contactEmailFeedback" aria-live="polite"></div>
                             </div>
 
                             <div class="contact-field contact-field-message">
+                                <label class="sr-only" for="contactMessage" data-i18n="contactMessagePlaceholder">Your
+                                    message</label>
                                 <textarea class="contact-input contact-textarea" id="contactMessage" name="message"
-                                    placeholder="Your message"
+                                    placeholder="Your message" required aria-describedby="contactMessageFeedback"
                                     data-i18n-placeholder="contactMessagePlaceholder"></textarea>
-                                <div class="contact-feedback"></div>
+                                <div class="contact-feedback" id="contactMessageFeedback" aria-live="polite"></div>
                             </div>
 
                             <label class="contact-policy-row" for="privacyPolicyConsent">
                                 <input class="contact-policy-checkbox" id="privacyPolicyConsent"
-                                    name="privacyPolicyConsent" type="checkbox">
+                                    name="privacyPolicyConsent" type="checkbox" required>
                                 <span class="contact-policy-text">
                                     <span data-i18n="contactPolicyIntro">I’ve read the</span>
                                     <a class="contact-policy-link" href="#privacyPolicy" data-target="#privacyPolicy"

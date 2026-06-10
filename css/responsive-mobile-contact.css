@@ -1,0 +1,366 @@
+@media (max-width: 900px) {
+    .contact-section {
+        min-height: 100vh;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .accent-bar {
+        display: none;
+    }
+
+    .contact-inner {
+        padding-bottom: 0;
+    }
+
+    .contact-stage {
+        gap: 16px;
+        min-height: calc(100vh - 73px);
+    }
+
+    .contact-title-wrap {
+        display: block;
+        padding-top: 0;
+    }
+
+    .contact-title-mobile {
+        display: block;
+    }
+
+    .whyme-title-mobile,
+    .skills-title-mobile,
+    .mywork-title-mobile,
+    .contact-title-mobile,
+    .privacy-policy-title-mobile,
+    .legal-notice-title-mobile {
+        margin: 0;
+        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 120%;
+        color: transparent;
+        -webkit-text-stroke: 0.3px var(--accent);
+        display: block;
+    }
+
+    .shared-area {
+        position: relative;
+        right: 0;
+        width: min(100%, 500px);
+        max-width: 500px;
+        margin-right: 0;
+        padding-top: 0;
+        text-align: left;
+        font-size: 16px;
+        line-height: 130%;
+    }
+
+    .shared-area .shared-back-arrow,
+    .shared-area .shared-footer {
+        display: none;
+    }
+
+    .shared-direct-links {
+        margin-top: 20px;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+    }
+
+    #desktopLegalSharedArea .shared-direct-links,
+    #desktopPrivacySharedArea .shared-direct-links {
+        display: none;
+    }
+
+    .contact-copy-title {
+        margin: 16px 0 0 0;
+        font-size: 16px;
+    }
+
+    .contact-copy-text {
+        margin-top: 16px;
+    }
+
+    .contact-direct-links {
+        margin-top: 16px;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .contact-direct-link {
+        justify-content: flex-start;
+    }
+
+    .contact-form {
+        order: 2;
+        width: min(100%, 500px);
+        max-width: 500px;
+        gap: 10px;
+        margin: 0;
+    }
+
+    .contact-field {
+        min-height: 56px;
+    }
+
+    .contact-field-message {
+        min-height: 180px;
+    }
+
+    .contact-input {
+        min-height: 48px;
+        padding: 0 14px;
+    }
+
+    .contact-textarea {
+        min-height: 165px;
+        padding-top: 16px;
+    }
+
+    .contact-feedback {
+        min-height: 16px;
+        padding: 4px 8px 0 16px;
+    }
+
+    .contact-policy-row {
+        gap: 10px;
+        margin-top: 2px;
+    }
+
+    .contact-policy-text {
+        max-width: 100%;
+    }
+
+    .contact-submit-btn {
+        font-size: 14px;
+    }
+
+    .shared-top-arrow-icon {
+        width: 45px;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transform: rotate(90deg);
+    }
+
+    .contact-mobile-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .contact-mobile-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .legal-notice-flow,
+    .privacy-policy-flow {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        font-size: 16px;
+    }
+
+    .legal-notice-track,
+    .privacy-policy-track {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .legal-notice-page,
+    .privacy-policy-page {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .legal-notice-stage,
+    .privacy-policy-stage {
+        width: 100%;
+        height: auto;
+        padding: 20px 20px 0;
+        margin-top: 0;
+    }
+
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .legal-notice-stage-split,
+    .privacy-policy-stage-split {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .legal-notice-mobile-back,
+    .privacy-policy-mobile-back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 8px 0 30px 0;
+    }
+
+    .legal-notice-mobile-back-icon,
+    .privacy-policy-mobile-back-icon {
+        width: 16px;
+        height: 16px;
+        display: block;
+        object-fit: contain;
+    }
+
+    .legal-notice-content,
+    .privacy-policy-content,
+    .legal-notice-column,
+    .privacy-policy-column,
+    .legal-notice-right,
+    .privacy-policy-right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .legal-notice-content,
+    .privacy-policy-content {
+        margin-left: 0;
+    }
+
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
+        margin-top: 12px;
+    }
+
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
+        position: static;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        max-width: none;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .shared-top-arrow {
+        order: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        cursor: pointer;
+        border: 0;
+        background: transparent;
+        text-decoration: none;
+    }
+
+    #contactSharedArea .shared-top-arrow {
+        order: 3;
+    }
+
+
+    #contactSharedArea .shared-social {
+        order: 4;
+    }
+
+    .shared-area-mobile {
+        display: contents;
+    }
+
+    .shared-social {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+        padding-bottom: 24px;
+    }
+
+    .shared-footer {
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 18px 20px 20px;
+        background: var(--accent);
+        text-align: center;
+    }
+
+    #contactSharedArea .shared-footer {
+        order: 5;
+        width: calc(100% + (var(--mobile-section-padding) * 2));
+    }
+
+    #legalSharedArea .shared-footer,
+    #privacySharedArea .shared-footer {
+        order: 3;
+        width: calc(100% + (var(--mobile-section-padding) * 2));
+    }
+
+    .shared-footer-logo {
+        width: 72px;
+        height: 58px;
+        display: inline-flex;
+        color: rgb(74, 74, 74);
+    }
+
+    .shared-footer-logo .logo-frame {
+        width: 72px;
+        height: 58px;
+        position: relative;
+        display: block;
+    }
+
+    .footer-copy,
+    .footer-link {
+        margin: 0;
+        color: rgb(74, 74, 74);
+        line-height: 120%;
+    }
+
+    .footer-link {
+        text-decoration: none;
+        transition: color 120ms ease-in-out;
+    }
+
+    .footer-link:hover {
+        color: white;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .legal-notice-heading,
+    .privacy-policy-heading {
+        font-size: 16px;
+    }
+
+    .imprint-mobile {
+        font-weight: 700;
+        font-size: 24px;
+        margin: 20px 0 12px 0;
+    }
+
+    .privacy-policy-title-mobile {
+        margin: 0 0 20px 0;
+    }
+}

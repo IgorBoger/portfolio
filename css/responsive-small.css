@@ -1,0 +1,35 @@
+@media (max-width: 720px) {
+
+    main {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .header-actions {
+        padding-right: 16px;
+        gap: 18px;
+    }
+
+    .frontend-developer {
+        width: min(320px, 85vw);
+    }
+
+    .hero-arrow {
+        right: 16px;
+    }
+
+    .hero-arrow img {
+        width: 70px;
+    }
+}
+
+
+@media (max-height: 500px) {
+    .hero-inner {
+        padding-top: 12px;
+    }
+
+    .hero-image {
+        max-height: 50vh;
+    }
+}

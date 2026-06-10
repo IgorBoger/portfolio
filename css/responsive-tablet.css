@@ -1,0 +1,391 @@
+@media (max-width: 1199px) and (min-width: 901px) {
+    :root {
+        --side: 132px;
+    }
+
+    .sidebar {
+        width: var(--side);
+    }
+
+    .sidebar-logo {
+        width: 100%;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0;
+    }
+
+    .logo-frame {
+        width: 100px;
+        height: 90px;
+    }
+
+    .logo-initials {
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        font-size: clamp(40px, 4.4vw, 46px);
+        line-height: 120%;
+        transform: translate(-50%, -50%);
+    }
+
+    .sidebar-btn {
+        font-size: clamp(24px, 2.8vw, 30px);
+    }
+
+    .header {
+        padding-left: var(--side);
+    }
+
+    .header-actions {
+        padding-right: 80px;
+    }
+
+    .sections-track {
+        margin-left: var(--side);
+        width: calc(100vw - var(--side));
+    }
+
+    .whyme-text,
+    .whyme-i-am,
+    .skills-text,
+    .skills-grid,
+    .mywork-stage,
+    .references-grid,
+    .contact-form,
+    .legal-notice-content,
+    .privacy-policy-content {
+        margin-left: 80px;
+    }
+
+    .whyme-stage {
+        padding-right: 80px;
+        max-width: 760px;
+    }
+
+    .whyme-text {
+        width: clamp(500px, 50vw, 800px);
+    }
+
+    .whyme-contact-btn {
+        right: auto;
+        left: 50%;
+        transform: translateX(-20%);
+    }
+
+    .skills-text {
+        width: clamp(400px, 44vw, 600px);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(5, clamp(80px, 8.2vw, 100px));
+        column-gap: clamp(20px, 2.5vw, 24px);
+        row-gap: 24px;
+        width: clamp(520px, 54vw, 650px);
+    }
+
+    .skills-challenge-wrap {
+        display: contents;
+    }
+
+    .skills-challenge {
+        grid-column: 1 / 2;
+    }
+
+    .skills-challenge-text {
+        grid-column: 2 / 5;
+        width: auto;
+    }
+
+    .reference-text {
+        flex: 0 0 64%;
+        padding: 12px;
+    }
+
+    .reference-author {
+        flex: 0 0 36%;
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .reference-name,
+    .reference-role {
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: left;
+    }
+
+    .contact-stage {
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: clamp(28px, 3vw, 42px);
+    }
+
+    .contact-form {
+        gap: 8px;
+    }
+
+    .contact-field-message {
+        min-height: 180px;
+    }
+
+    .contact-input {
+        min-height: clamp(48px, 4vw, 54px);
+        padding: 0 clamp(16px, 1.5vw, 22px);
+        font-size: clamp(14px, 1.2vw, 16px);
+    }
+
+    .contact-textarea {
+        min-height: clamp(180px, 18vw, 255px);
+        padding-top: 16px;
+    }
+
+    .contact-feedback {
+        padding: 4px 10px 0 18px;
+        font-size: 11px;
+    }
+
+
+    .legal-notice-content,
+    .privacy-policy-content {
+        max-width: 600px;
+    }
+
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
+        max-width: 300px;
+    }
+
+    .legal-notice-title,
+    .privacy-policy-title {
+        left: 50px;
+    }
+
+    .imprint-arrow,
+    .privacy-policy-next-arrow {
+        right: 20px;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        margin-left: 0;
+        max-height: calc(100vh - 216px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+    }
+
+
+    .legal-notice-right::-webkit-scrollbar,
+    .privacy-policy-right::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .legal-notice-right::-webkit-scrollbar-track,
+    .privacy-policy-right::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .legal-notice-right::-webkit-scrollbar-thumb,
+    .privacy-policy-right::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
+    }
+}
+
+
+@media (max-width: 1000px) and (min-width: 901px) {
+    .whyme-stage {
+        padding-right: 0;
+    }
+
+    .skills-text {
+        width: clamp(340px, 36vw, 600px);
+    }
+
+    .mywork-stage {
+        margin-top: 120px;
+    }
+
+    .project-container {
+        width: 520px;
+        min-height: 780px;
+        padding: 24px 24px;
+        background: linear-gradient(180deg,
+                rgb(66, 76, 41) 0%,
+                rgb(65, 75, 40) 50%,
+                rgb(50, 57, 32) 100%);
+    }
+
+    .project-content {
+        display: contents;
+    }
+
+    .project-subtitle {
+        margin: 16px 0 8px 0;
+    }
+
+    .project-learned {
+        padding: 0;
+    }
+
+    .project-preview {
+        margin: auto 0 20px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .project-preview img {
+        max-width: 320px;
+    }
+
+    .contact-stage {
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .contact-form {
+        width: 380px;
+        margin-left: 80px;
+        order: 2;
+    }
+
+    .shared-area {
+        position: static;
+        width: auto;
+        height: auto;
+        max-width: none;
+        margin: 0 120px 0 80px;
+        align-items: stretch;
+        text-align: left;
+        display: contents;
+    }
+
+    .shared-actions {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        filter: blur(6px);
+        transition:
+            opacity 700ms ease-out,
+            transform 700ms ease-out,
+            filter 700ms ease-out;
+    }
+
+    .shared-actions.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+
+    .shared-actions {
+        order: 3;
+        max-width: calc(100% - 200px);
+        margin: 24px 0 0 80px;
+        position: static;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .shared-direct-links {
+        margin-top: 0;
+        align-items: flex-start;
+        justify-self: start;
+    }
+
+    .shared-direct-link {
+        justify-content: flex-start;
+    }
+
+    #desktopContactSharedArea .shared-back-arrow {
+        position: absolute;
+        right: 0;
+        top: -350%;
+    }
+
+    #desktopLegalSharedArea .shared-back-arrow,
+    #desktopPrivacySharedArea .shared-back-arrow {
+        position: absolute;
+        top: -100%;
+        right: 0;
+    }
+
+    #desktopContactSharedArea {
+        position: relative;
+    }
+
+    #desktopContactSharedArea .shared-back-arrow {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 48px);
+    }
+
+    #desktopLegalSharedArea,
+    #desktopPrivacySharedArea {
+        position: relative;
+    }
+
+    #desktopLegalSharedArea .shared-back-arrow,
+    #desktopPrivacySharedArea .shared-back-arrow {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 24px);
+    }
+
+    .shared-copy {
+        order: 1;
+        max-width: calc(100% - 200px);
+        margin-left: 80px;
+    }
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
+        margin-top: 16px;
+    }
+
+    .legal-notice-stage-split,
+    .privacy-policy-stage-split {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+        justify-content: space-between;
+    }
+
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        width: 100%;
+        max-width: calc(100% - 120px);
+        max-height: 55vh;
+        overflow-y: auto;
+    }
+
+    #legalNoticePageTwo .legal-notice-side-content,
+    #privacyPolicyPageTwo .privacy-policy-side-content {
+        position: static;
+        width: auto;
+        max-width: none;
+        padding-left: clamp(50px, 5vw, 60px);
+    }
+
+    #legalNoticePageTwo .shared-area,
+    #privacyPolicyPageTwo .shared-area {
+        display: block;
+        margin: 0;
+    }
+
+    #legalNoticePageTwo .shared-actions,
+    #privacyPolicyPageTwo .shared-actions {
+        margin: 24px 0 0 0;
+        max-width: calc(100% - 120px);
+    }
+}

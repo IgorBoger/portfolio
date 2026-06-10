@@ -1,0 +1,279 @@
+@media (max-width: 900px) {
+    .hero-panel {
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-inner,
+    .whyme-inner,
+    .skills-inner,
+    .mywork-inner,
+    .contact-inner {
+        padding: var(--mobile-section-padding);
+        position: unset;
+        width: 100%;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-content {
+        position: static;
+        margin-top: 12px;
+        position: static;
+        width: auto;
+        max-width: 100%;
+        transform: none;
+    }
+
+    .hero-title {
+        font-weight: 400;
+        font-size: 40px;
+        transform: translateY(-40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .hero-title.is-visible {
+        transform: translateY(0);
+    }
+
+    .hero-location {
+        display: flex;
+        margin: 8px 0 0 0;
+        font-size: 18px;
+        line-height: 120%;
+        color: rgba(255, 253, 253, 1);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .hero-location.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .frontend-developer-mobile {
+        margin: 0;
+        font-family: "Quantico", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: var(--accent);
+        display: flex;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(-40px);
+        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        will-change: opacity, transform;
+    }
+
+    .frontend-developer-mobile.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-media {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-image {
+        width: min(480px, 92vw);
+        height: auto;
+        max-height: 60vh;
+    }
+
+    .whyme-title-wrap,
+    .skills-title-wrap,
+    .mywork-title-wrap,
+    .contact-title-wrap {
+        position: static;
+    }
+
+    .whyme-stage,
+    .contact-stage {
+        margin-top: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .whyme-text,
+    .skills-text {
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .whyme-text,
+    .skills-text {
+        margin: 16px 0 0 0;
+    }
+
+    .whyme-i-am {
+        margin: 12px 0 0 0;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .whyme-info {
+        margin: 36px 0 0 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .whyme-info-item {
+        align-items: center;
+    }
+
+    .whyme-icon {
+        height: 48px;
+        width: 30px;
+    }
+
+    .work-remote {
+        width: 53.8px;
+        height: 46.99px;
+    }
+
+    .whyme-contact-btn {
+        position: static;
+    }
+
+    .whyme-contact-btn,
+    .skills-talk-btn {
+        display: block;
+        margin: 24px auto 12px auto;
+    }
+
+    .skills-stage {
+        position: static;
+        bottom: auto;
+        padding: 0;
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+
+    .header,
+    .skills-title,
+    .mywork-title,
+    .whyme-title,
+    .contact-title,
+    .references-title,
+    .legal-notice-title,
+    .privacy-policy-title,
+    .frontend-developer,
+    .section-arrow-img,
+    .relocate-mobile,
+    .hero-arrow,
+    .skill-label,
+    .ongoing-btn,
+    .ongoing-arrow,
+    .references-grid::-webkit-scrollbar,
+    .references-mobile-controls::-webkit-scrollbar,
+    .references-arrow,
+    .contact-footer-box,
+    .imprint-row,
+    .legal-back-arrow,
+    .privacy-policy-back-arrow,
+    .legal-notice-direct-links,
+    .privacy-policy-direct-links,
+    .privacy-policy-next-arrow {
+        display: none;
+    }
+
+    .project-expandable {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 900px;
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+            max-height 420ms ease,
+            opacity 320ms ease,
+            transform 320ms ease;
+    }
+
+    .project-container[data-project-expanded="false"] .project-expandable {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+    }
+
+    .skills-grid {
+        margin: 36px 0 0 0;
+        width: 100%;
+        max-width: 390px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        justify-items: center;
+        align-items: start;
+    }
+
+    .skill-item,
+    .skills-challenge-tile {
+        width: auto;
+    }
+
+    .skill-icon,
+    .skills-challenge-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .skills-challenge-wrap {
+        display: contents;
+    }
+
+    .skills-challenge {
+        display: flex;
+        grid-column: auto;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .skill-challenge-label {
+        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        line-height: 120%;
+        white-space: nowrap;
+    }
+
+    .skills-challenge-text {
+        grid-column: 1 / -1;
+        padding: 0;
+        display: block;
+        width: 100%;
+        text-align: left;
+        max-width: 38ch;
+        line-height: 130%;
+    }
+
+}

@@ -69,8 +69,24 @@ function storeActiveReferenceIndex(grid, index) {
 function setActiveReferenceButton(grid, buttons, activeIndex) {
     storeActiveReferenceIndex(grid, activeIndex);
     buttons.forEach((button, index) => {
-        button.classList.toggle("is-active", index === activeIndex);
+        const isActive = index === activeIndex;
+        button.classList.toggle("is-active", isActive);
+        toggleReferenceCurrentState(button, isActive);
     });
+}
+
+
+/**
+ * Toggles the current state on one reference control button.
+ * @param {HTMLButtonElement} button
+ * @param {boolean} isActive
+ */
+function toggleReferenceCurrentState(button, isActive) {
+    if (isActive) {
+        button.setAttribute("aria-current", "true");
+        return;
+    }
+    button.removeAttribute("aria-current");
 }
 
 

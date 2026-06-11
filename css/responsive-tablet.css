@@ -22,12 +22,10 @@
     }
 
     .logo-initials {
-        width: 100%;
-        height: 100%;
+        width: 58px;
+        height: auto;
         top: 50%;
         left: 50%;
-        font-size: clamp(40px, 4.4vw, 46px);
-        line-height: 120%;
         transform: translate(-50%, -50%);
     }
 

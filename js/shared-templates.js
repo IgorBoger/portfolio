@@ -94,7 +94,7 @@ function createSharedFooterMarkup(logoPathId) {
                             </textPath>
                         </text>
                     </svg>
-                    <span class="logo-initials">IB</span>
+                    <img class="logo-initials" src="img/logo/initials-ib.png" alt="">
                 </span>
             </a>
             <p class="footer-copy">© Igor Boger 2026</p>

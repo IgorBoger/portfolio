@@ -38,10 +38,24 @@ function handleContactMailSubmit(event, form) {
 async function sendContactMail(form) {
     try {
         const response = await fetch("send-mail-portfolio.php", createMailRequest(form));
-        const result = await response.json();
+        const result = await parseMailResponse(response);
         handleMailResponse(form, response.ok && result.success);
     } catch {
         handleMailResponse(form, false);
+    }
+}
+
+
+/**
+ * Parses a PHP mail response safely.
+ * @param {Response} response
+ * @returns {Promise<{success:boolean}>}
+ */
+async function parseMailResponse(response) {
+    try {
+        return await response.json();
+    } catch {
+        return { success: false };
     }
 }
 

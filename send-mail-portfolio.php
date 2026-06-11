@@ -1,56 +1,43 @@
 <?php
 
-// CORS headers (for Angular / frontend apps)
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
-// ------------------------------------------------------------
-// WICHTIG:
-// Deine eigene Adresse in Zeile 15 setzen!
-// ------------------------------------------------------------
-
-// >>> DEINE EMAIL HIER EINTRAGEN <<<
 $siteEmail = "igorboger26@gmail.com";
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'OPTIONS':
-        // Preflight request
         http_response_code(200);
         exit;
 
     case 'POST':
-        // Read raw JSON payload
         $json = file_get_contents('php://input');
         $params = json_decode($json);
 
-        // Saubere JSON-Fehlerprüfung
         if (json_last_error() !== JSON_ERROR_NONE) {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid JSON']);
             exit;
         }
 
-        $email = $params->email ?? '';
-        $name = $params->name ?? '';
-        $userMessage = $params->message ?? '';
+        $email = trim($params->email ?? '');
+        $name = trim($params->name ?? '');
+        $userMessage = trim($params->message ?? '');
 
-        // Basic validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $name === '' || $userMessage === '') {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
             exit;
         }
 
-        // Sanitize content
         $safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-        $safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+        $safeEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
         $safeMessage = nl2br(htmlspecialchars($userMessage, ENT_QUOTES, 'UTF-8'));
 
-        // Empfängeradresse (nutzt die oben definierte Mail)
-        $recipient = $siteEmail; 
+        $recipient = $siteEmail;
         $subject = 'Website Contact Form';
 
         $mailBody = "
@@ -60,21 +47,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
             {$safeMessage}
         ";
 
-        // Mail headers
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=utf-8';
-        $headers[] = 'From: Website Kontakt <' . $siteEmail . '>'; 
-        $headers[] = 'Reply-To: ' . $email;
-        $headers[] = 'Return-Path: ' . $siteEmail; 
+        $headers[] = 'From: Website Kontakt <' . $siteEmail . '>';
+        $headers[] = 'Reply-To: ' . $safeEmail;
+        $headers[] = 'Return-Path: ' . $siteEmail;
 
-        // Send mail
         $success = mail(
             $recipient,
             $subject,
             $mailBody,
             implode("\r\n", $headers),
-            '-f ' . $siteEmail 
+            '-f ' . $siteEmail
         );
 
         if ($success) {

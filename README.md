@@ -4,6 +4,10 @@ Personal portfolio website for presenting my frontend development profile, techn
 
 The project is built as a responsive single-page website with a custom visual design, desktop horizontal navigation, mobile-first interaction patterns, multilingual content, and a working contact form flow.
 
+## Live Demo
+
+https://igor-boger.de/
+
 ## Overview
 
 This portfolio is designed to show both my frontend skills and the way I structure user-facing web projects. It combines semantic HTML, modular CSS, and vanilla JavaScript to create an interactive portfolio experience without relying on a frontend framework.

@@ -6,12 +6,12 @@ function createSharedDirectLinksMarkup() {
     return `
         <div class="shared-direct-links">
             <a class="shared-direct-link" target="_blank" href="mailto:igorboger26@gmail.com">
-                <img class="shared-direct-icon" src="img/contact-me/email.png" alt="">
+        <img class="shared-direct-icon" src="img/contact-me/email.png" alt="" width="15" height="18" loading="lazy" decoding="async">
                 <span>E-mail: igorboger26@gmail.com</span>
             </a>
 
             <a class="shared-direct-link" href="tel:+4917662045018">
-                <img class="shared-direct-icon" src="img/contact-me/phone.png" alt="">
+        <img class="shared-direct-icon" src="img/contact-me/phone.png" alt="" width="15" height="16" loading="lazy" decoding="async">
                 <span>Tel: 017662045018</span>
             </a>
         </div>
@@ -45,7 +45,7 @@ function createDesktopSharedMarkup() {
         <div class="shared-actions">
             ${createSharedDirectLinksMarkup()}
             <a class="shared-back-arrow" href="#top" aria-label="Back to hero section">
-                <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="">
+            <img class="section-arrow-img arrow-reveal-left" src="img/contact-me/switch-arrow-to-hero.png" alt="" width="112" height="37" loading="lazy" decoding="async">
             </a>
             ${createSharedDesktopFooterMarkup()}
         </div>
@@ -115,7 +115,7 @@ function createSharedFooterMarkup(logoPathId) {
 function createSharedTopArrowMarkup(label) {
     return `
         <button class="shared-top-arrow fade-in" type="button" aria-label="${label}">
-            <img class="shared-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="">
+            <img class="shared-top-arrow-icon" src="img/contact-me/switch-arrow-to-hero.png" alt="" width="112" height="37" loading="lazy" decoding="async">
         </button>
     `;
 }

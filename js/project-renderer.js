@@ -72,8 +72,8 @@ function createProjectContentMarkup(project) {
 function createProjectHeaderMarkup(project) {
     return `
         <div class="project-header">
-            <img class="project-number" src="${project.numberSrc}" alt="">
-            <img class="project-number-mobile" src="${project.numberSrcMobile}" alt="">
+            <img class="project-number" src="${project.numberSrc}" alt="" loading="lazy" decoding="async">
+            <img class="project-number-mobile" src="${project.numberSrcMobile}" alt="" loading="lazy" decoding="async">
             <h3 class="project-title">${project.title}</h3>
         </div>
     `;
@@ -120,7 +120,7 @@ function createProjectPreviewMarkup(project) {
     return `
         <div class="project-preview">
             <div class="project-preview-inner">
-                <img src="${project.previewSrc}" alt="${project.previewAlt}">
+                <img src="${project.previewSrc}" alt="${project.previewAlt}" loading="lazy" decoding="async">
                 ${createProjectButtonsMarkup(project)}
             </div>
         </div>

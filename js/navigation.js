@@ -229,6 +229,18 @@ function queueMainArrowRefresh() {
  */
 function scrollToSectionVertical(targetId) {
     const target = document.querySelector(targetId);
-    if (!target) return;
-    target.scrollIntoView({ behavior: getMotionSafeScrollBehavior(), block: "start" });
+    const track = getSectionsTrack();
+    if (!track || !(target instanceof HTMLElement)) return;
+    scrollToMobileSection(track, target);
+}
+
+
+/**
+ * Scrolls to the top of one mobile section.
+ * @param {HTMLElement} track
+ * @param {HTMLElement} target
+ */
+function scrollToMobileSection(track, target) {
+    target.scrollTo({ top: 0, behavior: "auto" });
+    track.scrollTo({ top: target.offsetTop, behavior: getMotionSafeScrollBehavior() });
 }

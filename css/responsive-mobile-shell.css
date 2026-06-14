@@ -244,7 +244,8 @@
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: hidden;
+        overscroll-behavior-y: contain;
         scroll-snap-type: y mandatory;
         height: 100vh;
         height: 100dvh;
@@ -281,6 +282,8 @@
         height: 100dvh;
         height: var(--app-viewport-height, 100dvh);
         scroll-snap-align: start;
+        scroll-snap-stop: always;
+        overscroll-behavior-y: contain;
         padding-top: 73px;
         overflow-y: auto;
         overflow-x: hidden;

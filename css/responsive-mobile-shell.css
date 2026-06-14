@@ -251,6 +251,10 @@
         height: var(--app-viewport-height, 100dvh);
     }
 
+    body.is-contact-field-focused .sections-track {
+        scroll-snap-type: none;
+    }
+
     .sections-track,
     .legal-notice-flow,
     .privacy-policy-flow {

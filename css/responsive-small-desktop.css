@@ -56,7 +56,7 @@
     }
 
     .contact-textarea {
-        min-height: clamp(180px, 16vw, 200px);
+        min-height: clamp(150px, 15.5vw, 200px);
     }
 
     .contact-feedback {

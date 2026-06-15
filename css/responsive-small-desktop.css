@@ -50,6 +50,19 @@
     .frontend-developer {
         font-size: clamp(36px, 2.7vw, 44px);
     }
+
+    .contact-input {
+        min-height: 44px;
+    }
+
+    .contact-textarea {
+        min-height: clamp(180px, 16vw, 200px);
+    }
+
+    .contact-feedback {
+        min-height: 12px;
+        font-size: 10px;
+    }
 }
 
 

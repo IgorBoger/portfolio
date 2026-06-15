@@ -132,7 +132,7 @@
 
     .contact-input {
         min-height: clamp(48px, 4vw, 54px);
-        padding: 0 clamp(16px, 1.5vw, 22px);
+        padding: 0 clamp(16px, 1.5vw, 24px);
         font-size: clamp(14px, 1.2vw, 16px);
     }
 
@@ -142,8 +142,7 @@
     }
 
     .contact-feedback {
-        padding: 4px 10px 0 18px;
-        font-size: 11px;
+        margin: 6px clamp(16px, 1.5vw, 24px) 0;
     }
 
 
@@ -288,6 +287,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        width: 100%;
     }
 
     .shared-direct-links {

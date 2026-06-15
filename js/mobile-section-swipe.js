@@ -47,8 +47,7 @@ function handleMobileSectionTouchMove(event, state, track) {
     if (canScrollPanelVertically(panel, deltaY)) return;
     event.preventDefault();
     if (state.isLocked) return;
-    navigateMobileSection(track, deltaY > 0 ? 1 : -1);
-    lockMobileSwipeState(state);
+    if (navigateMobileSection(track, deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);
 }
 
 
@@ -64,8 +63,7 @@ function handleMobileSectionWheel(event, state, track) {
     if (canScrollPanelVertically(panel, event.deltaY)) return;
     event.preventDefault();
     if (state.isLocked) return;
-    navigateMobileSection(track, event.deltaY > 0 ? 1 : -1);
-    lockMobileSwipeState(state);
+    if (navigateMobileSection(track, event.deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);
 }
 
 
@@ -76,6 +74,7 @@ function handleMobileSectionWheel(event, state, track) {
  */
 function shouldHandleMobileSectionWheel(event) {
     if (!isMobileView() || document.body.classList.contains("is-contact-field-focused")) return false;
+    if (isMobileStaticFlowOpen()) return false;
     return Math.abs(event.deltaY) > Math.abs(event.deltaX);
 }
 
@@ -88,10 +87,31 @@ function shouldHandleMobileSectionWheel(event) {
  */
 function shouldHandleMobileSectionSwipe(event, state) {
     if (!isMobileView() || document.body.classList.contains("is-contact-field-focused")) return false;
+    if (isMobileStaticFlowOpen()) return false;
     if (event.touches.length !== 1) return false;
     const deltaX = state.startX - event.touches[0].clientX;
     const deltaY = state.startY - event.touches[0].clientY;
     return Math.abs(deltaY) > 42 && Math.abs(deltaY) > Math.abs(deltaX);
+}
+
+
+/**
+ * Returns whether a legal or privacy flow is currently open.
+ * @returns {boolean}
+ */
+function isMobileStaticFlowOpen() {
+    return isVisibleMobileFlow("legalNoticeFlow") || isVisibleMobileFlow("privacyPolicyFlow");
+}
+
+
+/**
+ * Returns whether one mobile flow is visible.
+ * @param {string} flowId
+ * @returns {boolean}
+ */
+function isVisibleMobileFlow(flowId) {
+    const flow = document.getElementById(flowId);
+    return Boolean(flow && !flow.classList.contains("d-none"));
 }
 
 
@@ -128,13 +148,17 @@ function canScrollPanelVertically(panel, deltaY) {
  * Scrolls the mobile track by one main section.
  * @param {HTMLElement} track
  * @param {number} direction
+ * @returns {boolean}
  */
 function navigateMobileSection(track, direction) {
     const panels = getSectionPanels();
     const current = getCurrentMobileSectionPanel(track);
     const currentIndex = panels.indexOf(current);
+    if (currentIndex < 0) return false;
     const nextIndex = Math.min(Math.max(currentIndex + direction, 0), panels.length - 1);
+    if (nextIndex === currentIndex) return false;
     scrollToMobileSection(track, panels[nextIndex]);
+    return true;
 }
 
 

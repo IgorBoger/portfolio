@@ -1,3 +1,8 @@
+const MOBILE_TOUCH_EDGE_THRESHOLD = 110;
+const MOBILE_WHEEL_EDGE_THRESHOLD = 180;
+const MOBILE_WHEEL_RESET_DELAY = 220;
+
+
 /**
  * Initializes controlled mobile section swiping.
  */
@@ -15,38 +20,53 @@ function initMobileSectionSwipeNavigation() {
 
 /**
  * Creates the mobile swipe state.
- * @returns {{startX:number,startY:number,isLocked:boolean,lockTimer:number}}
+ * @returns {{startX:number,startY:number,edgeStartY:number,edgeDirection:number,wheelDelta:number,isLocked:boolean,lockTimer:number,wheelTimer:number}}
  */
 function createMobileSwipeState() {
-    return { startX: 0, startY: 0, isLocked: false, lockTimer: 0 };
+    return {
+        startX: 0,
+        startY: 0,
+        edgeStartY: 0,
+        edgeDirection: 0,
+        wheelDelta: 0,
+        isLocked: false,
+        lockTimer: 0,
+        wheelTimer: 0
+    };
 }
 
 
 /**
  * Stores the first touch position.
  * @param {TouchEvent} event
- * @param {{startX:number,startY:number,isLocked:boolean,lockTimer:number}} state
+ * @param {{startX:number,startY:number,edgeStartY:number,edgeDirection:number,wheelDelta:number}} state
  */
 function handleMobileSectionTouchStart(event, state) {
     if (!isMobileView() || event.touches.length !== 1) return;
     state.startX = event.touches[0].clientX;
     state.startY = event.touches[0].clientY;
+    resetMobileEdgeState(state);
 }
 
 
 /**
  * Routes strong vertical swipes to one section at a time.
  * @param {TouchEvent} event
- * @param {{startX:number,startY:number,isLocked:boolean,lockTimer:number}} state
+ * @param {{startX:number,startY:number,edgeStartY:number,edgeDirection:number,isLocked:boolean,lockTimer:number}} state
  * @param {HTMLElement} track
  */
 function handleMobileSectionTouchMove(event, state, track) {
     if (!shouldHandleMobileSectionSwipe(event, state)) return;
-    const deltaY = state.startY - event.touches[0].clientY;
+    const currentY = event.touches[0].clientY;
+    const deltaY = state.startY - currentY;
     const panel = getCurrentMobileSectionPanel(track);
-    if (canScrollPanelVertically(panel, deltaY)) return;
+    if (canScrollPanelVertically(panel, deltaY)) {
+        resetMobileEdgeState(state);
+        return;
+    }
     event.preventDefault();
     if (state.isLocked) return;
+    if (!hasMobileTouchEdgeIntent(state, currentY, deltaY)) return;
     if (navigateMobileSection(track, deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);
 }
 
@@ -54,15 +74,19 @@ function handleMobileSectionTouchMove(event, state, track) {
 /**
  * Routes wheel input in the mobile layout to one section at a time.
  * @param {WheelEvent} event
- * @param {{isLocked:boolean,lockTimer:number}} state
+ * @param {{wheelDelta:number,wheelTimer:number,isLocked:boolean,lockTimer:number}} state
  * @param {HTMLElement} track
  */
 function handleMobileSectionWheel(event, state, track) {
     if (!shouldHandleMobileSectionWheel(event)) return;
     const panel = getCurrentMobileSectionPanel(track);
-    if (canScrollPanelVertically(panel, event.deltaY)) return;
+    if (canScrollPanelVertically(panel, event.deltaY)) {
+        resetMobileWheelState(state);
+        return;
+    }
     event.preventDefault();
     if (state.isLocked) return;
+    if (!hasMobileWheelEdgeIntent(state, event.deltaY)) return;
     if (navigateMobileSection(track, event.deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);
 }
 
@@ -92,6 +116,39 @@ function shouldHandleMobileSectionSwipe(event, state) {
     const deltaX = state.startX - event.touches[0].clientX;
     const deltaY = state.startY - event.touches[0].clientY;
     return Math.abs(deltaY) > 42 && Math.abs(deltaY) > Math.abs(deltaX);
+}
+
+
+/**
+ * Returns whether the user moved far enough after reaching a section edge.
+ * @param {{edgeStartY:number,edgeDirection:number}} state
+ * @param {number} currentY
+ * @param {number} deltaY
+ * @returns {boolean}
+ */
+function hasMobileTouchEdgeIntent(state, currentY, deltaY) {
+    const direction = deltaY > 0 ? 1 : -1;
+    if (state.edgeDirection !== direction) {
+        state.edgeDirection = direction;
+        state.edgeStartY = currentY;
+        return false;
+    }
+    return Math.abs(state.edgeStartY - currentY) >= MOBILE_TOUCH_EDGE_THRESHOLD;
+}
+
+
+/**
+ * Returns whether wheel input is strong enough to leave the current section.
+ * @param {{wheelDelta:number,wheelTimer:number}} state
+ * @param {number} deltaY
+ * @returns {boolean}
+ */
+function hasMobileWheelEdgeIntent(state, deltaY) {
+    if (Math.sign(state.wheelDelta) !== Math.sign(deltaY)) state.wheelDelta = 0;
+    state.wheelDelta += deltaY;
+    window.clearTimeout(state.wheelTimer);
+    state.wheelTimer = window.setTimeout(() => resetMobileWheelState(state), MOBILE_WHEEL_RESET_DELAY);
+    return Math.abs(state.wheelDelta) >= MOBILE_WHEEL_EDGE_THRESHOLD;
 }
 
 
@@ -168,18 +225,42 @@ function navigateMobileSection(track, direction) {
  */
 function lockMobileSwipeState(state) {
     state.isLocked = true;
+    resetMobileEdgeState(state);
+    resetMobileWheelState(state);
     window.clearTimeout(state.lockTimer);
     state.lockTimer = window.setTimeout(() => {
         state.isLocked = false;
-    }, 650);
+    }, 750);
 }
 
 
 /**
  * Resets mobile swipe state.
- * @param {{isLocked:boolean,lockTimer:number}} state
+ * @param {{edgeStartY:number,edgeDirection:number,wheelDelta:number,wheelTimer:number,isLocked:boolean,lockTimer:number}} state
  */
 function resetMobileSwipeState(state) {
     window.clearTimeout(state.lockTimer);
+    resetMobileEdgeState(state);
+    resetMobileWheelState(state);
     state.isLocked = false;
+}
+
+
+/**
+ * Resets the touch edge buffer.
+ * @param {{edgeStartY:number,edgeDirection:number}} state
+ */
+function resetMobileEdgeState(state) {
+    state.edgeStartY = 0;
+    state.edgeDirection = 0;
+}
+
+
+/**
+ * Resets the wheel edge buffer.
+ * @param {{wheelDelta:number,wheelTimer:number}} state
+ */
+function resetMobileWheelState(state) {
+    window.clearTimeout(state.wheelTimer);
+    state.wheelDelta = 0;
 }

@@ -20,7 +20,6 @@
     .contact-stage {
         gap: 16px;
         min-height: calc(100vh - 73px);
-        min-height: calc(100dvh - 73px);
         min-height: calc(var(--app-viewport-height, 100dvh) - 73px);
     }
 
@@ -64,6 +63,10 @@
     .shared-area .shared-back-arrow,
     .shared-area .shared-footer {
         display: none;
+    }
+
+    .shared-actions {
+        width: 100%;
     }
 
     .shared-direct-links {

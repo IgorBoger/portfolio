@@ -240,6 +240,11 @@
         max-width: 320px;
     }
 
+    .references-container {
+        height: 100%;
+        height: calc(100% - clamp(80px, 10vh, 120px));
+    }
+
     .contact-stage {
         flex-direction: column;
         justify-content: flex-start;
@@ -448,14 +453,83 @@
         padding-bottom: 0;
     }
 
+    .projects-list {
+        height: 100%;
+    }
+
+    .project-container {
+        width: 600px;
+        height: 100%;
+        min-height: 0;
+        padding: 16px 20px;
+    }
+
+    .project-header {
+        gap: 14px;
+    }
+
+    .project-number {
+        height: 46px;
+    }
+
+    .project-title {
+        font-size: 36px;
+    }
+
+    .project-subtitle {
+        margin: 8px 0 0 0;
+        font-size: 21px;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 4px 0 0 24px;
+        font-size: 16px;
+        line-height: 115%;
+    }
+
+    .project-preview {
+        margin: 12px 0 12px;
+    }
+
+    .project-preview-inner {
+        gap: 16px;
+        flex-direction: row;
+        margin-top: 12px;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .project-preview img {
+        max-width: 300px;
+    }
+
+    .project-buttons {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .project-btn-outline,
+    .btn-primary {
+        padding: 10px 26px;
+    }
+
+    .project-container:hover .project-btn-outline {
+        transform: translateY(-6px);
+    }
+
+    .project-container:hover .btn-primary {
+        transform: translateY(6px);
+    }
+
     .references-container {
         height: 100%;
         align-items: flex-start;
     }
 
     .references-title-wrap {
-        top: 0;
-        bottom: auto;
+        top: auto;
+        bottom: 0;
     }
 
     .references-grid {
@@ -507,5 +581,113 @@
 
     #desktopContactSharedArea .shared-back-arrow {
         bottom: calc(100% + 70px);
+    }
+}
+
+
+@media (min-width: 901px) and (max-height: 760px) {
+    .project-container {
+        min-height: 500px;
+        padding: 16px 24px;
+    }
+
+    .project-content {
+        margin: 12px 0 0 0;
+        padding-left: 16px;
+    }
+
+    .project-subtitle::before {
+        margin-right: 6px;
+    }
+
+    .project-subtitle {
+        white-space: nowrap;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 6px 0 0 18px;
+    }
+
+    .references-container {
+        width: clamp(650px, 75vw, 900px);
+    }
+
+    .references-grid {
+        width: 60%;
+        justify-content: flex-end;
+    }
+
+    .reference-card {
+        min-height: clamp(140px, 9.2vw, 160px);
+    }
+
+    .reference-text {
+        padding: 16px;
+    }
+
+    .reference-author {
+        padding: 16px;
+    }
+}
+
+
+@media (max-width: 1399px) and (min-width: 1200px) and (max-height: 760px) {
+    .references-container {
+        height: calc(100% - 136px);
+        width: clamp(630px, 65vw, 900px);
+    }
+
+    .references-grid {
+        width: 65%;
+    }
+
+    .reference-card {
+        min-height: clamp(140px, 9.2vw, 160px);
+    }
+}
+
+
+@media (max-width: 1199px) and (min-width: 1001px) and (max-height: 760px) {
+
+    .hero-inner,
+    .skills-inner,
+    .mywork-inner,
+    .contact-inner,
+    .legal-notice-stage,
+    .privacy-policy-stage,
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        padding: 0 0 80px clamp(20px, 2.5vw, 36px);
+    }
+
+    .whyme-text,
+    .whyme-i-am,
+    .skills-text,
+    .skills-grid,
+    .mywork-stage,
+    .references-grid,
+    .contact-form,
+    .legal-notice-content,
+    .privacy-policy-content {
+        margin-left: 70px;
+    }
+
+    .project-subtitle::before {
+        margin-right: 6px;
+    }
+
+    .project-subtitle {
+        white-space: nowrap;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 6px 0 0 18px;
+    }
+
+    .references-container {
+        width: clamp(630px, 70vw, 900px);
+        height: calc(100% - 136px);
     }
 }

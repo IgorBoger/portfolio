@@ -115,7 +115,7 @@
 
 .reference-card {
     width: 100%;
-    min-height: clamp(180px, 13vw, 200px);
+    min-height: 200px;
     border: 1px solid var(--accent);
     border-radius: 30px;
     display: flex;

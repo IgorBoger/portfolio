@@ -21,12 +21,14 @@
 
 
 .projects-list {
-    display: contents;
+    display: flex;
+    align-items: stretch;
+    gap: clamp(30px, 2.5vw, 36px);
 }
 
 
 .project-container {
-    width: clamp(700px, 44vw, 960px);
+    width: clamp(700px, 48vw, 960px);
     min-height: 550px;
     background: linear-gradient(80deg,
             rgb(70, 80, 45) 0%,

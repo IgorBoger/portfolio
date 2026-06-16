@@ -22,6 +22,10 @@
         margin: 24px 0 0 0;
     }
 
+    .projects-list {
+        display: contents;
+    }
+
     .project-container,
     .ongoing-container,
     .references-container {

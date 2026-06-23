@@ -1,5 +1,12 @@
 .legal-notice-flow,
 .privacy-policy-flow {
+    --section-offset: 136px;
+    --section-bottom: 80px;
+}
+
+
+.legal-notice-flow,
+.privacy-policy-flow {
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
@@ -34,8 +41,21 @@
 
 .legal-notice-stage,
 .privacy-policy-stage {
-    height: calc(100% - 136px);
-    margin-top: 136px;
+    --legal-section-offset: var(--section-offset);
+    --legal-section-bottom: var(--section-bottom);
+    height: calc(100vh - (var(--legal-section-offset) + var(--legal-section-bottom)));
+    height: calc(100dvh - (var(--legal-section-offset) + var(--legal-section-bottom)));
+    margin: var(--legal-section-offset) 0 var(--legal-section-bottom);
+    padding-bottom: 0;
+}
+
+
+.legal-notice-page-main,
+.privacy-policy-page-main {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0;
 }
 
 

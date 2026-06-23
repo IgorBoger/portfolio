@@ -90,6 +90,7 @@ function openPrivacyPolicy(flow) {
     hideMainSections();
     flow.classList.remove("d-none");
     syncShellBackground();
+    requestAnimationFrame(refreshLegalPrivacyScrollHints);
     if (track) queueFlowBackgroundSync(flow, track);
 }
 

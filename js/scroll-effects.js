@@ -155,6 +155,54 @@ function initWheelHorizontalScroll() {
 
 
 /**
+ * Initializes visual hints for nested legal/privacy scroll areas.
+ */
+function initLegalPrivacyScrollHints() {
+    const areas = getLegalPrivacyScrollAreas();
+    areas.forEach(bindLegalPrivacyScrollHint);
+    window.addEventListener("resize", refreshLegalPrivacyScrollHints);
+    window.addEventListener("load", refreshLegalPrivacyScrollHints, { once: true });
+}
+
+
+/**
+ * Refreshes all nested legal/privacy scroll hint states.
+ */
+function refreshLegalPrivacyScrollHints() {
+    getLegalPrivacyScrollAreas().forEach(updateLegalPrivacyScrollHint);
+}
+
+
+/**
+ * Returns all nested legal/privacy scroll areas.
+ * @returns {HTMLElement[]}
+ */
+function getLegalPrivacyScrollAreas() {
+    return Array.from(document.querySelectorAll(".legal-notice-right, .privacy-policy-right"));
+}
+
+
+/**
+ * Binds scroll hint updates to one nested legal/privacy scroll area.
+ * @param {HTMLElement} area
+ */
+function bindLegalPrivacyScrollHint(area) {
+    updateLegalPrivacyScrollHint(area);
+    area.addEventListener("scroll", () => updateLegalPrivacyScrollHint(area), { passive: true });
+}
+
+
+/**
+ * Updates whether one nested legal/privacy scroll area has hidden content below.
+ * @param {HTMLElement} area
+ */
+function updateLegalPrivacyScrollHint(area) {
+    const hasMore = area.scrollTop + area.clientHeight < area.scrollHeight - 2;
+    area.classList.toggle("has-scroll-more", hasMore);
+}
+
+
+/**
  * Returns all horizontal wheel scroll tracks.
  * @returns {HTMLElement[]}
  */
@@ -193,7 +241,18 @@ function handleWheelScroll(event, track) {
  */
 function shouldUseHorizontalWheel(event, track) {
     if (isMobileView() && !isReferenceWheelTrack(track)) return false;
+    if (isLegalPrivacyInnerScroll(event)) return false;
     return !event.target.closest("input, textarea, select");
+}
+
+
+/**
+ * Checks if wheel input belongs to a nested legal/privacy scroll area.
+ * @param {WheelEvent} event
+ * @returns {boolean}
+ */
+function isLegalPrivacyInnerScroll(event) {
+    return event.target.closest(".legal-notice-right, .privacy-policy-right");
 }
 
 

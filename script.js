@@ -45,6 +45,7 @@ function initScrollFeatures() {
     initDragScroll();
     initDragScrollResize();
     initWheelHorizontalScroll();
+    initLegalPrivacyScrollHints();
 }
 
 

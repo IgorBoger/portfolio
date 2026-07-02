@@ -20,12 +20,15 @@
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-        gap: 12px;
+        justify-content: flex-end;
+        height: 100%;
+        padding: 0;
+
     }
 
     .hero-content {
         position: static;
-        margin-top: 12px;
+        margin-top: 24px;
         position: static;
         width: auto;
         max-width: 100%;
@@ -91,13 +94,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        padding-top: 8px;
     }
 
     .hero-image {
         width: min(480px, 92vw);
         height: auto;
         max-height: 60vh;
+        max-height: 60dvh;
     }
 
     .whyme-title-wrap,

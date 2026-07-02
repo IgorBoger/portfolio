@@ -31,16 +31,7 @@
     }
 
     .hero-media {
-        width: min(650px, 70vw);
-    }
-
-    .hero-image {
-        max-height: 82vh;
-        max-height: 82dvh;
-    }
-
-    .hero-content {
-        bottom: 32%;
+        width: min(100%, 42vw, 61dvh);
     }
 
     .hero-title {
@@ -99,12 +90,7 @@
     }
 
     .hero-media {
-        width: min(560px, 62vw);
-    }
-
-    .hero-image {
-        max-height: 78vh;
-        max-height: 78dvh;
+        width: min(100%, 42vw, 57dvh);
     }
 
     .hero-content {

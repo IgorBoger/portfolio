@@ -46,6 +46,10 @@
         width: calc(100vw - var(--side));
     }
 
+    .hero-media {
+        width: min(100%, 60vw, 60dvh);
+    }
+
     .whyme-text,
     .whyme-i-am,
     .skills-text,

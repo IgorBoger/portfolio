@@ -124,6 +124,14 @@ body.is-language-changing [data-project-i18n] {
     border: 0;
 }
 
+.svg-filters {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 
 .layout-shell {
     position: relative;

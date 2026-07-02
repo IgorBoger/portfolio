@@ -253,6 +253,7 @@
 
 
 .skills-text {
+    width: clamp(680px, 52vw, 800px);
     max-width: 860px;
     margin: 0 0 0 100px;
 }

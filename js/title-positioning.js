@@ -1,3 +1,6 @@
+const SKILLS_TITLE_MIN_BOTTOM_GAP = 80;
+
+
 /**
  * Initializes the skills title wrap position sync.
  */
@@ -17,8 +20,25 @@ function syncSkillsTitleWrapPosition() {
     const wrap = getSkillsTitleWrap();
     const stage = getSkillsStage();
     if (!wrap || !stage) return;
-    wrap.style.top = `${stage.offsetTop}px`;
+    resetSkillsStageTop(stage);
+    const top = getSkillsTitleTopOffset(wrap, stage);
+    wrap.style.top = `${top}px`;
+    stage.style.top = `${top}px`;
     queueSectionArrowAlignment();
+}
+
+
+/**
+ * Returns the skills title top offset without letting it sit too close to the bottom edge.
+ * @param {HTMLElement} wrap
+ * @param {HTMLElement} stage
+ * @returns {number}
+ */
+function getSkillsTitleTopOffset(wrap, stage) {
+    const container = wrap.offsetParent;
+    const containerHeight = container instanceof HTMLElement ? container.clientHeight : 0;
+    const maxTop = containerHeight - wrap.offsetHeight - SKILLS_TITLE_MIN_BOTTOM_GAP;
+    return Math.max(0, Math.min(stage.offsetTop, maxTop));
 }
 
 
@@ -27,8 +47,18 @@ function syncSkillsTitleWrapPosition() {
  */
 function resetSkillsTitleWrapPosition() {
     const wrap = getSkillsTitleWrap();
-    if (!wrap) return;
-    wrap.style.removeProperty("top");
+    const stage = getSkillsStage();
+    if (wrap) wrap.style.removeProperty("top");
+    if (stage) resetSkillsStageTop(stage);
+}
+
+
+/**
+ * Resets the inline skills stage top position.
+ * @param {HTMLElement} stage
+ */
+function resetSkillsStageTop(stage) {
+    stage.style.removeProperty("top");
 }
 
 

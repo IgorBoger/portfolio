@@ -1,3 +1,9 @@
+:root {
+    --mywork-margin-top: 136px;
+    --mywork-margin-bottom: 80px;
+}
+
+
 .mywork-section {
     flex: 0 0 auto;
     width: max-content;
@@ -11,10 +17,9 @@
     position: relative;
     display: flex;
     align-items: flex-start;
-    padding: 0 0 80px 0;
-    margin: 136px 0 0 100px;
-    height: 100vh;
-    height: 100dvh;
+    margin: var(--mywork-margin-top) 0 var(--mywork-margin-bottom) 100px;
+    height: calc(100vh - var(--mywork-margin-top) - var(--mywork-margin-bottom));
+    height: calc(100dvh - var(--mywork-margin-top) - var(--mywork-margin-bottom));
     gap: clamp(30px, 2.5vw, 36px);
     width: max-content;
 }

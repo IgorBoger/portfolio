@@ -89,7 +89,7 @@
 
 .references-container {
     width: clamp(630px, 60vw, 900px);
-    height: calc(100% - 164px);
+    height: 100%;
     position: relative;
     padding-left: clamp(20px, 1.7vw, 24px);
     display: flex;

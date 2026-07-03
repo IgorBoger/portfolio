@@ -71,6 +71,11 @@
         width: clamp(500px, 50vw, 800px);
     }
 
+    .whyme-info {
+        width: clamp(320px, calc(100vw - 580px), 425px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .whyme-contact-btn {
         right: auto;
         left: 50%;
@@ -84,8 +89,8 @@
     .skills-grid {
         display: grid;
         grid-template-columns: repeat(5, clamp(80px, 8.2vw, 100px));
-        column-gap: clamp(20px, 2.5vw, 24px);
-        row-gap: 24px;
+        column-gap: clamp(16px, 2vw, 24px);
+        row-gap: clamp(16px, 2vw, 24px);
         width: clamp(520px, 54vw, 650px);
     }
 
@@ -212,7 +217,7 @@
     }
 
     .skills-text {
-        width: clamp(340px, 36vw, 600px);
+        width: clamp(320px, 36vw, 420px);
     }
 
     .mywork-stage {
@@ -414,7 +419,7 @@
 }
 
 
-@media (max-width: 1000px) and (min-width: 901px) and (max-height: 940px) {
+@media (max-width: 1001px) and (min-width: 901px) and (max-height: 940px) {
     .contact-copy-text {
         margin-top: 12px;
         font-size: 16px;
@@ -470,13 +475,205 @@
 }
 
 
-@media (max-width: 1000px) and (min-width: 901px) and (max-height: 760px) {
+@media (min-width: 901px) and (max-height: 760px) {
     :root {
         --compact-section-offset: 90px;
         --compact-section-bottom: 80px;
         --compact-content-gap: 80px;
         --compact-edge-gap: clamp(20px, 2.5vw, 36px);
         --compact-legal-right-width: clamp(400px, 45vw, 800px);
+    }
+
+    .whyme-stage,
+    .mywork-stage,
+    .contact-stage,
+    .legal-notice-stage,
+    .privacy-policy-stage {
+        height: calc(100vh - (var(--compact-section-offset) + var(--compact-section-bottom)));
+        height: calc(100dvh - (var(--compact-section-offset) + var(--compact-section-bottom)));
+        margin: var(--compact-section-offset) 0 var(--compact-section-bottom);
+    }
+
+    .hero-inner,
+    .skills-inner,
+    .contact-inner,
+    .mywork-inner,
+    .legal-notice-stage,
+    .privacy-policy-stage {
+        padding: 0 0 0 var(--compact-edge-gap);
+    }
+
+    .whyme-info {
+        gap: clamp(12px, 1.5vw, 24px);
+    }
+
+    .skills-stage {
+        top: var(--compact-section-offset);
+        bottom: auto;
+        height: calc(100% - var(--compact-section-offset));
+    }
+
+    .project-container {
+        min-height: 500px;
+        padding: 16px 24px;
+    }
+
+    .project-content {
+        margin: 12px 0 0 0;
+        padding-left: 16px;
+    }
+
+    .project-subtitle::before {
+        margin-right: 6px;
+    }
+
+    .project-subtitle {
+        white-space: nowrap;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 6px 0 0 18px;
+    }
+
+    .references-container {
+        width: clamp(650px, 75vw, 900px);
+    }
+
+    .references-grid {
+        width: 60%;
+        justify-content: flex-end;
+    }
+
+    .reference-card {
+        min-height: clamp(140px, 9.2vw, 160px);
+    }
+
+    .reference-text {
+        padding: 16px;
+    }
+
+    .reference-author {
+        padding: 16px;
+    }
+
+    .legal-notice-title,
+    .privacy-policy-title {
+        left: var(--compact-edge-gap);
+    }
+
+    .whyme-text,
+    .whyme-i-am,
+    .whyme-info,
+    .skills-text,
+    .skills-grid,
+    .mywork-stage,
+    .references-grid,
+    .contact-form,
+    .legal-notice-content,
+    .privacy-policy-content {
+        margin-left: var(--compact-content-gap);
+    }
+
+    .legal-notice-content,
+    .privacy-policy-content {
+        width: calc(100% - (var(--compact-content-gap) + 20px));
+        max-width: none;
+    }
+
+    .imprint-arrow {
+        top: 20px;
+    }
+
+    .privacy-policy-next-arrow {
+        top: unset;
+        bottom: var(--compact-section-bottom);
+    }
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
+        margin-top: 8px;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        margin-left: 0;
+        width: var(--compact-legal-right-width);
+        max-width: 800px;
+        max-height: calc(100vh - (var(--compact-section-offset) + var(--compact-section-bottom)));
+        max-height: calc(100dvh - (var(--compact-section-offset) + var(--compact-section-bottom)));
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+    }
+
+    .legal-notice-right.has-scroll-more,
+    .privacy-policy-right.has-scroll-more {
+        -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 38px), rgba(0, 0, 0, 0.25) calc(100% - 14px), transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 calc(100% - 38px), rgba(0, 0, 0, 0.25) calc(100% - 14px), transparent 100%);
+    }
+
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        padding: 0;
+    }
+
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
+        height: 100%;
+    }
+}
+
+
+@media (max-width: 1001px) and (min-width: 901px) and (max-height: 760px) {
+    .whyme-info {
+        width: clamp(320px, calc(100vw - 550px), 425px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skills-text {
+        width: clamp(400px, 56vw, 550px);
+    }
+
+    .skills-grid>.skill-item:nth-child(5) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(6) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(7) {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(8) {
+        grid-column: 4;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(9) {
+        grid-column: 5;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(10) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .skills-challenge {
+        grid-column: 2 / 3;
+        grid-row: 3;
+    }
+
+    .skills-challenge-text {
+        grid-column: 3 / 6;
+        grid-row: 3;
+        align-self: center;
     }
 
     .projects-list {
@@ -635,162 +832,6 @@
     #privacyPolicyPageTwo .shared-actions {
         margin-top: auto;
     }
-}
-
-
-@media (min-width: 901px) and (max-height: 760px) {
-    :root {
-        --compact-section-offset: 90px;
-        --compact-section-bottom: 80px;
-        --compact-content-gap: 80px;
-        --compact-edge-gap: clamp(20px, 2.5vw, 36px);
-        --compact-legal-right-width: clamp(400px, 45vw, 800px);
-    }
-
-    .whyme-stage,
-    .mywork-stage,
-    .contact-stage,
-    .legal-notice-stage,
-    .privacy-policy-stage {
-        height: calc(100vh - (var(--compact-section-offset) + var(--compact-section-bottom)));
-        height: calc(100dvh - (var(--compact-section-offset) + var(--compact-section-bottom)));
-        margin: var(--compact-section-offset) 0 var(--compact-section-bottom);
-    }
-
-    .hero-inner,
-    .skills-inner,
-    .contact-inner,
-    .mywork-inner,
-    .legal-notice-stage,
-    .privacy-policy-stage {
-        padding: 0 0 0 var(--compact-edge-gap);
-    }
-
-    .skills-stage {
-        top: var(--compact-section-offset);
-        bottom: auto;
-        height: calc(100% - var(--compact-section-offset));
-    }
-
-    .project-container {
-        min-height: 500px;
-        padding: 16px 24px;
-    }
-
-    .project-content {
-        margin: 12px 0 0 0;
-        padding-left: 16px;
-    }
-
-    .project-subtitle::before {
-        margin-right: 6px;
-    }
-
-    .project-subtitle {
-        white-space: nowrap;
-    }
-
-    .project-block p,
-    .project-learned p {
-        margin: 6px 0 0 18px;
-    }
-
-    .references-container {
-        width: clamp(650px, 75vw, 900px);
-    }
-
-    .references-grid {
-        width: 60%;
-        justify-content: flex-end;
-    }
-
-    .reference-card {
-        min-height: clamp(140px, 9.2vw, 160px);
-    }
-
-    .reference-text {
-        padding: 16px;
-    }
-
-    .reference-author {
-        padding: 16px;
-    }
-
-    .legal-notice-title,
-    .privacy-policy-title {
-        left: var(--compact-edge-gap);
-    }
-
-    .whyme-text,
-    .whyme-i-am,
-    .whyme-info,
-    .skills-text,
-    .skills-grid,
-    .mywork-stage,
-    .references-grid,
-    .contact-form,
-    .legal-notice-content,
-    .privacy-policy-content {
-        margin-left: var(--compact-content-gap);
-    }
-
-    .legal-notice-content,
-    .privacy-policy-content {
-        width: calc(100% - (var(--compact-content-gap) + 20px));
-        max-width: none;
-    }
-
-    .imprint-arrow {
-        top: 20px;
-    }
-
-    .privacy-policy-next-arrow {
-        top: unset;
-        bottom: var(--compact-section-bottom);
-    }
-
-    .legal-notice-block+.legal-notice-block,
-    .privacy-policy-block+.privacy-policy-block {
-        margin-top: 8px;
-    }
-
-    .legal-notice-right,
-    .privacy-policy-right {
-        margin-left: 0;
-        width: var(--compact-legal-right-width);
-        max-width: 800px;
-        max-height: calc(100vh - (var(--compact-section-offset) + var(--compact-section-bottom)));
-        max-height: calc(100dvh - (var(--compact-section-offset) + var(--compact-section-bottom)));
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--accent) transparent;
-    }
-
-    .legal-notice-right.has-scroll-more,
-    .privacy-policy-right.has-scroll-more {
-        -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 38px), rgba(0, 0, 0, 0.25) calc(100% - 14px), transparent 100%);
-        mask-image: linear-gradient(to bottom, #000 calc(100% - 38px), rgba(0, 0, 0, 0.25) calc(100% - 14px), transparent 100%);
-    }
-
-    .legal-notice-page-main,
-    .privacy-policy-page-main {
-        padding: 0;
-    }
-
-    .legal-notice-side-content,
-    .privacy-policy-side-content {
-        height: 100%;
-    }
-}
-
-
-@media (max-width: 1001px) and (min-width: 901px) and (max-height: 760px) {
-    :root {
-        --compact-content-gap: 70px;
-        --compact-edge-gap: 24px;
-        --compact-section-bottom: 50px;
-        --compact-legal-right-width: clamp(400px, 48vw, 800px);
-    }
 
     #legalNoticePageTwo .legal-notice-side-content,
     #privacyPolicyPageTwo .privacy-policy-side-content {
@@ -831,6 +872,10 @@
         bottom: auto;
         height: calc(100% - var(--compact-section-offset));
         padding-bottom: 40px;
+    }
+
+    .skills-text {
+        width: clamp(550px, 55vw, 640px);
     }
 
     .project-subtitle::before {

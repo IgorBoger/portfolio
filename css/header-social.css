@@ -10,7 +10,7 @@
     padding-left: var(--side);
     opacity: 0;
     transform: translateY(-40px);
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 

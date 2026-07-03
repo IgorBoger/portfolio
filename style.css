@@ -100,8 +100,8 @@ body {
 }
 
 
-[data-i18n],
-[data-project-i18n] {
+[data-i18n]:not(h1, h2, h3, h4, p, button, a),
+[data-project-i18n]:not(h1, h2, h3, h4, p, button, a) {
     transition: opacity 120ms ease-in-out;
 }
 

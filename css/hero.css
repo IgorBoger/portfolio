@@ -30,7 +30,7 @@
     filter: url("#hero-portrait-inner-shadow");
     opacity: 0;
     transform: scale(1.08);
-    transition: opacity 700ms ease-out, transform 900ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 900ms ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -65,7 +65,7 @@
     margin: 0;
     opacity: 0;
     transform: translateX(-40px);
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -95,7 +95,7 @@
     -webkit-text-stroke: 1px var(--accent);
     opacity: 0;
     transform: translateX(40px);
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -109,7 +109,7 @@
 .arrow-reveal-right,
 .arrow-reveal-left {
     opacity: 0;
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -153,7 +153,7 @@
     opacity: 0;
     transform: rotate(180deg) translateX(-40px);
     transform-origin: center;
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 

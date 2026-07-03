@@ -289,9 +289,9 @@
         transform: translateY(24px) scale(0.985);
         filter: blur(6px);
         transition:
-            opacity 700ms ease-out,
-            transform 700ms ease-out,
-            filter 700ms ease-out;
+            opacity 700ms ease-in-out,
+            transform 700ms ease-in-out,
+            filter 700ms ease-in-out;
     }
 
     .shared-actions.is-visible {

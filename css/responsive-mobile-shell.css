@@ -25,10 +25,10 @@
         overflow: hidden;
         transform: translateY(-100%);
         transition:
-            opacity 700ms ease-out,
-            transform 700ms ease-out,
-            height 300ms ease-out,
-            border-radius 300ms ease-out;
+            opacity 700ms ease-in-out,
+            transform 700ms ease-in-out,
+            height 300ms ease-in-out,
+            border-radius 300ms ease-in-out;
     }
 
     .sidebar.is-menu-open {
@@ -57,7 +57,7 @@
         display: block;
         position: relative;
         flex: 0 0 72px;
-        transition: opacity 180ms ease-out, transform 180ms ease-out;
+        transition: opacity 180ms ease-in-out, transform 180ms ease-in-out;
     }
 
     .sidebar.is-menu-open .sidebar-logo {
@@ -122,9 +122,9 @@
         border-radius: 999px;
         background: rgb(74, 74, 74);
         transition:
-            top 220ms ease-out,
-            transform 220ms ease-out,
-            opacity 180ms ease-out;
+            top 220ms ease-in-out,
+            transform 220ms ease-in-out,
+            opacity 220ms ease-in-out;
     }
 
     .sidebar-burger-line:nth-child(1) {
@@ -177,8 +177,8 @@
         visibility: hidden;
         transform: translateY(-16px);
         transition:
-            opacity 220ms ease-out,
-            transform 220ms ease-out,
+            opacity 220ms ease-in-out,
+            transform 220ms ease-in-out,
             visibility 0ms linear 220ms;
         pointer-events: none;
     }
@@ -188,8 +188,8 @@
         visibility: visible;
         transform: translateY(0);
         transition:
-            opacity 220ms ease-out,
-            transform 220ms ease-out,
+            opacity 220ms ease-in-out,
+            transform 220ms ease-in-out,
             visibility 0ms linear 0ms;
         pointer-events: auto;
     }

@@ -225,7 +225,7 @@
         scroll-snap-align: start;
         opacity: 0;
         transform: translateX(40px);
-        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
         will-change: opacity, transform;
     }
 

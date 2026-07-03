@@ -39,7 +39,7 @@
         font-weight: 400;
         font-size: 40px;
         transform: translateY(-40px);
-        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
         will-change: opacity, transform;
     }
 
@@ -56,7 +56,7 @@
         text-align: center;
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
         will-change: opacity, transform;
     }
 
@@ -76,7 +76,7 @@
         text-transform: uppercase;
         opacity: 0;
         transform: translateY(-40px);
-        transition: opacity 700ms ease-out, transform 700ms ease-out;
+        transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
         will-change: opacity, transform;
     }
 
@@ -217,9 +217,9 @@
         opacity: 1;
         transform: translateY(0);
         transition:
-            max-height 420ms ease,
-            opacity 320ms ease,
-            transform 320ms ease;
+            max-height 420ms ease-in-out,
+            opacity 420ms ease-in-out,
+            transform 420ms ease-in-out;
     }
 
     .project-container[data-project-expanded="false"] .project-expandable {

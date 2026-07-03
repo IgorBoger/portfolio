@@ -19,7 +19,7 @@
     background: var(--accent);
     opacity: 0;
     transform: translateX(90%);
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -208,7 +208,7 @@
     background-color: rgb(158, 157, 157);
     color: rgb(95, 95, 95);
     cursor: default;
-    transition: background-color 120ms ease-in-out, color 120ms ease-in-out;
+    transition: background-color 120ms ease-in-out, color 120ms ease-in-out, box-shadow 120ms ease-in-out;
 }
 
 

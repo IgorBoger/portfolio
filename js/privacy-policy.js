@@ -89,6 +89,7 @@ function openPrivacyPolicy(flow) {
     const track = document.getElementById("privacyPolicyTrack");
     hideMainSections();
     flow.classList.remove("d-none");
+    revealStaticFlowContent(flow);
     syncShellBackground();
     requestAnimationFrame(refreshLegalPrivacyScrollHints);
     if (track) queueFlowBackgroundSync(flow, track);

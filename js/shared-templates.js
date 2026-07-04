@@ -5,7 +5,7 @@
 function createSharedDirectLinksMarkup() {
     return `
         <div class="shared-direct-links">
-            <a class="shared-direct-link" target="_blank" href="mailto:igorboger26@gmail.com">
+            <a class="shared-direct-link" target="_blank" rel="noopener noreferrer" href="mailto:igorboger26@gmail.com">
         <img class="shared-direct-icon" src="img/contact-me/email.png" alt="" width="15" height="18" loading="lazy" decoding="async">
                 <span>E-mail: igorboger26@gmail.com</span>
             </a>
@@ -63,7 +63,7 @@ function createSharedSocialMarkup() {
             <a class="shared-social-link" href="https://github.com/IgorBoger" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <span class="social-ico ico-github" aria-hidden="true"></span>
             </a>
-            <a class="shared-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank" rel="noopener noreferrer" aria-label="E-Mail">
+            <a class="shared-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" aria-label="E-Mail">
                 <span class="social-ico ico-mail" aria-hidden="true"></span>
             </a>
             <a class="shared-social-link" href="https://www.linkedin.com/in/igor-boger-814534247/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

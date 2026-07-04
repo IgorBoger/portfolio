@@ -93,6 +93,7 @@ function openLegalNotice(flow) {
     const track = document.getElementById("legalNoticeTrack");
     hideMainSections();
     flow.classList.remove("d-none");
+    revealStaticFlowContent(flow);
     syncShellBackground();
     requestAnimationFrame(refreshLegalPrivacyScrollHints);
     if (track) queueFlowBackgroundSync(flow, track);

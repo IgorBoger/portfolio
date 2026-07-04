@@ -92,7 +92,32 @@ function toggleRevealVisibility(entry) {
         return;
     }
     if (entry.target.classList.contains("reference-card")) return;
+    if (isHeroRevealElement(entry.target)) {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        return;
+    }
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
+}
+
+
+/**
+ * Returns whether one reveal element belongs to the hero intro.
+ * @param {Element} element
+ * @returns {boolean}
+ */
+function isHeroRevealElement(element) {
+    return element.matches(".hero-title, .frontend-developer, .frontend-developer-mobile, .hero-location, .hero-image");
+}
+
+
+/**
+ * Reveals content inside legal/privacy flows that are hidden on initial observer setup.
+ * @param {HTMLElement} flow
+ */
+function revealStaticFlowContent(flow) {
+    flow.querySelectorAll(".fade-in, .shared-actions").forEach((element) => {
+        element.classList.add("is-visible");
+    });
 }
 
 

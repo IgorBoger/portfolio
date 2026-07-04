@@ -18,7 +18,7 @@ const projectItems = [
         previewSrc: "img/my-work/join-project.png",
         previewAlt: "Project Join preview",
         githubUrl: "https://github.com/IgorBoger/Join",
-        liveUrl: "https://join-444.developerakademie.net/join/"
+        liveUrl: "https://join.igor-boger.de/"
     },
 
     {
@@ -36,7 +36,7 @@ const projectItems = [
         previewSrc: "img/my-work/el-pollo-loco-project.png",
         previewAlt: "Project Pollo Loco preview",
         githubUrl: "https://github.com/IgorBoger/el-pollo-loco",
-        liveUrl: "https://boger-igor.developerakademie.net/el-pollo-loco"
+        liveUrl: "https://el-pollo-loco.igor-boger.de/"
     },
 
     {
@@ -54,6 +54,6 @@ const projectItems = [
         previewSrc: "img/my-work/da-bubble-project.png",
         previewAlt: "Project DA Bubble preview",
         githubUrl: "https://github.com/IgorBoger/da-bubble",
-        liveUrl: "https://boger-igor.developerakademie.net/da-bubble"
+        liveUrl: "https://da-bubble.igor-boger.de/"
     }
 ];

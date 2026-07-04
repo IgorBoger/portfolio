@@ -798,8 +798,14 @@
         gap: 0;
     }
 
+    .contact-form {
+        width: clamp(280px, 42vw, 460px);
+    }
+
     .shared-actions {
         margin-top: 0;
+        position: absolute;
+        bottom: 0;
     }
 
     #desktopContactSharedArea .shared-back-arrow {

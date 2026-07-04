@@ -177,8 +177,8 @@
     .legal-notice-right,
     .privacy-policy-right {
         margin-left: 0;
-        max-height: calc(100vh - 216px);
-        max-height: calc(100dvh - 216px);
+        max-height: calc(100vh - (var(--legal-section-offset) + var(--legal-section-bottom)));
+        max-height: calc(100dvh - (var(--legal-section-offset) + var(--legal-section-bottom)));
         overflow-y: auto;
         padding: 0 12px 24px 0;
         scrollbar-width: thin;

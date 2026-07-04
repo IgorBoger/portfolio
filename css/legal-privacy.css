@@ -52,7 +52,6 @@
 
 .legal-notice-page-main,
 .privacy-policy-page-main {
-    height: 100%;
     display: flex;
     align-items: flex-end;
     padding-bottom: 0;
@@ -149,9 +148,11 @@
     position: absolute;
     top: 0;
     right: 120px;
-    bottom: 80px;
+    bottom: calc(-1 * var(--section-bottom));
     width: 100%;
     max-width: 370px;
+    max-height: calc(100vh - (var(--legal-section-offset) + var(--legal-section-bottom)));
+    max-height: calc(100dvh - (var(--legal-section-offset) + var(--legal-section-bottom)));
 }
 
 

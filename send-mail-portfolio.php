@@ -5,7 +5,8 @@ header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
-$siteEmail = "igorboger26@gmail.com";
+$siteEmail = "kontakt@igor-boger.de";
+$recipientEmail = "igorboger26@gmail.com";
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -37,7 +38,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $safeEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
         $safeMessage = nl2br(htmlspecialchars($userMessage, ENT_QUOTES, 'UTF-8'));
 
-        $recipient = $siteEmail;
+        $recipient = $recipientEmail;
         $subject = 'Website Contact Form';
 
         $mailBody = "

@@ -125,7 +125,7 @@ const translations = {
             imprintName: "Igor Boger",
             imprintAddress: "Hauptstraße 32",
             imprintCity: "55743 Gerach bei Idar-Oberstein",
-            imprintContact: "Exploring the Board\nEmail: igorboger26@gmail.com",
+            imprintContact: "Exploring the Board\nEmail: kontakt@igor-boger.de",
             acceptanceHeading: "Annahme der Bedingungen",
             scopeHeading: "Umfang und Eigentum des Produkts",
             acceptanceText: "Durch den Zugriff auf und die Nutzung von Igor Boger Portfolio erkennst du die folgenden Bedingungen sowie alle Richtlinien, Vorgaben oder Änderungen an, die dir von Zeit zu Zeit vorgelegt werden können. Wir, die aufgeführten Studierenden, können diese Bedingungen jederzeit ohne vorherige Ankündigung aktualisieren oder ändern.",
@@ -138,7 +138,7 @@ const translations = {
             disclaimerText: "Haftungsausschluss und Haftungsbeschränkung\nPortfolio wird ohne Gewährleistung jeglicher Art bereitgestellt, weder ausdrücklich noch stillschweigend, einschließlich, aber nicht beschränkt auf stillschweigende Gewährleistungen der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten. In keinem Fall haften wir, die aufgeführten Studierenden, oder die Developer Akademie für direkte, indirekte, zufällige, besondere, Folge- oder beispielhafte Schäden, einschließlich, aber nicht beschränkt auf Schäden aus entgangenem Gewinn, Firmenwert, Nutzung, Daten oder anderen immateriellen Verlusten, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die aus oder im Zusammenhang mit der Nutzung oder Leistung von Portfolio entstehen.",
             indemnityHeading: "Freistellung",
             indemnityText: "Freistellung\nDu erklärst dich damit einverstanden, uns, die aufgeführten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen einschließlich angemessener Rechtskosten freizustellen, zu verteidigen und schadlos zu halten, die aus deiner Nutzung von Portfolio und/oder deinem Verstoß gegen dieses Impressum entstehen oder damit zusammenhängen.",
-            contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter igorboger26@gmail.com",
+            contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter kontakt@igor-boger.de",
             dateText: "Datum: 01. Juni 2026"
         },
 
@@ -148,7 +148,7 @@ const translations = {
             generalInformationHeading: "Allgemeine Informationen",
             generalInformationText: "Diese Datenschutzerklärung erklärt, wie personenbezogene Daten auf dieser Website verarbeitet werden. Personenbezogene Daten sind alle Informationen, mit denen du persönlich identifiziert werden kannst.",
             responsiblePartyHeading: "Verantwortliche Stelle",
-            responsiblePartyText: "Igor Boger\nHauptstraße 32\n5743 Gerach bei Idar-Oberstein\nE-Mail: igorboger26@gmail.com",
+            responsiblePartyText: "Igor Boger\nHauptstraße 32\n5743 Gerach bei Idar-Oberstein\nE-Mail: kontakt@igor-boger.de",
             dataCollectionHeading: "Datenerfassung auf dieser Website",
             dataCollectionText: "Personenbezogene Daten können erhoben werden, wenn du mich über das Kontaktformular oder per E-Mail kontaktierst. Welche Daten erhoben werden, hängt von den Informationen ab, die du bereitstellst.",
             purposeOfProcessingHeading: "Zweck der Verarbeitung",
@@ -163,7 +163,7 @@ const translations = {
             rightToLodgeAComplaintText: "Im Falle von Datenschutzverstößen hast du das Recht, Beschwerde bei der zuständigen Aufsichtsbehörde einzulegen.",
             contactFormHeading: "Kontaktformular",
             contactFormText: "Wenn du mir eine Anfrage über das Kontaktformular sendest, werden deine Angaben aus dem Formular einschließlich der dort angegebenen Kontaktdaten zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen gespeichert.",
-            contactInformationText: "Für datenschutzbezogene Anfragen kontaktiere bitte: igorboger26@gmail.com"
+            contactInformationText: "Für datenschutzbezogene Anfragen kontaktiere bitte: kontakt@igor-boger.de"
         }
     },
 
@@ -289,7 +289,7 @@ const translations = {
             imprintName: "Igor Boger",
             imprintAddress: "Hauptstraße 32",
             imprintCity: "55743 Gerach bei Idar-Oberstein",
-            imprintContact: "Exploring the Board\nEmail: igorboger26@gmail.com",
+            imprintContact: "Exploring the Board\nEmail: kontakt@igor-boger.de",
             acceptanceHeading: "Acceptance of terms",
             scopeHeading: "Scope and ownership of the product",
             acceptanceText: "By accessing and using Igor Boger Portfolio, you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.",
@@ -302,7 +302,7 @@ const translations = {
             disclaimerText: "Disclaimer of warranties and limitation of liability\nPortfolio is provided \"as is\" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of Portfolio.",
             indemnityHeading: "Indemnity",
             indemnityText: "Indemnity\nYou agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
-            contactText: "For any questions or notices, please contact us at igorboger26@gmail.com",
+            contactText: "For any questions or notices, please contact us at kontakt@igor-boger.de",
             dateText: "Date: June 01, 2026"
         },
 
@@ -312,7 +312,7 @@ const translations = {
             generalInformationHeading: "General information",
             generalInformationText: "This privacy policy explains how personal data is processed on this website. Personal data means any information that can identify you personally.",
             responsiblePartyHeading: "Responsible party",
-            responsiblePartyText: "Igor Boger\nHauptstraße 32\n5743 Gerach bei Idar-Oberstein\nE-mail: igorboger26@gmail.com",
+            responsiblePartyText: "Igor Boger\nHauptstraße 32\n5743 Gerach bei Idar-Oberstein\nE-mail: kontakt@igor-boger.de",
             dataCollectionHeading: "Data collection on this website",
             dataCollectionText: "Personal data may be collected when you contact me via the contact form or by e-mail. The specific data depends on the information you provide.",
             purposeOfProcessingHeading: "Purpose of processing",
@@ -327,7 +327,7 @@ const translations = {
             rightToLodgeAComplaintText: "In the event of data protection violations, you have the right to lodge a complaint with the responsible supervisory authority.",
             contactFormHeading: "Contact form",
             contactFormText: "If you send me an inquiry via the contact form, your details from the form, including the contact data you provide there, will be stored for the purpose of processing the inquiry and in case of follow-up questions.",
-            contactInformationText: "For privacy-related requests, please contact: igorboger26@gmail.com"
+            contactInformationText: "For privacy-related requests, please contact: kontakt@igor-boger.de"
         }
     }
 };

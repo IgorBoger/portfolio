@@ -145,6 +145,7 @@
     transition: border-color 120ms ease-in-out, background 120ms ease-in-out, box-shadow 120ms ease-in-out;
 }
 
+
 .contact-policy-checkbox:hover {
     border-color: rgb(211, 237, 151);
     background:
@@ -306,6 +307,7 @@
     text-decoration: none;
     transition: color 120ms ease-in-out;
 }
+
 
 .footer-link:hover {
     color: rgb(211, 237, 151);

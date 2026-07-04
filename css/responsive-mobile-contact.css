@@ -236,12 +236,10 @@
         max-width: 100%;
     }
 
-
     .legal-notice-content,
     .privacy-policy-content {
         margin-left: 0;
     }
-
 
     .legal-notice-block+.legal-notice-block,
     .privacy-policy-block+.privacy-policy-block {
@@ -279,7 +277,6 @@
     #contactSharedArea .shared-top-arrow {
         order: 3;
     }
-
 
     #contactSharedArea .shared-social {
         order: 4;

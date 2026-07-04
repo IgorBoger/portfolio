@@ -1,0 +1,274 @@
+@media (max-width: 1001px) and (min-width: 901px) and (max-height: 760px) {
+    .whyme-info {
+        width: clamp(320px, calc(100vw - 550px), 425px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skills-text {
+        width: clamp(400px, 56vw, 550px);
+    }
+
+    .skills-grid>.skill-item:nth-child(5) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(6) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(7) {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(8) {
+        grid-column: 4;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(9) {
+        grid-column: 5;
+        grid-row: 2;
+    }
+
+    .skills-grid>.skill-item:nth-child(10) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .skills-challenge {
+        grid-column: 2 / 3;
+        grid-row: 3;
+    }
+
+    .skills-challenge-text {
+        grid-column: 3 / 6;
+        grid-row: 3;
+        align-self: center;
+    }
+
+    .projects-list {
+        height: 100%;
+    }
+
+    .project-container {
+        width: 600px;
+        height: 100%;
+        min-height: 0;
+        padding: 16px 20px;
+    }
+
+    .project-header {
+        gap: 14px;
+    }
+
+    .project-number {
+        height: 46px;
+    }
+
+    .project-title {
+        font-size: 36px;
+    }
+
+    .project-subtitle {
+        margin: 8px 0 0 0;
+        font-size: 21px;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 4px 0 0 24px;
+        font-size: 16px;
+        line-height: 115%;
+    }
+
+    .project-preview {
+        margin: 12px 0 12px;
+    }
+
+    .project-preview-inner {
+        gap: 16px;
+        flex-direction: row;
+        margin-top: 12px;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .project-preview img {
+        max-width: 300px;
+    }
+
+    .project-buttons {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .project-btn-outline,
+    .btn-primary {
+        padding: 10px 26px;
+    }
+
+    .project-container:hover .project-btn-outline {
+        transform: translateY(-6px);
+    }
+
+    .project-container:hover .btn-primary {
+        transform: translateY(6px);
+    }
+
+    .references-container {
+        height: 100%;
+        align-items: flex-start;
+    }
+
+    .references-title-wrap {
+        top: auto;
+        bottom: 0;
+    }
+
+    .references-grid {
+        height: 100%;
+        gap: 10px;
+    }
+
+    .reference-card {
+        min-height: clamp(160px, 21vh, 180px);
+    }
+
+    .contact-section {
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+    }
+
+    .contact-copy-text {
+        margin: 6px 0 12px;
+    }
+
+    .contact-section::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .contact-section::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .contact-section::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
+    }
+
+    .contact-inner {
+        min-height: 760px;
+    }
+
+    .contact-stage {
+        overflow-y: visible;
+        gap: 0;
+    }
+
+    .contact-form {
+        width: clamp(280px, 42vw, 460px);
+    }
+
+    .shared-actions {
+        margin-top: 0;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #desktopContactSharedArea .shared-back-arrow {
+        bottom: calc(100% + 70px);
+    }
+
+    .legal-notice-stage-split,
+    .privacy-policy-stage-split {
+        padding-left: var(--compact-edge-gap);
+    }
+
+    .legal-notice-page-main,
+    .privacy-policy-page-main {
+        height: 80%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        height: 100%;
+    }
+
+    #legalNoticePageTwo .legal-notice-content,
+    #privacyPolicyPageTwo .privacy-policy-content,
+    #legalNoticePageTwo .shared-copy,
+    #privacyPolicyPageTwo .shared-copy {
+        margin-left: 0;
+    }
+
+    #legalNoticePageTwo .shared-actions,
+    #privacyPolicyPageTwo .shared-actions {
+        margin-top: auto;
+    }
+
+    #legalNoticePageTwo .legal-notice-side-content,
+    #privacyPolicyPageTwo .privacy-policy-side-content {
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 1399px) and (min-width: 1200px) and (max-height: 760px) {
+    .references-container {
+        width: clamp(630px, 65vw, 900px);
+    }
+
+    .references-grid {
+        width: 65%;
+    }
+
+    .reference-card {
+        min-height: clamp(140px, 9.2vw, 160px);
+    }
+}
+
+
+@media (max-width: 1199px) and (min-width: 1002px) and (max-height: 760px) {
+    :root {
+        --compact-content-gap: 70px;
+        --compact-edge-gap: clamp(20px, 2.5vw, 36px);
+        --compact-legal-right-width: clamp(400px, 40vw, 600px);
+    }
+
+    .whyme-stage {
+        padding-bottom: 40px;
+    }
+
+    .skills-stage {
+        top: var(--compact-section-offset);
+        bottom: auto;
+        height: calc(100% - var(--compact-section-offset));
+        padding-bottom: 40px;
+    }
+
+    .skills-text {
+        width: clamp(550px, 55vw, 640px);
+    }
+
+    .project-subtitle::before {
+        margin-right: 6px;
+    }
+
+    .project-subtitle {
+        white-space: nowrap;
+    }
+
+    .project-block p,
+    .project-learned p {
+        margin: 6px 0 0 18px;
+    }
+
+    .references-container {
+        width: clamp(630px, 70vw, 900px);
+    }
+}

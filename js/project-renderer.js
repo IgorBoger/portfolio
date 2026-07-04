@@ -8,6 +8,7 @@ function renderProjects() {
     translateRenderedProjects();
 }
 
+
 /**
  * Returns the project list element.
  * @returns {HTMLElement|null}

@@ -25,18 +25,7 @@ function getContactFields(form) {
  */
 function bindFieldValidation(field, form) {
     field.addEventListener("blur", () => validateField(field));
-    field.addEventListener("input", () => handleFieldInput(field, form));
-}
-
-
-/**
- * Handles field input updates.
- * @param {HTMLElement} field
- * @param {HTMLFormElement} form
- */
-function handleFieldInput(field, form) {
-    if (hasFeedback(field)) validateField(field);
-    syncContactSubmitState(form);
+    field.addEventListener("input", () => syncContactSubmitState(form));
 }
 
 

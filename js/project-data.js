@@ -36,7 +36,7 @@ const projectItems = [
         previewSrc: "img/my-work/el-pollo-loco-project.png",
         previewAlt: "Project Pollo Loco preview",
         githubUrl: "https://github.com/IgorBoger/el-pollo-loco",
-        liveUrl: "http://boger-igor.developerakademie.net/el-pollo-loco"
+        liveUrl: "https://boger-igor.developerakademie.net/el-pollo-loco"
     },
 
     {
@@ -54,6 +54,6 @@ const projectItems = [
         previewSrc: "img/my-work/da-bubble-project.png",
         previewAlt: "Project DA Bubble preview",
         githubUrl: "https://github.com/IgorBoger/da-bubble",
-        liveUrl: "http://boger-igor.developerakademie.net/da-bubble"
+        liveUrl: "https://boger-igor.developerakademie.net/da-bubble"
     }
 ];

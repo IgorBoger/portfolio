@@ -8,10 +8,12 @@
         return window.matchMedia(MOBILE_QUERY).matches;
     }
 
+
     function getViewportHeight() {
         if (isMobileViewport()) return window.innerHeight;
         return window.visualViewport?.height || window.innerHeight;
     }
+
 
     function setViewportHeight() {
         document.documentElement.style.setProperty(
@@ -20,9 +22,11 @@
         );
     }
 
+
     function isContactField(element) {
         return element instanceof HTMLElement && element.matches(CONTACT_FIELD_SELECTOR);
     }
+
 
     function handleContactFieldFocus(event) {
         if (!isMobileViewport() || !isContactField(event.target)) return;
@@ -31,6 +35,7 @@
         document.body.classList.add("is-contact-field-focused");
         setViewportHeight();
     }
+
 
     function handleContactFieldBlur(event) {
         if (!isContactField(event.target)) return;
@@ -42,6 +47,7 @@
             editedPanel = null;
         }, 250);
     }
+
 
     function keepEditedPanelInView(panel) {
         const track = document.getElementById("sectionsTrack");

@@ -66,7 +66,7 @@ function createSharedSocialMarkup() {
             <a class="shared-social-link" href="mailto:igorboger26@gmail.com?subject=Project Inquiry" target="_blank" rel="noopener noreferrer" aria-label="E-Mail">
                 <span class="social-ico ico-mail" aria-hidden="true"></span>
             </a>
-            <a class="shared-social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a class="shared-social-link" href="https://www.linkedin.com/in/igor-boger-814534247/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <span class="social-ico ico-linkedin" aria-hidden="true"></span>
             </a>
         </nav>

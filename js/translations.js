@@ -92,7 +92,7 @@ const translations = {
             reference1Text: "„Michael ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle ihn als Kollegen.“",
             reference1Role: "Projekt Join",
             reference2Text: "„Er ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturierte Arbeit und klarer Code.“",
-            reference2Role: "Projekt DA Bubble",
+            reference2Role: "Projekt Join",
             reference3Text: "„Michael musste Inhalte in Zusammenarbeit mit den Teammitgliedern entwickeln, formatieren und liefern. Er ist eine zuverlässige und freundliche Person.“",
             reference3Role: "Projekt Pollo Loco"
         },
@@ -256,7 +256,7 @@ const translations = {
             reference1Text: "“Michael is a reliable and friendly person. Work in a structured way and write a clear code. I recommend him as a colleague.”",
             reference1Role: "Project Join",
             reference2Text: "“He is a trustworthy team player and can cope with the stress of deadlines. Structured work and clear code.”",
-            reference2Role: "Project DA Bubble",
+            reference2Role: "Project Join",
             reference3Text: "“Michael had to develop, format and deliver content in collaboration with the team members. He is a reliable and friendly person.”",
             reference3Role: "Project Pollo Loco"
         },

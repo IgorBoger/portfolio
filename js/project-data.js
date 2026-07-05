@@ -39,21 +39,22 @@ const projectItems = [
         liveUrl: "https://el-pollo-loco.igor-boger.de/"
     },
 
-    {
-        projectClass: "project-da-bubble",
-        numberSrc: "img/my-work/project-number-3.png",
-        numberSrcMobile: "img/my-work/project-number-3-mobile.png",
-        numberAlt: "Project number 3",
-        title: "Project DA Bubble",
-        aboutTitle: "projectAboutTitle",
-        aboutText: "bubbleAboutText",
-        technologiesTitle: "projectTechnologiesTitle",
-        technologiesText: "bubbleTechnologiesText",
-        learnedTitle: "projectGroupExperienceTitle",
-        learnedText: "bubbleLearnedText",
-        previewSrc: "img/my-work/da-bubble-project.png",
-        previewAlt: "Project DA Bubble preview",
-        githubUrl: "https://github.com/IgorBoger/da-bubble",
-        liveUrl: "https://da-bubble.igor-boger.de/"
-    }
+    // Temporarily hidden until the DA Bubble project is completed.
+    // {
+    //     projectClass: "",
+    //     numberSrc: "img/my-work/project-number-3.png",
+    //     numberSrcMobile: "img/my-work/project-number-3-mobile.png",
+    //     numberAlt: "Project number 3",
+    //     title: "Project DA Bubble",
+    //     aboutTitle: "projectAboutTitle",
+    //     aboutText: "bubbleAboutText",
+    //     technologiesTitle: "projectTechnologiesTitle",
+    //     technologiesText: "bubbleTechnologiesText",
+    //     learnedTitle: "projectGroupExperienceTitle",
+    //     learnedText: "bubbleLearnedText",
+    //     previewSrc: "img/my-work/da-bubble-project.png",
+    //     previewAlt: "Project DA Bubble preview",
+    //     githubUrl: "https://github.com/IgorBoger/da-bubble",
+    //     liveUrl: "https://da-bubble.igor-boger.de/"
+    // }
 ];

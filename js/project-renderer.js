@@ -121,7 +121,9 @@ function createProjectPreviewMarkup(project) {
     return `
         <div class="project-preview">
             <div class="project-preview-inner">
-                <img src="${project.previewSrc}" alt="${project.previewAlt}" loading="lazy" decoding="async">
+                <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" aria-label="${project.title} live demo (opens in a new tab)">
+                    <img src="${project.previewSrc}" alt="${project.previewAlt}" loading="lazy" decoding="async">
+                </a>
                 ${createProjectButtonsMarkup(project)}
             </div>
         </div>
@@ -137,10 +139,14 @@ function createProjectPreviewMarkup(project) {
 function createProjectButtonsMarkup(project) {
     return `
         <div class="project-buttons">
-            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-outline" data-i18n="projectGithubBtn" aria-label="${project.title} GitHub repository (opens in a new tab)">
+            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer"
+                class="project-btn project-btn-outline" data-i18n="projectGithubBtn"
+                aria-label="${project.title} GitHub repository (opens in a new tab)">
                 ${translateProjectKey("projectGithubBtn")}
             </a>
-            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-btn btn-primary" data-i18n="projectLiveTestBtn" aria-label="${project.title} live demo (opens in a new tab)">
+            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer"
+                class="project-btn btn-primary" data-i18n="projectLiveTestBtn"
+                aria-label="${project.title} live demo (opens in a new tab)">
                 ${translateProjectKey("projectLiveTestBtn")}
             </a>
         </div>

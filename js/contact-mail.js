@@ -98,9 +98,50 @@ function handleMailResponse(form, isSuccess) {
         showContactErrorMessage();
         return;
     }
-    form.reset();
-    syncContactSubmitState(form);
-    showContactSuccessMessage();
+    preserveSectionsTrackPosition(() => {
+        blurActiveContactElement(form);
+        form.reset();
+        syncContactSubmitState(form);
+        showContactSuccessMessage();
+    });
+}
+
+
+/**
+ * Keeps the visible contact section from moving while the form UI updates.
+ * @param {() => void} callback
+ */
+function preserveSectionsTrackPosition(callback) {
+    const track = document.getElementById("sectionsTrack");
+    const left = track?.scrollLeft ?? 0;
+    const top = track?.scrollTop ?? 0;
+    callback();
+    restoreSectionsTrackPosition(track, left, top);
+}
+
+
+/**
+ * Restores one track position after browser layout/focus adjustments.
+ * @param {HTMLElement|null} track
+ * @param {number} left
+ * @param {number} top
+ */
+function restoreSectionsTrackPosition(track, left, top) {
+    if (!track) return;
+    track.scrollTo({ left, top, behavior: "auto" });
+    requestAnimationFrame(() => track.scrollTo({ left, top, behavior: "auto" }));
+}
+
+
+/**
+ * Removes focus from a contact field/button before disabling/resetting it.
+ * @param {HTMLFormElement} form
+ */
+function blurActiveContactElement(form) {
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement && form.contains(activeElement)) {
+        activeElement.blur();
+    }
 }
 
 
@@ -121,7 +162,7 @@ function showContactSuccessMessage() {
 function hideContactSuccessMessage() {
     const message = getContactSuccessMessage();
     if (!message) return;
-    message.classList.remove("is-visible");
+    preserveSectionsTrackPosition(() => message.classList.remove("is-visible"));
 }
 
 
@@ -151,7 +192,7 @@ function showContactErrorMessage() {
 function hideContactErrorMessage() {
     const message = getContactErrorMessage();
     if (!message) return;
-    message.classList.remove("is-visible");
+    preserveSectionsTrackPosition(() => message.classList.remove("is-visible"));
 }
 
 

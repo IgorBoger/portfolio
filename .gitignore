@@ -1,1 +1,4 @@
 private
+ftp-upload/
+scripts/
+build-ftp-upload.bat

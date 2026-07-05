@@ -64,7 +64,7 @@ function handleMobileSectionTouchMove(event, state, track) {
         resetMobileEdgeState(state);
         return;
     }
-    event.preventDefault();
+    if (event.cancelable) event.preventDefault();
     if (state.isLocked) return;
     if (!hasMobileTouchEdgeIntent(state, currentY, deltaY)) return;
     if (navigateMobileSection(track, deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);
@@ -84,7 +84,7 @@ function handleMobileSectionWheel(event, state, track) {
         resetMobileWheelState(state);
         return;
     }
-    event.preventDefault();
+    if (event.cancelable) event.preventDefault();
     if (state.isLocked) return;
     if (!hasMobileWheelEdgeIntent(state, event.deltaY)) return;
     if (navigateMobileSection(track, event.deltaY > 0 ? 1 : -1)) lockMobileSwipeState(state);

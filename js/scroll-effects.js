@@ -1,3 +1,6 @@
+const DESKTOP_DRAG_SCROLL_MULTIPLIER = 1.25;
+
+
 /**
  * Initializes drag-to-scroll on horizontal containers (desktop only).
  */
@@ -74,7 +77,7 @@ function onDragPointerMove(event, el, state) {
     event.stopPropagation();
     if (!state.isDown) return;
     event.preventDefault();
-    const delta = state.startX - event.clientX;
+    const delta = (state.startX - event.clientX) * DESKTOP_DRAG_SCROLL_MULTIPLIER;
     el.scrollLeft = state.scrollLeft + delta;
 }
 
@@ -240,6 +243,7 @@ function handleWheelScroll(event, track) {
  * @returns {boolean}
  */
 function shouldUseHorizontalWheel(event, track) {
+    if (isReferenceWheelTrack(track) && !isMobileView()) return false;
     if (isMobileView() && !isReferenceWheelTrack(track)) return false;
     if (isLegalPrivacyInnerScroll(event)) return false;
     return !event.target.closest("input, textarea, select");
@@ -272,5 +276,5 @@ function isReferenceWheelTrack(track) {
  * @returns {number}
  */
 function getWheelScrollAmount(event) {
-    return event.deltaY * 3.2;
+    return event.deltaY * (isMobileView() ? 3.2 : 4.5);
 }

@@ -152,6 +152,7 @@ function showContactSuccessMessage() {
     const message = getContactSuccessMessage();
     if (!message) return;
     message.classList.add("is-visible");
+    syncContactOverlayLayer();
     window.setTimeout(hideContactSuccessMessage, 4000);
 }
 
@@ -162,7 +163,10 @@ function showContactSuccessMessage() {
 function hideContactSuccessMessage() {
     const message = getContactSuccessMessage();
     if (!message) return;
-    preserveSectionsTrackPosition(() => message.classList.remove("is-visible"));
+    preserveSectionsTrackPosition(() => {
+        message.classList.remove("is-visible");
+        syncContactOverlayLayer();
+    });
 }
 
 
@@ -182,6 +186,7 @@ function showContactErrorMessage() {
     const message = getContactErrorMessage();
     if (!message) return;
     message.classList.add("is-visible");
+    syncContactOverlayLayer();
     window.setTimeout(hideContactErrorMessage, 4000);
 }
 
@@ -192,7 +197,10 @@ function showContactErrorMessage() {
 function hideContactErrorMessage() {
     const message = getContactErrorMessage();
     if (!message) return;
-    preserveSectionsTrackPosition(() => message.classList.remove("is-visible"));
+    preserveSectionsTrackPosition(() => {
+        message.classList.remove("is-visible");
+        syncContactOverlayLayer();
+    });
 }
 
 
@@ -202,4 +210,26 @@ function hideContactErrorMessage() {
  */
 function getContactErrorMessage() {
     return document.getElementById("contactErrorMessage");
+}
+
+
+/**
+ * Keeps the contact title behind visible feedback overlays.
+ */
+function syncContactOverlayLayer() {
+    const section = document.querySelector(".contact-section");
+    if (!section) return;
+    section.classList.toggle("is-contact-overlay-visible", hasVisibleContactOverlay());
+}
+
+
+/**
+ * Returns whether one contact feedback overlay is visible.
+ * @returns {boolean}
+ */
+function hasVisibleContactOverlay() {
+    const successMessage = getContactSuccessMessage();
+    const errorMessage = getContactErrorMessage();
+    return Boolean(successMessage?.classList.contains("is-visible")
+        || errorMessage?.classList.contains("is-visible"));
 }

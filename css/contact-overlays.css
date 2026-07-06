@@ -15,6 +15,11 @@
 }
 
 
+.contact-section.is-contact-overlay-visible .contact-title-wrap {
+    z-index: 0;
+}
+
+
 .contact-success-box {
     position: absolute;
     top: 100px;

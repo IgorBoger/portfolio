@@ -8,7 +8,12 @@
     height: 100vh;
     height: 100dvh;
     background: var(--accent);
+    /*
     box-shadow: 24px 0 24px rgba(0, 0, 0, 0.55);
+    */
+    box-shadow:
+        20px 0 34px 8px rgba(0, 0, 0, 0.72),
+        46px 0 72px -18px rgba(0, 0, 0, 0.9);
     z-index: 50;
     opacity: 0;
     transform: translateX(-100%);

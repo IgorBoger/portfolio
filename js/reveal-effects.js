@@ -39,6 +39,10 @@ function getRevealSelector() {
     return [
         ".reference-card",
         ".references-mobile-controls",
+        ".whyme-inner",
+        ".skills-inner",
+        ".mywork-title-mobile",
+        ".contact-title-mobile",
         ".fade-in",
         ".shared-actions",
         ".contact-mobile-reveal",
@@ -62,7 +66,8 @@ function createRevealObserver(shouldRefreshArrows = false) {
         handleRevealEntries(entries, shouldRefreshArrows);
     }, {
         root,
-        threshold: 0.25
+        threshold: isMobileView() ? 0.02 : 0.25,
+        rootMargin: isMobileView() ? "0px 0px 24% 0px" : "0px"
     });
 }
 
@@ -92,11 +97,64 @@ function toggleRevealVisibility(entry) {
         return;
     }
     if (entry.target.classList.contains("reference-card")) return;
+    if (isMobileMyWorkTitle(entry.target)) revealFirstProjectWithMyWorkTitle(entry.isIntersecting);
+    if (isFirstMobileProjectCard(entry.target)) {
+        entry.target.classList.toggle("is-visible", isMobileMyWorkTitleVisible());
+        return;
+    }
     if (isHeroRevealElement(entry.target)) {
         if (entry.isIntersecting) entry.target.classList.add("is-visible");
         return;
     }
     entry.target.classList.toggle("is-visible", entry.isIntersecting);
+}
+
+
+/**
+ * Reveals the first mobile project card together with the My work title.
+ * @param {boolean} isTitleVisible
+ */
+function revealFirstProjectWithMyWorkTitle(isTitleVisible) {
+    if (!isMobileView() || !isTitleVisible) return;
+    getFirstProjectCard()?.classList.add("is-visible");
+}
+
+
+/**
+ * Checks whether one element is the mobile My work title.
+ * @param {Element} element
+ * @returns {boolean}
+ */
+function isMobileMyWorkTitle(element) {
+    return isMobileView() && element.classList.contains("mywork-title-mobile");
+}
+
+
+/**
+ * Checks whether the mobile My work title is currently visible.
+ * @returns {boolean}
+ */
+function isMobileMyWorkTitleVisible() {
+    return Boolean(document.querySelector(".mywork-title-mobile.is-visible"));
+}
+
+
+/**
+ * Checks whether one element is the first mobile project card.
+ * @param {Element} element
+ * @returns {boolean}
+ */
+function isFirstMobileProjectCard(element) {
+    return isMobileView() && element === getFirstProjectCard();
+}
+
+
+/**
+ * Returns the first rendered project card.
+ * @returns {HTMLElement|null}
+ */
+function getFirstProjectCard() {
+    return document.querySelector("#projectsList .project-container");
 }
 
 

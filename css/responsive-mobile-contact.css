@@ -3,10 +3,8 @@
         min-height: 100vh;
         min-height: 100dvh;
         min-height: var(--app-viewport-height, 100dvh);
-        height: 100vh;
-        height: 100dvh;
-        height: var(--app-viewport-height, 100dvh);
-        overflow-x: hidden;
+        height: auto;
+        overflow: visible;
     }
 
     .accent-bar {
@@ -46,6 +44,29 @@
         color: transparent;
         -webkit-text-stroke: 0.3px var(--accent);
         display: block;
+    }
+
+    .whyme-inner,
+    .skills-inner,
+    .mywork-title-mobile,
+    .contact-title-mobile {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        filter: blur(6px);
+        transition:
+            opacity 700ms ease-in-out,
+            transform 700ms ease-in-out,
+            filter 700ms ease-in-out;
+        will-change: opacity, transform, filter;
+    }
+
+    .whyme-inner.is-visible,
+    .skills-inner.is-visible,
+    .mywork-title-mobile.is-visible,
+    .contact-title-mobile.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
     }
 
     .shared-area {

@@ -244,9 +244,10 @@
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
-        overflow-y: hidden;
-        overscroll-behavior-y: contain;
-        scroll-snap-type: y mandatory;
+        overflow-y: auto;
+        overscroll-behavior-y: auto;
+        scroll-snap-type: none;
+        -webkit-overflow-scrolling: touch;
         height: 100vh;
         height: 100dvh;
         height: var(--app-viewport-height, 100dvh);
@@ -276,16 +277,17 @@
     }
 
     .section-panel {
-        flex: 0 0 100%;
+        flex: 0 0 auto;
         width: 100%;
-        height: 100vh;
-        height: 100dvh;
-        height: var(--app-viewport-height, 100dvh);
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-        overscroll-behavior-y: contain;
-        padding-top: 73px;
-        overflow-y: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        min-height: var(--app-viewport-height, 100dvh);
+        height: auto;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+        overscroll-behavior-y: auto;
+        /* padding-top: 73px; */
+        overflow-y: visible;
         overflow-x: hidden;
     }
 }

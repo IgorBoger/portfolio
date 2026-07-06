@@ -2,6 +2,7 @@
     .hero-panel {
         display: flex;
         align-items: center;
+        padding-top: 73px;
     }
 
     .hero-inner,
@@ -9,7 +10,7 @@
     .skills-inner,
     .mywork-inner,
     .contact-inner {
-        padding: var(--mobile-section-padding);
+        padding: 36px var(--mobile-section-padding);
         position: unset;
         width: 100%;
         height: auto;

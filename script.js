@@ -41,7 +41,6 @@ function initNavigationFeatures() {
 function initScrollFeatures() {
     initSectionArrows();
     initSectionArrowAlignment();
-    initMobileSectionSwipeNavigation();
     initDragScroll();
     initDragScrollResize();
     initWheelHorizontalScroll();

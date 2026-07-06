@@ -1,9 +1,10 @@
 @media (max-width: 900px) {
     .mywork-section {
-        flex: 0 0 100%;
+        flex: 0 0 auto;
         width: 100%;
-        height: 100%;
-        overflow-y: auto;
+        min-height: var(--app-viewport-height, 100dvh);
+        height: auto;
+        overflow-y: visible;
         overflow-x: hidden;
     }
 

@@ -67,7 +67,7 @@
             rgb(0, 0, 0) 100%);
 
     --accent: rgb(181, 233, 59);
-    --content-max: 1440px;
+    --section-peek: 150px;
     --side: 172px;
 }
 

@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: min(100%, var(--content-max));
+    width: 100%;
     margin: 0;
     height: 62px;
     z-index: 60;
@@ -138,8 +138,8 @@
     height: 100vh;
     height: 100dvh;
     margin-left: var(--side);
-    width: min(calc(100vw - var(--side)), calc(var(--content-max) - var(--side)));
-    max-width: calc(var(--content-max) - var(--side));
+    width: calc(100vw - var(--side));
+    max-width: none;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
@@ -150,7 +150,7 @@
 
 
 .section-panel {
-    flex: 0 0 calc(100% - 150px);
+    flex: 0 0 calc(100% - var(--section-peek));
     height: 100%;
     position: relative;
     overflow: hidden;

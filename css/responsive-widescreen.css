@@ -1,0 +1,43 @@
+@media (min-width: 1900px) {
+    .whyme-inner {
+        width: clamp(1100px, 58vw, 1400px);
+        height: auto;
+        min-height: clamp(420px, 42vh, 560px);
+    }
+
+    .whyme-stage {
+        max-width: 1280px;
+        margin-top: clamp(160px, 17vh, 220px);
+    }
+
+    .whyme-text {
+        max-width: none;
+        margin: 0 0 0 clamp(140px, 8vw, 220px);
+    }
+
+    .whyme-i-am {
+        margin: 72px 0 0 clamp(140px, 8vw, 220px);
+    }
+
+    .whyme-info {
+        grid-template-columns: repeat(3, 190px);
+        gap: clamp(48px, 4vw, 90px);
+        margin: 48px 0 0 clamp(140px, 8vw, 220px);
+    }
+
+    .whyme-contact-btn {
+        font-size: clamp(16px, 0.75vw, 18px);
+    }
+}
+
+
+@media (min-width: 2400px) {
+    .whyme-text,
+    .whyme-info-item {
+        font-size: clamp(18px, 0.8vw, 20px);
+    }
+
+    .whyme-contact-btn {
+        font-size: clamp(16px, 0.7vw, 18px);
+    }
+}

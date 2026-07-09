@@ -80,16 +80,6 @@
 }
 
 
-.whyme-info-item::before,
-.whyme-info-item::after {
-    content: "";
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 120ms ease-in-out, transform 120ms ease-in-out;
-}
-
-
 .whyme-info-item span {
     transition: color 120ms ease-in-out;
     text-align: center;
@@ -101,7 +91,22 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
     z-index: 0;
+}
+
+
+.whyme-hover-asset {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 120ms ease-in-out, top 120ms ease-in-out;
+}
+
+
+.whyme-info-item:hover .whyme-hover-asset {
+    opacity: 1;
 }
 
 
@@ -119,24 +124,13 @@
 }
 
 
-.whyme-info-item:has(.location-icon) .whyme-icon-shell::after {
-    content: "";
-    position: absolute;
-    top: 34px;
+.location-ellipse {
+    top: 46px;
     left: 50%;
-    width: 20px;
-    height: 12px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    border-radius: 50%;
+    width: 21px;
+    height: 9px;
     transform: translateX(-50%);
-    opacity: 0;
     z-index: 1;
-    transition: opacity 120ms ease-in-out;
-}
-
-
-.whyme-info-item:has(.location-icon):hover .whyme-icon-shell::after {
-    opacity: 1;
 }
 
 
@@ -148,54 +142,38 @@
 }
 
 
-.whyme-info-item:has(.work-remote-icon) .whyme-icon-shell::after {
-    content: "";
-    position: absolute;
-    top: 1px;
+.work-remote-balke {
+    top: 6px;
     left: 0px;
     width: 24px;
     height: 22px;
-    border-top: 2px solid rgba(255, 255, 255, 1);
-    border-left: 2px solid rgba(255, 255, 255, 1);
-    border-radius: 20px 0 0 0;
-    opacity: 0;
-    transition: opacity 120ms ease-in-out;
-}
-
-
-.whyme-info-item:has(.work-remote-icon):hover .whyme-icon-shell::after {
-    opacity: 1;
+    z-index: 1;
 }
 
 
 .relocate-icon {
+    position: relative;
     height: 49px;
     width: 30px;
     display: block;
     clip-path: inset(8px 0 0 0);
+    z-index: 2;
 }
 
 
-.whyme-info-item:has(.relocate-icon) .whyme-icon-shell::after {
-    content: "";
-    position: absolute;
+.relocate-rectangle {
     top: 0px;
     left: 50%;
     width: 16px;
-    height: 8px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    border-bottom: 0;
-    border-radius: 2px 2px 0 0;
+    height: 22px;
     transform: translateX(-50%);
     opacity: 1;
-    transition: opacity 120ms ease-in-out, top 120ms ease-in-out, height 120ms ease-in-out;
+    z-index: 1;
 }
 
 
-.whyme-info-item:has(.relocate-icon):hover .whyme-icon-shell::after {
-    top: -8px;
-    height: 16px;
-    opacity: 1;
+.whyme-info-item:hover .relocate-rectangle {
+    top: -6px;
 }
 
 

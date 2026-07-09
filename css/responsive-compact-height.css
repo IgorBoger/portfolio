@@ -9,6 +9,10 @@
         --compact-legal-right-width: clamp(400px, 45vw, 800px);
     }
 
+    .whyme-inner {
+        height: 60%;
+    }
+
     .whyme-stage,
     .contact-stage,
     .legal-notice-stage,

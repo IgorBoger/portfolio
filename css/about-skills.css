@@ -7,13 +7,14 @@
 .whyme-inner {
     position: relative;
     width: 80%;
+    max-width: 750px;
     height: 50%;
+    max-height: 600px;
     padding: 0 0 0 clamp(50px, 4vw, 60px);
 }
 
 
 .whyme-stage {
-    padding: 0 0 80px 0;
     margin-top: 136px;
     max-width: 900px;
 }
@@ -43,7 +44,6 @@
 
 
 .whyme-text {
-    max-width: min(740px, 54vw);
     margin: 0 0 12px 100px;
 }
 
@@ -61,6 +61,7 @@
     margin: 0 0 0 100px;
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 170px));
+    width: clamp(320px, calc(100vw - 580px), 470px);
     align-items: flex-start;
     justify-content: center;
     gap: clamp(20px, 2.5vw, 36px);
@@ -200,7 +201,7 @@
 
 .whyme-contact-btn {
     position: absolute;
-    bottom: 12px;
+    bottom: 0;
     right: 0;
 }
 

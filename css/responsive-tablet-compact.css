@@ -239,10 +239,6 @@
         --compact-legal-right-width: clamp(400px, 40vw, 600px);
     }
 
-    .whyme-stage {
-        padding-bottom: 40px;
-    }
-
     .skills-stage {
         top: var(--compact-section-offset);
         bottom: auto;

@@ -6,8 +6,7 @@
 
 .whyme-inner {
     position: relative;
-    width: 80%;
-    max-width: 750px;
+    width: clamp(600px, 65vw, 1100px);
     height: 50%;
     max-height: 600px;
     padding: 0 0 0 clamp(50px, 4vw, 60px);
@@ -61,10 +60,11 @@
     margin: 0 0 0 100px;
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 170px));
-    width: clamp(320px, calc(100vw - 580px), 470px);
+    width: clamp(480px, 45vw, 620px);
     align-items: flex-start;
     justify-content: center;
     gap: clamp(20px, 2.5vw, 36px);
+    padding-left: 100px;
 }
 
 
@@ -229,12 +229,12 @@
     position: absolute;
     bottom: 0;
     padding: 0 0 80px 0;
+    max-width: 1100px;
+    width: clamp(600px, 62vw, 1100px);
 }
 
 
 .skills-text {
-    width: clamp(680px, 52vw, 800px);
-    max-width: 860px;
     margin: 0 0 0 100px;
 }
 
@@ -243,8 +243,8 @@
     margin: 42px 0 0 100px;
     display: grid;
     grid-template-columns: repeat(6, 90px);
-    column-gap: 12px;
-    row-gap: 24px;
+    column-gap: clamp(12px, 1.4vw, 36px);
+    row-gap: clamp(24px, 2.4vw, 36px);
     align-items: start;
     justify-items: center;
 }

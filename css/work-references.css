@@ -104,7 +104,7 @@
 
 .references-grid {
     margin: 0 0 0 100px;
-    width: clamp(350px, 36vw, 600px);
+    width: clamp(350px, 38vw, 600px);
     max-width: 600px;
     display: flex;
     flex-direction: column;

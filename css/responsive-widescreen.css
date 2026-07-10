@@ -2,7 +2,6 @@
     .whyme-inner {
         width: clamp(1100px, 58vw, 1400px);
         max-width: 1400px;
-        height: auto;
         min-height: clamp(420px, 42vh, 560px);
     }
 

@@ -56,6 +56,7 @@
 
     .whyme-text,
     .whyme-i-am,
+    .whyme-info,
     .skills-text,
     .skills-grid,
     .mywork-stage,
@@ -79,8 +80,12 @@
     }
 
     .whyme-info {
-        width: clamp(320px, calc(100vw - 560px), 425px);
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .whyme-contact-btn {
+        right: 40%;
+        transform: translateX(50%);
     }
 
     .skills-text {

@@ -5,6 +5,7 @@
 
     .whyme-stage {
         padding-right: 0;
+        margin-top: var(--mywork-margin-top);
     }
 
     .skills-text {

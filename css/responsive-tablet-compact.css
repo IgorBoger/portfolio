@@ -240,9 +240,9 @@
     }
 
     .skills-stage {
-        top: var(--compact-section-offset);
+        top: var(--content-margin-top);
         bottom: auto;
-        height: calc(100% - var(--compact-section-offset));
+        height: calc(100% - var(--content-margin-top));
         padding-bottom: 40px;
     }
 

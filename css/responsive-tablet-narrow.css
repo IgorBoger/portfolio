@@ -1,11 +1,11 @@
 @media (max-width: 1000px) and (min-width: 901px) {
     :root {
-        --mywork-margin-top: clamp(80px, 10vh, 120px);
+        --content-margin-top: clamp(80px, 10vh, 120px);
     }
 
     .whyme-stage {
         padding-right: 0;
-        margin-top: var(--mywork-margin-top);
+        margin-top: var(--content-margin-top);
     }
 
     .skills-text {

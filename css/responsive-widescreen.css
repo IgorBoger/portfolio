@@ -1,4 +1,8 @@
 @media (min-width: 1900px) {
+    :root {
+        --content-margin-top: clamp(160px, 17vh, 220px);
+    }
+
     .whyme-inner {
         width: clamp(1100px, 58vw, 1400px);
         max-width: 1400px;
@@ -7,7 +11,6 @@
 
     .whyme-stage {
         max-width: 1280px;
-        margin-top: clamp(160px, 17vh, 220px);
     }
 
     .whyme-text {
@@ -53,6 +56,55 @@
     .skills-challenge-icon {
         width: clamp(60px, 3.2vw, 72px);
         height: clamp(60px, 3.2vw, 72px);
+    }
+
+    .mywork-stage {
+        gap: clamp(36px, 2.4vw, 56px);
+    }
+
+    .projects-list {
+        gap: clamp(36px, 2.4vw, 56px);
+    }
+
+    .project-container {
+        width: clamp(860px, 46vw, 1080px);
+        min-height: clamp(580px, 60vh, 680px);
+        padding: clamp(28px, 1.6vw, 36px) clamp(44px, 2.4vw, 60px);
+    }
+
+    .project-content {
+        grid-template-columns: minmax(300px, 1fr) minmax(340px, 1fr);
+        gap: clamp(18px, 1.4vw, 28px);
+    }
+
+    .ongoing-container {
+        width: clamp(480px, 28vw, 680px);
+        max-width: 680px;
+    }
+
+    .contact-stage {
+        gap: clamp(48px, 4vw, 90px);
+    }
+
+    .contact-form {
+        width: clamp(560px, 32vw, 660px);
+        max-width: 660px;
+        gap: clamp(12px, 0.8vw, 16px);
+    }
+
+    .contact-input {
+        min-height: clamp(54px, 3vw, 64px);
+        padding: 0 clamp(24px, 1.4vw, 32px);
+    }
+
+    .contact-textarea {
+        min-height: clamp(255px, 18vw, 320px);
+        padding-top: clamp(18px, 1vw, 24px);
+    }
+
+    .shared-area {
+        right: clamp(120px, 7vw, 180px);
+        max-width: clamp(460px, 30vw, 660px);
     }
 }
 

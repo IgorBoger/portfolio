@@ -106,6 +106,27 @@
         right: clamp(120px, 7vw, 180px);
         max-width: clamp(460px, 30vw, 660px);
     }
+
+    .legal-notice-content,
+    .privacy-policy-content {
+        width: clamp(620px, 42vw, 920px);
+    }
+
+    .legal-notice-right,
+    .privacy-policy-right {
+        width: clamp(480px, 30vw, 720px);
+    }
+
+    .legal-notice-side-content,
+    .privacy-policy-side-content {
+        right: clamp(120px, 7vw, 180px);
+        max-width: clamp(420px, 24vw, 560px);
+    }
+
+    .legal-notice-block+.legal-notice-block,
+    .privacy-policy-block+.privacy-policy-block {
+        margin-top: clamp(24px, 1.5vw, 32px);
+    }
 }
 
 

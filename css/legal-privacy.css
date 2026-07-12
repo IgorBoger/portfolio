@@ -53,6 +53,7 @@
 .privacy-policy-content {
     width: clamp(500px, 55vw, 800px);
     margin-left: 100px;
+    overflow: hidden;
 }
 
 
@@ -119,7 +120,7 @@
 
 .legal-notice-right,
 .privacy-policy-right {
-    width: clamp(400px, 40vw, 600px);
+    width: clamp(400px, 48vw, 800px);
     margin-left: 0;
 }
 

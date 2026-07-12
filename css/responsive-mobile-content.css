@@ -252,19 +252,6 @@
         height: 45px;
     }
 
-    .skills-challenge-wrap {
-        display: contents;
-    }
-
-    .skills-challenge {
-        display: flex;
-        grid-column: auto;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        justify-self: center;
-    }
-
     .skill-challenge-label {
         font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
         line-height: 120%;

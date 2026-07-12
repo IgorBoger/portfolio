@@ -100,11 +100,7 @@
         width: clamp(520px, 54vw, 650px);
     }
 
-    .skills-challenge-wrap {
-        display: contents;
-    }
-
-    .skills-challenge {
+    .skills-challenge-tile {
         grid-column: 1 / 2;
     }
 

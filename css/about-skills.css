@@ -228,7 +228,6 @@
 .skills-stage {
     position: absolute;
     bottom: 0;
-    padding: 0 0 80px 0;
     max-width: 1100px;
     width: clamp(600px, 62vw, 1100px);
 }
@@ -283,21 +282,16 @@
 }
 
 
-.skills-challenge-wrap {
-    grid-column: 6 / 7;
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    width: max-content;
-}
-
-
-.skills-challenge-wrap .skills-challenge {
-    flex: 0 0 auto;
+.skills-challenge-tile {
+    grid-column: 5 / 6;
+    grid-row: 2;
 }
 
 
 .skills-challenge-text {
+    grid-column: 6 / 7;
+    grid-row: 2;
+    justify-self: start;
     margin: 0;
     width: 215px;
     font-size: 16px;

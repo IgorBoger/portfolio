@@ -29,10 +29,36 @@
     .whyme-contact-btn {
         font-size: clamp(16px, 0.75vw, 18px);
     }
+
+    .skills-stage {
+        width: clamp(1100px, 58vw, 1400px);
+        max-width: 1400px;
+        min-height: clamp(560px, 46vh, 700px);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(6, 120px);
+        column-gap: clamp(36px, 2vw, 48px);
+        row-gap: clamp(36px, 2vw, 48px);
+    }
+
+    .skill-item,
+    .skills-challenge-tile {
+        width: clamp(120px, 6.5vw, 140px);
+        gap: 12px;
+        max-width: 140px;
+    }
+
+    .skill-icon,
+    .skills-challenge-icon {
+        width: clamp(60px, 3.2vw, 72px);
+        height: clamp(60px, 3.2vw, 72px);
+    }
 }
 
 
 @media (min-width: 2400px) {
+
     .whyme-text,
     .whyme-info-item {
         font-size: clamp(18px, 0.8vw, 20px);

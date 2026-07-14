@@ -1,4 +1,12 @@
 @media (max-width: 900px) {
+    :root {
+        --content-margin-top: 90px;
+        --content-margin-bottom: 80px;
+        --compact-content-gap: 80px;
+        --compact-edge-gap: clamp(20px, 2.5vw, 36px);
+        --compact-legal-right-width: clamp(400px, 45vw, 800px);
+    }
+
     .contact-section {
         min-height: 100vh;
         min-height: 100dvh;
@@ -215,7 +223,8 @@
         width: 100%;
         height: auto;
         padding: 20px 20px 0;
-        margin: 0;
+        margin: 73px 0 0 0;
+
     }
 
     .legal-notice-page-main,
@@ -229,6 +238,7 @@
     .privacy-policy-stage-split {
         display: flex;
         flex-direction: column;
+        margin-top: 0;
     }
 
     .legal-notice-mobile-back,
@@ -390,5 +400,15 @@
 
     .privacy-policy-title-mobile {
         margin: 0 0 20px 0;
+    }
+
+    .section-panel:not(.legal-notice-flow):not(.privacy-policy-flow),
+    .mywork-section,
+    .contact-section {
+        min-height: min-content;
+    }
+
+    .contact-stage {
+        min-height: auto;
     }
 }

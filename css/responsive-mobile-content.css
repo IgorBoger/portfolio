@@ -23,8 +23,7 @@
         align-items: center;
         justify-content: flex-end;
         height: 100%;
-        padding: 0;
-
+        padding: 0 var(--mobile-section-padding) 36px;
     }
 
     .hero-content {
@@ -103,6 +102,10 @@
         height: auto;
         max-height: 60vh;
         max-height: 60dvh;
+    }
+
+    .whyme-inner {
+        max-height: none;
     }
 
     .whyme-title-wrap,

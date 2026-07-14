@@ -292,7 +292,6 @@
         scroll-snap-align: none;
         scroll-snap-stop: normal;
         overscroll-behavior-y: auto;
-        /* padding-top: 73px; */
         overflow-y: visible;
         overflow-x: hidden;
     }

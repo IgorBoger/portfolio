@@ -38,7 +38,7 @@
 
     .whyme-info {
         gap: clamp(12px, 1.5vw, 24px);
-        padding-left: 48px;
+        padding-left: 36px;
     }
 
     .skills-stage {

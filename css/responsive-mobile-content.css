@@ -144,6 +144,8 @@
         flex-direction: column-reverse;
         align-items: center;
         text-align: center;
+        width: 100%;
+        padding-left: 0;
     }
 
     .whyme-info-item {
@@ -246,6 +248,11 @@
         width: auto;
     }
 
+    .skills-challenge-tile {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
     .skill-icon,
     .skills-challenge-icon {
         width: 45px;
@@ -260,6 +267,7 @@
 
     .skills-challenge-text {
         grid-column: 1 / -1;
+        grid-row: auto;
         padding: 0;
         display: block;
         width: 100%;

@@ -46,7 +46,6 @@
     .skills-challenge-text {
         grid-column: 3 / 6;
         grid-row: 3;
-        align-self: center;
     }
 
     .projects-list {

@@ -244,20 +244,29 @@ function scrollProjectCardAfterClose(card, isExpanded) {
  * @param {HTMLElement} card
  */
 function scrollProjectCardToTop(card) {
-    const panel = card.closest(".section-panel");
-    if (!(panel instanceof HTMLElement)) return;
-    panel.scrollTo({ top: getProjectCardPanelTop(card, panel), behavior: getMotionSafeScrollBehavior() });
+    const track = getSectionsTrack();
+    if (!track) return;
+    track.scrollTo({ top: getProjectCardTrackTop(card, track), behavior: getMotionSafeScrollBehavior() });
 }
 
 
 /**
  * Returns the target scroll position for one project card.
  * @param {HTMLElement} card
- * @param {HTMLElement} panel
+ * @param {HTMLElement} track
  * @returns {number}
  */
-function getProjectCardPanelTop(card, panel) {
+function getProjectCardTrackTop(card, track) {
     const cardTop = card.getBoundingClientRect().top;
-    const panelTop = panel.getBoundingClientRect().top;
-    return panel.scrollTop + cardTop - panelTop - 120;
+    const trackTop = track.getBoundingClientRect().top;
+    return track.scrollTop + cardTop - trackTop - getProjectCardScrollOffset();
+}
+
+
+/**
+ * Returns the mobile offset for project card scroll alignment.
+ * @returns {number}
+ */
+function getProjectCardScrollOffset() {
+    return (document.querySelector(".sidebar-inner")?.getBoundingClientRect().height || 0) + 36;
 }

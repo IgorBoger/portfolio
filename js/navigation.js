@@ -242,5 +242,24 @@ function scrollToSectionVertical(targetId) {
  */
 function scrollToMobileSection(track, target) {
     target.scrollTo({ top: 0, behavior: "auto" });
-    track.scrollTo({ top: target.offsetTop, behavior: getMotionSafeScrollBehavior() });
+    track.scrollTo({ top: getMobileSectionScrollTop(target), behavior: getMotionSafeScrollBehavior() });
+}
+
+
+/**
+ * Returns the mobile scroll position for one section with header offset.
+ * @param {HTMLElement} target
+ * @returns {number}
+ */
+function getMobileSectionScrollTop(target) {
+    return Math.max(0, target.offsetTop - getMobileHeaderOffset());
+}
+
+
+/**
+ * Returns the visible mobile header height.
+ * @returns {number}
+ */
+function getMobileHeaderOffset() {
+    return document.querySelector(".sidebar-inner")?.getBoundingClientRect().height || 0;
 }
